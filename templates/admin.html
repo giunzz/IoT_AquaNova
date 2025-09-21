@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>AquaNova Admin</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}"/>
+</head>
+<body>
+  <header><h1>Admin</h1><a href="/">← Back</a></header>
+  <section class="cards">
+    <div class="card">
+      <h3>Create Pond</h3>
+      <form id="pondForm">
+        <input name="name" placeholder="Pond name" required>
+        <input name="location" placeholder="Location">
+        <button type="submit">Create</button>
+      </form>
+      <pre id="pondResp"></pre>
+    </div>
+    <div class="card">
+      <h3>Create Device</h3>
+      <form id="deviceForm">
+        <input name="pondId" placeholder="Pond ID" required>
+        <input name="kind" placeholder="sensor|feeder" required>
+        <input name="hw_id" placeholder="Hardware ID" required>
+        <button type="submit">Create</button>
+      </form>
+      <pre id="deviceResp"></pre>
+    </div>
+  </section>
+  <script>
+    document.getElementById('pondForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const body = Object.fromEntries(new FormData(e.target).entries());
+      const res = await fetch('/admin/ponds', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(body)});
+      document.getElementById('pondResp').textContent = await res.text();
+    });
+    document.getElementById('deviceForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const body = Object.fromEntries(new FormData(e.target).entries());
+      const res = await fetch('/admin/devices', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(body)});
+      document.getElementById('deviceResp').textContent = await res.text();
+    });
+  </script>
+</body>
+</html>

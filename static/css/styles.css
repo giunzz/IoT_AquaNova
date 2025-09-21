@@ -1,0 +1,7 @@
+body { font-family: system-ui, sans-serif; margin: 0; background: #f7fafc; color:#111; }
+header { display:flex; align-items:center; justify-content:space-between; padding:12px 20px; background:#0ea5e9; color:#fff; }
+header a { color:#fff; margin-left:12px; text-decoration:none; }
+.cards { display:grid; grid-template-columns: 1fr 2fr; gap:16px; padding:20px; }
+.card { background:#fff; border-radius:12px; padding:16px; box-shadow:0 2px 8px rgba(0,0,0,.08); }
+table { width:100%; border-collapse:collapse; }
+th, td { padding:8px 10px; border-bottom:1px solid #e5e7eb; font-size:14px; }

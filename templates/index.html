@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>AquaNova Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}"/>
+</head>
+<body>
+  <header>
+    <h1>AquaNova</h1>
+    <nav>
+      <a href="/">Dashboard</a>
+      <a href="/admin">Admin</a>
+    </nav>
+  </header>
+
+  <section class="cards">
+    <div class="card">
+      <h3>Summary</h3>
+      <div id="summary"></div>
+    </div>
+    <div class="card">
+      <h3>Latest Readings</h3>
+      <table id="readings">
+        <thead><tr><th>Time (UTC)</th><th>Device</th><th>pH</th><th>DO</th><th>Temp</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+</body>
+</html>
