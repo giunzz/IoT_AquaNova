@@ -1,24 +1,15 @@
 from flask import Blueprint, request, jsonify
-from firebase_admin_init import db
 from datetime import datetime
+from firebase_admin_init import get_db
 
 telemetry_bp = Blueprint("telemetry", __name__)
 
 @telemetry_bp.post("/ingest")
 def ingest():
-    data = request.get_json(force=True)
-    device_id = data.get("device_id")
-    ph = data.get("ph")
-    dissolved = data.get("do")
-    temp = data.get("temp")
+    data = request.json or {}
+    data["ts"] = datetime.utcnow()
 
-    if not device_id:
-        return jsonify({"error": "device_id required"}), 400
+    db = get_db()  # <-- luôn chắc chắn có db
+    db.collection("readings").add(data)
 
-    doc = {
-        "deviceId": device_id,
-        "ts": datetime.utcnow().isoformat(),
-        "ph": ph, "do": dissolved, "temp": temp
-    }
-    db.collection("readings").add(doc)
-    return jsonify({"ok": True})
+    return jsonify({"status": "ok", "data": data})

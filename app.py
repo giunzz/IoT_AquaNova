@@ -28,6 +28,17 @@ def create_app():
     @app.get("/admin")
     def admin_page():
         return render_template("admin.html")
+    
+    @app.get("/temperature")
+    def temperature_page():
+        return render_template("temperature.html")
+    
+    @app.get("/turbidity")
+    def turbidity_page():
+        return render_template("turbidity.html")
+    @app.get("/feedtimer")
+    def feed_timer_page():
+        return render_template("feedtimer.html")
 
     return app
 

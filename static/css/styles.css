@@ -5,3 +5,5 @@ header a { color:#fff; margin-left:12px; text-decoration:none; }
 .card { background:#fff; border-radius:12px; padding:16px; box-shadow:0 2px 8px rgba(0,0,0,.08); }
 table { width:100%; border-collapse:collapse; }
 th, td { padding:8px 10px; border-bottom:1px solid #e5e7eb; font-size:14px; }
+aside .menu a{display:flex;align-items:center;gap:10px;padding:10px 12px;color:#111;text-decoration:none;border-radius:10px;}
+aside .menu a.active{background:#eef7ff;color:#0a6db2;}
