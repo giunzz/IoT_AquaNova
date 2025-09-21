@@ -31,3 +31,4 @@ aquanova/
 
 ```
 ![alt text](image.png)
+Device → MQTT Broker → Flask Subscriber → Firestore → Dashboard

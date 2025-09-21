@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>AquaNova – Turbidity</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/logo.png') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+  <style>
+    :root { --brand:#0ea5e9; --muted:#6b7280; --bg:#f6f7fb; --ok:#16a34a; --bad:#dc2626; }
+    *{box-sizing:border-box}
+    body{font-family:system-ui, Arial, sans-serif; margin:0; background:var(--bg); color:#111;}
+    header{display:flex;align-items:center;justify-content:space-between; gap:12px; padding:14px 18px; background:var(--brand); color:#fff;}
+    header h2{margin:0; display:flex; align-items:center; gap:10px}
+    header img{height:22px; width:auto}
+    .layout{display:grid; grid-template-columns:220px 1fr; min-height:calc(100vh - 56px);}
+    aside{background:#fff; border-right:1px solid #e5e7eb; padding:16px;}
+    aside .menu a{display:block; padding:10px 12px; color:#111; text-decoration:none; border-radius:10px;}
+    aside .menu a.active{background:#eef7ff; color:#0a6db2;}
+    main{padding:20px; max-width:1400px}
+    .card{background:#fff; padding:16px; border-radius:14px; box-shadow:0 2px 12px rgba(0,0,0,.05);}
+    .row{display:grid; grid-template-columns:1.2fr 1fr; gap:16px}
+    @media (max-width:1000px){ .layout{grid-template-columns:1fr} aside{display:none} .row{grid-template-columns:1fr} }
+    .toolbar{display:flex; flex-wrap:wrap; gap:10px; align-items:end; margin-bottom:12px}
+    label{font-size:13px; color:#374151; display:block; margin-bottom:6px}
+    input, select{padding:8px 10px; border:1px solid #e5e7eb; border-radius:8px; background:#fff}
+    .btn{background:#2563eb;color:#fff;border:none;border-radius:10px;padding:10px 14px;cursor:pointer}
+    .btn.secondary{background:#0ea5e9}
+    .btn.ghost{background:#f3f4f6; color:#111}
+    .muted{color:var(--muted); font-size:13px}
+    table{width:100%; border-collapse:collapse}
+    th,td{padding:10px 12px; border-bottom:1px solid #edf0f4; font-size:14px; text-align:left}
+    .status{padding:4px 10px; border-radius:999px; font-size:12px; display:inline-block}
+    .ok{background:#dcfce7; color:#166534}
+    .bad{background:#fee2e2; color:#991b1b}
+    .pagination{display:flex; gap:6px; align-items:center; justify-content:flex-end; padding-top:10px}
+    .tag{font-size:12px; padding:2px 8px; border-radius:999px; background:#eef2ff; color:#3730a3}
+  </style>
+</head>
+<body>
+  <header>
+    <h2>
+      <img src="{{ url_for('static', filename='img/logo.png') }}" alt="logo">
+      AquaNova
+    </h2>
+    <div style="opacity:.95; display:flex; gap:14px; align-items:center">
+      <span>Turbidity</span>
+      <a href="{{ url_for('admin_page') }}" style="color:#fff; text-decoration:none">Admin</a>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside>
+      <nav class="menu">
+        <a class="tab-link" href="{{ url_for('home') }}">Dashboard</a>
+        <a class="tab-link" href="#">Fish</a>
+        <a class="tab-link" href="#">Favorites</a>
+        <a class="tab-link" href="#">Chat bot</a>
+        <a class="tab-link" href="{{ url_for('feed_timer_page') }}">Feed Timer</a>
+        <a class="tab-link" href="{{ url_for('temperature_page') }}">Temperature</a>
+        <a class="tab-link active" href="{{ url_for('turbidity_page') }}">Turbidity</a>
+      </nav>
+    </aside>
+
+    <main>
+      <!-- Filter + Actions -->
+      <div class="card" style="margin-bottom:16px">
+        <div class="toolbar">
+          <div>
+            <label for="deviceSelect">Device</label>
+            <select id="deviceSelect">
+              <option value="">All devices</option>
+            </select>
+          </div>
+          <div>
+            <label>From</label>
+            <input type="datetime-local" id="fromDt">
+          </div>
+          <div>
+            <label>To</label>
+            <input type="datetime-local" id="toDt">
+          </div>
+          <div>
+            <label>&nbsp;</label>
+            <button class="btn" id="applyBtn">Apply</button>
+          </div>
+          <div style="flex:1"></div>
+          <div>
+            <label>&nbsp;</label>
+            <button class="btn secondary" id="exportBtn">Export CSV</button>
+          </div>
+        </div>
+        <div class="muted" id="infoLine">—</div>
+      </div>
+
+      <div class="row">
+        <!-- Chart -->
+        <div class="card">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px">
+            <h3 style="margin:0">Turbidity trend</h3>
+            <span class="muted" id="chartUpdated">—</span>
+          </div>
+          <canvas id="turbChart" height="270"></canvas>
+        </div>
+
+        <!-- Quick stats -->
+        <div class="card">
+          <h3 style="margin-top:0">Summary</h3>
+          <div id="summaryBox" class="muted">—</div>
+          <div style="margin-top:10px">
+            <span id="warnTag" class="tag">Warn if &gt; 70</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Table -->
+      <div class="card" style="margin-top:16px">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px">
+          <h3 style="margin:0">All readings</h3>
+          <div class="muted" id="tableUpdated">—</div>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Date time</th>
+              <th>Device</th>
+              <th>Turbidity (NTU / %)</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+        <tbody id="rows"></tbody>
+        </table>
+        <div class="pagination">
+          <button class="btn ghost" id="prevBtn">Prev</button>
+          <span class="muted" id="pageInfo">Page 1 / 1</span>
+          <button class="btn ghost" id="nextBtn">Next</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // ===== Config =====
+    const TURBIDITY_WARN = 70; // đổi theo ao của bạn
+    const PAGE_SIZE = 20;
+    const FETCH_N = 500;
+
+    // ===== State =====
+    let allItems = [];
+    let filtered = [];
+    let page = 1;
+
+    // ===== Helpers =====
+    const byTimeAsc  = (a,b)=> new Date(a.ts) - new Date(b.ts);
+    const byTimeDesc = (a,b)=> new Date(b.ts) - new Date(a.ts);
+
+    function fmtDate(s){ const d = new Date(s); return isNaN(d) ? s : d.toLocaleString(); }
+    function statusBadge(v){ const ok = v <= TURBIDITY_WARN; return `<span class="status ${ok?'ok':'bad'}">${ok?'OK':'High'}</span>`; }
+
+    function fillDeviceSelect(items){
+      const sel = document.getElementById('deviceSelect');
+      const ids = Array.from(new Set(items.map(x => (x.deviceId || x.device_id || '').trim()).filter(Boolean))).sort();
+      ids.forEach(id=>{
+        const opt = document.createElement('option'); opt.value = id; opt.textContent = id; sel.appendChild(opt);
+      });
+    }
+
+    function applyFilter(){
+      const dev = document.getElementById('deviceSelect').value.trim();
+      const fromV = document.getElementById('fromDt').value;
+      const toV   = document.getElementById('toDt').value;
+
+      let arr = [...allItems];
+      if (dev) arr = arr.filter(x => (x.deviceId || x.device_id) === dev);
+      if (fromV){ const from = new Date(fromV); arr = arr.filter(x => new Date(x.ts) >= from); }
+      if (toV){   const to   = new Date(toV);   arr = arr.filter(x => new Date(x.ts) <= to); }
+
+      filtered = arr.sort(byTimeDesc);
+      page = 1;
+      renderTable();
+      renderChart();
+      updateInfoLine();
+    }
+
+    function updateInfoLine(){
+      const total = filtered.length;
+      const dev = document.getElementById('deviceSelect').value || 'All devices';
+      document.getElementById('infoLine').textContent = `Showing ${total} records — ${dev}`;
+    }
+
+    // ===== Table + Pagination =====
+    function renderTable(){
+      const tbody = document.getElementById('rows');
+      tbody.innerHTML = '';
+      const start = (page-1)*PAGE_SIZE;
+      const slice = filtered.slice(start, start + PAGE_SIZE);
+
+      slice.forEach((r,i)=>{
+        const v = Number(r.turbidity ?? NaN);
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${start + i + 1}</td>
+          <td>${fmtDate(r.ts)}</td>
+          <td>${r.deviceId ?? r.device_id ?? ''}</td>
+          <td>${isNaN(v)?'':v.toFixed(2)}</td>
+          <td>${isNaN(v)?'':statusBadge(v)}</td>`;
+        tbody.appendChild(tr);
+      });
+
+      const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
+      document.getElementById('pageInfo').textContent = `Page ${page} / ${totalPages}`;
+      document.getElementById('prevBtn').disabled = page <= 1;
+      document.getElementById('nextBtn').disabled = page >= totalPages;
+
+      document.getElementById('tableUpdated').textContent =
+        'Updated: ' + new Date().toLocaleTimeString();
+    }
+    document.getElementById('prevBtn').onclick = ()=>{ if (page>1){ page--; renderTable(); } };
+    document.getElementById('nextBtn').onclick = ()=>{
+      const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
+      if (page < totalPages){ page++; renderTable(); }
+    };
+
+    // ===== Chart =====
+    let turbChart;
+    function ensureChart(ctx){
+      if (turbChart) return turbChart;
+      turbChart = new Chart(ctx, {
+        type:'line',
+        data:{ labels:[], datasets:[{ label:'Turbidity (NTU / %)', data:[], borderWidth:2, tension:.25, pointRadius:2, fill:false }] },
+        options:{
+          responsive:true,
+          interaction:{mode:'index',intersect:false},
+          scales:{
+            x:{ title:{display:true,text:'Time'} },
+            y:{ title:{display:true,text:'NTU / %'} }
+          }
+        }
+      });
+      return turbChart;
+    }
+    function renderChart(){
+      const ctx = document.getElementById('turbChart').getContext('2d');
+      const c = ensureChart(ctx);
+
+      const arr = filtered.slice().sort(byTimeAsc).slice(-200);
+      const labels = arr.map(r=>{ const d = new Date(r.ts); return isNaN(d)? r.ts : d.toLocaleTimeString(); });
+      const data   = arr.map(r=> Number(r.turbidity ?? NaN));
+
+      c.data.labels = labels;
+      c.data.datasets[0].data = data;
+      c.update();
+
+      document.getElementById('chartUpdated').textContent = 'Updated: ' + new Date().toLocaleTimeString();
+
+      if (arr.length){
+        const min = Math.min(...data), max = Math.max(...data);
+        const avg = data.reduce((a,b)=>a+b,0)/data.length;
+        document.getElementById('summaryBox').innerHTML =
+          `Records: <b>${filtered.length}</b><br>
+           Range: <b>${min.toFixed(2)}</b> – <b>${max.toFixed(2)}</b><br>
+           Average: <b>${avg.toFixed(2)}</b>`;
+      } else {
+        document.getElementById('summaryBox').textContent = 'No data.';
+      }
+    }
+
+    // ===== Export CSV =====
+    document.getElementById('exportBtn').onclick = () => {
+      const lines = [['timestamp','device','turbidity']];
+      filtered.slice().reverse().forEach(r=>{
+        const v = Number(r.turbidity ?? NaN);
+        lines.push([r.ts, r.deviceId ?? r.device_id ?? '', isNaN(v)?'':v]);
+      });
+      const csv = lines.map(row => row.map(v=>String(v).replaceAll('"','""')).map(v=>`"${v}"`).join(',')).join('\n');
+      const blob = new Blob([csv], {type:'text/csv;charset=utf-8;'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = `turbidity_export_${Date.now()}.csv`;
+      document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+    };
+
+    // ===== Load from API =====
+    async function fetchData(){
+      const res = await fetch(`/dashboard/latest?n=${FETCH_N}`);
+      if (!res.ok) throw new Error('HTTP '+res.status);
+      const json = await res.json();
+      return json.items || [];
+    }
+
+    async function init(){
+      try{
+        allItems = await fetchData();
+        fillDeviceSelect(allItems);
+        filtered = allItems.slice().sort(byTimeDesc);
+        renderChart();
+        renderTable();
+        updateInfoLine();
+      }catch(e){
+        alert('Load data failed: '+e.message);
+        console.error(e);
+      }
+    }
+
+    document.getElementById('applyBtn').onclick = applyFilter;
+
+    init();
+  </script>
+</body>
+</html>
