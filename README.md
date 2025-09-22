@@ -9,6 +9,7 @@ aquanova/
 ├─ app.py
 ├─ config.py
 ├─ firebase_admin_init.py
+├─ serviceAccount.json
 ├─ requirements.txt
 ├─ .env                         # đường dẫn service account
 ├─ blueprints/
@@ -28,7 +29,12 @@ aquanova/
 └─ templates/
    ├─ index.html                # dashboard đơn giản
    └─ admin.html                # form tạo ao / thiết bị
-
+   ├─ temperature.html                # dashboard đơn giản
+   ├─ turbidity.html                # dashboard đơn giản
+   ├─ feedtimer.html                # dashboard đơn giản
+└─ mqtt/
+   ├─ __init__.html                
+   └─ listener.html               
 ```
 ![alt text](image.png)
 Device → MQTT Broker → Flask Subscriber → Firestore → Dashboard
