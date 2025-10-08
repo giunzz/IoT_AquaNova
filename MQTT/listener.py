@@ -3,7 +3,7 @@ import json, threading, time
 import paho.mqtt.client as mqtt
 from datetime import datetime, timezone
 from firebase_admin_init import init_firebase
-
+import uuid
 LOG_FILE = "mqtt_sub_log.txt"
 log_lock = threading.Lock()
 
@@ -17,7 +17,9 @@ def write_log(msg: str):
 
 def start_mqtt_background(app):
     cfg = app.config
-    db = init_firebase()  
+    db = init_firebase()
+
+    # ------------------ CALLBACKS ------------------
     def on_connect(client, userdata, flags, reason_code, properties=None):
         write_log(f"[MQTT] ✅ CONNECTED with code={reason_code}")
         try:
@@ -26,8 +28,10 @@ def start_mqtt_background(app):
         except Exception as e:
             write_log(f"[MQTT] ❌ SUBSCRIBE ERROR: {e}")
 
-    def on_disconnect(client, userdata, rc, properties=None):
-        write_log(f"[MQTT] ⚠️ DISCONNECTED (rc={rc}) — will attempt reconnect")
+    def on_disconnect(client, userdata, disconnect_flags, reason_code, properties=None):
+        """MQTT v5 callback chuẩn: luôn có 5 tham số"""
+        write_log(f"[MQTT] ⚠️ DISCONNECTED (reason_code={reason_code}) — attempting reconnect...")
+
         while True:
             try:
                 client.reconnect()
@@ -35,7 +39,7 @@ def start_mqtt_background(app):
                 break
             except Exception as e:
                 write_log(f"[MQTT] ❌ Reconnect failed: {e}")
-                time.sleep(5)  # chờ 5 giây rồi thử lại
+                time.sleep(5)
 
     def on_subscribe(client, userdata, mid, granted_qos, properties=None):
         write_log(f"[MQTT] SUBACK mid={mid}, granted_qos={granted_qos}")
@@ -53,7 +57,7 @@ def start_mqtt_background(app):
 
     client = mqtt.Client(
         mqtt.CallbackAPIVersion.VERSION2,
-        client_id="aquanova-server",
+        client_id=f"aquanova-server-{uuid.uuid4().hex[:6]}",  # tạo client id duy nhất mỗi lần
         clean_session=True
     )
 
@@ -61,9 +65,9 @@ def start_mqtt_background(app):
     if user:
         client.username_pw_set(user, pwd)
 
-    # TLS cho HiveMQ Cloud
     client.tls_set()
-    client.tls_insecure_set(True) 
+    client.tls_insecure_set(True)  
+    
     client.on_connect = on_connect
     client.on_disconnect = on_disconnect
     client.on_message = on_message
