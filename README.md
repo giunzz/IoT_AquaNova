@@ -11,27 +11,27 @@ aquanova/
 ├─ firebase_admin_init.py
 ├─ serviceAccount.json
 ├─ requirements.txt
-├─ .env                         # đường dẫn service account
+├─ .env                         
 ├─ blueprints/
 │  ├─ telemetry/
-│  │   └─ routes.py            # nhận dữ liệu cảm biến
+│  │   └─ routes.py            
 │  ├─ control/
-│  │   └─ routes.py            # lệnh cho ăn / lịch cho ăn
+│  │   └─ routes.py            
 │  ├─ admin/
-│  │   └─ routes.py            # tạo ao, thiết bị
+│  │   └─ routes.py            
 │  └─ dashboard/
-│      └─ routes.py            # API cung cấp dữ liệu cho FE
+│      └─ routes.py            
 └─ static/
    ├─ css/
    │   └─ styles.css
    └─ js/
       └─ dashboard.js
 └─ templates/
-   ├─ index.html                # dashboard đơn giản
-   └─ admin.html                # form tạo ao / thiết bị
-   ├─ temperature.html                # dashboard đơn giản
-   ├─ turbidity.html                # dashboard đơn giản
-   ├─ feedtimer.html                # dashboard đơn giản
+   ├─ index.html                
+   └─ admin.html                
+   ├─ temperature.html                
+   ├─ turbidity.html               
+   ├─ feedtimer.html                
 └─ mqtt/
    ├─ __init__.html                
    └─ listener.html               

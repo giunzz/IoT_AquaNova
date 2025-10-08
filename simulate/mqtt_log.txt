@@ -1,0 +1,261 @@
+2025-09-30T17:14:44.524105 [sensor-1] log: Sending CONNECT (u1, p1, wr0, wq0, wf0, c1, k60) client_id=b'sim-sensor-1'
+2025-09-30T17:14:44.529106 [sensor-1] log: Sending PUBLISH (d0, q1, r0, m1), 'b'aquanova/devices/sensor-1/telemetry'', ... (123 bytes)
+2025-09-30T17:14:44.531727 [sensor-1] -> publishing {'device_id': 'sensor-1', 'ts': '2025-09-30T10:14:44.528833+00:00', 'temperature': 30.85, 'turbidity': 13.18, 'feed': 26.0} to aquanova/devices/sensor-1/telemetry
+2025-09-30T17:14:44.607167 [sensor-2] log: Sending CONNECT (u1, p1, wr0, wq0, wf0, c1, k60) client_id=b'sim-sensor-2'
+2025-09-30T17:14:44.611091 [sensor-2] log: Sending PUBLISH (d0, q1, r0, m1), 'b'aquanova/devices/sensor-2/telemetry'', ... (123 bytes)
+2025-09-30T17:14:44.615604 [sensor-2] -> publishing {'device_id': 'sensor-2', 'ts': '2025-09-30T10:14:44.610931+00:00', 'temperature': 24.18, 'turbidity': 19.03, 'feed': 66.7} to aquanova/devices/sensor-2/telemetry
+2025-09-30T17:14:44.768555 [sensor-1] log: Received CONNACK (0, 0)
+2025-09-30T17:14:44.769645 [sensor-1] Connected with result code Success
+2025-09-30T17:14:44.827919 [sensor-2] log: Received CONNACK (0, 0)
+2025-09-30T17:14:44.829059 [sensor-2] Connected with result code Success
+2025-09-30T17:14:44.984647 [sensor-3] log: Sending CONNECT (u1, p1, wr0, wq0, wf0, c1, k60) client_id=b'sim-sensor-3'
+2025-09-30T17:14:44.987495 [sensor-3] log: Sending PUBLISH (d0, q1, r0, m1), 'b'aquanova/devices/sensor-3/telemetry'', ... (123 bytes)
+2025-09-30T17:14:44.988338 [sensor-3] -> publishing {'device_id': 'sensor-3', 'ts': '2025-09-30T10:14:44.987366+00:00', 'temperature': 27.74, 'turbidity': 32.92, 'feed': 11.6} to aquanova/devices/sensor-3/telemetry
+2025-09-30T17:14:44.996069 [sensor-1] log: Received PUBACK (Mid: 1)
+2025-09-30T17:14:44.996898 [sensor-1] Published mid=1, reason=Success
+2025-09-30T17:14:45.039663 [sensor-2] log: Received PUBACK (Mid: 1)
+2025-09-30T17:14:45.040452 [sensor-2] Published mid=1, reason=Success
+2025-09-30T17:14:45.239623 [sensor-3] log: Received CONNACK (0, 0)
+2025-09-30T17:14:45.240497 [sensor-3] Connected with result code Success
+2025-09-30T17:14:45.470591 [sensor-3] log: Received PUBACK (Mid: 1)
+2025-09-30T17:14:45.471959 [sensor-3] Published mid=1, reason=Success
+2025-09-30T17:14:49.538385 [sensor-1] log: Sending PUBLISH (d0, q1, r0, m2), 'b'aquanova/devices/sensor-1/telemetry'', ... (123 bytes)
+2025-09-30T17:14:49.539910 [sensor-1] -> publishing {'device_id': 'sensor-1', 'ts': '2025-09-30T10:14:49.538233+00:00', 'temperature': 27.16, 'turbidity': 18.65, 'feed': 15.5} to aquanova/devices/sensor-1/telemetry
+2025-09-30T17:14:49.617462 [sensor-2] log: Sending PUBLISH (d0, q1, r0, m2), 'b'aquanova/devices/sensor-2/telemetry'', ... (123 bytes)
+2025-09-30T17:14:49.618452 [sensor-2] -> publishing {'device_id': 'sensor-2', 'ts': '2025-09-30T10:14:49.617133+00:00', 'temperature': 24.59, 'turbidity': 59.23, 'feed': 68.3} to aquanova/devices/sensor-2/telemetry
+2025-09-30T17:14:49.773646 [sensor-1] log: Received PUBACK (Mid: 2)
+2025-09-30T17:14:49.774438 [sensor-1] Published mid=2, reason=Success
+2025-09-30T17:14:49.828024 [sensor-2] log: Received PUBACK (Mid: 2)
+2025-09-30T17:14:49.828802 [sensor-2] Published mid=2, reason=Success
+2025-09-30T17:14:49.989796 [sensor-3] log: Sending PUBLISH (d0, q1, r0, m2), 'b'aquanova/devices/sensor-3/telemetry'', ... (123 bytes)
+2025-09-30T17:14:49.992032 [sensor-3] -> publishing {'device_id': 'sensor-3', 'ts': '2025-09-30T10:14:49.989524+00:00', 'temperature': 28.07, 'turbidity': 65.99, 'feed': 95.1} to aquanova/devices/sensor-3/telemetry
+2025-09-30T17:14:50.218971 [sensor-3] log: Received PUBACK (Mid: 2)
+2025-09-30T17:14:50.220468 [sensor-3] Published mid=2, reason=Success
+2025-09-30T17:14:54.540963 [sensor-1] log: Sending PUBLISH (d0, q1, r0, m3), 'b'aquanova/devices/sensor-1/telemetry'', ... (123 bytes)
+2025-09-30T17:14:54.541999 [sensor-1] -> publishing {'device_id': 'sensor-1', 'ts': '2025-09-30T10:14:54.540817+00:00', 'temperature': 24.73, 'turbidity': 69.52, 'feed': 63.7} to aquanova/devices/sensor-1/telemetry
+2025-09-30T17:14:54.619757 [sensor-2] log: Sending PUBLISH (d0, q1, r0, m3), 'b'aquanova/devices/sensor-2/telemetry'', ... (123 bytes)
+2025-09-30T17:14:54.622375 [sensor-2] -> publishing {'device_id': 'sensor-2', 'ts': '2025-09-30T10:14:54.619545+00:00', 'temperature': 28.92, 'turbidity': 70.15, 'feed': 91.6} to aquanova/devices/sensor-2/telemetry
+2025-09-30T17:14:54.770182 [sensor-1] log: Received PUBACK (Mid: 3)
+2025-09-30T17:14:54.771150 [sensor-1] Published mid=3, reason=Success
+2025-09-30T17:14:54.832148 [sensor-2] log: Received PUBACK (Mid: 3)
+2025-09-30T17:14:54.832961 [sensor-2] Published mid=3, reason=Success
+2025-09-30T17:14:54.994083 [sensor-3] log: Sending PUBLISH (d0, q1, r0, m3), 'b'aquanova/devices/sensor-3/telemetry'', ... (122 bytes)
+2025-09-30T17:14:54.995082 [sensor-3] -> publishing {'device_id': 'sensor-3', 'ts': '2025-09-30T10:14:54.993962+00:00', 'temperature': 27.61, 'turbidity': 17.1, 'feed': 58.2} to aquanova/devices/sensor-3/telemetry
+2025-09-30T17:14:55.222742 [sensor-3] log: Received PUBACK (Mid: 3)
+2025-09-30T17:14:55.224034 [sensor-3] Published mid=3, reason=Success
+2025-09-30T17:14:59.543085 [sensor-1] log: Sending PUBLISH (d0, q1, r0, m4), 'b'aquanova/devices/sensor-1/telemetry'', ... (122 bytes)
+2025-09-30T17:14:59.544636 [sensor-1] -> publishing {'device_id': 'sensor-1', 'ts': '2025-09-30T10:14:59.542947+00:00', 'temperature': 25.5, 'turbidity': 12.14, 'feed': 91.5} to aquanova/devices/sensor-1/telemetry
+2025-09-30T17:14:59.623872 [sensor-2] log: Sending PUBLISH (d0, q1, r0, m4), 'b'aquanova/devices/sensor-2/telemetry'', ... (122 bytes)
+2025-09-30T17:14:59.625226 [sensor-2] -> publishing {'device_id': 'sensor-2', 'ts': '2025-09-30T10:14:59.623733+00:00', 'temperature': 25.84, 'turbidity': 69.88, 'feed': 4.7} to aquanova/devices/sensor-2/telemetry
+2025-09-30T17:14:59.778003 [sensor-1] log: Received PUBACK (Mid: 4)
+2025-09-30T17:14:59.779100 [sensor-1] Published mid=4, reason=Success
+2025-09-30T17:14:59.835000 [sensor-2] log: Received PUBACK (Mid: 4)
+2025-09-30T17:14:59.835928 [sensor-2] Published mid=4, reason=Success
+2025-09-30T17:14:59.996128 [sensor-3] log: Sending PUBLISH (d0, q1, r0, m4), 'b'aquanova/devices/sensor-3/telemetry'', ... (122 bytes)
+2025-09-30T17:14:59.996927 [sensor-3] -> publishing {'device_id': 'sensor-3', 'ts': '2025-09-30T10:14:59.996023+00:00', 'temperature': 26.03, 'turbidity': 21.38, 'feed': 8.8} to aquanova/devices/sensor-3/telemetry
+2025-09-30T17:15:00.224275 [sensor-3] log: Received PUBACK (Mid: 4)
+2025-09-30T17:15:00.225192 [sensor-3] Published mid=4, reason=Success
+2025-09-30T17:15:04.546448 [sensor-1] log: Sending PUBLISH (d0, q1, r0, m5), 'b'aquanova/devices/sensor-1/telemetry'', ... (123 bytes)
+2025-09-30T17:15:04.548432 [sensor-1] -> publishing {'device_id': 'sensor-1', 'ts': '2025-09-30T10:15:04.546167+00:00', 'temperature': 30.04, 'turbidity': 57.94, 'feed': 97.0} to aquanova/devices/sensor-1/telemetry
+2025-09-30T17:15:04.627159 [sensor-2] log: Sending PUBLISH (d0, q1, r0, m5), 'b'aquanova/devices/sensor-2/telemetry'', ... (123 bytes)
+2025-09-30T17:15:04.629033 [sensor-2] -> publishing {'device_id': 'sensor-2', 'ts': '2025-09-30T10:15:04.626915+00:00', 'temperature': 26.74, 'turbidity': 71.94, 'feed': 12.8} to aquanova/devices/sensor-2/telemetry
+2025-09-30T17:15:04.777212 [sensor-1] log: Received PUBACK (Mid: 5)
+2025-09-30T17:15:04.778184 [sensor-1] Published mid=5, reason=Success
+2025-09-30T17:15:04.848989 [sensor-2] log: Received PUBACK (Mid: 5)
+2025-09-30T17:15:04.849835 [sensor-2] Published mid=5, reason=Success
+2025-09-30T17:15:04.998267 [sensor-3] log: Sending PUBLISH (d0, q1, r0, m5), 'b'aquanova/devices/sensor-3/telemetry'', ... (122 bytes)
+2025-09-30T17:15:05.002689 [sensor-3] -> publishing {'device_id': 'sensor-3', 'ts': '2025-09-30T10:15:04.998002+00:00', 'temperature': 25.06, 'turbidity': 14.0, 'feed': 50.9} to aquanova/devices/sensor-3/telemetry
+2025-09-30T17:15:05.228533 [sensor-3] log: Received PUBACK (Mid: 5)
+2025-09-30T17:15:05.229498 [sensor-3] Published mid=5, reason=Success
+2025-09-30T17:15:09.550874 [sensor-1] log: Sending PUBLISH (d0, q1, r0, m6), 'b'aquanova/devices/sensor-1/telemetry'', ... (123 bytes)
+2025-09-30T17:15:09.553021 [sensor-1] -> publishing {'device_id': 'sensor-1', 'ts': '2025-09-30T10:15:09.550595+00:00', 'temperature': 30.33, 'turbidity': 63.56, 'feed': 57.2} to aquanova/devices/sensor-1/telemetry
+2025-09-30T17:15:09.630798 [sensor-2] log: Sending PUBLISH (d0, q1, r0, m6), 'b'aquanova/devices/sensor-2/telemetry'', ... (123 bytes)
+2025-09-30T17:15:09.632098 [sensor-2] -> publishing {'device_id': 'sensor-2', 'ts': '2025-09-30T10:15:09.630634+00:00', 'temperature': 28.64, 'turbidity': 27.32, 'feed': 69.6} to aquanova/devices/sensor-2/telemetry
+2025-09-30T17:15:09.782627 [sensor-1] log: Received PUBACK (Mid: 6)
+2025-09-30T17:15:09.783788 [sensor-1] Published mid=6, reason=Success
+2025-09-30T17:15:09.846228 [sensor-2] log: Received PUBACK (Mid: 6)
+2025-09-30T17:15:09.847017 [sensor-2] Published mid=6, reason=Success
+2025-09-30T17:15:10.004173 [sensor-3] log: Sending PUBLISH (d0, q1, r0, m6), 'b'aquanova/devices/sensor-3/telemetry'', ... (122 bytes)
+2025-09-30T17:15:10.005967 [sensor-3] -> publishing {'device_id': 'sensor-3', 'ts': '2025-09-30T10:15:10.004008+00:00', 'temperature': 28.03, 'turbidity': 12.5, 'feed': 64.9} to aquanova/devices/sensor-3/telemetry
+2025-09-30T17:15:10.285016 [sensor-3] log: Received PUBACK (Mid: 6)
+2025-09-30T17:15:10.285859 [sensor-3] Published mid=6, reason=Success
+2025-09-30T17:15:14.554566 [sensor-1] log: Sending PUBLISH (d0, q1, r0, m7), 'b'aquanova/devices/sensor-1/telemetry'', ... (122 bytes)
+2025-09-30T17:15:14.555897 [sensor-1] -> publishing {'device_id': 'sensor-1', 'ts': '2025-09-30T10:15:14.554371+00:00', 'temperature': 27.04, 'turbidity': 59.7, 'feed': 46.3} to aquanova/devices/sensor-1/telemetry
+2025-09-30T17:15:14.634401 [sensor-2] log: Sending PUBLISH (d0, q1, r0, m7), 'b'aquanova/devices/sensor-2/telemetry'', ... (122 bytes)
+2025-09-30T17:15:14.635083 [sensor-2] -> publishing {'device_id': 'sensor-2', 'ts': '2025-09-30T10:15:14.634306+00:00', 'temperature': 24.9, 'turbidity': 56.07, 'feed': 18.8} to aquanova/devices/sensor-2/telemetry
+2025-09-30T17:15:14.784576 [sensor-1] log: Received PUBACK (Mid: 7)
+2025-09-30T17:15:14.785350 [sensor-1] Published mid=7, reason=Success
+2025-09-30T17:15:14.846641 [sensor-2] log: Received PUBACK (Mid: 7)
+2025-09-30T17:15:14.847322 [sensor-2] Published mid=7, reason=Success
+2025-09-30T17:15:15.007733 [sensor-3] log: Sending PUBLISH (d0, q1, r0, m7), 'b'aquanova/devices/sensor-3/telemetry'', ... (122 bytes)
+2025-09-30T17:15:15.008923 [sensor-3] -> publishing {'device_id': 'sensor-3', 'ts': '2025-09-30T10:15:15.007568+00:00', 'temperature': 26.46, 'turbidity': 22.56, 'feed': 1.2} to aquanova/devices/sensor-3/telemetry
+2025-09-30T17:15:15.237013 [sensor-3] log: Received PUBACK (Mid: 7)
+2025-09-30T17:15:15.238033 [sensor-3] Published mid=7, reason=Success
+2025-09-30T17:15:19.557282 [sensor-1] log: Sending PUBLISH (d0, q1, r0, m8), 'b'aquanova/devices/sensor-1/telemetry'', ... (122 bytes)
+2025-09-30T17:15:19.559316 [sensor-1] -> publishing {'device_id': 'sensor-1', 'ts': '2025-09-30T10:15:19.557017+00:00', 'temperature': 25.0, 'turbidity': 51.45, 'feed': 53.3} to aquanova/devices/sensor-1/telemetry
+2025-09-30T17:15:19.636267 [sensor-2] log: Sending PUBLISH (d0, q1, r0, m8), 'b'aquanova/devices/sensor-2/telemetry'', ... (123 bytes)
+2025-09-30T17:15:19.638145 [sensor-2] -> publishing {'device_id': 'sensor-2', 'ts': '2025-09-30T10:15:19.635872+00:00', 'temperature': 25.18, 'turbidity': 79.15, 'feed': 89.4} to aquanova/devices/sensor-2/telemetry
+2025-09-30T17:15:19.786683 [sensor-1] log: Received PUBACK (Mid: 8)
+2025-09-30T17:15:19.787398 [sensor-1] Published mid=8, reason=Success
+2025-09-30T17:15:19.895153 [sensor-2] log: Received PUBACK (Mid: 8)
+2025-09-30T17:15:19.896354 [sensor-2] Published mid=8, reason=Success
+2025-09-30T17:15:20.010329 [sensor-3] log: Sending PUBLISH (d0, q1, r0, m8), 'b'aquanova/devices/sensor-3/telemetry'', ... (123 bytes)
+2025-09-30T17:15:20.011156 [sensor-3] -> publishing {'device_id': 'sensor-3', 'ts': '2025-09-30T10:15:20.010236+00:00', 'temperature': 26.59, 'turbidity': 19.84, 'feed': 63.2} to aquanova/devices/sensor-3/telemetry
+2025-09-30T17:15:20.238346 [sensor-3] log: Received PUBACK (Mid: 8)
+2025-09-30T17:15:20.239771 [sensor-3] Published mid=8, reason=Success
+2025-09-30T17:15:24.561032 [sensor-1] log: Sending PUBLISH (d0, q1, r0, m9), 'b'aquanova/devices/sensor-1/telemetry'', ... (123 bytes)
+2025-09-30T17:15:24.562638 [sensor-1] -> publishing {'device_id': 'sensor-1', 'ts': '2025-09-30T10:15:24.560785+00:00', 'temperature': 28.17, 'turbidity': 69.61, 'feed': 91.6} to aquanova/devices/sensor-1/telemetry
+2025-09-30T17:15:24.639659 [sensor-2] log: Sending PUBLISH (d0, q1, r0, m9), 'b'aquanova/devices/sensor-2/telemetry'', ... (123 bytes)
+2025-09-30T17:15:24.641164 [sensor-2] -> publishing {'device_id': 'sensor-2', 'ts': '2025-09-30T10:15:24.639449+00:00', 'temperature': 25.28, 'turbidity': 29.97, 'feed': 66.5} to aquanova/devices/sensor-2/telemetry
+2025-09-30T17:15:24.789321 [sensor-1] log: Received PUBACK (Mid: 9)
+2025-09-30T17:15:24.790225 [sensor-1] Published mid=9, reason=Success
+2025-09-30T17:15:24.852485 [sensor-2] log: Received PUBACK (Mid: 9)
+2025-09-30T17:15:24.853037 [sensor-2] Published mid=9, reason=Success
+2025-09-30T17:15:25.012225 [sensor-3] log: Sending PUBLISH (d0, q1, r0, m9), 'b'aquanova/devices/sensor-3/telemetry'', ... (123 bytes)
+2025-09-30T17:15:25.013216 [sensor-3] -> publishing {'device_id': 'sensor-3', 'ts': '2025-09-30T10:15:25.012064+00:00', 'temperature': 30.53, 'turbidity': 75.68, 'feed': 35.5} to aquanova/devices/sensor-3/telemetry
+2025-09-30T17:15:25.243388 [sensor-3] log: Received PUBACK (Mid: 9)
+2025-09-30T17:15:25.244720 [sensor-3] Published mid=9, reason=Success
+2025-09-30T17:15:29.564332 [sensor-1] log: Sending PUBLISH (d0, q1, r0, m10), 'b'aquanova/devices/sensor-1/telemetry'', ... (122 bytes)
+2025-09-30T17:15:29.565599 [sensor-1] -> publishing {'device_id': 'sensor-1', 'ts': '2025-09-30T10:15:29.564169+00:00', 'temperature': 26.01, 'turbidity': 18.2, 'feed': 37.6} to aquanova/devices/sensor-1/telemetry
+2025-09-30T17:15:29.642751 [sensor-2] log: Sending PUBLISH (d0, q1, r0, m10), 'b'aquanova/devices/sensor-2/telemetry'', ... (123 bytes)
+2025-09-30T17:15:29.643830 [sensor-2] -> publishing {'device_id': 'sensor-2', 'ts': '2025-09-30T10:15:29.642608+00:00', 'temperature': 26.94, 'turbidity': 35.46, 'feed': 24.1} to aquanova/devices/sensor-2/telemetry
+2025-09-30T17:15:29.794280 [sensor-1] log: Received PUBACK (Mid: 10)
+2025-09-30T17:15:29.795322 [sensor-1] Published mid=10, reason=Success
+2025-09-30T17:15:29.853782 [sensor-2] log: Received PUBACK (Mid: 10)
+2025-09-30T17:15:29.854786 [sensor-2] Published mid=10, reason=Success
+2025-09-30T17:15:30.014413 [sensor-3] log: Sending PUBLISH (d0, q1, r0, m10), 'b'aquanova/devices/sensor-3/telemetry'', ... (123 bytes)
+2025-09-30T17:15:30.016495 [sensor-3] -> publishing {'device_id': 'sensor-3', 'ts': '2025-09-30T10:15:30.014149+00:00', 'temperature': 24.06, 'turbidity': 75.11, 'feed': 36.5} to aquanova/devices/sensor-3/telemetry
+2025-09-30T17:15:30.242062 [sensor-3] log: Received PUBACK (Mid: 10)
+2025-09-30T17:15:30.243081 [sensor-3] Published mid=10, reason=Success
+2025-09-30T17:15:34.852617 [sensor-1] log: Sending DISCONNECT
+2025-09-30T17:15:34.855632 [sensor-1] log: Caught exception in on_disconnect: run_device.<locals>.on_disconnect() takes from 3 to 4 positional arguments but 5 were given
+2025-09-30T17:15:34.885917 [sensor-2] log: Sending DISCONNECT
+2025-09-30T17:15:34.888619 [sensor-2] log: Caught exception in on_disconnect: run_device.<locals>.on_disconnect() takes from 3 to 4 positional arguments but 5 were given
+2025-09-30T17:15:35.290708 [sensor-3] log: Sending DISCONNECT
+2025-09-30T17:15:35.293021 [sensor-3] log: Caught exception in on_disconnect: run_device.<locals>.on_disconnect() takes from 3 to 4 positional arguments but 5 were given
+2025-10-01T10:56:16.250737 [sensor-1] log: Sending CONNECT (u1, p1, wr0, wq0, wf0, c1, k60) client_id=b'sim-sensor-1'
+2025-10-01T10:56:16.258246 [sensor-1] log: Sending PUBLISH (d0, q1, r0, m1), 'b'aquanova/devices/sensor-1/telemetry'', ... (123 bytes)
+2025-10-01T10:56:16.260201 [sensor-1] -> publishing {'device_id': 'sensor-1', 'ts': '2025-10-01T03:56:16.257782+00:00', 'temperature': 29.07, 'turbidity': 40.22, 'feed': 52.3} to aquanova/devices/sensor-1/telemetry
+2025-10-01T10:56:16.468613 [sensor-2] log: Sending CONNECT (u1, p1, wr0, wq0, wf0, c1, k60) client_id=b'sim-sensor-2'
+2025-10-01T10:56:16.472297 [sensor-2] log: Sending PUBLISH (d0, q1, r0, m1), 'b'aquanova/devices/sensor-2/telemetry'', ... (123 bytes)
+2025-10-01T10:56:16.473349 [sensor-2] -> publishing {'device_id': 'sensor-2', 'ts': '2025-10-01T03:56:16.472123+00:00', 'temperature': 30.86, 'turbidity': 72.05, 'feed': 68.0} to aquanova/devices/sensor-2/telemetry
+2025-10-01T10:56:16.533689 [sensor-1] log: Received CONNACK (0, 0)
+2025-10-01T10:56:16.534986 [sensor-1] Connected with result code Success
+2025-10-01T10:56:16.746608 [sensor-2] log: Received CONNACK (0, 0)
+2025-10-01T10:56:16.747923 [sensor-2] Connected with result code Success
+2025-10-01T10:56:16.755827 [sensor-1] log: Received PUBACK (Mid: 1)
+2025-10-01T10:56:16.756627 [sensor-1] Published mid=1, reason=Success
+2025-10-01T10:56:16.911055 [sensor-3] log: Sending CONNECT (u1, p1, wr0, wq0, wf0, c1, k60) client_id=b'sim-sensor-3'
+2025-10-01T10:56:16.913192 [sensor-3] log: Sending PUBLISH (d0, q1, r0, m1), 'b'aquanova/devices/sensor-3/telemetry'', ... (123 bytes)
+2025-10-01T10:56:16.914073 [sensor-3] -> publishing {'device_id': 'sensor-3', 'ts': '2025-10-01T03:56:16.913078+00:00', 'temperature': 26.76, 'turbidity': 54.75, 'feed': 94.4} to aquanova/devices/sensor-3/telemetry
+2025-10-01T10:56:16.939363 [sensor-2] log: Received PUBACK (Mid: 1)
+2025-10-01T10:56:16.940479 [sensor-2] Published mid=1, reason=Success
+2025-10-01T10:56:17.166307 [sensor-3] log: Received CONNACK (0, 0)
+2025-10-01T10:56:17.167786 [sensor-3] Connected with result code Success
+2025-10-01T10:56:17.411148 [sensor-3] log: Received PUBACK (Mid: 1)
+2025-10-01T10:56:17.411961 [sensor-3] Published mid=1, reason=Success
+2025-10-01T10:56:21.261190 [sensor-1] log: Sending PUBLISH (d0, q1, r0, m2), 'b'aquanova/devices/sensor-1/telemetry'', ... (123 bytes)
+2025-10-01T10:56:21.261864 [sensor-1] -> publishing {'device_id': 'sensor-1', 'ts': '2025-10-01T03:56:21.261090+00:00', 'temperature': 27.03, 'turbidity': 76.15, 'feed': 20.1} to aquanova/devices/sensor-1/telemetry
+2025-10-01T10:56:21.474812 [sensor-2] log: Sending PUBLISH (d0, q1, r0, m2), 'b'aquanova/devices/sensor-2/telemetry'', ... (123 bytes)
+2025-10-01T10:56:21.476245 [sensor-2] -> publishing {'device_id': 'sensor-2', 'ts': '2025-10-01T03:56:21.474620+00:00', 'temperature': 26.26, 'turbidity': 73.48, 'feed': 95.2} to aquanova/devices/sensor-2/telemetry
+2025-10-01T10:56:21.487399 [sensor-1] log: Received PUBACK (Mid: 2)
+2025-10-01T10:56:21.487939 [sensor-1] Published mid=2, reason=Success
+2025-10-01T10:56:21.684869 [sensor-2] log: Received PUBACK (Mid: 2)
+2025-10-01T10:56:21.685863 [sensor-2] Published mid=2, reason=Success
+2025-10-01T10:56:21.915167 [sensor-3] log: Sending PUBLISH (d0, q1, r0, m2), 'b'aquanova/devices/sensor-3/telemetry'', ... (123 bytes)
+2025-10-01T10:56:21.916260 [sensor-3] -> publishing {'device_id': 'sensor-3', 'ts': '2025-10-01T03:56:21.915024+00:00', 'temperature': 24.21, 'turbidity': 43.63, 'feed': 26.7} to aquanova/devices/sensor-3/telemetry
+2025-10-01T10:56:22.160355 [sensor-3] log: Received PUBACK (Mid: 2)
+2025-10-01T10:56:22.160876 [sensor-3] Published mid=2, reason=Success
+2025-10-01T10:56:26.262923 [sensor-1] log: Sending PUBLISH (d0, q1, r0, m3), 'b'aquanova/devices/sensor-1/telemetry'', ... (122 bytes)
+2025-10-01T10:56:26.265185 [sensor-1] -> publishing {'device_id': 'sensor-1', 'ts': '2025-10-01T03:56:26.262650+00:00', 'temperature': 25.7, 'turbidity': 31.77, 'feed': 64.0} to aquanova/devices/sensor-1/telemetry
+2025-10-01T10:56:26.477419 [sensor-2] log: Sending PUBLISH (d0, q1, r0, m3), 'b'aquanova/devices/sensor-2/telemetry'', ... (123 bytes)
+2025-10-01T10:56:26.478351 [sensor-2] -> publishing {'device_id': 'sensor-2', 'ts': '2025-10-01T03:56:26.477278+00:00', 'temperature': 25.11, 'turbidity': 61.79, 'feed': 36.8} to aquanova/devices/sensor-2/telemetry
+2025-10-01T10:56:26.488944 [sensor-1] log: Received PUBACK (Mid: 3)
+2025-10-01T10:56:26.489642 [sensor-1] Published mid=3, reason=Success
+2025-10-01T10:56:26.917413 [sensor-3] log: Sending PUBLISH (d0, q1, r0, m3), 'b'aquanova/devices/sensor-3/telemetry'', ... (123 bytes)
+2025-10-01T10:56:26.918642 [sensor-3] -> publishing {'device_id': 'sensor-3', 'ts': '2025-10-01T03:56:26.917289+00:00', 'temperature': 30.98, 'turbidity': 28.21, 'feed': 58.2} to aquanova/devices/sensor-3/telemetry
+2025-10-01T10:56:27.164813 [sensor-3] log: Received PUBACK (Mid: 3)
+2025-10-01T10:56:27.165521 [sensor-3] Published mid=3, reason=Success
+2025-10-01T10:56:27.273498 [sensor-2] log: Received PUBACK (Mid: 3)
+2025-10-01T10:56:27.274011 [sensor-2] Published mid=3, reason=Success
+2025-10-01T10:56:31.267605 [sensor-1] log: Sending PUBLISH (d0, q1, r0, m4), 'b'aquanova/devices/sensor-1/telemetry'', ... (123 bytes)
+2025-10-01T10:56:31.269764 [sensor-1] -> publishing {'device_id': 'sensor-1', 'ts': '2025-10-01T03:56:31.267352+00:00', 'temperature': 25.58, 'turbidity': 47.38, 'feed': 20.7} to aquanova/devices/sensor-1/telemetry
+2025-10-01T10:56:31.479445 [sensor-2] log: Sending PUBLISH (d0, q1, r0, m4), 'b'aquanova/devices/sensor-2/telemetry'', ... (123 bytes)
+2025-10-01T10:56:31.481168 [sensor-2] -> publishing {'device_id': 'sensor-2', 'ts': '2025-10-01T03:56:31.479206+00:00', 'temperature': 27.98, 'turbidity': 63.39, 'feed': 39.9} to aquanova/devices/sensor-2/telemetry
+2025-10-01T10:56:31.497005 [sensor-1] log: Received PUBACK (Mid: 4)
+2025-10-01T10:56:31.498155 [sensor-1] Published mid=4, reason=Success
+2025-10-01T10:56:31.690561 [sensor-2] log: Received PUBACK (Mid: 4)
+2025-10-01T10:56:31.691430 [sensor-2] Published mid=4, reason=Success
+2025-10-01T10:56:31.920025 [sensor-3] log: Sending PUBLISH (d0, q1, r0, m4), 'b'aquanova/devices/sensor-3/telemetry'', ... (123 bytes)
+2025-10-01T10:56:31.921633 [sensor-3] -> publishing {'device_id': 'sensor-3', 'ts': '2025-10-01T03:56:31.919644+00:00', 'temperature': 28.69, 'turbidity': 21.49, 'feed': 23.5} to aquanova/devices/sensor-3/telemetry
+2025-10-01T10:56:32.166821 [sensor-3] log: Received PUBACK (Mid: 4)
+2025-10-01T10:56:32.167601 [sensor-3] Published mid=4, reason=Success
+2025-10-01T10:56:36.271456 [sensor-1] log: Sending PUBLISH (d0, q1, r0, m5), 'b'aquanova/devices/sensor-1/telemetry'', ... (123 bytes)
+2025-10-01T10:56:36.272518 [sensor-1] -> publishing {'device_id': 'sensor-1', 'ts': '2025-10-01T03:56:36.271215+00:00', 'temperature': 29.23, 'turbidity': 37.52, 'feed': 81.8} to aquanova/devices/sensor-1/telemetry
+2025-10-01T10:56:36.482592 [sensor-2] log: Sending PUBLISH (d0, q1, r0, m5), 'b'aquanova/devices/sensor-2/telemetry'', ... (122 bytes)
+2025-10-01T10:56:36.483576 [sensor-2] -> publishing {'device_id': 'sensor-2', 'ts': '2025-10-01T03:56:36.482438+00:00', 'temperature': 28.05, 'turbidity': 56.33, 'feed': 6.6} to aquanova/devices/sensor-2/telemetry
+2025-10-01T10:56:36.501219 [sensor-1] log: Received PUBACK (Mid: 5)
+2025-10-01T10:56:36.502059 [sensor-1] Published mid=5, reason=Success
+2025-10-01T10:56:36.701701 [sensor-2] log: Received PUBACK (Mid: 5)
+2025-10-01T10:56:36.703478 [sensor-2] Published mid=5, reason=Success
+2025-10-01T10:56:36.923096 [sensor-3] log: Sending PUBLISH (d0, q1, r0, m5), 'b'aquanova/devices/sensor-3/telemetry'', ... (123 bytes)
+2025-10-01T10:56:36.923708 [sensor-3] -> publishing {'device_id': 'sensor-3', 'ts': '2025-10-01T03:56:36.923005+00:00', 'temperature': 29.14, 'turbidity': 56.84, 'feed': 12.1} to aquanova/devices/sensor-3/telemetry
+2025-10-01T10:56:37.172449 [sensor-3] log: Received PUBACK (Mid: 5)
+2025-10-01T10:56:37.173358 [sensor-3] Published mid=5, reason=Success
+2025-10-01T10:56:41.273343 [sensor-1] log: Sending PUBLISH (d0, q1, r0, m6), 'b'aquanova/devices/sensor-1/telemetry'', ... (121 bytes)
+2025-10-01T10:56:41.274766 [sensor-1] -> publishing {'device_id': 'sensor-1', 'ts': '2025-10-01T03:56:41.273108+00:00', 'temperature': 30.71, 'turbidity': 23.0, 'feed': 8.7} to aquanova/devices/sensor-1/telemetry
+2025-10-01T10:56:41.484893 [sensor-2] log: Sending PUBLISH (d0, q1, r0, m6), 'b'aquanova/devices/sensor-2/telemetry'', ... (123 bytes)
+2025-10-01T10:56:41.487653 [sensor-2] -> publishing {'device_id': 'sensor-2', 'ts': '2025-10-01T03:56:41.484622+00:00', 'temperature': 28.97, 'turbidity': 50.27, 'feed': 73.7} to aquanova/devices/sensor-2/telemetry
+2025-10-01T10:56:41.501328 [sensor-1] log: Received PUBACK (Mid: 6)
+2025-10-01T10:56:41.502084 [sensor-1] Published mid=6, reason=Success
+2025-10-01T10:56:41.700813 [sensor-2] log: Received PUBACK (Mid: 6)
+2025-10-01T10:56:41.701838 [sensor-2] Published mid=6, reason=Success
+2025-10-01T10:56:41.924453 [sensor-3] log: Sending PUBLISH (d0, q1, r0, m6), 'b'aquanova/devices/sensor-3/telemetry'', ... (122 bytes)
+2025-10-01T10:56:41.926254 [sensor-3] -> publishing {'device_id': 'sensor-3', 'ts': '2025-10-01T03:56:41.924247+00:00', 'temperature': 29.36, 'turbidity': 22.15, 'feed': 5.6} to aquanova/devices/sensor-3/telemetry
+2025-10-01T10:56:42.170742 [sensor-3] log: Received PUBACK (Mid: 6)
+2025-10-01T10:56:42.171204 [sensor-3] Published mid=6, reason=Success
+2025-10-01T14:20:22.821378 [sensor-1] log: Sending CONNECT (u1, p1, wr0, wq0, wf0, c1, k60) client_id=b'sim-sensor-1'
+2025-10-01T14:20:22.825251 [sensor-1] log: Sending PUBLISH (d0, q1, r0, m1), 'b'aquanova/devices/sensor-1/telemetry'', ... (122 bytes)
+2025-10-01T14:20:22.826441 [sensor-1] -> publishing {'device_id': 'sensor-1', 'ts': '2025-10-01T07:20:22.825034+00:00', 'temperature': 30.51, 'turbidity': 31.48, 'feed': 7.0} to aquanova/devices/sensor-1/telemetry
+2025-10-01T14:20:22.966555 [sensor-2] log: Sending CONNECT (u1, p1, wr0, wq0, wf0, c1, k60) client_id=b'sim-sensor-2'
+2025-10-01T14:20:22.970654 [sensor-2] log: Sending PUBLISH (d0, q1, r0, m1), 'b'aquanova/devices/sensor-2/telemetry'', ... (123 bytes)
+2025-10-01T14:20:22.971887 [sensor-2] -> publishing {'device_id': 'sensor-2', 'ts': '2025-10-01T07:20:22.970471+00:00', 'temperature': 24.68, 'turbidity': 39.05, 'feed': 70.0} to aquanova/devices/sensor-2/telemetry
+2025-10-01T14:20:23.044527 [sensor-1] log: Received CONNACK (0, 0)
+2025-10-01T14:20:23.045981 [sensor-1] Connected with result code Success
+2025-10-01T14:20:23.193175 [sensor-2] log: Received CONNACK (0, 0)
+2025-10-01T14:20:23.194806 [sensor-2] Connected with result code Success
+2025-10-01T14:20:23.288002 [sensor-1] log: Received PUBACK (Mid: 1)
+2025-10-01T14:20:23.288236 [sensor-3] log: Sending CONNECT (u1, p1, wr0, wq0, wf0, c1, k60) client_id=b'sim-sensor-3'
+2025-10-01T14:20:23.289301 [sensor-1] Published mid=1, reason=Success
+2025-10-01T14:20:23.292164 [sensor-3] log: Sending PUBLISH (d0, q1, r0, m1), 'b'aquanova/devices/sensor-3/telemetry'', ... (123 bytes)
+2025-10-01T14:20:23.293135 [sensor-3] -> publishing {'device_id': 'sensor-3', 'ts': '2025-10-01T07:20:23.292036+00:00', 'temperature': 26.33, 'turbidity': 41.58, 'feed': 59.8} to aquanova/devices/sensor-3/telemetry
+2025-10-01T14:20:23.409210 [sensor-2] log: Received PUBACK (Mid: 1)
+2025-10-01T14:20:23.410657 [sensor-2] Published mid=1, reason=Success
+2025-10-01T14:20:23.514643 [sensor-3] log: Received CONNACK (0, 0)
+2025-10-01T14:20:23.516554 [sensor-3] Connected with result code Success
+2025-10-01T14:20:23.742391 [sensor-3] log: Received PUBACK (Mid: 1)
+2025-10-01T14:20:23.743300 [sensor-3] Published mid=1, reason=Success
+2025-10-01T14:20:27.827668 [sensor-1] log: Sending PUBLISH (d0, q1, r0, m2), 'b'aquanova/devices/sensor-1/telemetry'', ... (123 bytes)
+2025-10-01T14:20:27.829826 [sensor-1] -> publishing {'device_id': 'sensor-1', 'ts': '2025-10-01T07:20:27.827408+00:00', 'temperature': 30.28, 'turbidity': 71.29, 'feed': 14.1} to aquanova/devices/sensor-1/telemetry
+2025-10-01T14:20:27.973534 [sensor-2] log: Sending PUBLISH (d0, q1, r0, m2), 'b'aquanova/devices/sensor-2/telemetry'', ... (122 bytes)
+2025-10-01T14:20:27.975072 [sensor-2] -> publishing {'device_id': 'sensor-2', 'ts': '2025-10-01T07:20:27.973321+00:00', 'temperature': 25.24, 'turbidity': 78.0, 'feed': 48.8} to aquanova/devices/sensor-2/telemetry
+2025-10-01T14:20:28.063690 [sensor-1] log: Received PUBACK (Mid: 2)
+2025-10-01T14:20:28.065378 [sensor-1] Published mid=2, reason=Success
+2025-10-01T14:20:28.254220 [sensor-2] log: Received PUBACK (Mid: 2)
+2025-10-01T14:20:28.255640 [sensor-2] Published mid=2, reason=Success
+2025-10-01T14:20:28.294505 [sensor-3] log: Sending PUBLISH (d0, q1, r0, m2), 'b'aquanova/devices/sensor-3/telemetry'', ... (123 bytes)
+2025-10-01T14:20:28.296029 [sensor-3] -> publishing {'device_id': 'sensor-3', 'ts': '2025-10-01T07:20:28.294382+00:00', 'temperature': 28.56, 'turbidity': 14.33, 'feed': 97.4} to aquanova/devices/sensor-3/telemetry
+2025-10-01T14:20:28.515098 [sensor-3] log: Received PUBACK (Mid: 2)
+2025-10-01T14:20:28.516723 [sensor-3] Published mid=2, reason=Success
+2025-10-01T14:20:32.832488 [sensor-1] log: Sending PUBLISH (d0, q1, r0, m3), 'b'aquanova/devices/sensor-1/telemetry'', ... (123 bytes)
+2025-10-01T14:20:32.837610 [sensor-1] -> publishing {'device_id': 'sensor-1', 'ts': '2025-10-01T07:20:32.832240+00:00', 'temperature': 29.82, 'turbidity': 30.69, 'feed': 95.4} to aquanova/devices/sensor-1/telemetry
+2025-10-01T14:20:32.977824 [sensor-2] log: Sending PUBLISH (d0, q1, r0, m3), 'b'aquanova/devices/sensor-2/telemetry'', ... (123 bytes)
+2025-10-01T14:20:32.980655 [sensor-2] -> publishing {'device_id': 'sensor-2', 'ts': '2025-10-01T07:20:32.977577+00:00', 'temperature': 29.38, 'turbidity': 24.25, 'feed': 88.6} to aquanova/devices/sensor-2/telemetry
+2025-10-01T14:20:33.053167 [sensor-1] log: Received PUBACK (Mid: 3)
+2025-10-01T14:20:33.054498 [sensor-1] Published mid=3, reason=Success
+2025-10-01T14:20:33.217741 [sensor-2] log: Received PUBACK (Mid: 3)
+2025-10-01T14:20:33.240546 [sensor-2] Published mid=3, reason=Success
+2025-10-01T14:20:33.297060 [sensor-3] log: Sending PUBLISH (d0, q1, r0, m3), 'b'aquanova/devices/sensor-3/telemetry'', ... (123 bytes)
+2025-10-01T14:20:33.298810 [sensor-3] -> publishing {'device_id': 'sensor-3', 'ts': '2025-10-01T07:20:33.296918+00:00', 'temperature': 26.89, 'turbidity': 41.79, 'feed': 37.7} to aquanova/devices/sensor-3/telemetry
+2025-10-01T14:20:33.519536 [sensor-3] log: Received PUBACK (Mid: 3)
+2025-10-01T14:20:33.520370 [sensor-3] Published mid=3, reason=Success

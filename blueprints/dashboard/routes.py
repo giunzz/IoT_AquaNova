@@ -46,12 +46,6 @@ def last():
 
 @dashboard_bp.get("/announce-count")
 def announce_count():
-    """
-    Ví dụ đếm “rủi ro” trong 60 mẫu gần nhất dựa trên ngưỡng hiển thị:
-      - temperature ngoài [24, 30]  -> +1
-      - turbidity  > 70 (ví dụ)     -> +1
-    Bạn có thể chỉnh ngưỡng cho phù hợp.
-    """
     db = get_db()
     q = (db.collection("readings")
             .order_by("ts", direction=firestore.Query.DESCENDING)
