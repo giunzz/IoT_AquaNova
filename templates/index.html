@@ -176,7 +176,6 @@
       return turbChart;
     }
 
-    // === LOAD DATA & RENDER ===
     async function loadAll(){
       // 1) bản ghi mới nhất -> thẻ Feed Amount
       const last = await (await fetch('/dashboard/last')).json();

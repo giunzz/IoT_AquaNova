@@ -44,7 +44,6 @@ def feed_now():
         # publish MQTT
         _get_pub().publish(topic, json.dumps(payload), qos=1)
 
-        # 🔹 Lưu log “feed-now” vào Firestore
         db = firestore.client()
         db.collection("feed_logs").add({
             "device_id": device,
@@ -69,15 +68,24 @@ def add_schedule():
     item = {
         "id": sid,
         "device_id": data["device_id"],
-        "time": data["time"],           # "HH:mm"
-        "repeat": data["repeat"],       # once/daily/weekly
+        "time": data["time"],
+        "repeat": data["repeat"],
         "amount": data["amount"],
         "created_at": int(time.time()),
     }
-
-    # 🔹 Ghi Firestore
     db = firestore.client()
     db.collection("schedules").document(sid).set(item)
+
+    topic = f"aquanova/devices/{data['device_id']}/schedule/cmd"
+    payload = {
+        "cmd": "add_schedule",
+        "id": sid,
+        "time": data["time"],
+        "repeat": data["repeat"],
+        "amount": data["amount"]
+    }
+    result = _get_pub().publish(topic, json.dumps(payload), qos=1)
+    print(f"[MQTT] Published to {topic} -> {payload}, result={result}")
 
     return jsonify({"ok": True, "id": sid, "item": item})
 
@@ -98,3 +106,11 @@ def delete_schedule(sid):
         doc_ref.delete()
         return jsonify({"ok": True})
     return jsonify({"error": "not found"}), 404
+
+
+# feed_logs/
+#   ├── autoID1: {device_id, amount, timestamp, local_time}
+#   ├── autoID2: {...}
+# schedules/
+#   ├── 7e31c2d4ab12: {id, device_id, time, repeat, amount}
+#   ├── 5c8f1f0a2b91: {...}
