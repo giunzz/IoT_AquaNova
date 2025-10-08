@@ -19,7 +19,6 @@ def start_mqtt_background(app):
     cfg = app.config
     db = init_firebase()
 
-    # ------------------ CALLBACKS ------------------
     def on_connect(client, userdata, flags, reason_code, properties=None):
         write_log(f"[MQTT] ✅ CONNECTED with code={reason_code}")
         try:
@@ -57,7 +56,7 @@ def start_mqtt_background(app):
 
     client = mqtt.Client(
         mqtt.CallbackAPIVersion.VERSION2,
-        client_id=f"aquanova-server-{uuid.uuid4().hex[:6]}",  # tạo client id duy nhất mỗi lần
+        client_id=f"aquanova-server-{uuid.uuid4().hex[:6]}",  
         clean_session=True
     )
 
