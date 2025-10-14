@@ -205,7 +205,7 @@ void LCD_Update(void) {
 						CLCD_I2C_SetCursor(&LCD1, 0, 0);
 						CLCD_I2C_WriteString(&LCD1, buffer);
 
-						sprintf(buffer, "Feed: %.0f%%      ", percent);
+						sprintf(buffer, "Remain: %.0f%%      ", percent);
 						CLCD_I2C_SetCursor(&LCD1, 0, 1);
 						CLCD_I2C_WriteString(&LCD1, buffer);
 
