@@ -4869,3 +4869,939 @@
 2025-10-08T14:32:06.334098 [MQTT] ✅ CONNECTED with code=Success
 2025-10-08T14:32:06.335298 [MQTT] SUBSCRIBE sent topic=aquanova/devices/+/telemetry mid=1 result=0
 2025-10-08T14:32:07.146705 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-15T16:02:39.007043 [MQTT] 🔌 Connecting to d2b2655505394c9b8e88c06c8d30d912.s1.eu.hivemq.cloud:8883
+2025-10-15T16:02:39.007102 [MQTT] LISTENING d2b2655505394c9b8e88c06c8d30d912.s1.eu.hivemq.cloud:8883 topic=aquanova/devices/+/telemetry
+2025-10-15T16:02:40.332204 [MQTT] 🔌 Connecting to d2b2655505394c9b8e88c06c8d30d912.s1.eu.hivemq.cloud:8883
+2025-10-15T16:02:40.332258 [MQTT] LISTENING d2b2655505394c9b8e88c06c8d30d912.s1.eu.hivemq.cloud:8883 topic=aquanova/devices/+/telemetry
+2025-10-15T16:02:41.511148 [MQTT] ✅ CONNECTED with code=Success
+2025-10-15T16:02:41.512233 [MQTT] SUBSCRIBE sent topic=aquanova/devices/+/telemetry mid=1 result=0
+2025-10-15T16:02:41.799483 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-15T16:02:45.595980 [MQTT] ✅ CONNECTED with code=Success
+2025-10-15T16:02:45.597272 [MQTT] SUBSCRIBE sent topic=aquanova/devices/+/telemetry mid=1 result=0
+2025-10-15T16:02:45.858955 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-15T16:10:43.290035 [MQTT] ⚠️ DISCONNECTED (reason_code=Unspecified error) — attempting reconnect...
+2025-10-15T16:10:44.243775 [MQTT] 🔁 RECONNECTED successfully!
+2025-10-15T16:10:46.410528 [MQTT] ✅ CONNECTED with code=Success
+2025-10-15T16:10:46.412244 [MQTT] SUBSCRIBE sent topic=aquanova/devices/+/telemetry mid=2 result=0
+2025-10-15T16:10:46.690518 [MQTT] SUBACK mid=2, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-15T16:11:17.610678 [MQTT] 🔌 Connecting to d2b2655505394c9b8e88c06c8d30d912.s1.eu.hivemq.cloud:8883
+2025-10-15T16:11:17.610749 [MQTT] LISTENING d2b2655505394c9b8e88c06c8d30d912.s1.eu.hivemq.cloud:8883 topic=aquanova/devices/+/telemetry
+2025-10-15T16:11:18.887440 [MQTT] ✅ CONNECTED with code=Success
+2025-10-15T16:11:18.888279 [MQTT] SUBSCRIBE sent topic=aquanova/devices/+/telemetry mid=1 result=0
+2025-10-15T16:11:19.079371 [MQTT] 🔌 Connecting to d2b2655505394c9b8e88c06c8d30d912.s1.eu.hivemq.cloud:8883
+2025-10-15T16:11:19.079458 [MQTT] LISTENING d2b2655505394c9b8e88c06c8d30d912.s1.eu.hivemq.cloud:8883 topic=aquanova/devices/+/telemetry
+2025-10-15T16:11:19.188210 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-15T16:11:36.382680 [MQTT] ✅ CONNECTED with code=Success
+2025-10-15T16:11:36.383488 [MQTT] SUBSCRIBE sent topic=aquanova/devices/+/telemetry mid=1 result=0
+2025-10-15T16:11:38.374956 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-15T16:30:32.963961 [MQTT] 🔌 Connecting to d2b2655505394c9b8e88c06c8d30d912.s1.eu.hivemq.cloud:8883
+2025-10-15T16:30:32.964034 [MQTT] LISTENING d2b2655505394c9b8e88c06c8d30d912.s1.eu.hivemq.cloud:8883 topic=aquanova/devices/+/telemetry
+2025-10-15T16:30:34.139679 [MQTT] 🔌 Connecting to d2b2655505394c9b8e88c06c8d30d912.s1.eu.hivemq.cloud:8883
+2025-10-15T16:30:34.139720 [MQTT] LISTENING d2b2655505394c9b8e88c06c8d30d912.s1.eu.hivemq.cloud:8883 topic=aquanova/devices/+/telemetry
+2025-10-15T16:30:34.215372 [MQTT] ✅ CONNECTED with code=Success
+2025-10-15T16:30:34.216089 [MQTT] SUBSCRIBE sent topic=aquanova/devices/+/telemetry mid=1 result=0
+2025-10-15T16:30:34.491207 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-15T16:30:35.176368 [MQTT] ✅ CONNECTED with code=Success
+2025-10-15T16:30:35.177987 [MQTT] SUBSCRIBE sent topic=aquanova/devices/+/telemetry mid=1 result=0
+2025-10-15T16:30:35.433828 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-15T16:31:19.015272 [MQTT] 🔌 Connecting to d2b2655505394c9b8e88c06c8d30d912.s1.eu.hivemq.cloud:8883
+2025-10-15T16:31:19.015310 [MQTT] LISTENING d2b2655505394c9b8e88c06c8d30d912.s1.eu.hivemq.cloud:8883 topic=aquanova/devices/+/telemetry
+2025-10-15T16:31:20.178365 [MQTT] ✅ CONNECTED with code=Success
+2025-10-15T16:31:20.179185 [MQTT] SUBSCRIBE sent topic=aquanova/devices/+/telemetry mid=1 result=0
+2025-10-15T16:31:20.397760 [MQTT] 🔌 Connecting to d2b2655505394c9b8e88c06c8d30d912.s1.eu.hivemq.cloud:8883
+2025-10-15T16:31:20.397806 [MQTT] LISTENING d2b2655505394c9b8e88c06c8d30d912.s1.eu.hivemq.cloud:8883 topic=aquanova/devices/+/telemetry
+2025-10-15T16:31:20.461494 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-15T16:31:21.558192 [MQTT] ✅ CONNECTED with code=Success
+2025-10-15T16:31:21.559284 [MQTT] SUBSCRIBE sent topic=aquanova/devices/+/telemetry mid=1 result=0
+2025-10-15T16:31:21.839262 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-15T16:32:45.177348 [MQTT] 🔌 Connecting to d2b2655505394c9b8e88c06c8d30d912.s1.eu.hivemq.cloud:8883
+2025-10-15T16:32:45.177387 [MQTT] LISTENING d2b2655505394c9b8e88c06c8d30d912.s1.eu.hivemq.cloud:8883 topic=aquanova/devices/+/telemetry
+2025-10-15T16:32:46.313025 [MQTT] ✅ CONNECTED with code=Success
+2025-10-15T16:32:46.314404 [MQTT] SUBSCRIBE sent topic=aquanova/devices/+/telemetry mid=1 result=0
+2025-10-15T16:32:46.577183 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-15T16:33:02.087608 [MQTT] 🔌 Connecting to d2b2655505394c9b8e88c06c8d30d912.s1.eu.hivemq.cloud:8883
+2025-10-15T16:33:02.087677 [MQTT] LISTENING d2b2655505394c9b8e88c06c8d30d912.s1.eu.hivemq.cloud:8883 topic=aquanova/devices/+/telemetry
+2025-10-15T16:33:03.269031 [MQTT] ✅ CONNECTED with code=Success
+2025-10-15T16:33:03.270166 [MQTT] SUBSCRIBE sent topic=aquanova/devices/+/telemetry mid=1 result=0
+2025-10-15T16:33:03.564876 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-15T16:58:39.724542 [MQTT] 🔌 Connecting to d2b2655505394c9b8e88c06c8d30d912.s1.eu.hivemq.cloud:8883
+2025-10-15T16:58:39.724579 [MQTT] LISTENING d2b2655505394c9b8e88c06c8d30d912.s1.eu.hivemq.cloud:8883 topic=aquanova/devices/+/telemetry
+2025-10-15T16:58:40.907110 [MQTT] ✅ CONNECTED with code=Success
+2025-10-15T16:58:40.907634 [MQTT] SUBSCRIBE sent topic=aquanova/devices/+/telemetry mid=1 result=0
+2025-10-15T16:58:41.084505 [MQTT] 🔌 Connecting to d2b2655505394c9b8e88c06c8d30d912.s1.eu.hivemq.cloud:8883
+2025-10-15T16:58:41.084556 [MQTT] LISTENING d2b2655505394c9b8e88c06c8d30d912.s1.eu.hivemq.cloud:8883 topic=aquanova/devices/+/telemetry
+2025-10-15T16:58:41.197322 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-15T16:58:42.227730 [MQTT] ✅ CONNECTED with code=Success
+2025-10-15T16:58:42.228431 [MQTT] SUBSCRIBE sent topic=aquanova/devices/+/telemetry mid=1 result=0
+2025-10-15T16:58:42.514295 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-16T11:00:51.373692 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-16T11:00:51.373771 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/devices/telemetry
+2025-10-16T11:00:52.694908 [MQTT] ✅ CONNECTED with code=Not authorized
+2025-10-16T11:00:52.695674 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=1 result=0
+2025-10-16T11:00:52.696905 [MQTT] ⚠️ DISCONNECTED (reason_code=Unspecified error) — attempting reconnect...
+2025-10-16T11:00:52.948477 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-16T11:00:52.948568 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/devices/telemetry
+2025-10-16T11:00:53.852731 [MQTT] 🔁 RECONNECTED successfully!
+2025-10-16T11:00:54.488676 [MQTT] ✅ CONNECTED with code=Not authorized
+2025-10-16T11:00:54.490256 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=1 result=0
+2025-10-16T11:00:54.492025 [MQTT] ⚠️ DISCONNECTED (reason_code=Unspecified error) — attempting reconnect...
+2025-10-16T11:00:55.411378 [MQTT] 🔁 RECONNECTED successfully!
+2025-10-16T11:00:56.064297 [MQTT] ✅ CONNECTED with code=Not authorized
+2025-10-16T11:00:56.068070 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=2 result=0
+2025-10-16T11:00:56.069888 [MQTT] ⚠️ DISCONNECTED (reason_code=Unspecified error) — attempting reconnect...
+2025-10-16T11:00:57.046297 [MQTT] 🔁 RECONNECTED successfully!
+2025-10-16T11:00:58.399033 [MQTT] ✅ CONNECTED with code=Not authorized
+2025-10-16T11:00:58.401012 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=2 result=0
+2025-10-16T11:00:58.402805 [MQTT] ⚠️ DISCONNECTED (reason_code=Unspecified error) — attempting reconnect...
+2025-10-16T11:00:59.311725 [MQTT] 🔁 RECONNECTED successfully!
+2025-10-16T11:01:00.703934 [MQTT] ✅ CONNECTED with code=Not authorized
+2025-10-16T11:01:00.704631 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=3 result=0
+2025-10-16T11:01:00.705178 [MQTT] ⚠️ DISCONNECTED (reason_code=Unspecified error) — attempting reconnect...
+2025-10-16T11:01:01.438511 [MQTT] 🔁 RECONNECTED successfully!
+2025-10-16T11:01:06.271561 [MQTT] ✅ CONNECTED with code=Not authorized
+2025-10-16T11:01:06.278002 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=3 result=0
+2025-10-16T11:01:06.279970 [MQTT] ⚠️ DISCONNECTED (reason_code=Unspecified error) — attempting reconnect...
+2025-10-16T11:01:06.992622 [MQTT] 🔁 RECONNECTED successfully!
+2025-10-16T11:01:07.256672 [MQTT] ✅ CONNECTED with code=Not authorized
+2025-10-16T11:01:07.263207 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=4 result=0
+2025-10-16T11:01:07.265302 [MQTT] ⚠️ DISCONNECTED (reason_code=Unspecified error) — attempting reconnect...
+2025-10-16T11:01:08.178227 [MQTT] 🔁 RECONNECTED successfully!
+2025-10-16T11:01:11.972211 [MQTT] ✅ CONNECTED with code=Not authorized
+2025-10-16T11:01:11.972857 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=4 result=0
+2025-10-16T11:01:11.973505 [MQTT] ⚠️ DISCONNECTED (reason_code=Unspecified error) — attempting reconnect...
+2025-10-16T11:01:12.756850 [MQTT] 🔁 RECONNECTED successfully!
+2025-10-16T11:01:17.209014 [MQTT] ✅ CONNECTED with code=Not authorized
+2025-10-16T11:01:17.216212 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=5 result=0
+2025-10-16T11:01:17.218682 [MQTT] ⚠️ DISCONNECTED (reason_code=Unspecified error) — attempting reconnect...
+2025-10-16T11:01:17.958693 [MQTT] 🔁 RECONNECTED successfully!
+2025-10-16T11:01:21.614219 [MQTT] ✅ CONNECTED with code=Not authorized
+2025-10-16T11:01:21.615426 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=5 result=0
+2025-10-16T11:01:21.616726 [MQTT] ⚠️ DISCONNECTED (reason_code=Unspecified error) — attempting reconnect...
+2025-10-16T11:01:22.311394 [MQTT] 🔁 RECONNECTED successfully!
+2025-10-16T11:01:36.251227 [MQTT] ✅ CONNECTED with code=Not authorized
+2025-10-16T11:01:36.252319 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=6 result=0
+2025-10-16T11:01:36.253948 [MQTT] ⚠️ DISCONNECTED (reason_code=Unspecified error) — attempting reconnect...
+2025-10-16T11:01:36.944373 [MQTT] 🔁 RECONNECTED successfully!
+2025-10-16T11:01:39.924205 [MQTT] ✅ CONNECTED with code=Not authorized
+2025-10-16T11:01:39.926794 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=6 result=0
+2025-10-16T11:01:39.931034 [MQTT] ⚠️ DISCONNECTED (reason_code=Unspecified error) — attempting reconnect...
+2025-10-16T11:01:40.590294 [MQTT] 🔁 RECONNECTED successfully!
+2025-10-16T11:02:09.903142 [MQTT] ✅ CONNECTED with code=Not authorized
+2025-10-16T11:02:09.905267 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=7 result=0
+2025-10-16T11:02:09.907275 [MQTT] ⚠️ DISCONNECTED (reason_code=Unspecified error) — attempting reconnect...
+2025-10-16T11:02:10.642677 [MQTT] 🔁 RECONNECTED successfully!
+2025-10-16T11:02:13.534007 [MQTT] ✅ CONNECTED with code=Not authorized
+2025-10-16T11:02:13.535418 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=7 result=0
+2025-10-16T11:02:13.537276 [MQTT] ⚠️ DISCONNECTED (reason_code=Unspecified error) — attempting reconnect...
+2025-10-16T11:02:14.234442 [MQTT] 🔁 RECONNECTED successfully!
+2025-10-16T11:03:15.699385 [MQTT] ✅ CONNECTED with code=Not authorized
+2025-10-16T11:03:15.700469 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=8 result=0
+2025-10-16T11:03:15.701248 [MQTT] ⚠️ DISCONNECTED (reason_code=Unspecified error) — attempting reconnect...
+2025-10-16T11:03:16.429532 [MQTT] 🔁 RECONNECTED successfully!
+2025-10-16T11:03:19.250064 [MQTT] ✅ CONNECTED with code=Not authorized
+2025-10-16T11:03:19.250957 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=8 result=0
+2025-10-16T11:03:19.251958 [MQTT] ⚠️ DISCONNECTED (reason_code=Unspecified error) — attempting reconnect...
+2025-10-16T11:03:19.942345 [MQTT] 🔁 RECONNECTED successfully!
+2025-10-16T11:03:33.316855 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-16T11:03:33.316893 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/devices/telemetry
+2025-10-16T11:03:34.376901 [MQTT] ✅ CONNECTED with code=Not authorized
+2025-10-16T11:03:34.378692 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=1 result=0
+2025-10-16T11:03:34.380753 [MQTT] ⚠️ DISCONNECTED (reason_code=Unspecified error) — attempting reconnect...
+2025-10-16T11:03:35.097940 [MQTT] 🔁 RECONNECTED successfully!
+2025-10-16T11:03:37.441542 [MQTT] ✅ CONNECTED with code=Not authorized
+2025-10-16T11:03:37.442172 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=2 result=0
+2025-10-16T11:03:37.443644 [MQTT] ⚠️ DISCONNECTED (reason_code=Unspecified error) — attempting reconnect...
+2025-10-16T11:03:38.158562 [MQTT] 🔁 RECONNECTED successfully!
+2025-10-16T11:03:41.125843 [MQTT] ✅ CONNECTED with code=Not authorized
+2025-10-16T11:03:41.127393 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=3 result=0
+2025-10-16T11:03:41.129172 [MQTT] ⚠️ DISCONNECTED (reason_code=Unspecified error) — attempting reconnect...
+2025-10-16T11:03:41.806285 [MQTT] 🔁 RECONNECTED successfully!
+2025-10-16T11:03:46.363412 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-16T11:03:46.363464 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/devices/telemetry
+2025-10-16T11:03:47.278359 [MQTT] ✅ CONNECTED with code=Not authorized
+2025-10-16T11:03:47.279985 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=1 result=0
+2025-10-16T11:03:47.281494 [MQTT] ⚠️ DISCONNECTED (reason_code=Unspecified error) — attempting reconnect...
+2025-10-16T11:03:47.997538 [MQTT] 🔁 RECONNECTED successfully!
+2025-10-16T11:03:50.006228 [MQTT] ✅ CONNECTED with code=Not authorized
+2025-10-16T11:03:50.007444 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=2 result=0
+2025-10-16T11:03:50.008661 [MQTT] ⚠️ DISCONNECTED (reason_code=Unspecified error) — attempting reconnect...
+2025-10-16T11:03:52.116585 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-16T11:03:52.116625 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/devices/telemetry
+2025-10-16T11:03:53.012684 [MQTT] ✅ CONNECTED with code=Not authorized
+2025-10-16T11:03:53.013311 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=1 result=0
+2025-10-16T11:03:53.014068 [MQTT] ⚠️ DISCONNECTED (reason_code=Unspecified error) — attempting reconnect...
+2025-10-16T11:03:53.741915 [MQTT] 🔁 RECONNECTED successfully!
+2025-10-16T11:03:57.728126 [MQTT] ✅ CONNECTED with code=Not authorized
+2025-10-16T11:03:57.729558 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=2 result=0
+2025-10-16T11:03:57.730572 [MQTT] ⚠️ DISCONNECTED (reason_code=Unspecified error) — attempting reconnect...
+2025-10-16T11:03:58.459339 [MQTT] 🔁 RECONNECTED successfully!
+2025-10-16T11:04:01.314366 [MQTT] ✅ CONNECTED with code=Not authorized
+2025-10-16T11:04:01.315549 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=3 result=0
+2025-10-16T11:04:01.316796 [MQTT] ⚠️ DISCONNECTED (reason_code=Unspecified error) — attempting reconnect...
+2025-10-16T11:04:02.003287 [MQTT] 🔁 RECONNECTED successfully!
+2025-10-16T11:04:07.077240 [MQTT] ✅ CONNECTED with code=Not authorized
+2025-10-16T11:04:07.078753 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=4 result=0
+2025-10-16T11:04:07.080202 [MQTT] ⚠️ DISCONNECTED (reason_code=Unspecified error) — attempting reconnect...
+2025-10-16T11:04:07.817638 [MQTT] 🔁 RECONNECTED successfully!
+2025-10-16T11:04:16.825825 [MQTT] ✅ CONNECTED with code=Not authorized
+2025-10-16T11:04:16.827394 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=5 result=0
+2025-10-16T11:04:16.829856 [MQTT] ⚠️ DISCONNECTED (reason_code=Unspecified error) — attempting reconnect...
+2025-10-16T11:04:17.515656 [MQTT] 🔁 RECONNECTED successfully!
+2025-10-16T11:04:39.741393 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-16T11:04:39.741453 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/devices/telemetry
+2025-10-16T11:04:41.145074 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-16T11:04:41.145191 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/devices/telemetry
+2025-10-16T11:04:41.272618 [MQTT] ✅ CONNECTED with code=Success
+2025-10-16T11:04:41.273352 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=1 result=0
+2025-10-16T11:04:41.513787 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-16T11:04:42.122342 [MQTT] ✅ CONNECTED with code=Success
+2025-10-16T11:04:42.124176 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=1 result=0
+2025-10-16T11:04:42.364311 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-16T11:04:44.518220 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 324.7, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:02:38\r', 'ts': '2025-10-16T04:04:43.483865+00:00'}
+2025-10-16T11:04:44.595581 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 324.7, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:02:38\r', 'ts': '2025-10-16T04:04:43.483971+00:00'}
+2025-10-16T11:04:45.847157 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 337.1, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:02:40\r', 'ts': '2025-10-16T04:04:45.475188+00:00'}
+2025-10-16T11:04:46.469639 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 337.1, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:02:40\r', 'ts': '2025-10-16T04:04:45.476871+00:00'}
+2025-10-16T11:04:47.764615 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 335.2, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:02:42\r', 'ts': '2025-10-16T04:04:47.473982+00:00'}
+2025-10-16T11:04:47.774350 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 335.2, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:02:42\r', 'ts': '2025-10-16T04:04:47.473837+00:00'}
+2025-10-16T11:04:50.301593 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 326.4, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:02:44\r', 'ts': '2025-10-16T04:04:50.008624+00:00'}
+2025-10-16T11:04:50.301564 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 326.4, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:02:44\r', 'ts': '2025-10-16T04:04:50.000050+00:00'}
+2025-10-16T11:04:51.805005 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 323.7, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:02:46\r', 'ts': '2025-10-16T04:04:51.498669+00:00'}
+2025-10-16T11:04:51.808432 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 323.7, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:02:46\r', 'ts': '2025-10-16T04:04:51.496357+00:00'}
+2025-10-16T11:04:53.803989 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 320.5, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:02:48\r', 'ts': '2025-10-16T04:04:53.484384+00:00'}
+2025-10-16T11:04:54.516622 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 320.5, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:02:48\r', 'ts': '2025-10-16T04:04:53.485660+00:00'}
+2025-10-16T11:04:55.765068 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 318.4, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:02:50\r', 'ts': '2025-10-16T04:04:55.464263+00:00'}
+2025-10-16T11:04:56.498415 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 318.4, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:02:50\r', 'ts': '2025-10-16T04:04:55.465444+00:00'}
+2025-10-16T11:04:57.832855 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 316.8, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:02:52\r', 'ts': '2025-10-16T04:04:57.524745+00:00'}
+2025-10-16T11:04:58.384803 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 316.8, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:02:52\r', 'ts': '2025-10-16T04:04:57.489698+00:00'}
+2025-10-16T11:04:59.821192 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 315.1, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:02:54\r', 'ts': '2025-10-16T04:04:59.527675+00:00'}
+2025-10-16T11:05:00.657003 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 315.1, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:02:54\r', 'ts': '2025-10-16T04:04:59.525546+00:00'}
+2025-10-16T11:05:01.826294 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 314.1, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:02:56\r', 'ts': '2025-10-16T04:05:01.485883+00:00'}
+2025-10-16T11:05:01.874771 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 314.1, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:02:56\r', 'ts': '2025-10-16T04:05:01.483917+00:00'}
+2025-10-16T11:05:03.768058 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 313.3, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:02:58\r', 'ts': '2025-10-16T04:05:03.484057+00:00'}
+2025-10-16T11:05:04.459359 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 313.3, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:02:58\r', 'ts': '2025-10-16T04:05:03.484066+00:00'}
+2025-10-16T11:05:05.786402 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 318.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:03:01\r', 'ts': '2025-10-16T04:05:05.485508+00:00'}
+2025-10-16T11:05:05.787450 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 318.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:03:01\r', 'ts': '2025-10-16T04:05:05.487581+00:00'}
+2025-10-16T11:05:07.791162 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 350.4, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:03:03\r', 'ts': '2025-10-16T04:05:07.487519+00:00'}
+2025-10-16T11:05:08.605571 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 350.4, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:03:03\r', 'ts': '2025-10-16T04:05:07.491115+00:00'}
+2025-10-16T11:05:09.793325 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 432.3, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:03:05\r', 'ts': '2025-10-16T04:05:09.497626+00:00'}
+2025-10-16T11:05:09.800710 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 432.3, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:03:05\r', 'ts': '2025-10-16T04:05:09.498454+00:00'}
+2025-10-16T11:05:11.818293 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 496, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:03:07\r', 'ts': '2025-10-16T04:05:11.477222+00:00'}
+2025-10-16T11:05:11.818439 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 496, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:03:07\r', 'ts': '2025-10-16T04:05:11.478588+00:00'}
+2025-10-16T11:05:15.788951 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 544.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:03:09\r', 'ts': '2025-10-16T04:05:15.498121+00:00'}
+2025-10-16T11:05:15.822789 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 544.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:03:09\r', 'ts': '2025-10-16T04:05:15.501078+00:00'}
+2025-10-16T11:05:17.767692 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 576.2, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:03:11\r', 'ts': '2025-10-16T04:05:17.486711+00:00'}
+2025-10-16T11:05:17.784077 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 576.2, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:03:11\r', 'ts': '2025-10-16T04:05:17.500249+00:00'}
+2025-10-16T11:05:19.785237 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 589.8, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:03:13\r', 'ts': '2025-10-16T04:05:19.495610+00:00'}
+2025-10-16T11:05:19.803485 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 589.8, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:03:13\r', 'ts': '2025-10-16T04:05:19.495448+00:00'}
+2025-10-16T11:05:21.750334 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 604.4, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:03:16\r', 'ts': '2025-10-16T04:05:21.486966+00:00'}
+2025-10-16T11:05:22.024982 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 604.4, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:03:16\r', 'ts': '2025-10-16T04:05:21.488357+00:00'}
+2025-10-16T11:05:23.787313 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 616.8, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:03:18\r', 'ts': '2025-10-16T04:05:23.505248+00:00'}
+2025-10-16T11:05:24.475041 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 616.8, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:03:18\r', 'ts': '2025-10-16T04:05:23.508334+00:00'}
+2025-10-16T11:05:25.740226 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 610.7, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:03:20\r', 'ts': '2025-10-16T04:05:25.467042+00:00'}
+2025-10-16T11:05:25.760418 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 610.7, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:03:20\r', 'ts': '2025-10-16T04:05:25.466968+00:00'}
+2025-10-16T11:05:27.776946 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 619.2, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:03:22\r', 'ts': '2025-10-16T04:05:27.502674+00:00'}
+2025-10-16T11:05:27.799814 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 619.2, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:03:22\r', 'ts': '2025-10-16T04:05:27.502680+00:00'}
+2025-10-16T11:05:29.802706 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 629.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:03:24\r', 'ts': '2025-10-16T04:05:29.513288+00:00'}
+2025-10-16T11:05:29.819941 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 629.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:03:24\r', 'ts': '2025-10-16T04:05:29.513287+00:00'}
+2025-10-16T11:05:31.772986 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 622.4, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:03:26\r', 'ts': '2025-10-16T04:05:31.497132+00:00'}
+2025-10-16T11:05:32.375117 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 622.4, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:03:26\r', 'ts': '2025-10-16T04:05:31.497231+00:00'}
+2025-10-16T11:05:34.284529 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 590.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:03:28\r', 'ts': '2025-10-16T04:05:34.001317+00:00'}
+2025-10-16T11:05:34.489777 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 590.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:03:28\r', 'ts': '2025-10-16T04:05:33.493970+00:00'}
+2025-10-16T11:05:35.782178 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 547.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:03:30\r', 'ts': '2025-10-16T04:05:35.495116+00:00'}
+2025-10-16T11:05:35.786823 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 547.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:03:30\r', 'ts': '2025-10-16T04:05:35.501489+00:00'}
+2025-10-16T11:05:37.773011 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 508.4, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:03:32\r', 'ts': '2025-10-16T04:05:37.497899+00:00'}
+2025-10-16T11:05:37.778575 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 508.4, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:03:32\r', 'ts': '2025-10-16T04:05:37.497899+00:00'}
+2025-10-16T11:05:40.327542 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 480.4, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:03:34\r', 'ts': '2025-10-16T04:05:40.056718+00:00'}
+2025-10-16T11:05:40.857386 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 480.4, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:03:34\r', 'ts': '2025-10-16T04:05:40.056718+00:00'}
+2025-10-16T11:05:41.794540 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 464.2, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:03:36\r', 'ts': '2025-10-16T04:05:41.518276+00:00'}
+2025-10-16T11:05:57.786688 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-16T11:05:57.786767 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/devices/telemetry
+2025-10-16T11:05:58.384834 [MQTT] ❌ Connection error: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1018)
+2025-10-16T11:05:59.305429 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-16T11:05:59.305483 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/devices/telemetry
+2025-10-16T11:05:59.801463 [MQTT] ❌ Connection error: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1018)
+2025-10-16T11:06:03.386403 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-16T11:06:03.839293 [MQTT] ❌ Connection error: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1018)
+2025-10-16T11:06:04.803296 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-16T11:06:05.794877 [MQTT] ✅ CONNECTED with code=Success
+2025-10-16T11:06:05.796683 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=1 result=0
+2025-10-16T11:06:06.046496 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-16T11:06:08.841358 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-16T11:06:09.839935 [MQTT] ✅ CONNECTED with code=Success
+2025-10-16T11:06:09.841014 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=1 result=0
+2025-10-16T11:06:10.089775 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-16T11:09:06.264069 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-16T11:09:06.264124 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/devices/telemetry
+2025-10-16T11:09:07.294354 [MQTT] ✅ CONNECTED with code=Success
+2025-10-16T11:09:07.295449 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=1 result=0
+2025-10-16T11:09:07.539828 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-16T11:09:07.635296 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-16T11:09:07.635338 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/devices/telemetry
+2025-10-16T11:09:09.840120 [MQTT] ✅ CONNECTED with code=Success
+2025-10-16T11:09:09.841039 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=1 result=0
+2025-10-16T11:09:10.090065 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-16T11:09:40.924008 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-16T11:09:40.924083 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/devices/telemetry
+2025-10-16T11:09:42.418591 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-16T11:09:42.418664 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/devices/telemetry
+2025-10-16T11:09:42.584087 [MQTT] ✅ CONNECTED with code=Success
+2025-10-16T11:09:42.584852 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=1 result=0
+2025-10-16T11:09:42.837568 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-16T11:09:43.658478 [MQTT] ✅ CONNECTED with code=Success
+2025-10-16T11:09:43.659096 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=1 result=0
+2025-10-16T11:09:43.890333 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-16T11:12:34.637692 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-16T11:12:34.637746 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/devices/telemetry
+2025-10-16T11:12:35.906364 [MQTT] ✅ CONNECTED with code=Success
+2025-10-16T11:12:35.908023 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=1 result=0
+2025-10-16T11:12:35.950438 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-16T11:12:35.950485 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/devices/telemetry
+2025-10-16T11:12:36.145744 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-16T11:12:37.158609 [MQTT] ✅ CONNECTED with code=Success
+2025-10-16T11:12:37.159351 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=1 result=0
+2025-10-16T11:12:37.396107 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-16T11:13:55.712206 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-16T11:13:55.712266 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/devices/telemetry
+2025-10-16T11:13:56.210946 [MQTT] ❌ Connection error: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1018)
+2025-10-16T11:13:57.121465 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-16T11:13:57.121531 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/devices/telemetry
+2025-10-16T11:13:58.276177 [MQTT] ✅ CONNECTED with code=Success
+2025-10-16T11:13:58.277597 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=1 result=0
+2025-10-16T11:13:58.500429 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-16T11:14:01.212430 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-16T11:14:02.371393 [MQTT] ✅ CONNECTED with code=Success
+2025-10-16T11:14:02.372289 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=1 result=0
+2025-10-16T11:14:02.606914 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-16T11:16:36.847385 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-16T11:16:36.847441 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/devices/telemetry
+2025-10-16T11:16:37.883912 [MQTT] ✅ CONNECTED with code=Success
+2025-10-16T11:16:37.884528 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=1 result=0
+2025-10-16T11:16:38.043402 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-16T11:16:38.043442 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/devices/telemetry
+2025-10-16T11:16:38.132150 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-16T11:16:39.131555 [MQTT] ✅ CONNECTED with code=Success
+2025-10-16T11:16:39.132704 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=1 result=0
+2025-10-16T11:16:39.356016 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-16T11:20:32.237638 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 1000, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:18:26\r', 'ts': '2025-10-16T04:20:31.966518+00:00'}
+2025-10-16T11:20:32.252623 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 1000, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:18:26\r', 'ts': '2025-10-16T04:20:31.966518+00:00'}
+2025-10-16T11:20:34.237419 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 1000, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:18:28\r', 'ts': '2025-10-16T04:20:33.967162+00:00'}
+2025-10-16T11:20:34.243557 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 1000, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:18:28\r', 'ts': '2025-10-16T04:20:33.967160+00:00'}
+2025-10-16T11:20:36.211702 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 1000, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:18:30\r', 'ts': '2025-10-16T04:20:35.952747+00:00'}
+2025-10-16T11:20:36.224900 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 1000, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:18:30\r', 'ts': '2025-10-16T04:20:35.952720+00:00'}
+2025-10-16T11:20:38.232913 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 954.9, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:18:32\r', 'ts': '2025-10-16T04:20:37.962776+00:00'}
+2025-10-16T11:20:40.217938 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 778.4, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:18:35\r', 'ts': '2025-10-16T04:20:39.956199+00:00'}
+2025-10-16T11:20:40.233229 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 778.4, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:18:35\r', 'ts': '2025-10-16T04:20:39.956199+00:00'}
+2025-10-16T11:20:42.184588 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 654.1, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:18:37\r', 'ts': '2025-10-16T04:20:41.922795+00:00'}
+2025-10-16T11:20:42.205540 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 654.1, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:18:37\r', 'ts': '2025-10-16T04:20:41.923933+00:00'}
+2025-10-16T11:20:44.205906 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 581.1, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:18:39\r', 'ts': '2025-10-16T04:20:43.936097+00:00'}
+2025-10-16T11:20:44.208890 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 581.1, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:18:39\r', 'ts': '2025-10-16T04:20:43.933212+00:00'}
+2025-10-16T11:20:46.181139 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 534.1, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:18:41\r', 'ts': '2025-10-16T04:20:45.925800+00:00'}
+2025-10-16T11:20:46.187085 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 534.1, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:18:41\r', 'ts': '2025-10-16T04:20:45.923978+00:00'}
+2025-10-16T11:20:48.210023 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 505.9, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:18:43\r', 'ts': '2025-10-16T04:20:47.946576+00:00'}
+2025-10-16T11:20:48.222735 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 505.9, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:18:43\r', 'ts': '2025-10-16T04:20:47.948239+00:00'}
+2025-10-16T11:20:50.215708 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 486.9, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:18:45\r', 'ts': '2025-10-16T04:20:49.946323+00:00'}
+2025-10-16T11:20:52.208128 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 472.8, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:18:47\r', 'ts': '2025-10-16T04:20:51.956357+00:00'}
+2025-10-16T11:20:52.215108 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 472.8, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:18:47\r', 'ts': '2025-10-16T04:20:51.956269+00:00'}
+2025-10-16T11:20:54.213315 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 458.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:18:49\r', 'ts': '2025-10-16T04:20:53.953447+00:00'}
+2025-10-16T11:20:54.213315 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 458.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:18:49\r', 'ts': '2025-10-16T04:20:53.953495+00:00'}
+2025-10-16T11:20:56.350979 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 445.4, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:18:51\r', 'ts': '2025-10-16T04:20:56.003577+00:00'}
+2025-10-16T11:20:56.358241 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 445.4, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:18:51\r', 'ts': '2025-10-16T04:20:56.001893+00:00'}
+2025-10-16T11:21:00.173215 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 441.9, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:18:54\r', 'ts': '2025-10-16T04:20:59.928188+00:00'}
+2025-10-16T11:21:00.188612 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 441.9, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:18:54\r', 'ts': '2025-10-16T04:20:59.928188+00:00'}
+2025-10-16T11:21:02.232287 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 422.9, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:18:56\r', 'ts': '2025-10-16T04:21:01.970579+00:00'}
+2025-10-16T11:21:02.240684 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 422.9, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:18:56\r', 'ts': '2025-10-16T04:21:01.962926+00:00'}
+2025-10-16T11:21:04.221119 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 367.2, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:18:58\r', 'ts': '2025-10-16T04:21:03.962993+00:00'}
+2025-10-16T11:21:04.222529 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 367.2, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:18:58\r', 'ts': '2025-10-16T04:21:03.963032+00:00'}
+2025-10-16T11:21:06.203746 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 313.4, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:19:00\r', 'ts': '2025-10-16T04:21:05.963172+00:00'}
+2025-10-16T11:21:06.214226 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 313.4, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:19:00\r', 'ts': '2025-10-16T04:21:05.963172+00:00'}
+2025-10-16T11:21:08.231392 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 264.8, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:19:02\r', 'ts': '2025-10-16T04:21:07.975985+00:00'}
+2025-10-16T11:21:08.236664 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 264.8, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:19:02\r', 'ts': '2025-10-16T04:21:07.973467+00:00'}
+2025-10-16T11:21:10.215346 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 237.8, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:19:04\r', 'ts': '2025-10-16T04:21:09.963508+00:00'}
+2025-10-16T11:21:10.217611 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 237.8, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:19:04\r', 'ts': '2025-10-16T04:21:09.963425+00:00'}
+2025-10-16T11:21:12.234346 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 223.5, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:19:06\r', 'ts': '2025-10-16T04:21:11.974140+00:00'}
+2025-10-16T11:36:25.343627 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-16T11:36:25.343696 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/devices/telemetry
+2025-10-16T11:36:26.600170 [MQTT] ✅ CONNECTED with code=Success
+2025-10-16T11:36:26.601033 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=1 result=0
+2025-10-16T11:36:26.830322 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-16T11:36:26.896521 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-16T11:36:26.896580 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/devices/telemetry
+2025-10-16T11:36:28.099888 [MQTT] ✅ CONNECTED with code=Success
+2025-10-16T11:36:28.101694 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=1 result=0
+2025-10-16T11:36:28.344046 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-16T11:36:30.396761 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 256, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:34:23\r', 'ts': '2025-10-16T04:36:28.426541+00:00'}
+2025-10-16T11:36:30.435270 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 256, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:34:23\r', 'ts': '2025-10-16T04:36:28.419366+00:00'}
+2025-10-16T11:36:30.693423 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 256, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:34:25\r', 'ts': '2025-10-16T04:36:30.425321+00:00'}
+2025-10-16T11:36:30.746303 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 256, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:34:25\r', 'ts': '2025-10-16T04:36:30.436790+00:00'}
+2025-10-16T11:36:32.667564 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 255.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:34:27\r', 'ts': '2025-10-16T04:36:32.415824+00:00'}
+2025-10-16T11:36:32.705356 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 255.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:34:27\r', 'ts': '2025-10-16T04:36:32.410635+00:00'}
+2025-10-16T11:36:34.687413 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 254.9, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:34:30\r', 'ts': '2025-10-16T04:36:34.428019+00:00'}
+2025-10-16T11:36:34.712057 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 254.9, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:34:30\r', 'ts': '2025-10-16T04:36:34.418740+00:00'}
+2025-10-16T11:36:36.712732 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 252.8, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:34:32\r', 'ts': '2025-10-16T04:36:36.432031+00:00'}
+2025-10-16T11:36:36.744908 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 252.8, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:34:32\r', 'ts': '2025-10-16T04:36:36.438712+00:00'}
+2025-10-16T11:36:38.678333 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 251.3, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:34:34\r', 'ts': '2025-10-16T04:36:38.420691+00:00'}
+2025-10-16T11:36:38.691727 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 251.3, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:34:34\r', 'ts': '2025-10-16T04:36:38.410804+00:00'}
+2025-10-16T11:36:40.668003 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 250.8, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:34:36\r', 'ts': '2025-10-16T04:36:40.409100+00:00'}
+2025-10-16T11:36:40.790229 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 250.8, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:34:36\r', 'ts': '2025-10-16T04:36:40.406451+00:00'}
+2025-10-16T11:36:44.704138 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 249.4, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:34:38\r', 'ts': '2025-10-16T04:36:44.442407+00:00'}
+2025-10-16T11:36:44.723128 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 249.4, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:34:38\r', 'ts': '2025-10-16T04:36:44.431765+00:00'}
+2025-10-16T11:36:46.677834 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 248.1, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:34:40\r', 'ts': '2025-10-16T04:36:46.418330+00:00'}
+2025-10-16T11:36:47.473269 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 248.1, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:34:40\r', 'ts': '2025-10-16T04:36:46.413182+00:00'}
+2025-10-16T11:36:48.678842 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 246.9, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:34:42\r', 'ts': '2025-10-16T04:36:48.425480+00:00'}
+2025-10-16T11:36:48.714483 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 246.9, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:34:42\r', 'ts': '2025-10-16T04:36:48.420437+00:00'}
+2025-10-16T11:36:50.691964 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 245.1, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:34:44\r', 'ts': '2025-10-16T04:36:50.437733+00:00'}
+2025-10-16T11:36:50.706895 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 245.1, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:34:44\r', 'ts': '2025-10-16T04:36:50.429083+00:00'}
+2025-10-16T11:36:52.689738 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 244.8, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:34:46\r', 'ts': '2025-10-16T04:36:52.435356+00:00'}
+2025-10-16T11:36:52.713208 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 244.8, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:34:46\r', 'ts': '2025-10-16T04:36:52.429475+00:00'}
+2025-10-16T11:36:54.683961 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 245.3, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:34:48\r', 'ts': '2025-10-16T04:36:54.435837+00:00'}
+2025-10-16T11:36:54.720286 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 245.3, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:34:48\r', 'ts': '2025-10-16T04:36:54.432308+00:00'}
+2025-10-16T11:36:56.703869 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 243.4, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:34:50\r', 'ts': '2025-10-16T04:36:56.441706+00:00'}
+2025-10-16T11:36:56.732762 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 243.4, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:34:50\r', 'ts': '2025-10-16T04:36:56.441696+00:00'}
+2025-10-16T11:36:58.682227 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 242.2, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:34:53\r', 'ts': '2025-10-16T04:36:58.428634+00:00'}
+2025-10-16T11:36:58.706588 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 242.2, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:34:53\r', 'ts': '2025-10-16T04:36:58.422139+00:00'}
+2025-10-16T11:37:00.706559 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 241.7, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:34:55\r', 'ts': '2025-10-16T04:37:00.451839+00:00'}
+2025-10-16T11:37:00.751356 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 241.7, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:34:55\r', 'ts': '2025-10-16T04:37:00.451723+00:00'}
+2025-10-16T11:37:02.740616 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 241.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:34:57\r', 'ts': '2025-10-16T04:37:02.442203+00:00'}
+2025-10-16T11:37:02.785024 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 241.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:34:57\r', 'ts': '2025-10-16T04:37:02.446807+00:00'}
+2025-10-16T11:37:04.774889 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 242.3, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:34:59\r', 'ts': '2025-10-16T04:37:04.425697+00:00'}
+2025-10-16T11:37:04.781086 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 242.3, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:34:59\r', 'ts': '2025-10-16T04:37:04.419414+00:00'}
+2025-10-16T11:37:06.722622 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 244.1, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:35:01\r', 'ts': '2025-10-16T04:37:06.457156+00:00'}
+2025-10-16T11:37:06.754721 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 244.1, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:35:01\r', 'ts': '2025-10-16T04:37:06.447054+00:00'}
+2025-10-16T11:37:08.760381 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 248.9, 'nhiet_do': 25, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:35:03\r', 'ts': '2025-10-16T04:37:08.492706+00:00'}
+2025-10-16T11:37:08.789213 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 248.9, 'nhiet_do': 25, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:35:03\r', 'ts': '2025-10-16T04:37:08.481592+00:00'}
+2025-10-16T11:37:10.673809 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 249.9, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:35:05\r', 'ts': '2025-10-16T04:37:10.412522+00:00'}
+2025-10-16T11:37:10.691381 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 249.9, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:35:05\r', 'ts': '2025-10-16T04:37:10.407027+00:00'}
+2025-10-16T11:37:12.740451 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 251.1, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:35:07\r', 'ts': '2025-10-16T04:37:12.454066+00:00'}
+2025-10-16T11:37:12.750719 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 251.1, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:35:07\r', 'ts': '2025-10-16T04:37:12.459952+00:00'}
+2025-10-16T11:37:14.698686 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 267.2, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:35:09\r', 'ts': '2025-10-16T04:37:14.447896+00:00'}
+2025-10-16T11:37:14.729754 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 267.2, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:35:09\r', 'ts': '2025-10-16T04:37:14.439888+00:00'}
+2025-10-16T11:37:17.086205 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 363.5, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:35:11\r', 'ts': '2025-10-16T04:37:16.831454+00:00'}
+2025-10-16T11:37:17.121530 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 363.5, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:35:11\r', 'ts': '2025-10-16T04:37:16.827466+00:00'}
+2025-10-16T11:37:18.750730 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 414.9, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:35:13\r', 'ts': '2025-10-16T04:37:18.450189+00:00'}
+2025-10-16T11:37:18.752922 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 414.9, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:35:13\r', 'ts': '2025-10-16T04:37:18.476981+00:00'}
+2025-10-16T11:37:20.736215 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 431.7, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:35:15\r', 'ts': '2025-10-16T04:37:20.477256+00:00'}
+2025-10-16T11:37:20.766270 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 431.7, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:35:15\r', 'ts': '2025-10-16T04:37:20.474385+00:00'}
+2025-10-16T11:37:22.770791 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 457.2, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:35:17\r', 'ts': '2025-10-16T04:37:22.475054+00:00'}
+2025-10-16T11:37:22.825731 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 457.2, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:35:17\r', 'ts': '2025-10-16T04:37:22.483055+00:00'}
+2025-10-16T11:37:24.786489 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 436.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:35:19\r', 'ts': '2025-10-16T04:37:24.517568+00:00'}
+2025-10-16T11:37:24.803614 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 436.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:35:19\r', 'ts': '2025-10-16T04:37:24.512113+00:00'}
+2025-10-16T11:37:26.689253 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 469.3, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:35:21\r', 'ts': '2025-10-16T04:37:26.429308+00:00'}
+2025-10-16T11:37:26.702948 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 469.3, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:35:21\r', 'ts': '2025-10-16T04:37:26.422900+00:00'}
+2025-10-16T11:37:28.700740 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 424, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:35:23\r', 'ts': '2025-10-16T04:37:28.449921+00:00'}
+2025-10-16T11:37:28.715124 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 424, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:35:23\r', 'ts': '2025-10-16T04:37:28.451539+00:00'}
+2025-10-16T11:37:30.740272 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 378.1, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:35:26\r', 'ts': '2025-10-16T04:37:30.485706+00:00'}
+2025-10-16T11:37:30.756900 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 378.1, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:35:26\r', 'ts': '2025-10-16T04:37:30.481159+00:00'}
+2025-10-16T11:37:32.712222 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 348.3, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:35:28\r', 'ts': '2025-10-16T04:37:32.456146+00:00'}
+2025-10-16T11:37:32.714891 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 348.3, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:35:28\r', 'ts': '2025-10-16T04:37:32.449408+00:00'}
+2025-10-16T11:37:34.715895 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 325.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:35:30\r', 'ts': '2025-10-16T04:37:34.455972+00:00'}
+2025-10-16T11:37:34.729414 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 325.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:35:30\r', 'ts': '2025-10-16T04:37:34.449226+00:00'}
+2025-10-16T11:37:36.748359 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 308.9, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:35:32\r', 'ts': '2025-10-16T04:37:36.488826+00:00'}
+2025-10-16T11:37:36.756810 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 308.9, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:35:32\r', 'ts': '2025-10-16T04:37:36.497228+00:00'}
+2025-10-16T11:37:38.708355 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 297.1, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:35:34\r', 'ts': '2025-10-16T04:37:38.455203+00:00'}
+2025-10-16T11:37:38.721738 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 297.1, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:35:34\r', 'ts': '2025-10-16T04:37:38.451461+00:00'}
+2025-10-16T11:37:40.705088 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 318.7, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:35:36\r', 'ts': '2025-10-16T04:37:40.456477+00:00'}
+2025-10-16T11:37:40.723080 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 318.7, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:35:36\r', 'ts': '2025-10-16T04:37:40.451275+00:00'}
+2025-10-16T11:37:42.713311 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 334.2, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:35:38\r', 'ts': '2025-10-16T04:37:42.449478+00:00'}
+2025-10-16T11:37:42.714374 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 334.2, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:35:38\r', 'ts': '2025-10-16T04:37:42.444870+00:00'}
+2025-10-16T11:37:44.728890 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 341.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:35:40\r', 'ts': '2025-10-16T04:37:44.472804+00:00'}
+2025-10-16T11:37:44.745822 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 341.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:35:40\r', 'ts': '2025-10-16T04:37:44.469676+00:00'}
+2025-10-16T11:37:48.724402 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 343.2, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:35:42\r', 'ts': '2025-10-16T04:37:48.450829+00:00'}
+2025-10-16T11:37:48.747896 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 343.2, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:35:42\r', 'ts': '2025-10-16T04:37:48.457195+00:00'}
+2025-10-16T11:37:50.688868 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 341.9, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:35:44\r', 'ts': '2025-10-16T04:37:50.412569+00:00'}
+2025-10-16T11:37:50.690492 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 341.9, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:35:44\r', 'ts': '2025-10-16T04:37:50.418961+00:00'}
+2025-10-16T11:37:52.693483 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 344.3, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:35:46\r', 'ts': '2025-10-16T04:37:52.424464+00:00'}
+2025-10-16T11:37:52.702499 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 344.3, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:35:46\r', 'ts': '2025-10-16T04:37:52.429702+00:00'}
+2025-10-16T11:37:54.696088 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 347, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:35:48\r', 'ts': '2025-10-16T04:37:54.439496+00:00'}
+2025-10-16T11:37:54.710506 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 347, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:35:48\r', 'ts': '2025-10-16T04:37:54.432808+00:00'}
+2025-10-16T11:37:56.683319 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 344.5, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:35:50\r', 'ts': '2025-10-16T04:37:56.438288+00:00'}
+2025-10-16T11:37:56.705799 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 344.5, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:35:50\r', 'ts': '2025-10-16T04:37:56.431953+00:00'}
+2025-10-16T11:37:58.681393 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 315.8, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:35:53\r', 'ts': '2025-10-16T04:37:58.436252+00:00'}
+2025-10-16T11:37:59.147715 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 315.8, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:35:53\r', 'ts': '2025-10-16T04:37:58.428032+00:00'}
+2025-10-16T11:38:00.715102 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 302.5, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:35:55\r', 'ts': '2025-10-16T04:38:00.445473+00:00'}
+2025-10-16T11:38:00.721014 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 302.5, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:35:55\r', 'ts': '2025-10-16T04:38:00.430190+00:00'}
+2025-10-16T11:38:02.742193 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 300.3, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:35:57\r', 'ts': '2025-10-16T04:38:02.460951+00:00'}
+2025-10-16T11:38:02.809288 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 300.3, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:35:57\r', 'ts': '2025-10-16T04:38:02.466554+00:00'}
+2025-10-16T11:38:04.729332 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 298.9, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:35:59\r', 'ts': '2025-10-16T04:38:04.449066+00:00'}
+2025-10-16T11:38:04.801283 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 298.9, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:35:59\r', 'ts': '2025-10-16T04:38:04.456207+00:00'}
+2025-10-16T11:38:06.695604 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 298.5, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:36:01\r', 'ts': '2025-10-16T04:38:06.437133+00:00'}
+2025-10-16T11:38:06.702216 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 298.5, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:36:01\r', 'ts': '2025-10-16T04:38:06.432058+00:00'}
+2025-10-16T11:38:08.849107 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 294.2, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:36:03\r', 'ts': '2025-10-16T04:38:08.489761+00:00'}
+2025-10-16T11:38:09.207273 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 294.2, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:36:03\r', 'ts': '2025-10-16T04:38:08.484507+00:00'}
+2025-10-16T11:38:10.695929 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 307.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:36:05\r', 'ts': '2025-10-16T04:38:10.441728+00:00'}
+2025-10-16T11:38:10.705313 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 307.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:36:05\r', 'ts': '2025-10-16T04:38:10.430552+00:00'}
+2025-10-16T11:38:12.680289 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 321.9, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:36:07\r', 'ts': '2025-10-16T04:38:12.429865+00:00'}
+2025-10-16T11:38:12.707241 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 321.9, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:36:07\r', 'ts': '2025-10-16T04:38:12.426284+00:00'}
+2025-10-16T11:38:14.726525 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 329.4, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:36:09\r', 'ts': '2025-10-16T04:38:14.473098+00:00'}
+2025-10-16T11:38:14.818100 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 329.4, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:36:09\r', 'ts': '2025-10-16T04:38:14.462890+00:00'}
+2025-10-16T11:38:16.743861 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 327.2, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:36:11\r', 'ts': '2025-10-16T04:38:16.486636+00:00'}
+2025-10-16T11:38:16.757688 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 327.2, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:36:11\r', 'ts': '2025-10-16T04:38:16.480158+00:00'}
+2025-10-16T11:38:19.037870 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 304.1, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:36:13\r', 'ts': '2025-10-16T04:38:18.781420+00:00'}
+2025-10-16T11:38:19.273540 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 304.1, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:36:13\r', 'ts': '2025-10-16T04:38:18.774552+00:00'}
+2025-10-16T11:38:20.726866 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 288.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:36:15\r', 'ts': '2025-10-16T04:38:20.439311+00:00'}
+2025-10-16T11:38:20.732459 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 288.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:36:15\r', 'ts': '2025-10-16T04:38:20.432505+00:00'}
+2025-10-16T11:38:22.816480 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 276.3, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:36:17\r', 'ts': '2025-10-16T04:38:22.510197+00:00'}
+2025-10-16T11:38:22.836527 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 276.3, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:36:17\r', 'ts': '2025-10-16T04:38:22.508718+00:00'}
+2025-10-16T11:38:24.900163 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 282.9, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:36:19\r', 'ts': '2025-10-16T04:38:24.448010+00:00'}
+2025-10-16T11:38:26.781932 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 285.4, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:36:22\r', 'ts': '2025-10-16T04:38:26.514972+00:00'}
+2025-10-16T11:38:26.914760 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 285.4, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:36:22\r', 'ts': '2025-10-16T04:38:26.501389+00:00'}
+2025-10-16T11:38:28.771592 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 278.7, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:36:24\r', 'ts': '2025-10-16T04:38:28.512251+00:00'}
+2025-10-16T11:38:29.247236 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 278.7, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:36:24\r', 'ts': '2025-10-16T04:38:28.509070+00:00'}
+2025-10-16T11:38:30.758683 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 273.7, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:36:26\r', 'ts': '2025-10-16T04:38:30.494859+00:00'}
+2025-10-16T11:38:30.761977 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 273.7, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:36:26\r', 'ts': '2025-10-16T04:38:30.485790+00:00'}
+2025-10-16T11:38:32.749066 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 271.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:36:28\r', 'ts': '2025-10-16T04:38:32.481243+00:00'}
+2025-10-16T11:38:32.769857 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 271.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:36:28\r', 'ts': '2025-10-16T04:38:32.493850+00:00'}
+2025-10-16T11:38:36.759044 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 271.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:36:30\r', 'ts': '2025-10-16T04:38:36.496615+00:00'}
+2025-10-16T11:38:36.759702 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 271.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:36:30\r', 'ts': '2025-10-16T04:38:36.503958+00:00'}
+2025-10-16T11:38:38.770573 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 271.1, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:36:32\r', 'ts': '2025-10-16T04:38:38.506993+00:00'}
+2025-10-16T11:38:39.180123 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 271.1, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:36:32\r', 'ts': '2025-10-16T04:38:38.500601+00:00'}
+2025-10-16T11:38:40.755999 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 271, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:36:34\r', 'ts': '2025-10-16T04:38:40.498373+00:00'}
+2025-10-16T11:38:40.770573 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 271, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:36:34\r', 'ts': '2025-10-16T04:38:40.492434+00:00'}
+2025-10-16T11:38:42.777953 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 271.1, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:36:36\r', 'ts': '2025-10-16T04:38:42.489704+00:00'}
+2025-10-16T11:38:42.821644 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 271.1, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:36:36\r', 'ts': '2025-10-16T04:38:42.496364+00:00'}
+2025-10-16T11:38:44.753736 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 302.1, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:36:38\r', 'ts': '2025-10-16T04:38:44.498482+00:00'}
+2025-10-16T11:38:44.797889 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 302.1, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:36:38\r', 'ts': '2025-10-16T04:38:44.498473+00:00'}
+2025-10-16T11:38:46.757681 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 296.7, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:36:40\r', 'ts': '2025-10-16T04:38:46.488578+00:00'}
+2025-10-16T11:38:48.730768 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 293, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:36:42\r', 'ts': '2025-10-16T04:38:48.479275+00:00'}
+2025-10-16T11:38:49.199502 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 293, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:36:42\r', 'ts': '2025-10-16T04:38:48.478041+00:00'}
+2025-10-16T11:38:50.744445 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 291.1, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:36:44\r', 'ts': '2025-10-16T04:38:50.499804+00:00'}
+2025-10-16T11:38:50.772057 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 291.1, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:36:44\r', 'ts': '2025-10-16T04:38:50.487708+00:00'}
+2025-10-16T11:38:52.748612 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 290, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:36:47\r', 'ts': '2025-10-16T04:38:52.496679+00:00'}
+2025-10-16T11:38:52.782310 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 290, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:36:47\r', 'ts': '2025-10-16T04:38:52.489469+00:00'}
+2025-10-16T11:38:54.762494 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 288.5, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:36:49\r', 'ts': '2025-10-16T04:38:54.497602+00:00'}
+2025-10-16T11:38:54.765351 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 288.5, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:36:49\r', 'ts': '2025-10-16T04:38:54.490332+00:00'}
+2025-10-16T11:38:56.772205 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 286.9, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:36:51\r', 'ts': '2025-10-16T04:38:56.502605+00:00'}
+2025-10-16T11:38:56.782350 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 286.9, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:36:51\r', 'ts': '2025-10-16T04:38:56.502592+00:00'}
+2025-10-16T11:38:58.874443 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 284, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:36:53\r', 'ts': '2025-10-16T04:38:58.617030+00:00'}
+2025-10-16T11:38:59.226270 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 284, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:36:53\r', 'ts': '2025-10-16T04:38:58.601212+00:00'}
+2025-10-16T11:39:00.765115 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 276.4, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:36:55\r', 'ts': '2025-10-16T04:39:00.493306+00:00'}
+2025-10-16T11:39:02.755898 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 271, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:36:57\r', 'ts': '2025-10-16T04:39:02.508501+00:00'}
+2025-10-16T11:39:02.772180 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 271, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:36:57\r', 'ts': '2025-10-16T04:39:02.501847+00:00'}
+2025-10-16T11:39:04.767445 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 268.1, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:36:59\r', 'ts': '2025-10-16T04:39:04.482890+00:00'}
+2025-10-16T11:39:04.767521 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 268.1, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:36:59\r', 'ts': '2025-10-16T04:39:04.489731+00:00'}
+2025-10-16T11:39:06.793198 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 266, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:37:01\r', 'ts': '2025-10-16T04:39:06.508303+00:00'}
+2025-10-16T11:39:06.793712 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 266, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:37:01\r', 'ts': '2025-10-16T04:39:06.508254+00:00'}
+2025-10-16T11:39:08.753220 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 266, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:37:03\r', 'ts': '2025-10-16T04:39:08.496624+00:00'}
+2025-10-16T11:39:08.808068 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 266, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:37:03\r', 'ts': '2025-10-16T04:39:08.491732+00:00'}
+2025-10-16T11:39:10.755381 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 265.9, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:37:05\r', 'ts': '2025-10-16T04:39:10.501743+00:00'}
+2025-10-16T11:39:10.771563 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 265.9, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:37:05\r', 'ts': '2025-10-16T04:39:10.496484+00:00'}
+2025-10-16T11:39:12.753378 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 265.4, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:37:07\r', 'ts': '2025-10-16T04:39:12.489367+00:00'}
+2025-10-16T11:39:12.753409 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 265.4, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:37:07\r', 'ts': '2025-10-16T04:39:12.496445+00:00'}
+2025-10-16T11:39:14.732293 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 266.2, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:37:09\r', 'ts': '2025-10-16T04:39:14.485294+00:00'}
+2025-10-16T11:39:14.739913 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 266.2, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:37:09\r', 'ts': '2025-10-16T04:39:14.486336+00:00'}
+2025-10-16T11:39:16.787362 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 267.4, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:37:11\r', 'ts': '2025-10-16T04:39:16.537688+00:00'}
+2025-10-16T11:39:16.794312 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 267.4, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:37:11\r', 'ts': '2025-10-16T04:39:16.533183+00:00'}
+2025-10-16T11:39:18.979107 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 275, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:37:13\r', 'ts': '2025-10-16T04:39:18.712782+00:00'}
+2025-10-16T11:39:18.992006 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 275, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:37:13\r', 'ts': '2025-10-16T04:39:18.719199+00:00'}
+2025-10-16T11:39:20.790484 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 278.3, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:37:16\r', 'ts': '2025-10-16T04:39:20.526437+00:00'}
+2025-10-16T11:39:20.797472 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 278.3, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:37:16\r', 'ts': '2025-10-16T04:39:20.523177+00:00'}
+2025-10-16T11:39:22.780782 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 274, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:37:18\r', 'ts': '2025-10-16T04:39:22.526539+00:00'}
+2025-10-16T11:39:24.771674 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 270.7, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:37:20\r', 'ts': '2025-10-16T04:39:24.517991+00:00'}
+2025-10-16T11:39:24.784508 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 270.7, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:37:20\r', 'ts': '2025-10-16T04:39:24.509858+00:00'}
+2025-10-16T11:39:26.773457 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 270.2, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:37:22\r', 'ts': '2025-10-16T04:39:26.499940+00:00'}
+2025-10-16T11:39:28.776657 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 269.4, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:37:24\r', 'ts': '2025-10-16T04:39:28.519221+00:00'}
+2025-10-16T11:39:28.844753 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 269.4, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:37:24\r', 'ts': '2025-10-16T04:39:28.515474+00:00'}
+2025-10-16T11:39:32.772385 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 267.2, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:37:26\r', 'ts': '2025-10-16T04:39:32.508254+00:00'}
+2025-10-16T11:39:32.785991 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 267.2, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:37:26\r', 'ts': '2025-10-16T04:39:32.506537+00:00'}
+2025-10-16T11:39:34.805470 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 267.1, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:37:28\r', 'ts': '2025-10-16T04:39:34.526925+00:00'}
+2025-10-16T11:39:34.814936 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 267.1, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:37:28\r', 'ts': '2025-10-16T04:39:34.520149+00:00'}
+2025-10-16T11:39:36.775961 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 266.7, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:37:30\r', 'ts': '2025-10-16T04:39:36.527507+00:00'}
+2025-10-16T11:39:36.809600 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 266.7, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:37:30\r', 'ts': '2025-10-16T04:39:36.519482+00:00'}
+2025-10-16T11:39:38.779468 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 266.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:37:32\r', 'ts': '2025-10-16T04:39:38.525653+00:00'}
+2025-10-16T11:39:38.800249 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 266.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:37:32\r', 'ts': '2025-10-16T04:39:38.519100+00:00'}
+2025-10-16T11:39:40.769740 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 266.7, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:37:35\r', 'ts': '2025-10-16T04:39:40.519815+00:00'}
+2025-10-16T11:39:40.804890 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 266.7, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:37:35\r', 'ts': '2025-10-16T04:39:40.509087+00:00'}
+2025-10-16T11:39:42.766145 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 267.7, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:37:37\r', 'ts': '2025-10-16T04:39:42.506198+00:00'}
+2025-10-16T11:39:42.779050 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 267.7, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:37:37\r', 'ts': '2025-10-16T04:39:42.500280+00:00'}
+2025-10-16T11:39:44.743178 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 268.5, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:37:39\r', 'ts': '2025-10-16T04:39:44.488552+00:00'}
+2025-10-16T11:39:44.766554 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 268.5, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:37:39\r', 'ts': '2025-10-16T04:39:44.485826+00:00'}
+2025-10-16T11:39:46.756884 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 268.9, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:37:41\r', 'ts': '2025-10-16T04:39:46.510425+00:00'}
+2025-10-16T11:39:46.788522 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 268.9, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:37:41\r', 'ts': '2025-10-16T04:39:46.504363+00:00'}
+2025-10-16T11:39:48.795488 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 270.2, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:37:43\r', 'ts': '2025-10-16T04:39:48.537772+00:00'}
+2025-10-16T11:39:48.813530 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 270.2, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:37:43\r', 'ts': '2025-10-16T04:39:48.530723+00:00'}
+2025-10-16T11:39:50.778844 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 270, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:37:45\r', 'ts': '2025-10-16T04:39:50.537025+00:00'}
+2025-10-16T11:39:50.812727 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 270, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:37:45\r', 'ts': '2025-10-16T04:39:50.531246+00:00'}
+2025-10-16T11:39:52.750989 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 269.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:37:47\r', 'ts': '2025-10-16T04:39:52.508741+00:00'}
+2025-10-16T11:39:52.782938 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 269.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:37:47\r', 'ts': '2025-10-16T04:39:52.503715+00:00'}
+2025-10-16T11:39:54.761275 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 269.3, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:37:49\r', 'ts': '2025-10-16T04:39:54.526673+00:00'}
+2025-10-16T11:39:54.804884 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 269.3, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:37:49\r', 'ts': '2025-10-16T04:39:54.519599+00:00'}
+2025-10-16T11:39:56.771640 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 269.4, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:37:51\r', 'ts': '2025-10-16T04:39:56.526125+00:00'}
+2025-10-16T11:39:56.802875 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 269.4, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:37:51\r', 'ts': '2025-10-16T04:39:56.518943+00:00'}
+2025-10-16T11:39:58.765391 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 271.4, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:37:53\r', 'ts': '2025-10-16T04:39:58.516508+00:00'}
+2025-10-16T11:39:58.789689 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 271.4, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:37:53\r', 'ts': '2025-10-16T04:39:58.515380+00:00'}
+2025-10-16T11:40:00.774848 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 280.1, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:37:55\r', 'ts': '2025-10-16T04:40:00.530457+00:00'}
+2025-10-16T11:40:00.800213 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 280.1, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:37:55\r', 'ts': '2025-10-16T04:40:00.525297+00:00'}
+2025-10-16T11:40:02.782782 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 284.2, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:37:57\r', 'ts': '2025-10-16T04:40:02.538828+00:00'}
+2025-10-16T11:40:02.817742 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 284.2, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:37:57\r', 'ts': '2025-10-16T04:40:02.529725+00:00'}
+2025-10-16T11:40:04.785027 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 281.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:37:59\r', 'ts': '2025-10-16T04:40:04.536438+00:00'}
+2025-10-16T11:40:04.801462 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 281.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:37:59\r', 'ts': '2025-10-16T04:40:04.530684+00:00'}
+2025-10-16T11:40:06.757803 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 276.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:38:01\r', 'ts': '2025-10-16T04:40:06.507323+00:00'}
+2025-10-16T11:40:06.801418 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 276.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:38:01\r', 'ts': '2025-10-16T04:40:06.507228+00:00'}
+2025-10-16T11:40:08.798116 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 276, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:38:04\r', 'ts': '2025-10-16T04:40:08.552053+00:00'}
+2025-10-16T11:40:08.824351 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 276, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:38:04\r', 'ts': '2025-10-16T04:40:08.540890+00:00'}
+2025-10-16T11:40:10.781345 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 272.4, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:38:06\r', 'ts': '2025-10-16T04:40:10.541384+00:00'}
+2025-10-16T11:40:10.841303 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 272.4, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:38:06\r', 'ts': '2025-10-16T04:40:10.531642+00:00'}
+2025-10-16T11:40:12.783762 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 269.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:38:08\r', 'ts': '2025-10-16T04:40:12.544598+00:00'}
+2025-10-16T11:40:12.819687 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 269.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:38:08\r', 'ts': '2025-10-16T04:40:12.531550+00:00'}
+2025-10-16T11:40:14.783440 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 267.8, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:38:10\r', 'ts': '2025-10-16T04:40:14.537322+00:00'}
+2025-10-16T11:40:14.805741 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 267.8, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:38:10\r', 'ts': '2025-10-16T04:40:14.529907+00:00'}
+2025-10-16T11:40:16.770903 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 266.3, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:38:12\r', 'ts': '2025-10-16T04:40:16.537115+00:00'}
+2025-10-16T11:40:16.856500 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 266.3, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:38:12\r', 'ts': '2025-10-16T04:40:16.529288+00:00'}
+2025-10-16T11:40:18.896011 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 265.7, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:38:14\r', 'ts': '2025-10-16T04:40:18.634683+00:00'}
+2025-10-16T11:40:18.969089 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 265.7, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:38:14\r', 'ts': '2025-10-16T04:40:18.634858+00:00'}
+2025-10-16T11:40:20.967418 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 262.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:38:16\r', 'ts': '2025-10-16T04:40:20.737139+00:00'}
+2025-10-16T11:40:20.994413 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 262.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:38:16\r', 'ts': '2025-10-16T04:40:20.726263+00:00'}
+2025-10-16T11:40:24.767159 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 258.9, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:38:18\r', 'ts': '2025-10-16T04:40:24.536301+00:00'}
+2025-10-16T11:40:24.805135 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 258.9, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:38:18\r', 'ts': '2025-10-16T04:40:24.530249+00:00'}
+2025-10-16T11:40:26.824050 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 260.1, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:38:20\r', 'ts': '2025-10-16T04:40:26.541220+00:00'}
+2025-10-16T11:40:26.841979 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 260.1, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:38:20\r', 'ts': '2025-10-16T04:40:26.547183+00:00'}
+2025-10-16T11:40:28.812512 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 262.3, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:38:22\r', 'ts': '2025-10-16T04:40:28.581662+00:00'}
+2025-10-16T11:40:28.852850 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 262.3, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:38:22\r', 'ts': '2025-10-16T04:40:28.573777+00:00'}
+2025-10-16T11:40:30.810612 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 262.3, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:38:24\r', 'ts': '2025-10-16T04:40:30.569126+00:00'}
+2025-10-16T11:40:30.832539 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 262.3, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:38:24\r', 'ts': '2025-10-16T04:40:30.567270+00:00'}
+2025-10-16T11:40:32.791679 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 261, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:38:26\r', 'ts': '2025-10-16T04:40:32.547683+00:00'}
+2025-10-16T11:40:32.841454 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 261, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:38:26\r', 'ts': '2025-10-16T04:40:32.540290+00:00'}
+2025-10-16T11:40:34.794971 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 260.7, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:38:28\r', 'ts': '2025-10-16T04:40:34.546943+00:00'}
+2025-10-16T11:40:34.806162 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 260.7, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:38:28\r', 'ts': '2025-10-16T04:40:34.540200+00:00'}
+2025-10-16T11:40:36.806165 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 267.4, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:38:31\r', 'ts': '2025-10-16T04:40:36.557374+00:00'}
+2025-10-16T11:40:36.828254 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 267.4, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:38:31\r', 'ts': '2025-10-16T04:40:36.548488+00:00'}
+2025-10-16T11:40:38.800462 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 278, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:38:33\r', 'ts': '2025-10-16T04:40:38.556878+00:00'}
+2025-10-16T11:40:38.824220 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 278, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:38:33\r', 'ts': '2025-10-16T04:40:38.552742+00:00'}
+2025-10-16T11:40:40.795542 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 273.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:38:35\r', 'ts': '2025-10-16T04:40:40.536252+00:00'}
+2025-10-16T11:40:40.819170 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 273.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:38:35\r', 'ts': '2025-10-16T04:40:40.529795+00:00'}
+2025-10-16T11:40:42.803396 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 271.7, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:38:37\r', 'ts': '2025-10-16T04:40:42.531940+00:00'}
+2025-10-16T11:40:42.809490 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 271.7, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:38:37\r', 'ts': '2025-10-16T04:40:42.563928+00:00'}
+2025-10-16T11:40:44.770849 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 269.7, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:38:39\r', 'ts': '2025-10-16T04:40:44.520115+00:00'}
+2025-10-16T11:40:44.799687 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 269.7, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:38:39\r', 'ts': '2025-10-16T04:40:44.511986+00:00'}
+2025-10-16T11:40:46.802812 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 267.8, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:38:41\r', 'ts': '2025-10-16T04:40:46.541160+00:00'}
+2025-10-16T11:40:46.813931 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 267.8, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:38:41\r', 'ts': '2025-10-16T04:40:46.538904+00:00'}
+2025-10-16T11:40:48.825616 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 267, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:38:43\r', 'ts': '2025-10-16T04:40:48.586687+00:00'}
+2025-10-16T11:40:48.859805 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 267, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:38:43\r', 'ts': '2025-10-16T04:40:48.579150+00:00'}
+2025-10-16T11:40:50.806154 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 264.7, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:38:45\r', 'ts': '2025-10-16T04:40:50.554381+00:00'}
+2025-10-16T11:40:50.855178 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 264.7, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:38:45\r', 'ts': '2025-10-16T04:40:50.551181+00:00'}
+2025-10-16T11:40:52.800640 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 260.9, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:38:47\r', 'ts': '2025-10-16T04:40:52.556236+00:00'}
+2025-10-16T11:40:52.822910 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 260.9, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:38:47\r', 'ts': '2025-10-16T04:40:52.549076+00:00'}
+2025-10-16T11:40:54.802332 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 259, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:38:49\r', 'ts': '2025-10-16T04:40:54.556134+00:00'}
+2025-10-16T11:40:54.836895 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 259, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:38:49\r', 'ts': '2025-10-16T04:40:54.549404+00:00'}
+2025-10-16T11:40:56.794760 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 257.7, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:38:51\r', 'ts': '2025-10-16T04:40:56.556227+00:00'}
+2025-10-16T11:40:56.815565 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 257.7, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:38:51\r', 'ts': '2025-10-16T04:40:56.548979+00:00'}
+2025-10-16T11:40:58.802537 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 258.7, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:38:54\r', 'ts': '2025-10-16T04:40:58.559004+00:00'}
+2025-10-16T11:40:58.833072 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 258.7, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:38:54\r', 'ts': '2025-10-16T04:40:58.552951+00:00'}
+2025-10-16T11:41:00.809939 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 259.8, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:38:56\r', 'ts': '2025-10-16T04:41:00.572783+00:00'}
+2025-10-16T11:41:00.855758 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 259.8, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:38:56\r', 'ts': '2025-10-16T04:41:00.568732+00:00'}
+2025-10-16T11:41:02.807667 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 260.7, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:38:58\r', 'ts': '2025-10-16T04:41:02.566051+00:00'}
+2025-10-16T11:41:02.827741 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 260.7, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:38:58\r', 'ts': '2025-10-16T04:41:02.560754+00:00'}
+2025-10-16T11:41:04.823979 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 263, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:39:00\r', 'ts': '2025-10-16T04:41:04.581085+00:00'}
+2025-10-16T11:41:04.863415 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 263, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:39:00\r', 'ts': '2025-10-16T04:41:04.580956+00:00'}
+2025-10-16T11:41:06.791401 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 265.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:39:02\r', 'ts': '2025-10-16T04:41:06.545542+00:00'}
+2025-10-16T11:41:06.823545 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 265.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:39:02\r', 'ts': '2025-10-16T04:41:06.539519+00:00'}
+2025-10-16T11:41:08.825195 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 271.9, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:39:04\r', 'ts': '2025-10-16T04:41:08.569263+00:00'}
+2025-10-16T11:41:08.838463 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 271.9, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:39:04\r', 'ts': '2025-10-16T04:41:08.562496+00:00'}
+2025-10-16T11:41:10.855624 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 278.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:39:06\r', 'ts': '2025-10-16T04:41:10.587311+00:00'}
+2025-10-16T11:41:10.860621 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 278.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:39:06\r', 'ts': '2025-10-16T04:41:10.580863+00:00'}
+2025-10-16T11:41:12.835387 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 281.8, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:39:08\r', 'ts': '2025-10-16T04:41:12.597480+00:00'}
+2025-10-16T11:41:12.869861 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 281.8, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:39:08\r', 'ts': '2025-10-16T04:41:12.590934+00:00'}
+2025-10-16T11:41:14.862246 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 284.8, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:39:10\r', 'ts': '2025-10-16T04:41:14.615509+00:00'}
+2025-10-16T11:41:14.864762 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 284.8, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:39:10\r', 'ts': '2025-10-16T04:41:14.604185+00:00'}
+2025-10-16T11:41:18.802066 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 287.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:39:12\r', 'ts': '2025-10-16T04:41:18.560038+00:00'}
+2025-10-16T11:41:18.823358 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 287.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:39:12\r', 'ts': '2025-10-16T04:41:18.552370+00:00'}
+2025-10-16T11:41:21.311851 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 309.7, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:39:14\r', 'ts': '2025-10-16T04:41:21.067714+00:00'}
+2025-10-16T11:41:21.331211 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 309.7, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:39:14\r', 'ts': '2025-10-16T04:41:21.067699+00:00'}
+2025-10-16T11:41:22.809665 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 319.2, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:39:16\r', 'ts': '2025-10-16T04:41:22.567553+00:00'}
+2025-10-16T11:41:22.824677 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 319.2, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:39:16\r', 'ts': '2025-10-16T04:41:22.559698+00:00'}
+2025-10-16T11:41:24.819506 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 310.1, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:39:18\r', 'ts': '2025-10-16T04:41:24.578074+00:00'}
+2025-10-16T11:41:24.828624 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 310.1, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:39:18\r', 'ts': '2025-10-16T04:41:24.570495+00:00'}
+2025-10-16T11:41:26.802566 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 304.2, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:39:21\r', 'ts': '2025-10-16T04:41:26.566775+00:00'}
+2025-10-16T11:41:26.838875 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 304.2, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:39:21\r', 'ts': '2025-10-16T04:41:26.561763+00:00'}
+2025-10-16T11:41:28.944749 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 321.1, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:39:23\r', 'ts': '2025-10-16T04:41:28.690937+00:00'}
+2025-10-16T11:41:28.959704 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 321.1, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:39:23\r', 'ts': '2025-10-16T04:41:28.690603+00:00'}
+2025-10-16T11:41:30.827710 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 371.8, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:39:25\r', 'ts': '2025-10-16T04:41:30.583374+00:00'}
+2025-10-16T11:41:30.842397 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 371.8, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:39:25\r', 'ts': '2025-10-16T04:41:30.580312+00:00'}
+2025-10-16T11:41:32.825442 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 423.7, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:39:27\r', 'ts': '2025-10-16T04:41:32.579305+00:00'}
+2025-10-16T11:41:32.838845 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 423.7, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:39:27\r', 'ts': '2025-10-16T04:41:32.573016+00:00'}
+2025-10-16T11:41:34.857324 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 462.8, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:39:29\r', 'ts': '2025-10-16T04:41:34.578848+00:00'}
+2025-10-16T11:41:34.889466 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 462.8, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:39:29\r', 'ts': '2025-10-16T04:41:34.572224+00:00'}
+2025-10-16T11:41:36.838304 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 488.8, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:39:31\r', 'ts': '2025-10-16T04:41:36.599189+00:00'}
+2025-10-16T11:41:36.879726 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 488.8, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:39:31\r', 'ts': '2025-10-16T04:41:36.592266+00:00'}
+2025-10-16T11:41:38.822001 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 505, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:39:33\r', 'ts': '2025-10-16T04:41:38.580280+00:00'}
+2025-10-16T11:41:38.843226 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 505, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:39:33\r', 'ts': '2025-10-16T04:41:38.573320+00:00'}
+2025-10-16T11:41:40.815197 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 515.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:39:35\r', 'ts': '2025-10-16T04:41:40.575669+00:00'}
+2025-10-16T11:41:40.826786 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 515.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:39:35\r', 'ts': '2025-10-16T04:41:40.570918+00:00'}
+2025-10-16T11:41:42.854266 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 522.5, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:39:37\r', 'ts': '2025-10-16T04:41:42.605904+00:00'}
+2025-10-16T11:41:42.864993 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 522.5, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:39:37\r', 'ts': '2025-10-16T04:41:42.602414+00:00'}
+2025-10-16T11:41:44.863445 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 525.9, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:39:39\r', 'ts': '2025-10-16T04:41:44.618035+00:00'}
+2025-10-16T11:41:44.881294 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 525.9, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:39:39\r', 'ts': '2025-10-16T04:41:44.610717+00:00'}
+2025-10-16T11:41:46.865258 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 532.5, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:39:41\r', 'ts': '2025-10-16T04:41:46.607788+00:00'}
+2025-10-16T11:41:46.866491 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 532.5, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:39:41\r', 'ts': '2025-10-16T04:41:46.600780+00:00'}
+2025-10-16T11:41:48.863229 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 533.8, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:39:43\r', 'ts': '2025-10-16T04:41:48.619576+00:00'}
+2025-10-16T11:41:48.884245 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 533.8, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:39:43\r', 'ts': '2025-10-16T04:41:48.619475+00:00'}
+2025-10-16T11:41:50.851372 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 535.2, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:39:45\r', 'ts': '2025-10-16T04:41:50.590162+00:00'}
+2025-10-16T11:41:50.851836 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 535.2, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:39:45\r', 'ts': '2025-10-16T04:41:50.596116+00:00'}
+2025-10-16T11:41:52.860167 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 541.4, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:39:47\r', 'ts': '2025-10-16T04:41:52.616173+00:00'}
+2025-10-16T11:41:52.878094 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 541.4, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:39:47\r', 'ts': '2025-10-16T04:41:52.609241+00:00'}
+2025-10-16T11:41:54.851882 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 539.5, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:39:49\r', 'ts': '2025-10-16T04:41:54.586457+00:00'}
+2025-10-16T11:41:54.852038 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 539.5, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:39:49\r', 'ts': '2025-10-16T04:41:54.580048+00:00'}
+2025-10-16T11:41:56.838728 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 543.8, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:39:51\r', 'ts': '2025-10-16T04:41:56.596654+00:00'}
+2025-10-16T11:41:56.864557 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 543.8, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:39:51\r', 'ts': '2025-10-16T04:41:56.589704+00:00'}
+2025-10-16T11:41:58.837139 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 544.9, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:39:53\r', 'ts': '2025-10-16T04:41:58.597644+00:00'}
+2025-10-16T11:41:58.883377 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 544.9, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:39:53\r', 'ts': '2025-10-16T04:41:58.593150+00:00'}
+2025-10-16T11:42:01.052919 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 545, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:39:55\r', 'ts': '2025-10-16T04:42:00.812634+00:00'}
+2025-10-16T11:42:01.855957 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 545, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:39:55\r', 'ts': '2025-10-16T04:42:01.591101+00:00'}
+2025-10-16T11:42:02.848092 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 544.7, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:39:57\r', 'ts': '2025-10-16T04:42:02.596823+00:00'}
+2025-10-16T11:42:02.856834 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 544.7, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:39:57\r', 'ts': '2025-10-16T04:42:02.591719+00:00'}
+2025-10-16T11:42:04.823512 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 542.1, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:39:59\r', 'ts': '2025-10-16T04:42:04.577104+00:00'}
+2025-10-16T11:42:04.839400 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 542.1, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:39:59\r', 'ts': '2025-10-16T04:42:04.574133+00:00'}
+2025-10-16T11:42:06.844134 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 537.5, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:40:01\r', 'ts': '2025-10-16T04:42:06.600500+00:00'}
+2025-10-16T11:42:06.861711 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 537.5, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:40:01\r', 'ts': '2025-10-16T04:42:06.595385+00:00'}
+2025-10-16T11:42:08.830394 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 532.5, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:40:04\r', 'ts': '2025-10-16T04:42:08.586167+00:00'}
+2025-10-16T11:42:08.887091 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 532.5, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:40:04\r', 'ts': '2025-10-16T04:42:08.579339+00:00'}
+2025-10-16T11:42:10.856815 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 533, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:40:06\r', 'ts': '2025-10-16T04:42:10.597006+00:00'}
+2025-10-16T11:42:10.890365 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 533, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:40:06\r', 'ts': '2025-10-16T04:42:10.591418+00:00'}
+2025-10-16T11:42:12.841131 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 532.2, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:40:08\r', 'ts': '2025-10-16T04:42:12.590528+00:00'}
+2025-10-16T11:42:12.857326 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 532.2, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:40:08\r', 'ts': '2025-10-16T04:42:12.584102+00:00'}
+2025-10-16T11:42:14.846929 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 536.1, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:40:10\r', 'ts': '2025-10-16T04:42:14.590236+00:00'}
+2025-10-16T11:42:14.869638 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 536.1, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:40:10\r', 'ts': '2025-10-16T04:42:14.617274+00:00'}
+2025-10-16T11:42:16.893053 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 535.1, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:40:12\r', 'ts': '2025-10-16T04:42:16.599350+00:00'}
+2025-10-16T11:42:16.893039 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 535.1, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:40:12\r', 'ts': '2025-10-16T04:42:16.606278+00:00'}
+2025-10-16T11:42:18.909561 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 533.5, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:40:14\r', 'ts': '2025-10-16T04:42:18.650052+00:00'}
+2025-10-16T11:42:18.914935 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 533.5, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:40:14\r', 'ts': '2025-10-16T04:42:18.646498+00:00'}
+2025-10-16T11:42:24.050821 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 532.8, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:40:16\r', 'ts': '2025-10-16T04:42:22.906557+00:00'}
+2025-10-16T11:42:24.076414 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 532.8, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:40:16\r', 'ts': '2025-10-16T04:42:22.890256+00:00'}
+2025-10-16T11:42:24.898794 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 531.2, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:40:18\r', 'ts': '2025-10-16T04:42:24.607999+00:00'}
+2025-10-16T11:42:24.940201 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 531.2, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:40:18\r', 'ts': '2025-10-16T04:42:24.602387+00:00'}
+2025-10-16T11:42:26.899166 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 529.5, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:40:20\r', 'ts': '2025-10-16T04:42:26.606298+00:00'}
+2025-10-16T11:42:26.935704 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 529.5, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:40:20\r', 'ts': '2025-10-16T04:42:26.601192+00:00'}
+2025-10-16T11:42:28.925803 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 528.5, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:40:22\r', 'ts': '2025-10-16T04:42:28.646256+00:00'}
+2025-10-16T11:42:28.926372 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 528.5, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:40:22\r', 'ts': '2025-10-16T04:42:28.642694+00:00'}
+2025-10-16T11:42:30.892217 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 526.8, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:40:24\r', 'ts': '2025-10-16T04:42:30.618436+00:00'}
+2025-10-16T11:42:30.894577 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 526.8, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:40:24\r', 'ts': '2025-10-16T04:42:30.611281+00:00'}
+2025-10-16T11:42:32.911127 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 525.1, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:40:26\r', 'ts': '2025-10-16T04:42:32.652611+00:00'}
+2025-10-16T11:42:32.946722 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 525.1, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:40:26\r', 'ts': '2025-10-16T04:42:32.652529+00:00'}
+2025-10-16T11:42:35.043381 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 525.8, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:40:29\r', 'ts': '2025-10-16T04:42:34.768799+00:00'}
+2025-10-16T11:42:35.077298 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 525.8, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:40:29\r', 'ts': '2025-10-16T04:42:34.768889+00:00'}
+2025-10-16T11:42:36.867748 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 523.9, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:40:31\r', 'ts': '2025-10-16T04:42:36.599304+00:00'}
+2025-10-16T11:42:36.874264 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 523.9, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:40:31\r', 'ts': '2025-10-16T04:42:36.590694+00:00'}
+2025-10-16T11:42:38.884490 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 523.4, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:40:33\r', 'ts': '2025-10-16T04:42:38.606605+00:00'}
+2025-10-16T11:42:38.892693 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 523.4, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:40:33\r', 'ts': '2025-10-16T04:42:38.598924+00:00'}
+2025-10-16T11:42:40.887506 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 526.2, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:40:35\r', 'ts': '2025-10-16T04:42:40.628657+00:00'}
+2025-10-16T11:42:40.901729 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 526.2, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:40:35\r', 'ts': '2025-10-16T04:42:40.622748+00:00'}
+2025-10-16T11:42:42.872576 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 527.3, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:40:37\r', 'ts': '2025-10-16T04:42:42.609619+00:00'}
+2025-10-16T11:42:42.888417 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 527.3, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:40:37\r', 'ts': '2025-10-16T04:42:42.602811+00:00'}
+2025-10-16T11:42:44.881593 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 527.3, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:40:39\r', 'ts': '2025-10-16T04:42:44.625959+00:00'}
+2025-10-16T11:42:46.870717 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 523.3, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:40:41\r', 'ts': '2025-10-16T04:42:46.617847+00:00'}
+2025-10-16T11:42:47.517607 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-16T11:42:47.517648 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/devices/telemetry
+2025-10-16T11:42:48.698312 [MQTT] ✅ CONNECTED with code=Success
+2025-10-16T11:42:48.699215 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=1 result=0
+2025-10-16T11:42:48.858849 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 519.4, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:40:43\r', 'ts': '2025-10-16T04:42:48.605526+00:00'}
+2025-10-16T11:42:48.931338 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-16T11:42:50.929679 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 516.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:40:45\r', 'ts': '2025-10-16T04:42:50.667738+00:00'}
+2025-10-16T11:42:52.702371 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 516.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:40:45\r', 'ts': '2025-10-16T04:42:50.671735+00:00'}
+2025-10-16T11:42:52.880676 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 516.3, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:40:47\r', 'ts': '2025-10-16T04:42:52.616338+00:00'}
+2025-10-16T11:42:52.992121 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 516.3, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:40:47\r', 'ts': '2025-10-16T04:42:52.704920+00:00'}
+2025-10-16T11:42:54.886911 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 517.9, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:40:49\r', 'ts': '2025-10-16T04:42:54.628475+00:00'}
+2025-10-16T11:42:54.914344 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 517.9, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:40:49\r', 'ts': '2025-10-16T04:42:54.629946+00:00'}
+2025-10-16T11:42:56.874396 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 521, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:40:51\r', 'ts': '2025-10-16T04:42:56.619308+00:00'}
+2025-10-16T11:42:56.905022 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 521, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:40:51\r', 'ts': '2025-10-16T04:42:56.622500+00:00'}
+2025-10-16T11:42:58.889519 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 521.7, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:40:54\r', 'ts': '2025-10-16T04:42:58.616036+00:00'}
+2025-10-16T11:42:58.916224 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 521.7, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:40:54\r', 'ts': '2025-10-16T04:42:58.619530+00:00'}
+2025-10-16T11:43:00.926786 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 517.8, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:40:56\r', 'ts': '2025-10-16T04:43:00.643482+00:00'}
+2025-10-16T11:43:00.966547 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 517.8, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:40:56\r', 'ts': '2025-10-16T04:43:00.643484+00:00'}
+2025-10-16T11:43:25.056009 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-16T11:43:25.056068 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/devices/telemetry
+2025-10-16T11:43:26.297366 [MQTT] ✅ CONNECTED with code=Success
+2025-10-16T11:43:26.298204 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=1 result=0
+2025-10-16T11:43:26.463354 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-16T11:43:26.463401 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/devices/telemetry
+2025-10-16T11:43:26.541183 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-16T11:43:29.000581 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 374.5, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:41:21', 'ts': '2025-10-16T04:43:26.848763+00:00'}
+2025-10-16T11:43:29.305830 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 367.7, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:41:23', 'ts': '2025-10-16T04:43:29.001673+00:00'}
+2025-10-16T11:43:30.948574 [MQTT] ✅ CONNECTED with code=Success
+2025-10-16T11:43:30.949302 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=1 result=0
+2025-10-16T11:43:31.138153 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 361.3, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:41:25', 'ts': '2025-10-16T04:43:30.842786+00:00'}
+2025-10-16T11:43:31.183893 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-16T11:43:33.179858 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 360.9, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:41:27', 'ts': '2025-10-16T04:43:32.890545+00:00'}
+2025-10-16T11:43:33.182450 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 360.9, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:41:27', 'ts': '2025-10-16T04:43:32.893933+00:00'}
+2025-10-16T11:43:37.838325 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 365.8, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:41:31', 'ts': '2025-10-16T04:43:37.538455+00:00'}
+2025-10-16T11:43:37.846974 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 365.8, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:41:31', 'ts': '2025-10-16T04:43:37.562254+00:00'}
+2025-10-16T11:43:39.840692 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 360.7, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:41:33', 'ts': '2025-10-16T04:43:39.535289+00:00'}
+2025-10-16T11:43:40.175309 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 360.7, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:41:33', 'ts': '2025-10-16T04:43:39.528403+00:00'}
+2025-10-16T11:43:41.856044 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 356, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:41:35', 'ts': '2025-10-16T04:43:41.565931+00:00'}
+2025-10-16T11:43:41.866343 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 356, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:41:35', 'ts': '2025-10-16T04:43:41.574572+00:00'}
+2025-10-16T11:43:43.849573 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 356.1, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:41:37', 'ts': '2025-10-16T04:43:43.555524+00:00'}
+2025-10-16T11:43:43.856776 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 356.1, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:41:37', 'ts': '2025-10-16T04:43:43.563800+00:00'}
+2025-10-16T11:43:45.820599 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 345.5, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:41:40', 'ts': '2025-10-16T04:43:45.527181+00:00'}
+2025-10-16T11:43:46.465714 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 345.5, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:41:40', 'ts': '2025-10-16T04:43:45.518514+00:00'}
+2025-10-16T11:43:47.854651 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 294.9, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:41:42', 'ts': '2025-10-16T04:43:47.565336+00:00'}
+2025-10-16T11:43:47.857318 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 294.9, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:41:42', 'ts': '2025-10-16T04:43:47.550738+00:00'}
+2025-10-16T11:43:49.842542 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 259.2, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:41:44', 'ts': '2025-10-16T04:43:49.545250+00:00'}
+2025-10-16T11:43:51.878985 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 235.1, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:41:46', 'ts': '2025-10-16T04:43:51.601918+00:00'}
+2025-10-16T11:43:51.897936 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 235.1, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:41:46', 'ts': '2025-10-16T04:43:51.593993+00:00'}
+2025-10-16T11:43:53.826959 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 226.2, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:41:48', 'ts': '2025-10-16T04:43:53.532946+00:00'}
+2025-10-16T11:43:53.837196 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 226.2, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:41:48', 'ts': '2025-10-16T04:43:53.539954+00:00'}
+2025-10-16T11:43:55.821290 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 238.7, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:41:50', 'ts': '2025-10-16T04:43:55.543492+00:00'}
+2025-10-16T11:43:55.854661 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 238.7, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:41:50', 'ts': '2025-10-16T04:43:55.551790+00:00'}
+2025-10-16T11:43:57.855827 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 236.7, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:41:52', 'ts': '2025-10-16T04:43:57.555520+00:00'}
+2025-10-16T11:43:57.863408 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 236.7, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:41:52', 'ts': '2025-10-16T04:43:57.563936+00:00'}
+2025-10-16T11:43:59.855079 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 246.8, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:41:54', 'ts': '2025-10-16T04:43:59.555856+00:00'}
+2025-10-16T11:43:59.874766 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 246.8, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:41:54', 'ts': '2025-10-16T04:43:59.568547+00:00'}
+2025-10-16T11:44:01.852306 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 243.1, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:41:56', 'ts': '2025-10-16T04:44:01.557292+00:00'}
+2025-10-16T11:44:01.863818 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 243.1, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:41:56', 'ts': '2025-10-16T04:44:01.566505+00:00'}
+2025-10-16T11:44:03.844125 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 244.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:41:58', 'ts': '2025-10-16T04:44:03.567990+00:00'}
+2025-10-16T11:44:03.857259 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 244.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:41:58', 'ts': '2025-10-16T04:44:03.572244+00:00'}
+2025-10-16T11:44:05.827834 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 239.3, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:42:00', 'ts': '2025-10-16T04:44:05.555552+00:00'}
+2025-10-16T11:44:05.848384 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 239.3, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:42:00', 'ts': '2025-10-16T04:44:05.564664+00:00'}
+2025-10-16T11:44:07.848931 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 235.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:42:03', 'ts': '2025-10-16T04:44:07.565610+00:00'}
+2025-10-16T11:44:07.865195 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 235.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:42:03', 'ts': '2025-10-16T04:44:07.573619+00:00'}
+2025-10-16T11:44:09.863281 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 230.8, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:42:05', 'ts': '2025-10-16T04:44:09.549916+00:00'}
+2025-10-16T11:44:09.879876 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 230.8, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:42:05', 'ts': '2025-10-16T04:44:09.561028+00:00'}
+2025-10-16T11:44:11.870002 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 227.7, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:42:07', 'ts': '2025-10-16T04:44:11.560122+00:00'}
+2025-10-16T11:44:11.888588 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 227.7, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:42:07', 'ts': '2025-10-16T04:44:11.568956+00:00'}
+2025-10-16T11:44:13.858073 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 226.2, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:42:09', 'ts': '2025-10-16T04:44:13.565448+00:00'}
+2025-10-16T11:44:13.861650 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 226.2, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:42:09', 'ts': '2025-10-16T04:44:13.573892+00:00'}
+2025-10-16T11:44:15.847010 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 224.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:42:11', 'ts': '2025-10-16T04:44:15.564035+00:00'}
+2025-10-16T11:44:15.848907 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 224.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:42:11', 'ts': '2025-10-16T04:44:15.556324+00:00'}
+2025-10-16T11:44:17.864315 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 224.4, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:42:13', 'ts': '2025-10-16T04:44:17.591061+00:00'}
+2025-10-16T11:44:17.866027 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 224.4, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:42:13', 'ts': '2025-10-16T04:44:17.575465+00:00'}
+2025-10-16T11:44:19.840430 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 224.4, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:42:15', 'ts': '2025-10-16T04:44:19.556106+00:00'}
+2025-10-16T11:44:19.852176 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 224.4, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:42:15', 'ts': '2025-10-16T04:44:19.564161+00:00'}
+2025-10-16T11:44:21.845871 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 221.5, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:42:17', 'ts': '2025-10-16T04:44:21.567928+00:00'}
+2025-10-16T11:44:21.868118 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 221.5, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:42:17', 'ts': '2025-10-16T04:44:21.576197+00:00'}
+2025-10-16T11:44:25.855762 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 220.4, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:42:19', 'ts': '2025-10-16T04:44:25.555774+00:00'}
+2025-10-16T11:44:26.216642 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 220.4, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:42:19', 'ts': '2025-10-16T04:44:25.564287+00:00'}
+2025-10-16T11:44:27.833159 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 219.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:42:21', 'ts': '2025-10-16T04:44:27.556156+00:00'}
+2025-10-16T11:44:27.865652 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 219.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:42:21', 'ts': '2025-10-16T04:44:27.566743+00:00'}
+2025-10-16T11:44:29.848432 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 218.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:42:23', 'ts': '2025-10-16T04:44:29.575360+00:00'}
+2025-10-16T11:44:29.893061 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 218.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:42:23', 'ts': '2025-10-16T04:44:29.570701+00:00'}
+2025-10-16T11:44:31.869413 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 220.7, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:42:25', 'ts': '2025-10-16T04:44:31.586476+00:00'}
+2025-10-16T11:44:51.855292 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-16T11:44:51.855342 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/devices/telemetry
+2025-10-16T11:44:53.047558 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-16T11:44:53.047597 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/devices/telemetry
+2025-10-16T11:44:53.819758 [MQTT] ✅ CONNECTED with code=Success
+2025-10-16T11:44:53.820597 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=1 result=0
+2025-10-16T11:44:54.119479 [MQTT] ✅ CONNECTED with code=Success
+2025-10-16T11:44:54.119481 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-16T11:44:54.120943 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=1 result=0
+2025-10-16T11:44:54.364984 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-16T11:44:57.524590 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 201.8, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:42:50', 'ts': '2025-10-16T04:44:55.605411+00:00'}
+2025-10-16T11:44:57.678680 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 201.8, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:42:50', 'ts': '2025-10-16T04:44:55.606651+00:00'}
+2025-10-16T11:44:57.896500 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 198.3, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:42:52', 'ts': '2025-10-16T04:44:57.617944+00:00'}
+2025-10-16T11:44:57.992634 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 198.3, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:42:52', 'ts': '2025-10-16T04:44:57.679460+00:00'}
+2025-10-16T11:44:59.848741 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 197.2, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:42:54', 'ts': '2025-10-16T04:44:59.579849+00:00'}
+2025-10-16T11:44:59.884793 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 197.2, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:42:54', 'ts': '2025-10-16T04:44:59.587047+00:00'}
+2025-10-16T11:45:01.892008 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 196.8, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:42:56', 'ts': '2025-10-16T04:45:01.607327+00:00'}
+2025-10-16T11:45:02.383174 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 196.8, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:42:56', 'ts': '2025-10-16T04:45:01.600695+00:00'}
+2025-10-16T11:45:03.857036 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 192.2, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:42:58', 'ts': '2025-10-16T04:45:03.575674+00:00'}
+2025-10-16T11:45:04.346567 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 192.2, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:42:58', 'ts': '2025-10-16T04:45:03.571581+00:00'}
+2025-10-16T11:45:05.872117 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 187.5, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:43:00', 'ts': '2025-10-16T04:45:05.600492+00:00'}
+2025-10-16T11:45:05.894950 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 187.5, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:43:00', 'ts': '2025-10-16T04:45:05.606936+00:00'}
+2025-10-16T11:45:07.877252 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 183, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:43:02', 'ts': '2025-10-16T04:45:07.610174+00:00'}
+2025-10-16T11:45:07.898418 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 183, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:43:02', 'ts': '2025-10-16T04:45:07.618052+00:00'}
+2025-10-16T11:45:09.880985 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 178.3, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:43:04', 'ts': '2025-10-16T04:45:09.586546+00:00'}
+2025-10-16T11:47:40.349788 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-16T11:47:40.349869 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/devices/telemetry
+2025-10-16T11:47:41.745676 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-16T11:47:41.745772 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/devices/telemetry
+2025-10-16T11:47:42.731257 [MQTT] ✅ CONNECTED with code=Success
+2025-10-16T11:47:42.732472 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=1 result=0
+2025-10-16T11:47:42.844191 [MQTT] ✅ CONNECTED with code=Success
+2025-10-16T11:47:42.846062 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=1 result=0
+2025-10-16T11:47:42.959776 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-16T11:47:43.063327 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-16T11:47:45.055515 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 110.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:45:38', 'ts': '2025-10-16T04:47:43.650812+00:00'}
+2025-10-16T11:47:45.428074 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 110.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:45:38', 'ts': '2025-10-16T04:47:43.650824+00:00'}
+2025-10-16T11:47:45.975940 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 109.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:45:40', 'ts': '2025-10-16T04:47:45.672073+00:00'}
+2025-10-16T11:47:46.489127 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 109.6, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:45:40', 'ts': '2025-10-16T04:47:45.672229+00:00'}
+2025-10-16T11:47:47.971434 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 99.9, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:45:42', 'ts': '2025-10-16T04:47:47.689528+00:00'}
+2025-10-16T11:47:47.973811 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 99.9, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:45:42', 'ts': '2025-10-16T04:47:47.691276+00:00'}
+2025-10-16T11:47:49.954973 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 101.3, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:45:44', 'ts': '2025-10-16T04:47:49.662689+00:00'}
+2025-10-16T11:47:50.389759 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 101.3, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:45:44', 'ts': '2025-10-16T04:47:49.662752+00:00'}
+2025-10-16T11:47:51.943974 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 103, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:45:46', 'ts': '2025-10-16T04:47:51.659534+00:00'}
+2025-10-16T11:47:51.950452 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 103, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:45:46', 'ts': '2025-10-16T04:47:51.659532+00:00'}
+2025-10-16T11:47:53.965412 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 106, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:45:48', 'ts': '2025-10-16T04:47:53.659285+00:00'}
+2025-10-16T11:47:54.510308 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 106, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:45:48', 'ts': '2025-10-16T04:47:53.659122+00:00'}
+2025-10-16T11:47:56.002639 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 114.4, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:45:50', 'ts': '2025-10-16T04:47:55.712029+00:00'}
+2025-10-16T11:47:56.010149 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 114.4, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:45:50', 'ts': '2025-10-16T04:47:55.705833+00:00'}
+2025-10-16T11:47:57.967372 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 120.3, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:45:52', 'ts': '2025-10-16T04:47:57.677661+00:00'}
+2025-10-16T11:47:57.980787 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 120.3, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:45:52', 'ts': '2025-10-16T04:47:57.679152+00:00'}
+2025-10-16T11:47:59.943086 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 117.3, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:45:54', 'ts': '2025-10-16T04:47:59.652651+00:00'}
+2025-10-16T11:48:00.258236 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 117.3, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:45:54', 'ts': '2025-10-16T04:47:59.653666+00:00'}
+2025-10-16T11:48:01.978861 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 106, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:45:56', 'ts': '2025-10-16T04:48:01.674883+00:00'}
+2025-10-16T11:48:01.982683 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 106, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:45:56', 'ts': '2025-10-16T04:48:01.690017+00:00'}
+2025-10-16T11:48:03.999870 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 98.4, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:45:58', 'ts': '2025-10-16T04:48:03.699100+00:00'}
+2025-10-16T11:48:05.961261 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'do_duc': 95, 'nhiet_do': 26, 'phan_tram_thuc_an': 0, 'thoi_gian': '11:46:01', 'ts': '2025-10-16T04:48:05.670190+00:00'}
+2025-10-16T11:49:03.670048 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-16T11:49:03.670111 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/devices/telemetry
+2025-10-16T11:49:04.716149 [MQTT] ✅ CONNECTED with code=Success
+2025-10-16T11:49:04.719661 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=1 result=0
+2025-10-16T11:49:04.963495 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-16T11:49:05.134364 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-16T11:49:05.134411 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/devices/telemetry
+2025-10-16T11:49:06.380178 [MQTT] ✅ CONNECTED with code=Success
+2025-10-16T11:49:06.381246 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=1 result=0
+2025-10-16T11:49:06.634600 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-16T11:49:14.658397 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'turbidity': 111.2, 'temperature': 26, 'feed': 16, 'thoi_gian': '11:46:43', 'ts': '2025-10-16T04:49:12.815185+00:00'}
+2025-10-16T11:49:14.727301 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'turbidity': 111.2, 'temperature': 26, 'feed': 16, 'thoi_gian': '11:46:43', 'ts': '2025-10-16T04:49:12.812274+00:00'}
+2025-10-16T11:49:43.100383 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'turbidity': 120.6, 'temperature': 26, 'feed': 17, 'thoi_gian': '11:46:45', 'ts': '2025-10-16T04:49:42.825212+00:00'}
+2025-10-16T11:49:43.104959 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'turbidity': 120.6, 'temperature': 26, 'feed': 17, 'thoi_gian': '11:46:45', 'ts': '2025-10-16T04:49:42.819115+00:00'}
+2025-10-16T11:50:13.571646 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'turbidity': 140.6, 'temperature': 26, 'feed': 0, 'thoi_gian': '11:136.1,26.0,0,11:47:09', 'ts': '2025-10-16T04:50:13.315362+00:00'}
+2025-10-16T11:50:13.594344 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'turbidity': 140.6, 'temperature': 26, 'feed': 0, 'thoi_gian': '11:136.1,26.0,0,11:47:09', 'ts': '2025-10-16T04:50:13.311397+00:00'}
+2025-10-16T11:50:43.134266 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'turbidity': 1110.5, 'temperature': 26, 'feed': 0, 'thoi_gian': '11:47:40', 'ts': '2025-10-16T04:50:42.852052+00:00'}
+2025-10-16T11:50:43.238736 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'turbidity': 1110.5, 'temperature': 26, 'feed': 0, 'thoi_gian': '11:47:40', 'ts': '2025-10-16T04:50:42.857300+00:00'}
+2025-10-16T11:51:13.135925 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'turbidity': 1131.7, 'temperature': 26, 'feed': 0, 'thoi_gian': '11:48:10', 'ts': '2025-10-16T04:51:12.849884+00:00'}
+2025-10-16T11:51:13.141581 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'turbidity': 1131.7, 'temperature': 26, 'feed': 0, 'thoi_gian': '11:48:10', 'ts': '2025-10-16T04:51:12.849800+00:00'}
+2025-10-16T11:51:44.236970 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'turbidity': 131.3, 'temperature': 26, 'feed': 0, 'thoi_gian': '11:149.8,26.0,0,11:48:39', 'ts': '2025-10-16T04:51:43.959422+00:00'}
+2025-10-16T11:51:44.241531 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'turbidity': 131.3, 'temperature': 26, 'feed': 0, 'thoi_gian': '11:149.8,26.0,0,11:48:39', 'ts': '2025-10-16T04:51:43.945849+00:00'}
+2025-10-16T11:52:13.142725 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'turbidity': 1134, 'temperature': 26, 'feed': 0, 'thoi_gian': '11:49:09', 'ts': '2025-10-16T04:52:12.861482+00:00'}
+2025-10-16T11:52:13.167856 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'turbidity': 1134, 'temperature': 26, 'feed': 0, 'thoi_gian': '11:49:09', 'ts': '2025-10-16T04:52:12.858302+00:00'}
+2025-10-16T11:52:43.134716 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'turbidity': 1286.2, 'temperature': 26, 'feed': 0, 'thoi_gian': '11:49:39', 'ts': '2025-10-16T04:52:42.849296+00:00'}
+2025-10-16T11:52:43.141022 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'turbidity': 1286.2, 'temperature': 26, 'feed': 0, 'thoi_gian': '11:49:39', 'ts': '2025-10-16T04:52:42.850763+00:00'}
+2025-10-16T11:53:14.325059 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'turbidity': 307.8, 'temperature': 26, 'feed': 84, 'thoi_gian': '11599.6,26.0,100,11:50:10\r613.2,26.0,0,11:50:39', 'ts': '2025-10-16T04:53:14.070050+00:00'}
+2025-10-16T11:53:14.357679 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'turbidity': 307.8, 'temperature': 26, 'feed': 84, 'thoi_gian': '11599.6,26.0,100,11:50:10\r613.2,26.0,0,11:50:39', 'ts': '2025-10-16T04:53:14.070755+00:00'}
+2025-10-16T11:53:43.174293 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'turbidity': 6637, 'temperature': 26, 'feed': 100, 'thoi_gian': '11:51:11', 'ts': '2025-10-16T04:53:42.909574+00:00'}
+2025-10-16T11:53:43.185229 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'turbidity': 6637, 'temperature': 26, 'feed': 100, 'thoi_gian': '11:51:11', 'ts': '2025-10-16T04:53:42.907778+00:00'}
+2025-10-16T11:54:13.093679 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'turbidity': 576.2, 'temperature': 26, 'feed': 100, 'thoi_gian': '11:51:13', 'ts': '2025-10-16T04:54:12.809722+00:00'}
+2025-10-16T11:54:13.098981 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'turbidity': 576.2, 'temperature': 26, 'feed': 100, 'thoi_gian': '11:51:13', 'ts': '2025-10-16T04:54:12.807627+00:00'}
+2025-10-16T11:54:43.252877 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'turbidity': 544.5, 'temperature': 26, 'feed': 10501, 'thoi_gian': '26.0,100,11:51:39', 'ts': '2025-10-16T04:54:42.982451+00:00'}
+2025-10-16T11:54:43.275774 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'turbidity': 544.5, 'temperature': 26, 'feed': 10501, 'thoi_gian': '26.0,100,11:51:39', 'ts': '2025-10-16T04:54:42.981082+00:00'}
+2025-10-16T11:55:13.108757 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'turbidity': 5483.8, 'temperature': 26, 'feed': 100, 'thoi_gian': '11:52:10', 'ts': '2025-10-16T04:55:12.838187+00:00'}
+2025-10-16T11:55:13.124161 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'turbidity': 5483.8, 'temperature': 26, 'feed': 100, 'thoi_gian': '11:52:10', 'ts': '2025-10-16T04:55:12.835729+00:00'}
+2025-10-16T11:55:43.206283 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'turbidity': 485.1, 'temperature': 26, 'feed': 100, 'thoi_gian': '11:52:39', 'ts': '2025-10-16T04:55:42.928803+00:00'}
+2025-10-16T11:55:43.223584 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'turbidity': 485.1, 'temperature': 26, 'feed': 100, 'thoi_gian': '11:52:39', 'ts': '2025-10-16T04:55:42.919996+00:00'}
+2025-10-16T11:56:13.117407 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'turbidity': 486.8, 'temperature': 26, 'feed': 10494, 'thoi_gian': '26.0,100,11:53:10', 'ts': '2025-10-16T04:56:12.846771+00:00'}
+2025-10-16T11:56:13.147017 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'turbidity': 486.8, 'temperature': 26, 'feed': 10494, 'thoi_gian': '26.0,100,11:53:10', 'ts': '2025-10-16T04:56:12.846758+00:00'}
+2025-10-16T11:59:17.924028 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-16T11:59:17.924083 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/devices/telemetry
+2025-10-16T11:59:19.278465 [MQTT] ✅ CONNECTED with code=Success
+2025-10-16T11:59:19.279230 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=1 result=0
+2025-10-16T11:59:19.350351 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-16T11:59:19.350399 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/devices/telemetry
+2025-10-16T11:59:19.525227 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-16T11:59:20.568475 [MQTT] ✅ CONNECTED with code=Success
+2025-10-16T11:59:20.569963 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=1 result=0
+2025-10-16T11:59:20.797199 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-16T11:59:34.015860 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'turbidity': 458.7, 'temperature': 26, 'feed': 100, 'thoi_gian': '11:56:34', 'ts': '2025-10-16T04:59:32.926338+00:00'}
+2025-10-16T11:59:35.234483 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'turbidity': 458.7, 'temperature': 26, 'feed': 100, 'thoi_gian': '11:56:34', 'ts': '2025-10-16T04:59:32.938199+00:00'}
+2025-10-16T12:00:03.610089 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'turbidity': 431.1, 'temperature': 26, 'feed': 100254, 'thoi_gian': '26.0,100,11:57:00', 'ts': '2025-10-16T05:00:03.331847+00:00'}
+2025-10-16T12:00:03.630549 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'turbidity': 431.1, 'temperature': 26, 'feed': 100254, 'thoi_gian': '26.0,100,11:57:00', 'ts': '2025-10-16T05:00:03.346387+00:00'}
+2025-10-16T12:00:33.326305 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'turbidity': 399.1, 'temperature': 26, 'feed': 100, 'thoi_gian': '11:57:29', 'ts': '2025-10-16T05:00:33.003208+00:00'}
+2025-10-16T12:00:33.346791 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'turbidity': 399.1, 'temperature': 26, 'feed': 100, 'thoi_gian': '11:57:29', 'ts': '2025-10-16T05:00:33.013879+00:00'}
+2025-10-16T12:04:23.251931 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-16T12:04:23.251986 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/devices/telemetry
+2025-10-16T12:04:24.547332 [MQTT] ✅ CONNECTED with code=Success
+2025-10-16T12:04:24.548070 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=1 result=0
+2025-10-16T12:04:24.742665 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-16T12:04:24.742736 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/devices/telemetry
+2025-10-16T12:04:24.788564 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-16T12:04:25.877490 [MQTT] ✅ CONNECTED with code=Success
+2025-10-16T12:04:25.878413 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=1 result=0
+2025-10-16T12:04:26.103919 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-16T12:05:24.098606 [MQTT] ❌ ERROR: Timeout of 60.0s exceeded, last exception: 503 Getting metadata from plugin failed with error: ('invalid_grant: Invalid JWT Signature.', {'error': 'invalid_grant', 'error_description': 'Invalid JWT Signature.'}) | payload=b'{"turbidity":402.4,"temperature":26,"feed":100396,"thoi_gian":"26.0,100,12:01:28"}'
+2025-10-16T12:05:32.003562 [MQTT] ❌ ERROR: Timeout of 60.0s exceeded, last exception: 503 Getting metadata from plugin failed with error: ('invalid_grant: Invalid JWT Signature.', {'error': 'invalid_grant', 'error_description': 'Invalid JWT Signature.'}) | payload=b'{"turbidity":402.4,"temperature":26,"feed":100396,"thoi_gian":"26.0,100,12:01:28"}'
+2025-10-16T12:06:20.863800 [MQTT] ❌ ERROR: Timeout of 60.0s exceeded, last exception: 503 Getting metadata from plugin failed with error: ('invalid_grant: Invalid JWT Signature.', {'error': 'invalid_grant', 'error_description': 'Invalid JWT Signature.'}) | payload=b'{"turbidity":395.4,"temperature":26,"feed":100,"thoi_gian":"12:01:59"}'
+2025-10-16T12:06:20.866353 [MQTT] ⚠️ DISCONNECTED (reason_code=Unspecified error) — attempting reconnect...
+2025-10-16T12:06:21.592677 [MQTT] 🔁 RECONNECTED successfully!
+2025-10-16T12:06:23.522251 [MQTT] ❌ ERROR: Timeout of 60.0s exceeded, last exception: 503 Getting metadata from plugin failed with error: ('invalid_grant: Invalid JWT Signature.', {'error': 'invalid_grant', 'error_description': 'Invalid JWT Signature.'}) | payload=b'{"turbidity":395.4,"temperature":26,"feed":100,"thoi_gian":"12:01:59"}'
+2025-10-16T12:06:24.135737 [MQTT] ✅ CONNECTED with code=Success
+2025-10-16T12:06:24.137552 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=2 result=0
+2025-10-16T12:06:24.378949 [MQTT] SUBACK mid=2, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]

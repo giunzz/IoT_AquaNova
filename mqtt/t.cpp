@@ -122,7 +122,7 @@ function [7:0] sseg;
                 4'h5: sseg = 8'b1101101;
                 4'h6: sseg = 8'b1111101;
                 4'h7: sseg = 8'b0000111;
-					 4'h8: sseg = 8'b1111111;
+				4'h8: sseg = 8'b1111111;
                 4'h9: sseg = 8'b1101111;
                 4'hA: sseg = 8'b1110111;
                 4'hB: sseg = 8'b1111100;

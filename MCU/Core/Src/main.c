@@ -66,6 +66,9 @@ uint32_t adcValue;
 float voltage, turbidity;
 DS3231_Time_t timenow;
 char lcd_info_buffer[20];
+char uart_tx_buffer[100]; 
+uint32_t last_uart_send_time = 0; 
+#define UART_SEND_INTERVAL 2000
 
 LCD_State_t lcd_state = LCD_STATE_NORMAL;
 
@@ -375,7 +378,22 @@ int main(void)
     /* USER CODE BEGIN 3 */
 		
 		LCD_Update();
-		//HAL_Delay(100);
+		if (HAL_GetTick() - last_uart_send_time >= UART_SEND_INTERVAL)
+    {
+        snprintf(uart_tx_buffer, sizeof(uart_tx_buffer),
+                 "%.1f,%.1f,%.0f,%02d:%02d:%02d\r\n",
+                 turbidity,
+                 TEMP,
+                 percent,
+                 timenow.hour,
+                 timenow.minutes,
+                 timenow.seconds);
+
+        HAL_UART_Transmit(&huart1, (uint8_t*)uart_tx_buffer, strlen(uart_tx_buffer), 1000);
+        
+        last_uart_send_time = HAL_GetTick();
+    }
+
   }
   /* USER CODE END 3 */
 }
@@ -707,7 +725,7 @@ static void MX_USART1_UART_Init(void)
 
   /* USER CODE END USART1_Init 1 */
   huart1.Instance = USART1;
-  huart1.Init.BaudRate = 115200;
+  huart1.Init.BaudRate = 9600;
   huart1.Init.WordLength = UART_WORDLENGTH_8B;
   huart1.Init.StopBits = UART_STOPBITS_1;
   huart1.Init.Parity = UART_PARITY_NONE;

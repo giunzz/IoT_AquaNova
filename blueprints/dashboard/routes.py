@@ -12,10 +12,7 @@ def _to_iso(val):
 
 @dashboard_bp.get("/latest")
 def latest():
-    """
-    Trả về N bản ghi mới nhất (mặc định 60) để vẽ chart + bảng.
-    Schema Firestore mỗi doc: { deviceId, ts(Timestamp), temperature, turbidity, feed_amount }
-    """
+
     N = int(request.args.get("n", 60))
     db = get_db()
     q = (db.collection("readings")
@@ -57,6 +54,6 @@ def announce_count():
         turb = r.get("turbidity")
         if t is not None and (t < 24 or t > 30):
             cnt += 1
-        if turb is not None and turb > 70:
+        if turb is not None and turb > 1000:
             cnt += 1
     return jsonify({"count": cnt})

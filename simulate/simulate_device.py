@@ -8,7 +8,6 @@ API_TIMEOUT_SEC = 5
 def gen_reading(device_id: str) -> dict:
     """Tạo payload mô phỏng."""
     return {
-        "device_id": device_id,
         "ts": datetime.now(timezone.utc).isoformat(),   # API thường nhận ISO string
         "temperature": round(random.uniform(24.0, 31.0), 2),  # °C
         "turbidity":  round(random.uniform(10.0, 80.0), 2),   # NTU / %

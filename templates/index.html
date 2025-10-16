@@ -55,7 +55,6 @@
     <aside>
       <nav class="menu">
         <a class="tab-link" data-path="{{ url_for('home') }}"        href="{{ url_for('home') }}">Dashboard</a>
-        <a class="tab-link" href="#">Fish</a>
         <a class="tab-link" href="#">Favorites</a>
         <a class="tab-link" href="#">Chat bot</a>
         <a class="tab-link" data-path="{{ url_for('feed_timer_page') }}" href="{{ url_for('feed_timer_page') }}">Feed Timer</a>
@@ -127,8 +126,8 @@
 
   <script>
     // === CONFIG NGƯỠNG (hiển thị) ===
-    const SAFE_MIN = 24, SAFE_MAX = 30;
-    const TURBIDITY_WARN = 70;
+    const SAFE_MIN = 0, SAFE_MAX = 500;
+    const TURBIDITY_WARN = 1000;
 
     // === LIGHT (demo phía client) ===
     const lightSwitch = document.getElementById('lightSwitch');

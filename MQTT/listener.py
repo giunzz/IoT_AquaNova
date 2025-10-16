@@ -48,7 +48,6 @@ def start_mqtt_background(app):
             payload = msg.payload.decode("utf-8", errors="ignore")
             data = json.loads(payload)
             data.setdefault("ts", datetime.now(timezone.utc).isoformat())
-            data["deviceId"] = data.get("deviceId") or data.get("device_id")
             db.collection("readings").add(data)
             write_log(f"[MQTT] 📩 MESSAGE topic={msg.topic} payload={data}")
         except Exception as e:
