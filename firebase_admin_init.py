@@ -9,6 +9,8 @@ db = None
 def init_firebase():
     global firebase_app, db
     cred_path = Config.FIREBASE_CREDENTIALS
+    print(f"[Firebase Init] Using credentials: {cred_path}")
+
     if not cred_path or not os.path.isfile(cred_path):
         raise RuntimeError(f"Service account not found: {cred_path}")
 

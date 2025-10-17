@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <title>AquaNova – Feed Timer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- FIX favicon path -->
   <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/logo_aquanova.png') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
 
   <style>
     :root { --brand:#0ea5e9; --muted:#6b7280; --bg:#f6f7fb; --ok:#16a34a; --bad:#dc2626; }
@@ -23,8 +23,7 @@
     main{padding:20px; max-width:1400px}
     .card{background:#fff; padding:16px; border-radius:14px; box-shadow:0 2px 12px rgba(0,0,0,.05);}
     .grid{display:grid; grid-template-columns:1.1fr 1fr; gap:16px}
-    .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:16px}
-    @media (max-width:1000px){ .layout{grid-template-columns:1fr} aside{display:none} .grid,.grid-2{grid-template-columns:1fr} }
+    @media (max-width:1000px){ .layout{grid-template-columns:1fr} aside{display:none} .grid{grid-template-columns:1fr} }
     .toolbar{display:flex; gap:12px; align-items:center; flex-wrap:wrap}
     label{font-size:13px; color:#374151; display:block; margin-bottom:6px}
     input, select{padding:9px 10px; border:1px solid #e5e7eb; border-radius:10px; background:#fff; min-width:120px}
@@ -34,12 +33,15 @@
     .muted{color:var(--muted); font-size:13px}
     table{width:100%; border-collapse:collapse}
     th,td{padding:10px 12px; border-bottom:1px solid #edf0f4; font-size:14px; text-align:left}
-    .status{padding:4px 10px; border-radius:999px; font-size:12px; display:inline-block}
-    .ok{background:#dcfce7; color:#166534}
-    .bad{background:#fee2e2; color:#991b1b}
     .tag{font-size:12px; padding:2px 8px; border-radius:999px; background:#eef2ff; color:#3730a3}
+    .schedule-full {
+  grid-column: 1 / -1;   /* bảng chiếm toàn chiều ngang của grid */
+  width: 100%;
+}
+
   </style>
 </head>
+
 <body>
   <header>
     <h2>AquaNova</h2>
@@ -61,17 +63,13 @@
 
     <main>
       <div class="grid">
-        <!-- Left: Feed Now + Schedule Form -->
+        <!-- LEFT -->
         <div class="card">
-          <h3 style="margin-top:0">Feeder control</h3>
+          <h3 style="margin-top:0">Feeder Control</h3>
 
           <!-- Feed Now -->
           <div class="card" style="margin-bottom:14px; padding:12px">
             <div class="toolbar">
-              <div>
-                <label>Device</label>
-                <select id="fnDevice"></select>
-              </div>
               <div>
                 <label>Amount (g)</label>
                 <input type="number" id="fnAmount" min="1" step="1" value="20">
@@ -85,11 +83,11 @@
 
           <!-- Schedule -->
           <div class="card" style="padding:12px">
-            <h4 style="margin:0 0 8px">Add schedule</h4>
+            <h4 style="margin:0 0 8px">Add Schedule</h4>
             <div class="toolbar">
               <div>
-                <label>Device</label>
-                <select id="scDevice"></select>
+                <label>Date</label>
+                <input type="date" id="scDate">
               </div>
               <div>
                 <label>Time</label>
@@ -98,8 +96,8 @@
               <div>
                 <label>Repeat</label>
                 <select id="scRepeat">
-                  <option value="once">Once</option>
-                  <option value="daily" selected>Daily</option>
+                  <option value="none">Once</option>
+                  <option value="daily">Daily</option>
                   <option value="weekly">Weekly</option>
                 </select>
               </div>
@@ -115,168 +113,70 @@
           </div>
         </div>
 
-        <!-- Right: TWO DOUGHNUTS (latest feed snapshots) -->
-        <div class="card">
-          <h3 style="margin:0 0 10px">Latest feed snapshots</h3>
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px">
-            <div style="text-align:center">
-              <canvas id="feedPie1" width="180" height="180" style="max-width:220px;margin:auto"></canvas>
-              <div style="margin-top:6px" class="muted">
-                <b id="feedPie1Num">--%</b> · <span id="feedPie1Time">—</span>
-                <div id="feedPie1Warn" class="tag" style="display:none;margin-top:6px">Low feed (&lt; 10%)</div>
-              </div>
-            </div>
-            <div style="text-align:center">
-              <canvas id="feedPie2" width="180" height="180" style="max-width:220px;margin:auto"></canvas>
-              <div style="margin-top:6px" class="muted">
-                <b id="feedPie2Num">--%</b> · <span id="feedPie2Time">—</span>
-                <div id="feedPie2Warn" class="tag" style="display:none;margin-top:6px">Low feed (&lt; 10%)</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Schedules table -->
-      <div class="card" style="margin-top:16px">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px">
-          <h3 style="margin:0">Current schedules</h3>
-          <button class="btn ghost" id="refreshScheduleBtn">Refresh</button>
-        </div>
-        <table>
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Device</th>
-              <th>Time</th>
-              <th>Repeat</th>
-              <th>Amount (g)</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody id="scRows"></tbody>
-        </table>
-      </div>
-    </main>
+        <!-- RIGHT: Feed chart -->
+<div class="card" style="display:flex;flex-direction:column;align-items:center;justify-content:center">
+  <h3 style="margin:0 0 12px;text-align:center">Feed Status</h3>
+  <div style="width:180px;height:180px;position:relative">
+    <canvas id="feedPie1"></canvas>
   </div>
+  <div style="margin-top:8px;text-align:center" class="muted">
+    <b id="feedPie1Num">--%</b> · <span id="feedPie1Time">—</span>
+    <div id="feedPie1Warn" class="tag" style="display:none;margin-top:6px">Low feed (&lt;10%)</div>
+  </div>
+</div>
+
+
+      <!-- Schedule Table -->
+<div class="card schedule-full" style="margin-top:16px">
+  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px">
+    <h3 style="margin:0">Current Schedules</h3>
+    <button class="btn ghost" id="refreshScheduleBtn">Refresh</button>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Repeat</th>
+        <th>Amount (g)</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="scRows"></tbody>
+  </table>
+</div>
+
 
   <script>
-    // ====== CONFIG ======
-    const FETCH_N = 300;
-    const FEED_NOW_API  = '/control/feed-now';
-    const SCHEDULE_API  = '/control/schedule';
+    const FEED_NOW_API = '/control/feed-now';
+    const SCHEDULE_API = '/control/schedule';
     const SCHEDULES_API = '/control/schedules';
-    const LATEST_API    = `/dashboard/latest?n=${FETCH_N}`;
+    
 
-    // ====== STATE ======
-    let devices = [];
-
-    // ====== HELPERS ======
-    const byTimeAsc = (a,b)=> new Date(a.ts) - new Date(b.ts);
-    function fillDeviceSelects(list){
-      const idSet = new Set(list.map(x => (x.deviceId || x.device_id || '').trim()).filter(Boolean));
-      devices = Array.from(idSet).sort();
-      const fn = document.getElementById('fnDevice');
-      const sc = document.getElementById('scDevice');
-      fn.innerHTML = ''; sc.innerHTML = '';
-      devices.forEach(id=>{
-        const o1=document.createElement('option'); o1.value=o1.textContent=id; fn.appendChild(o1);
-        const o2=document.createElement('option'); o2.value=o2.textContent=id; sc.appendChild(o2);
-      });
-      if (!devices.length){
-        const opt=document.createElement('option'); opt.value=''; opt.textContent='(no devices)';
-        fn.appendChild(opt.cloneNode(true)); sc.appendChild(opt);
-      }
-    }
-
-    // ====== DOUGHNUT HELPERS ======
-    const pieCharts = {};
-    function ensureFeedPie(canvasId){
-      if (pieCharts[canvasId]) return pieCharts[canvasId];
-      const el = document.getElementById(canvasId);
-      if (!el) return null;
-      const ctx = el.getContext('2d');
-      pieCharts[canvasId] = new Chart(ctx, {
-        type: 'doughnut',
-        data: {
-          labels: ['Remaining','Used'],
-          datasets: [{ data:[0,100], backgroundColor:['#4f46e5','#e8eefb'], borderWidth:0, hoverOffset:3, cutout:'65%' }]
-        },
-        options: { plugins:{ legend:{ display:false } }, animation:{ duration:300 } }
-      });
-      return pieCharts[canvasId];
-    }
-    function setPie(canvasId, percent, numId, timeId, warnId, ts){
-      const chart = ensureFeedPie(canvasId);
-      if (!chart) return;
-      const clamp = v => Math.max(0, Math.min(100, Number(v)));
-      const p = isNaN(percent) ? NaN : clamp(percent);
-      if (isNaN(p)){
-        chart.data.datasets[0].data = [0,100];
-        chart.data.datasets[0].backgroundColor = ['#4f46e5','#e8eefb'];
-        chart.update();
-        document.getElementById(numId).textContent = '--%';
-        document.getElementById(timeId).textContent = '—';
-        document.getElementById(warnId).style.display = 'none';
-        return;
-      }
-      const used = 100 - p;
-      let color = '#4f46e5'; if (p<10) color='#dc2626'; else if (p<30) color='#d97706';
-      chart.data.datasets[0].data = [p,used];
-      chart.data.datasets[0].backgroundColor = [color,'#e8eefb'];
-      chart.update();
-
-      document.getElementById(numId).textContent = `${p.toFixed(1)}%`;
-      const d = new Date(ts);
-      document.getElementById(timeId).textContent = isNaN(d) ? (ts||'') : d.toLocaleTimeString();
-      document.getElementById(warnId).style.display = (p<10)?'inline-block':'none';
-    }
-    function updateLastTwoPies(sortedAsc){
-      const withFeed = sortedAsc.filter(x => x.feed != null);
-      const n = withFeed.length;
-      const last1 = n>=1 ? withFeed[n-1] : null;
-      const last2 = n>=2 ? withFeed[n-2] : null;
-      if (last1) setPie('feedPie1', Number(last1.feed), 'feedPie1Num', 'feedPie1Time', 'feedPie1Warn', last1.ts);
-      else       setPie('feedPie1', NaN, 'feedPie1Num', 'feedPie1Time', 'feedPie1Warn');
-      if (last2) setPie('feedPie2', Number(last2.feed), 'feedPie2Num', 'feedPie2Time', 'feedPie2Warn', last2.ts);
-      else       setPie('feedPie2', NaN, 'feedPie2Num', 'feedPie2Time', 'feedPie2Warn');
-    }
-
-    // ====== LOAD SERIES (for pies + device selects) ======
-    async function loadFeedSeries(){
-      const r = await fetch(LATEST_API);
-      if (!r.ok) throw new Error('HTTP '+r.status);
-      const j = await r.json();
-      const items = (j.items||[]);
-      fillDeviceSelects(items);
-
-      // chuẩn hoá feed + ts, sort tăng rồi cập nhật 2 doughnut
-      const arr = items
-        .map(x => ({ ts:x.ts, feed:(x.feed_amount ?? x.feed), deviceId:(x.deviceId||x.device_id||'') }))
-        .filter(x => x.ts)
-        .sort(byTimeAsc)
-        .slice(-200);
-      updateLastTwoPies(arr);
-    }
-
-    // ====== FEED NOW ======
+    // ===== Feed Now =====
     document.getElementById('feedNowBtn').onclick = async ()=>{
-      const device = document.getElementById('fnDevice').value;
       const amount = Number(document.getElementById('fnAmount').value || 0);
       const msg = document.getElementById('feedNowMsg');
-      if (!device || amount<=0){ msg.textContent='Please choose device & valid amount.'; return; }
+      if (amount <= 0){ msg.textContent='Please enter a valid amount.'; return; }
       msg.textContent = 'Sending...';
-      try{
-        const r = await fetch(FEED_NOW_API, { method:'POST', headers:{'Content-Type':'application/json'},
-          body: JSON.stringify({ device_id: device, amount }) });
+      try {
+        const r = await fetch(FEED_NOW_API, {
+          method:'POST',
+          headers:{'Content-Type':'application/json'},
+          body: JSON.stringify({ amount })
+        });
         const j = await r.json();
         if (!r.ok || j.error) throw new Error(j.error || ('HTTP '+r.status));
-        msg.textContent = 'Feed command queued.';
-      }catch(e){ msg.textContent = 'Failed: ' + e.message; }
-      finally{ setTimeout(()=>msg.textContent='', 3000); }
+        msg.textContent = 'Feed command sent.';
+      } catch(e){
+        msg.textContent = 'Failed: ' + e.message;
+      } finally {
+        setTimeout(()=>msg.textContent='', 2500);
+      }
     };
 
-    // ====== SCHEDULE CRUD ======
+    // ===== Schedule CRUD =====
     async function refreshSchedules(){
       const tbody = document.getElementById('scRows');
       tbody.innerHTML = '<tr><td colspan="6" class="muted">Loading…</td></tr>';
@@ -289,9 +189,9 @@
           const tr = document.createElement('tr');
           tr.innerHTML = `
             <td>${idx+1}</td>
-            <td>${s.device_id || s.deviceId || ''}</td>
+            <td>${s.date || '-'}</td>
             <td>${s.time || ''}</td>
-            <td>${s.repeat || 'once'}</td>
+            <td>${s.repeat === 'weekly' ? 'Weekly' : s.repeat === 'daily' ? 'Daily' : 'Once'}</td>
             <td>${s.amount ?? ''}</td>
             <td><button class="btn ghost" onclick="deleteSchedule('${s.id}')">Delete</button></td>`;
           tbody.appendChild(tr);
@@ -301,18 +201,23 @@
         tbody.innerHTML = `<tr><td colspan="6" class="muted">Load failed: ${e.message}</td></tr>`;
       }
     }
+
     async function addSchedule(){
-      const device = document.getElementById('scDevice').value;
-      const time   = document.getElementById('scTime').value;
+      const date = document.getElementById('scDate').value;
+      const time = document.getElementById('scTime').value;
       const repeat = document.getElementById('scRepeat').value;
       const amount = Number(document.getElementById('scAmount').value || 0);
       const msg = document.getElementById('addScheduleMsg');
-      if (!device || !time || amount<=0){ msg.textContent='Please fill all fields.'; return; }
+      if (!date || !time || amount <= 0){
+        msg.textContent='Please fill all fields.'; return;
+      }
+
       msg.textContent = 'Creating…';
       try{
         const r = await fetch(SCHEDULE_API, {
-          method:'POST', headers:{'Content-Type':'application/json'},
-          body: JSON.stringify({ device_id: device, time, repeat, amount })
+          method:'POST',
+          headers:{'Content-Type':'application/json'},
+          body: JSON.stringify({ date, time, repeat, amount })
         });
         const j = await r.json();
         if (!r.ok || j.error) throw new Error(j.error || ('HTTP '+r.status));
@@ -320,8 +225,7 @@
       }catch(e){ msg.textContent = 'Failed: ' + e.message; }
       finally{ setTimeout(()=>msg.textContent='', 2500); }
     }
-    document.getElementById('addScheduleBtn').onclick = addSchedule;
-    document.getElementById('refreshScheduleBtn').onclick = refreshSchedules;
+
     async function deleteSchedule(id){
       if (!confirm('Delete this schedule?')) return;
       try{
@@ -333,16 +237,15 @@
     }
     window.deleteSchedule = deleteSchedule;
 
-    // ====== INIT ======
+    document.getElementById('addScheduleBtn').onclick = addSchedule;
+    document.getElementById('refreshScheduleBtn').onclick = refreshSchedules;
+
+    // ===== Init =====
     (async function init(){
-      try{
-        await loadFeedSeries();
-        await refreshSchedules();
-        setInterval(loadFeedSeries, 15000); // refresh pies
-      }catch(e){
-        console.error(e); alert('Init failed: '+e.message);
-      }
+      await refreshSchedules();
     })();
   </script>
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+
 </body>
 </html>
