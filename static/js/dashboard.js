@@ -7,7 +7,6 @@
 const LATEST_API = '/dashboard/latest?n=200';
 const SUMMARY_API = '/dashboard/summary';
 
-// ---- Load Summary (Tổng quan số hồ, thiết bị) ----
 async function loadSummary() {
   try {
     const res = await fetch(SUMMARY_API);

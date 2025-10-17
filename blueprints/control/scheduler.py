@@ -93,6 +93,6 @@ def check_schedules():
 # Hàm khởi động bộ lập lịch (chạy mỗi phút)
 # ------------------------------------------------------------
 def start_scheduler():
-    scheduler.add_job(check_schedules, "interval", minutes=1, id="check_schedules")
+    scheduler.add_job(check_schedules, "interval", minutes=1, max_instances=3, coalesce=True)
     scheduler.start()
     print("[Scheduler] Started — checking schedules every minute")

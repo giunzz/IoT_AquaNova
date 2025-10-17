@@ -69,3 +69,18 @@ def announce_count():
         if turb is not None and turb > 1000:
             cnt += 1
     return jsonify({"count": cnt})
+
+@dashboard_bp.get("/summary")
+def summary():
+    """Trả về thống kê tổng quan (số hồ, số thiết bị, v.v.)"""
+    db = firestore.client()
+    ponds = db.collection("readings").stream()
+    devices = db.collection("feed_logs").stream()
+
+    pond_count = len(list(ponds))
+    device_count = len(list(devices))
+
+    return jsonify({
+        "ponds": pond_count,
+        "devices": device_count
+    })
