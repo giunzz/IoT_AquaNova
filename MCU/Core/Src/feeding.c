@@ -14,15 +14,22 @@ struct feeding_t *_feed;
 
 DS3231_Time_t settime = {
 		.seconds = 0,
-		.minutes = 45,
-		.hour = 14,
-		.dayofweek = 3,
-		.dayofmonth = 14,
+		.minutes = 44,
+		.hour = 17,
+		.dayofweek = 5,
+		.dayofmonth = 9,
 		.month = 10,
 		.year = 25
 };
 
 static void feeding_Servo_Angle(int16_t angle);
+
+void feeding_Alarm(void)
+{
+	_feed->IsFeed = 1;            
+	lcd_state = LCD_STATE_FEEDING;  
+	lcd_timer = HAL_GetTick();      
+}
 
 void feeding_ISR(uint16_t GPIO_Pin) {
 	
@@ -137,7 +144,7 @@ void feeding_Init(struct feeding_t *feed) {
 	HAL_I2C_Mem_Write(_feed->hi2c, 0xD0, 0x0F, 1, &status_reg, 1, 1000);
 	
 
-	//DS3231_SetTime(settime);
+	// DS3231_SetTime(settime);
 }
 
 static void feeding_Servo_Angle(int16_t angle) {

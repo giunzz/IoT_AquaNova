@@ -66,9 +66,6 @@ uint32_t adcValue;
 float voltage, turbidity;
 DS3231_Time_t timenow;
 char lcd_info_buffer[20];
-char uart_tx_buffer[100]; 
-uint32_t last_uart_send_time = 0; 
-#define UART_SEND_INTERVAL 2000
 
 LCD_State_t lcd_state = LCD_STATE_NORMAL;
 
@@ -77,12 +74,49 @@ uint32_t Value1 = 0;
 uint32_t Value2 = 0;
 float Distance = 0.0f; // cm
 
-float D_empty = 10.0f;   // cm
-float D_full  = 6.0f;   // cm
+float D_empty = 12.0f;   // cm
+float D_full  = 7.0f;   // cm
 float percent;
+
+
+uint8_t senddata[]="Hello STM ->ESP";
+char rec,null;
+char buffer[100];
+int i=0;
+
+char uart_tx_buffer[100]; 
+uint32_t last_uart_send_time = 0; 
+//#define UART_SEND_INTERVAL 3600000 
+#define UART_SEND_INTERVAL 2000 
 
 //uint32_t lcd_timer = 0;
 
+uint32_t lcd_command_timer = 0; 
+char lcd_command_buffer[20];  
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+  if (huart->Instance == USART1) 
+  {
+    switch (rec)
+    {
+      case 'L':
+        break;
+
+      case 'l':
+        break;
+
+      case 'F':
+				feeding_Alarm();
+        break;
+			
+      default:
+        break;			
+    }
+
+    HAL_UART_Receive_IT(&huart1, (uint8_t *)&rec, 1);
+  }
+}
 uint16_t Read_ADC(void) 														// Doc ADC
 {
     uint16_t val = 0;
@@ -131,13 +165,13 @@ struct feeding_t feed = {
 void LCD_Update(void) {
     char buffer[20];
 	
-    if (turbidity >= 1000)
+    if (turbidity >= 300)
     {
         CLCD_I2C_SetCursor(&LCD1, 0, 0);
         CLCD_I2C_WriteString(&LCD1, "  !!WARNING!!   ");
         CLCD_I2C_SetCursor(&LCD1, 0, 1);
-        CLCD_I2C_WriteString(&LCD1, "TURBIDITY HIGH  ");
-        return; 
+        CLCD_I2C_WriteString(&LCD1, " TURBIDITY HIGH ");
+        return;
     }
 
     switch(lcd_state) {
@@ -185,7 +219,7 @@ void LCD_Update(void) {
 						CLCD_I2C_SetCursor(&LCD1, 0, 1);
 						CLCD_I2C_WriteString(&LCD1, buffer);
 						
-            if (HAL_GetTick() - lcd_timer >= 10000) { 
+            if (HAL_GetTick() - lcd_timer >= 2000) { 
                 lcd_state = LCD_STATE_NORMAL;
                 CLCD_I2C_Clear(&LCD1);
             }
@@ -204,11 +238,11 @@ void LCD_Update(void) {
             break;	
 						
 				case LCD_STATE_DISTANCE:
-						sprintf(buffer, "Dist: %.1f cm   ", Distance); // khoang cach voi vat the
+						sprintf(buffer, "Dist: %.1f cm   ", Distance);
 						CLCD_I2C_SetCursor(&LCD1, 0, 0);
 						CLCD_I2C_WriteString(&LCD1, buffer);
 
-						sprintf(buffer, "Remain: %.0f%%      ", percent);
+						sprintf(buffer, "Feed: %.0f%%      ", percent);
 						CLCD_I2C_SetCursor(&LCD1, 0, 1);
 						CLCD_I2C_WriteString(&LCD1, buffer);
 
@@ -344,11 +378,12 @@ int main(void)
 		
 		uint32_t avg_adc = Read_ADC_Avg(200); 
 		float voltage_raw = (avg_adc * 3.3f) / 4095.0f;
-		float voltage = filter_IIR(voltage_raw); 
+		//float voltage = filter_IIR(voltage_raw); 
+		float voltage = voltage_raw + 0.01f;
 		
 //    turbidity = -1120.4f*voltage*voltage + 5742.3f*voltage - 4352.9f; 
 //		turbidity = -900.4f * (voltage * voltage) + 5.85f * voltage + 3004.72f;
-		turbidity = -900.4f * (voltage * voltage) - 336.302f * voltage + 2973.295f;
+		turbidity = -900.4f * (voltage * voltage) - 336.302f * voltage + 2973.295f ;
 		
     if (turbidity < 0)
     {
@@ -378,7 +413,15 @@ int main(void)
     /* USER CODE BEGIN 3 */
 		
 		LCD_Update();
-		if (HAL_GetTick() - last_uart_send_time >= UART_SEND_INTERVAL)
+//            sprintf(buffer,"Temp: %.3f C       ", voltage);
+//            CLCD_I2C_SetCursor(&LCD1, 0, 0);
+//            CLCD_I2C_WriteString(&LCD1, buffer);
+
+//            sprintf(buffer,"Turb: %.1f NTU      ", turbidity);
+//            CLCD_I2C_SetCursor(&LCD1, 0, 1);
+//            CLCD_I2C_WriteString(&LCD1, buffer);
+//		
+    if (HAL_GetTick() - last_uart_send_time >= UART_SEND_INTERVAL)
     {
         snprintf(uart_tx_buffer, sizeof(uart_tx_buffer),
                  "%.1f,%.1f,%.0f,%02d:%02d:%02d\r\n",
@@ -393,7 +436,9 @@ int main(void)
         
         last_uart_send_time = HAL_GetTick();
     }
-
+    
+    HAL_UART_Receive_IT(&huart1, (uint8_t *)&rec, 1);
+		
   }
   /* USER CODE END 3 */
 }

@@ -75,7 +75,11 @@ def check_schedules():
         payload = {"cmd": "feed", "amount": amount}
         print(f"[SCHEDULE] Feed {amount}g → {topic} (repeat={repeat})")
 
-        _get_pub().publish(topic, json.dumps(payload), qos=1)
+        try:
+            _get_pub().publish(topic, json.dumps(payload), qos=1)
+            print(f"[SCHEDULE] Published feed {amount}g successfully.")
+        except Exception as e:
+            print(f"[ERROR] Failed to publish feed schedule: {e}")
 
         # Ghi log vào Firestore
         db.collection("feed_logs").add({
@@ -93,6 +97,6 @@ def check_schedules():
 # Hàm khởi động bộ lập lịch (chạy mỗi phút)
 # ------------------------------------------------------------
 def start_scheduler():
-    scheduler.add_job(check_schedules, "interval", minutes=1, max_instances=3, coalesce=True)
+    scheduler.add_job(check_schedules, "interval", minutes=1, max_instances=1, coalesce=True)
     scheduler.start()
     print("[Scheduler] Started — checking schedules every minute")

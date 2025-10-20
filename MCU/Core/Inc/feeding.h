@@ -31,5 +31,6 @@ struct feeding_t {
 void feeding_Init(struct feeding_t *feed);
 void feeding_Handler(void);
 void feeding_ISR(uint16_t GPIO_Pin);
+void feeding_Alarm(void);
 extern int lcd_timer;
 #endif /* INC_FEEDING_H_ */

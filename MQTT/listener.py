@@ -20,24 +20,24 @@ def start_mqtt_background(app):
     db = init_firebase()
 
     def on_connect(client, userdata, flags, reason_code, properties=None):
-        write_log(f"[MQTT] ✅ CONNECTED with code={reason_code}")
+        write_log(f"[MQTT]  CONNECTED with code={reason_code}")
         try:
             result, mid = client.subscribe(cfg["MQTT_TOPIC"], qos=1)
             write_log(f"[MQTT] SUBSCRIBE sent topic={cfg['MQTT_TOPIC']} mid={mid} result={result}")
         except Exception as e:
-            write_log(f"[MQTT] ❌ SUBSCRIBE ERROR: {e}")
+            write_log(f"[MQTT]  SUBSCRIBE ERROR: {e}")
 
     def on_disconnect(client, userdata, disconnect_flags, reason_code, properties=None):
         """MQTT v5 callback chuẩn: luôn có 5 tham số"""
-        write_log(f"[MQTT] ⚠️ DISCONNECTED (reason_code={reason_code}) — attempting reconnect...")
+        write_log(f"[MQTT]  DISCONNECTED (reason_code={reason_code}) — attempting reconnect...")
 
         while True:
             try:
                 client.reconnect()
-                write_log("[MQTT] 🔁 RECONNECTED successfully!")
+                write_log("[MQTT] RECONNECTED successfully!")
                 break
             except Exception as e:
-                write_log(f"[MQTT] ❌ Reconnect failed: {e}")
+                write_log(f"[MQTT]  Reconnect failed: {e}")
                 time.sleep(5)
 
     def on_subscribe(client, userdata, mid, granted_qos, properties=None):
@@ -49,9 +49,9 @@ def start_mqtt_background(app):
             data = json.loads(payload)
             data.setdefault("ts", datetime.now(timezone.utc).isoformat())
             db.collection("readings").add(data)
-            write_log(f"[MQTT] 📩 MESSAGE topic={msg.topic} payload={data}")
+            write_log(f"[MQTT]  MESSAGE topic={msg.topic} payload={data}")
         except Exception as e:
-            write_log(f"[MQTT] ❌ ERROR: {e} | payload={msg.payload[:200]}")
+            write_log(f"[MQTT] ERROR: {e} | payload={msg.payload[:200]}")
 
     client = mqtt.Client(
         mqtt.CallbackAPIVersion.VERSION2,
@@ -78,7 +78,7 @@ def start_mqtt_background(app):
                 client.connect(cfg["MQTT_HOST"], int(cfg["MQTT_PORT"]), keepalive=60)
                 client.loop_forever(retry_first_connection=True)
             except Exception as e:
-                write_log(f"[MQTT] ❌ Connection error: {e}")
+                write_log(f"[MQTT]  Connection error: {e}")
                 time.sleep(5)
 
     t = threading.Thread(target=mqtt_loop, daemon=True)

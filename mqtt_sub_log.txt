@@ -6158,3 +6158,86 @@
 2025-10-18T03:21:41.176023 [MQTT] ✅ CONNECTED with code=Success
 2025-10-18T03:21:41.177058 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=2 result=0
 2025-10-18T03:21:41.391580 [MQTT] SUBACK mid=2, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-18T15:06:23.752816 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-18T15:06:23.752862 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/devices/telemetry
+2025-10-18T15:06:24.798547 [MQTT] ❌ Connection error: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1018)
+2025-10-18T15:06:29.801625 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-18T15:06:37.017082 [MQTT] ✅ CONNECTED with code=Success
+2025-10-18T15:06:37.018737 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=1 result=0
+2025-10-18T15:06:37.335017 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-18T15:15:42.925057 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-18T15:15:42.925159 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/devices/telemetry
+2025-10-18T15:15:44.064365 [MQTT] ✅ CONNECTED with code=Success
+2025-10-18T15:15:44.065776 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=1 result=0
+2025-10-18T15:15:44.291965 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-19T06:45:23.956186 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-19T06:45:23.956226 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/devices/telemetry
+2025-10-19T06:45:24.907404 [MQTT] ✅ CONNECTED with code=Success
+2025-10-19T06:45:24.908889 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=1 result=0
+2025-10-19T06:45:25.128658 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-19T06:56:56.482179 [MQTT] 🔌 Connecting to d2b2655505394c9b8e88c06c8d30d912.s1.eu.hivemq.cloud:8883
+2025-10-19T06:56:56.482219 [MQTT] LISTENING d2b2655505394c9b8e88c06c8d30d912.s1.eu.hivemq.cloud:8883 topic=aquanova/devices/telemetry
+2025-10-19T06:56:57.457952 [MQTT]  CONNECTED with code=Success
+2025-10-19T06:56:57.462901 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=1 result=0
+2025-10-19T06:56:57.687521 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-19T07:23:44.417375 [MQTT] 🔌 Connecting to d2b2655505394c9b8e88c06c8d30d912.s1.eu.hivemq.cloud:8883
+2025-10-19T07:23:44.417472 [MQTT] LISTENING d2b2655505394c9b8e88c06c8d30d912.s1.eu.hivemq.cloud:8883 topic=aquanova/devices/telemetry
+2025-10-19T07:23:45.399319 [MQTT]  CONNECTED with code=Success
+2025-10-19T07:23:45.402643 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=1 result=0
+2025-10-19T07:23:45.614696 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-19T16:05:46.876420 [MQTT] 🔌 Connecting to d2b2655505394c9b8e88c06c8d30d912.s1.eu.hivemq.cloud:8883
+2025-10-19T16:05:46.876462 [MQTT] LISTENING d2b2655505394c9b8e88c06c8d30d912.s1.eu.hivemq.cloud:8883 topic=aquanova/devices/telemetry
+2025-10-19T16:05:47.904382 [MQTT]  CONNECTED with code=Success
+2025-10-19T16:05:47.905465 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=1 result=0
+2025-10-19T16:05:48.673516 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-19T16:20:42.957220 [MQTT] 🔌 Connecting to d2b2655505394c9b8e88c06c8d30d912.s1.eu.hivemq.cloud:8883
+2025-10-19T16:20:42.957254 [MQTT] LISTENING d2b2655505394c9b8e88c06c8d30d912.s1.eu.hivemq.cloud:8883 topic=aquanova/devices/telemetry
+2025-10-19T16:20:43.883194 [MQTT]  CONNECTED with code=Success
+2025-10-19T16:20:43.884802 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=1 result=0
+2025-10-19T16:20:44.102738 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-19T16:22:06.031246 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-19T16:22:06.031298 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/devices/telemetry
+2025-10-19T16:22:06.916350 [MQTT]  CONNECTED with code=Success
+2025-10-19T16:22:06.917035 [MQTT] SUBSCRIBE sent topic=aquanova/devices/telemetry mid=1 result=0
+2025-10-19T16:22:07.126473 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-19T16:22:11.526353 [MQTT]  MESSAGE topic=aquanova/devices/telemetry payload={'turbidity': 1000, 'temperature': 31, 'feed': 100, 'thoi_gian': '16:19:07', 'ts': '2025-10-19T09:22:09.930147+00:00'}
+2025-10-19T16:22:40.888916 [MQTT]  MESSAGE topic=aquanova/devices/telemetry payload={'turbidity': 1000, 'temperature': 31, 'feed': 100, 'thoi_gian': '16:19:09', 'ts': '2025-10-19T09:22:39.970662+00:00'}
+2025-10-19T16:23:11.006239 [MQTT]  MESSAGE topic=aquanova/devices/telemetry payload={'turbidity': 1000, 'temperature': 31, 'feed': 100, 'thoi_gian': '16:19:11', 'ts': '2025-10-19T09:23:09.936205+00:00'}
+2025-10-19T16:23:40.203307 [MQTT]  MESSAGE topic=aquanova/devices/telemetry payload={'turbidity': 945.8, 'temperature': 31, 'feed': 100, 'thoi_gian': '16:19:13', 'ts': '2025-10-19T09:23:39.936524+00:00'}
+2025-10-19T16:26:32.459647 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-19T16:26:32.459698 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/telemetry
+2025-10-19T16:26:33.348430 [MQTT]  CONNECTED with code=Success
+2025-10-19T16:26:33.353290 [MQTT] SUBSCRIBE sent topic=aquanova/telemetry mid=1 result=0
+2025-10-19T16:26:33.557004 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-19T16:26:56.070698 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 1000, 'temperature': 31, 'feed': 0, 'thoi_gian': '16:23:31', 'ts': '2025-10-19T09:26:55.751096+00:00'}
+2025-10-19T16:27:26.029310 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 1000, 'temperature': 31, 'feed': 0, 'thoi_gian': '16:23:33', 'ts': '2025-10-19T09:27:25.727064+00:00'}
+2025-10-19T16:27:55.991433 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 1000, 'temperature': 31, 'feed': 0, 'thoi_gian': '16:23:35', 'ts': '2025-10-19T09:27:55.709770+00:00'}
+2025-10-19T16:28:26.000860 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 944.6, 'temperature': 31, 'feed': 0, 'thoi_gian': '16:23:37', 'ts': '2025-10-19T09:28:25.734275+00:00'}
+2025-10-19T16:29:06.781502 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-19T16:29:06.781540 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/telemetry
+2025-10-19T16:29:07.844687 [MQTT]  CONNECTED with code=Success
+2025-10-19T16:29:07.845617 [MQTT] SUBSCRIBE sent topic=aquanova/telemetry mid=1 result=0
+2025-10-19T16:29:08.061917 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-19T16:29:25.978396 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 855.8, 'temperature': 31, 'feed': 0, 'thoi_gian': '16:23:41', 'ts': '2025-10-19T09:29:25.708325+00:00'}
+2025-10-19T16:29:56.933153 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 835, 'temperature': 31, 'feed': 0, 'thoi_gian': '16:23:43', 'ts': '2025-10-19T09:29:55.749044+00:00'}
+2025-10-19T16:30:26.049750 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 821.6, 'temperature': 31, 'feed': 0, 'thoi_gian': '16:23:46', 'ts': '2025-10-19T09:30:25.782178+00:00'}
+2025-10-19T16:30:40.137822 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-19T16:30:40.137875 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/telemetry
+2025-10-19T16:30:41.011734 [MQTT]  CONNECTED with code=Success
+2025-10-19T16:30:41.012592 [MQTT] SUBSCRIBE sent topic=aquanova/telemetry mid=1 result=0
+2025-10-19T16:30:41.231665 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-19T16:30:56.044862 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 814, 'temperature': 31, 'feed': 0, 'thoi_gian': '16:23:48', 'ts': '2025-10-19T09:30:55.771216+00:00'}
+2025-10-19T16:31:26.247217 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 809.4, 'temperature': 31, 'feed': 0, 'thoi_gian': '16:23:50', 'ts': '2025-10-19T09:31:25.978255+00:00'}
+2025-10-19T16:31:55.969186 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'error': 'Invalid payload format', 'raw_payload': ',31.0,0,16:24:15', 'ts': '2025-10-19T09:31:55.713669+00:00'}
+2025-10-19T16:32:36.022866 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-19T16:32:36.022915 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/telemetry
+2025-10-19T16:32:36.986734 [MQTT]  CONNECTED with code=Success
+2025-10-19T16:32:36.988432 [MQTT] SUBSCRIBE sent topic=aquanova/telemetry mid=1 result=0
+2025-10-19T16:32:37.244978 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-19T16:32:56.164016 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'error': 'Invalid payload format', 'raw_payload': ',31.0,0,16:24:42', 'ts': '2025-10-19T09:32:55.894742+00:00'}
+2025-10-19T16:33:26.039800 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 796.1, 'temperature': 31, 'feed': 0, 'thoi_gian': '16:24:44', 'ts': '2025-10-19T09:33:25.776484+00:00'}
+2025-10-19T16:33:56.106479 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 797.9, 'temperature': 31, 'feed': 0, 'thoi_gian': '16:24:46', 'ts': '2025-10-19T09:33:55.775109+00:00'}
+2025-10-19T16:34:26.043487 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 799.1, 'temperature': 31, 'feed': 0, 'thoi_gian': '16:24:48', 'ts': '2025-10-19T09:34:25.773209+00:00'}
+2025-10-19T16:34:56.070341 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 788.4, 'temperature': 31, 'feed': 0, 'thoi_gian': '16:26:48', 'ts': '2025-10-19T09:34:55.793428+00:00'}
+2025-10-19T16:35:26.150388 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'error': 'Invalid payload format', 'raw_payload': ',31.0,0,16:27:13', 'ts': '2025-10-19T09:35:25.880464+00:00'}
+2025-10-19T16:35:56.044994 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 788, 'temperature': 31, 'feed': 100, 'thoi_gian': '16:27:15', 'ts': '2025-10-19T09:35:55.780949+00:00'}

@@ -16,7 +16,6 @@ _mqtt_pub_client = None
 # MQTT client helper
 # ------------------------------------------------------------
 def _get_pub():
-    """Tạo hoặc lấy client MQTT đã kết nối"""
     global _mqtt_pub_client
     if _mqtt_pub_client:
         return _mqtt_pub_client
@@ -26,18 +25,13 @@ def _get_pub():
         mqtt.CallbackAPIVersion.VERSION2,
         client_id="aquanova-control-pub"
     )
-
     user = cfg.get("MQTT_USER")
     if user:
         client.username_pw_set(user, cfg.get("MQTT_PASS"))
 
     client.tls_set()
-    client.connect(
-        cfg.get("MQTT_HOST", "localhost"),
-        int(cfg.get("MQTT_PORT", 8883)),
-        keepalive=60
-    )
-
+    client.connect(cfg.get("MQTT_HOST"), int(cfg.get("MQTT_PORT", 8883)), keepalive=60)
+    client.qos = 1   
     _mqtt_pub_client = client
     return _mqtt_pub_client
 
@@ -52,7 +46,7 @@ def feed_now():
 
     try:
         topic = "aquanova/control"
-        payload = {"cmd": "feed", "amount": amount}
+        payload = {"feeding": 1}
         print(f"[FEED-NOW] Publishing {payload} → {topic}")
 
         _get_pub().publish(topic, json.dumps(payload), qos=1)
@@ -60,7 +54,6 @@ def feed_now():
         # Ghi log Firestore
         db = firestore.client()
         db.collection("feed_logs").add({
-            "amount": amount,
             "timestamp": firestore.SERVER_TIMESTAMP,
             "source": "manual"
         })
@@ -83,7 +76,7 @@ def add_schedule():
       - amount: số gram thức ăn
     """
     data = request.get_json(force=True) or {}
-    required = ("date", "time", "repeat", "amount")
+    required = ("date", "time", "repeat")
     for key in required:
         if not data.get(key):
             return jsonify({"error": f"{key} required"}), 400
@@ -94,7 +87,6 @@ def add_schedule():
         "date": data.get("date", ""),               # ngày (định dạng YYYY-MM-DD)
         "time": data["time"],                       # giờ (HH:MM)
         "repeat": data["repeat"],                   # none / daily / weekly
-        "amount": int(data["amount"]),
         "created_at": int(time.time())
     }
 
