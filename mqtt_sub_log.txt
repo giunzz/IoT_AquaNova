@@ -6326,3 +6326,11 @@
 2025-10-21T14:42:46.647277 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 632.6, 'temperature': 30, 'feed': 0, 'thoi_gian': '14:32:07', 'ts': '2025-10-21T07:42:46.347477+00:00'}
 2025-10-21T14:43:16.896000 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 0.1, 'temperature': 31, 'feed': 0, 'thoi_gian': '14:35:08', 'ts': '2025-10-21T07:43:16.612128+00:00'}
 2025-10-21T14:43:47.265493 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'error': 'Invalid payload format', 'raw_payload': '681.0,0,14:35:33', 'ts': '2025-10-21T07:43:46.358780+00:00'}
+2025-10-21T14:49:18.947637 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-21T14:49:18.947681 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/telemetry
+2025-10-21T14:49:20.160888 [MQTT]  CONNECTED with code=Success
+2025-10-21T14:49:20.163512 [MQTT] SUBSCRIBE sent topic=aquanova/telemetry mid=1 result=0
+2025-10-21T14:49:20.398429 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-21T14:50:42.750945 [MQTT] ERROR: Timeout of 60.0s exceeded, last exception: 503 Getting metadata from plugin failed with error: ('invalid_grant: Invalid JWT Signature.', {'error': 'invalid_grant', 'error_description': 'Invalid JWT Signature.'}) | payload=b'{"error":"Invalid payload format","raw_payload":"4:40:50"}'
+2025-10-21T14:51:38.581920 [MQTT] ERROR: Timeout of 60.0s exceeded, last exception: 503 Getting metadata from plugin failed with error: ('invalid_grant: Invalid JWT Signature.', {'error': 'invalid_grant', 'error_description': 'Invalid JWT Signature.'}) | payload=b'{"turbidity":744.3,"temperature":28,"feed":0,"thoi_gian":"14:40:52"}'
+2025-10-21T14:52:31.908165 [MQTT] ERROR: Timeout of 60.0s exceeded, last exception: 503 Getting metadata from plugin failed with error: ('invalid_grant: Invalid JWT Signature.', {'error': 'invalid_grant', 'error_description': 'Invalid JWT Signature.'}) | payload=b'{"turbidity":746.6,"temperature":28,"feed":0,"thoi_gian":"14:40:54"}'

@@ -69,6 +69,8 @@ void Error_Handler(void);
 #define TRIG_HCSR04_GPIO_Port GPIOA
 #define BUZZER_Pin GPIO_PIN_6
 #define BUZZER_GPIO_Port GPIOA
+#define LIGHT_Pin GPIO_PIN_7
+#define LIGHT_GPIO_Port GPIOA
 #define ALARM_Pin GPIO_PIN_1
 #define ALARM_GPIO_Port GPIOB
 #define ALARM_EXTI_IRQn EXTI1_IRQn

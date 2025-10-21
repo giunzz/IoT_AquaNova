@@ -29,6 +29,12 @@
 #include "lcd_state.h"
 #include "string.h"
 
+void read_sensors_data(void);
+void process_turbidity(void);
+void measure_food_level(void);
+void handle_turbidity_warning(void);
+void handle_uart_transmission(void);
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -78,16 +84,18 @@ float D_empty = 12.0f;   // cm
 float D_full  = 7.0f;   // cm
 float percent;
 
+uint8_t is_turbidity_warning_active = 0;      
+uint8_t is_warning_silenced_by_user = 0;   
+uint32_t last_beep_toggle_time = 0;
 
-uint8_t senddata[]="Hello STM ->ESP";
-char rec,null;
+char rec;
 char buffer[100];
 int i=0;
 
 char uart_tx_buffer[100]; 
 uint32_t last_uart_send_time = 0; 
 //#define UART_SEND_INTERVAL 3600000 
-#define UART_SEND_INTERVAL 2000 
+#define UART_SEND_INTERVAL 60000 
 
 //uint32_t lcd_timer = 0;
 
@@ -101,11 +109,13 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
     switch (rec)
     {
       case 'L':
+				HAL_GPIO_WritePin(LIGHT_GPIO_Port, LIGHT_Pin, GPIO_PIN_SET);
         break;
 
       case 'l':
+				HAL_GPIO_WritePin(LIGHT_GPIO_Port, LIGHT_Pin, GPIO_PIN_RESET);
         break;
-
+				
       case 'F':
 				feeding_Alarm();
         break;
@@ -117,6 +127,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
     HAL_UART_Receive_IT(&huart1, (uint8_t *)&rec, 1);
   }
 }
+
 uint16_t Read_ADC(void) 														// Doc ADC
 {
     uint16_t val = 0;
@@ -142,13 +153,6 @@ uint32_t Read_ADC_Avg(uint8_t samples)			// Doc ADC lay nhieu mau
     return sum / samples;
 }
 
-float filter_IIR(float input)								// Lay filter loc nhieu
-{
-    static float output = 0;
-    float alpha = 0.05f;  
-    output = alpha * input + (1 - alpha) * output;
-    return output;
-}
 
 struct feeding_t feed = {
 		.hi2c = &hi2c1,
@@ -161,11 +165,10 @@ struct feeding_t feed = {
 		},
 };
 
-
 void LCD_Update(void) {
     char buffer[20];
 	
-    if (turbidity >= 300)
+    if (is_turbidity_warning_active == 1)
     {
         CLCD_I2C_SetCursor(&LCD1, 0, 0);
         CLCD_I2C_WriteString(&LCD1, "  !!WARNING!!   ");
@@ -304,7 +307,21 @@ static void MX_USART1_UART_Init(void);
 /* USER CODE BEGIN 0 */
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
-	feeding_ISR(GPIO_Pin);
+    if (GPIO_Pin == BUTTON_CONTROL_Pin || GPIO_Pin == BUTTON_UP_Pin || 
+        GPIO_Pin == BUTTON_DOWN_Pin || GPIO_Pin == BUTTON_Pin)
+    {
+				if (is_turbidity_warning_active)
+        {
+            is_turbidity_warning_active = 0;   
+            is_warning_silenced_by_user = 1;  
+            HAL_GPIO_WritePin(BUZZER_GPIO_Port, BUZZER_Pin, GPIO_PIN_RESET); 
+            lcd_state = LCD_STATE_NORMAL;
+            
+            return; 
+        }
+    }
+	
+    feeding_ISR(GPIO_Pin);
 }
 
 void HAL_SYSTICK_Callback(void)
@@ -327,6 +344,7 @@ void HAL_SYSTICK_Callback(void)
   */
 int main(void)
 {
+	                                                                             
 
   /* USER CODE BEGIN 1 */
 
@@ -371,74 +389,17 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    feeding_Handler();
-		DS3231_GetTime(&timenow);
-
-		TEMP = DS18B20_ReadTemp(&DS1);
-		
-		uint32_t avg_adc = Read_ADC_Avg(200); 
-		float voltage_raw = (avg_adc * 3.3f) / 4095.0f;
-		//float voltage = filter_IIR(voltage_raw); 
-		float voltage = voltage_raw + 0.01f;
-		
-//    turbidity = -1120.4f*voltage*voltage + 5742.3f*voltage - 4352.9f; 
-//		turbidity = -900.4f * (voltage * voltage) + 5.85f * voltage + 3004.72f;
-		turbidity = -900.4f * (voltage * voltage) - 336.302f * voltage + 2973.295f ;
-		
-    if (turbidity < 0)
-    {
-        turbidity = 0;
-    } else if (turbidity > 1000)
-		{
-				turbidity = 1000;
-		}
-		
-    if (turbidity >= 1000)
-    {
-      HAL_GPIO_WritePin(BUZZER_GPIO_Port, BUZZER_Pin, GPIO_PIN_SET);
-    }
-    else
-    {
-      HAL_GPIO_WritePin(BUZZER_GPIO_Port, BUZZER_Pin, GPIO_PIN_RESET);
-    }
-		
-		HCSR04_Read();
-		percent = ((D_empty - Distance) / (D_empty - D_full)) * 100.0f;
-    if (percent < 0) percent = 0;
-    if (percent > 100) percent = 100;
-		
-
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-		
-		LCD_Update();
-//            sprintf(buffer,"Temp: %.3f C       ", voltage);
-//            CLCD_I2C_SetCursor(&LCD1, 0, 0);
-//            CLCD_I2C_WriteString(&LCD1, buffer);
-
-//            sprintf(buffer,"Turb: %.1f NTU      ", turbidity);
-//            CLCD_I2C_SetCursor(&LCD1, 0, 1);
-//            CLCD_I2C_WriteString(&LCD1, buffer);
-//		
-    if (HAL_GetTick() - last_uart_send_time >= UART_SEND_INTERVAL)
-    {
-        snprintf(uart_tx_buffer, sizeof(uart_tx_buffer),
-                 "%.1f,%.1f,%.0f,%02d:%02d:%02d\r\n",
-                 turbidity,
-                 TEMP,
-                 percent,
-                 timenow.hour,
-                 timenow.minutes,
-                 timenow.seconds);
-
-        HAL_UART_Transmit(&huart1, (uint8_t*)uart_tx_buffer, strlen(uart_tx_buffer), 1000);
-        
-        last_uart_send_time = HAL_GetTick();
-    }
-    
-    HAL_UART_Receive_IT(&huart1, (uint8_t *)&rec, 1);
-		
+		feeding_Handler();          
+    read_sensors_data();        
+    process_turbidity();        
+    measure_food_level();      
+    handle_turbidity_warning(); 
+    LCD_Update();               
+    handle_uart_transmission(); 
+    		
   }
   /* USER CODE END 3 */
 }
@@ -809,7 +770,7 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, TRIG_HCSR04_Pin|BUZZER_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, TRIG_HCSR04_Pin|BUZZER_Pin|LIGHT_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(DS18B20_GPIO_Port, DS18B20_Pin, GPIO_PIN_RESET);
@@ -827,8 +788,8 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(ECHO_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : TRIG_HCSR04_Pin BUZZER_Pin */
-  GPIO_InitStruct.Pin = TRIG_HCSR04_Pin|BUZZER_Pin;
+  /*Configure GPIO pins : TRIG_HCSR04_Pin BUZZER_Pin LIGHT_Pin */
+  GPIO_InitStruct.Pin = TRIG_HCSR04_Pin|BUZZER_Pin|LIGHT_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -872,6 +833,83 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+void read_sensors_data(void)
+{
+    DS3231_GetTime(&timenow);
+    TEMP = DS18B20_ReadTemp(&DS1);
+}
+
+void process_turbidity(void)
+{
+    uint32_t avg_adc = Read_ADC_Avg(200);
+    float voltage_raw = (avg_adc * 3.3f) / 4095.0f;
+    float voltage = voltage_raw + 0.01f; 
+
+    // C�ng th?c t�nh to�n d? d?c
+    turbidity = -900.4f * (voltage * voltage) - 336.302f * voltage + 2973.295f;
+
+    // Gi?i h?n gi� tr? d? d?c trong kho?ng h?p l�
+    if (turbidity < 0)
+    {
+        turbidity = 0;
+    }
+    else if (turbidity > 1000)
+    {
+        turbidity = 1000;
+    }
+}
+
+void measure_food_level(void)
+{
+    HCSR04_Read();
+    percent = ((D_empty - Distance) / (D_empty - D_full)) * 100.0f;
+
+    if (percent < 0) percent = 0;
+    if (percent > 100) percent = 100;
+}
+
+void handle_turbidity_warning(void)
+{
+    if (turbidity >= 1000 && !is_warning_silenced_by_user)
+    {
+        is_turbidity_warning_active = 1;
+
+				if (HAL_GetTick() - last_beep_toggle_time >= 1000)
+				{
+						HAL_GPIO_TogglePin(BUZZER_GPIO_Port, BUZZER_Pin); 
+						last_beep_toggle_time = HAL_GetTick();
+				}
+    }
+    else
+    {
+        is_turbidity_warning_active = 0;
+        HAL_GPIO_WritePin(BUZZER_GPIO_Port, BUZZER_Pin, GPIO_PIN_RESET);
+        
+				if (turbidity < 1000) {
+            is_warning_silenced_by_user = 0;
+        }
+    }
+}
+
+void handle_uart_transmission(void)
+{
+    if (HAL_GetTick() - last_uart_send_time >= UART_SEND_INTERVAL)
+    {
+        snprintf(uart_tx_buffer, sizeof(uart_tx_buffer),
+                 "%.1f,%.1f,%.0f,%02d:%02d:%02d\r\n",
+                 turbidity,
+                 TEMP,
+                 percent,
+                 timenow.hour,
+                 timenow.minutes,
+                 timenow.seconds);
+
+        HAL_UART_Transmit(&huart1, (uint8_t*)uart_tx_buffer, strlen(uart_tx_buffer), 1000);
+        
+        last_uart_send_time = HAL_GetTick();
+    }
+		HAL_UART_Receive_IT(&huart1, (uint8_t *)&rec, 1);
+}
 
 /* USER CODE END 4 */
 
