@@ -35,6 +35,34 @@ def _get_pub():
     _mqtt_pub_client = client
     return _mqtt_pub_client
 
+@control_bp.post("/light")
+def toggle_light():
+    data = request.get_json(force=True) or {}
+    light_val = data.get("light")
+
+    if light_val not in (0, 1):
+        return jsonify({"error": "light must be 0 or 1"}), 400
+
+    try:
+        topic = "aquanova/control"
+        payload = {"light": light_val}
+        print(f"[LIGHT] Publishing {payload} → {topic}")
+
+        _get_pub().publish(topic, json.dumps(payload), qos=1)
+
+        # Ghi log Firestore
+        db = firestore.client()
+        db.collection("light_logs").add({
+            "timestamp": firestore.SERVER_TIMESTAMP,
+            "state": "on" if light_val == 1 else "off",
+            "light_value": light_val,
+            "source": "manual"
+        })
+
+        return jsonify({"ok": True, "published": {"topic": topic, "payload": payload}})
+    except Exception as e:
+        print("[ERROR] toggle_light:", e)
+        return jsonify({"error": str(e)}), 500
 
 # ------------------------------------------------------------
 # 🐟 Cho ăn ngay lập tức

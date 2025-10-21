@@ -125,35 +125,76 @@
   </script>
 
   <script>
-    // === CONFIG NGƯỠNG (hiển thị) ===
-    const SAFE_MIN = 0, SAFE_MAX = 500;
-    const TURBIDITY_WARN = 1000;
+  // === LIGHT CONTROL ===
+  const SAFE_MIN = 0, SAFE_MAX = 1000;
+  const TURBIDITY_WARN = 200;
+  const lightSwitch = document.getElementById('lightSwitch');
+  const lightStatus = document.getElementById('lightStatus');
 
-    // === LIGHT (demo phía client) ===
-    const lightSwitch = document.getElementById('lightSwitch');
-    const lightStatus = document.getElementById('lightStatus');
-    lightSwitch.addEventListener('click', ()=>{
-      lightSwitch.classList.toggle('on');
-      lightStatus.textContent = lightSwitch.classList.contains('on') ? 'Light is turn on now' : 'Light is off';
-    });
+  async function toggleLight(isOn) {
+    try {
+      const res = await fetch('/control/light', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ light: isOn ? 1 : 0 }) // gửi 1 hoặc 0
+      });
 
-    // === FEED NOW (gọi API control nếu có; tạm demo) ===
-    const feedBtn = document.getElementById('feedNowBtn');
-    const feedMsg = document.getElementById('feedNowMsg');
-    feedBtn.addEventListener('click', async ()=>{
-      feedBtn.disabled = true;
-      feedMsg.textContent = 'Sending...';
-      try{
-        await new Promise(r=>setTimeout(r,600)); // giả lập
-        feedMsg.textContent = 'Feed command queued.';
-      }catch(e){
-        feedMsg.textContent = 'Failed: '+e.message;
-      }finally{
-        setTimeout(()=>{feedMsg.textContent=''}, 2500);
-        feedBtn.disabled = false;
+      const data = await res.json();
+      if (res.ok && data.ok) {
+        lightStatus.textContent = isOn
+          ? 'Light is turned ON now'
+          : 'Light is turned OFF';
+        lightStatus.style.color = isOn ? '#166534' : '#991b1b';
+      } else {
+        throw new Error(data.error || 'Failed to update light');
       }
-    });
+    } catch (err) {
+      console.error('[LIGHT ERROR]', err);
+      lightStatus.textContent = '⚠ Error controlling light';
+      lightStatus.style.color = '#dc2626';
+    }
+  }
 
+  lightSwitch.addEventListener('click', () => {
+    const isOn = lightSwitch.classList.toggle('on');
+    toggleLight(isOn);
+  });
+</script>
+
+
+ <script>
+  const feedBtn = document.getElementById('feedNowBtn');
+  const feedMsg = document.getElementById('feedNowMsg');
+
+  feedBtn.addEventListener('click', async () => {
+    feedBtn.disabled = true;
+    feedMsg.textContent = 'Sending...';
+    try {
+      const res = await fetch('/control/feed-now', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ amount: 20 })
+      });
+      const data = await res.json();
+      if (res.ok && data.ok) {
+        feedMsg.textContent = 'Feed command sent successfully!';
+        feedMsg.style.color = '#166534';
+      } else {
+        throw new Error(data.error || 'Feed failed');
+      }
+    } catch (err) {
+      console.error('[FEED ERROR]', err);
+      feedMsg.textContent = '⚠ Error sending feed command';
+      feedMsg.style.color = '#dc2626';
+    } finally {
+      setTimeout(() => { feedMsg.textContent = ''; }, 2500);
+      feedBtn.disabled = false;
+    }
+  });
+</script>
+
+
+  <script>
     // === CHART ===
     let turbChart;
     function ensureChart(ctx, labels, data){
