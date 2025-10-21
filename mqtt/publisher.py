@@ -35,5 +35,5 @@ class MQTTPublisher:
             print(f"[MQTT] 📤 Published to {topic}: {msg}")
             return True
         except Exception as e:
-            print(f"[MQTT] ❌ Publish failed: {e}")
+            print(f"[MQTT] Publish failed: {e}")
             return False

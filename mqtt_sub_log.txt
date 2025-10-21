@@ -6286,3 +6286,43 @@
 2025-10-21T14:20:27.937323 [MQTT]  CONNECTED with code=Success
 2025-10-21T14:20:27.938948 [MQTT] SUBSCRIBE sent topic=aquanova/telemetry mid=1 result=0
 2025-10-21T14:20:28.202835 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-21T14:27:44.199545 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-21T14:27:44.199599 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/telemetry
+2025-10-21T14:27:45.205241 [MQTT]  CONNECTED with code=Success
+2025-10-21T14:27:45.205926 [MQTT] SUBSCRIBE sent topic=aquanova/telemetry mid=1 result=0
+2025-10-21T14:27:45.433913 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-21T14:28:43.973990 [MQTT] ERROR: Timeout of 60.0s exceeded, last exception: 503 Getting metadata from plugin failed with error: ('invalid_grant: Invalid JWT Signature.', {'error': 'invalid_grant', 'error_description': 'Invalid JWT Signature.'}) | payload=b'{"turbidity":601.8,"temperature":30,"feed":0,"thoi_gian":"14:25:09"}'
+2025-10-21T14:29:42.938453 [MQTT] ERROR: Timeout of 60.0s exceeded, last exception: 503 Getting metadata from plugin failed with error: ('invalid_grant: Invalid JWT Signature.', {'error': 'invalid_grant', 'error_description': 'Invalid JWT Signature.'}) | payload=b'{"turbidity":601.8,"temperature":30,"feed":0,"thoi_gian":"14:25:11"}'
+2025-10-21T14:30:33.184135 [MQTT] ERROR: Timeout of 60.0s exceeded, last exception: 503 Getting metadata from plugin failed with error: ('invalid_grant: Invalid JWT Signature.', {'error': 'invalid_grant', 'error_description': 'Invalid JWT Signature.'}) | payload=b'{"turbidity":606.6,"temperature":30,"feed":0,"thoi_gian":"14:25:14"}'
+2025-10-21T14:30:33.187339 [MQTT]  DISCONNECTED (reason_code=Unspecified error) — attempting reconnect...
+2025-10-21T14:30:34.152484 [MQTT] RECONNECTED successfully!
+2025-10-21T14:30:36.243746 [MQTT]  CONNECTED with code=Success
+2025-10-21T14:30:36.247522 [MQTT] SUBSCRIBE sent topic=aquanova/telemetry mid=2 result=0
+2025-10-21T14:30:36.466303 [MQTT] SUBACK mid=2, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-21T14:31:56.173504 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-21T14:31:56.173565 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/telemetry
+2025-10-21T14:31:57.490311 [MQTT]  CONNECTED with code=Success
+2025-10-21T14:31:57.491492 [MQTT] SUBSCRIBE sent topic=aquanova/telemetry mid=1 result=0
+2025-10-21T14:31:57.719854 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-21T14:32:03.683374 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 709.7, 'temperature': 29, 'feed': 0, 'thoi_gian': '14:28:59', 'ts': '2025-10-21T07:32:02.931853+00:00'}
+2025-10-21T14:32:33.778379 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 718.9, 'temperature': 29, 'feed': 0, 'thoi_gian': '14:29:01', 'ts': '2025-10-21T07:32:33.130561+00:00'}
+2025-10-21T14:33:16.708967 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 681.8, 'temperature': 29, 'feed': 0, 'thoi_gian': '14:30:40', 'ts': '2025-10-21T07:33:16.315130+00:00'}
+2025-10-21T14:33:47.012338 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 693.4, 'temperature': 29, 'feed': 0, 'thoi_gian': '14:30:42', 'ts': '2025-10-21T07:33:46.327625+00:00'}
+2025-10-21T14:34:17.074244 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 705, 'temperature': 29, 'feed': 0, 'thoi_gian': '14:30:44', 'ts': '2025-10-21T07:34:16.773370+00:00'}
+2025-10-21T14:34:46.610341 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 707.3, 'temperature': 29, 'feed': 0, 'thoi_gian': '14:30:46', 'ts': '2025-10-21T07:34:46.333981+00:00'}
+2025-10-21T14:35:16.941454 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 709.7, 'temperature': 28, 'feed': 0, 'thoi_gian': '14:30:48', 'ts': '2025-10-21T07:35:16.351350+00:00'}
+2025-10-21T14:35:46.835437 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 709.7, 'temperature': 28, 'feed': 0, 'thoi_gian': '14:30:50', 'ts': '2025-10-21T07:35:46.474562+00:00'}
+2025-10-21T14:36:16.644117 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 705, 'temperature': 28, 'feed': 0, 'thoi_gian': '14:30:53', 'ts': '2025-10-21T07:36:16.345062+00:00'}
+2025-10-21T14:36:46.648305 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 702.7, 'temperature': 28, 'feed': 0, 'thoi_gian': '14:30:55', 'ts': '2025-10-21T07:36:46.330474+00:00'}
+2025-10-21T14:37:16.827942 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 691.1, 'temperature': 28, 'feed': 0, 'thoi_gian': '14:30:57', 'ts': '2025-10-21T07:37:16.553963+00:00'}
+2025-10-21T14:37:46.621422 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 693.4, 'temperature': 28, 'feed': 0, 'thoi_gian': '14:30:59', 'ts': '2025-10-21T07:37:46.338685+00:00'}
+2025-10-21T14:38:16.657778 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 714.3, 'temperature': 28, 'feed': 0, 'thoi_gian': '14:31:01', 'ts': '2025-10-21T07:38:16.377285+00:00'}
+2025-10-21T14:38:46.703819 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 695.7, 'temperature': 28, 'feed': 0, 'thoi_gian': '14:31:03', 'ts': '2025-10-21T07:38:46.403649+00:00'}
+2025-10-21T14:42:25.260658 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-21T14:42:25.260690 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/telemetry
+2025-10-21T14:42:26.192714 [MQTT]  CONNECTED with code=Success
+2025-10-21T14:42:26.194337 [MQTT] SUBSCRIBE sent topic=aquanova/telemetry mid=1 result=0
+2025-10-21T14:42:26.405788 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-21T14:42:46.647277 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 632.6, 'temperature': 30, 'feed': 0, 'thoi_gian': '14:32:07', 'ts': '2025-10-21T07:42:46.347477+00:00'}
+2025-10-21T14:43:16.896000 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 0.1, 'temperature': 31, 'feed': 0, 'thoi_gian': '14:35:08', 'ts': '2025-10-21T07:43:16.612128+00:00'}
+2025-10-21T14:43:47.265493 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'error': 'Invalid payload format', 'raw_payload': '681.0,0,14:35:33', 'ts': '2025-10-21T07:43:46.358780+00:00'}
