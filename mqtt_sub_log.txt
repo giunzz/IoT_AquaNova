@@ -6434,3 +6434,254 @@
 2025-10-22T16:57:54.869219 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 582.8, 'temperature': 29, 'feed': 0, 'thoi_gian': '14:31:36', 'ts': '2025-10-22T09:57:54.523507+00:00'}
 2025-10-22T16:58:53.348678 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 515.7, 'temperature': 29, 'feed': 0, 'thoi_gian': '14:32:36', 'ts': '2025-10-22T09:58:52.961136+00:00'}
 2025-10-22T16:59:54.110992 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 464.8, 'temperature': 29, 'feed': 0, 'thoi_gian': '14:33:36', 'ts': '2025-10-22T09:59:53.752391+00:00'}
+2025-10-22T17:34:15.960130 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-22T17:34:15.960185 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/telemetry
+2025-10-22T17:34:18.514333 [MQTT]  CONNECTED with code=Success
+2025-10-22T17:34:18.516058 [MQTT] SUBSCRIBE sent topic=aquanova/telemetry mid=1 result=0
+2025-10-22T17:34:18.768009 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-22T17:34:50.190984 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 801.4, 'temperature': 29, 'feed': 0, 'thoi_gian': '15:08:33', 'ts': '2025-10-22T10:34:49.770686+00:00'}
+2025-10-22T17:35:50.157370 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 801.4, 'temperature': 29, 'feed': 0, 'thoi_gian': '15:09:33', 'ts': '2025-10-22T10:35:49.823093+00:00'}
+2025-10-22T17:39:39.117099 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 787.8, 'temperature': 30, 'feed': 0, 'thoi_gian': '15:13:22', 'ts': '2025-10-22T10:39:38.740068+00:00'}
+2025-10-23T10:26:57.041095 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-23T10:26:57.041140 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/telemetry
+2025-10-23T10:26:58.078636 [MQTT]  CONNECTED with code=Success
+2025-10-23T10:26:58.079779 [MQTT] SUBSCRIBE sent topic=aquanova/telemetry mid=1 result=0
+2025-10-23T10:26:58.306993 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-23T10:27:02.310664 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 644.3, 'temperature': 31, 'feed': 0, 'thoi_gian': '10:26:03', 'ts': '2025-10-23T03:27:00.129809+00:00'}
+2025-10-23T10:28:00.438102 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 606.6, 'temperature': 31, 'feed': 0, 'thoi_gian': '10:27:03', 'ts': '2025-10-23T03:28:00.134297+00:00'}
+2025-10-23T10:29:00.334544 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 606.6, 'temperature': 31, 'feed': 0, 'thoi_gian': '10:28:03', 'ts': '2025-10-23T03:29:00.202924+00:00'}
+2025-10-23T10:30:00.273381 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 670.1, 'temperature': 31, 'feed': 0, 'thoi_gian': '10:29:03', 'ts': '2025-10-23T03:30:00.135065+00:00'}
+2025-10-23T10:31:00.305451 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 688.8, 'temperature': 31, 'feed': 0, 'thoi_gian': '10:30:03', 'ts': '2025-10-23T03:31:00.163512+00:00'}
+2025-10-23T10:32:00.306812 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 625.5, 'temperature': 31, 'feed': 0, 'thoi_gian': '10:31:03', 'ts': '2025-10-23T03:32:00.197119+00:00'}
+2025-10-23T10:33:00.282671 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 620.8, 'temperature': 31, 'feed': 0, 'thoi_gian': '10:32:03', 'ts': '2025-10-23T03:33:00.156518+00:00'}
+2025-10-23T10:34:53.153021 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 575.7, 'temperature': 32, 'feed': 0, 'thoi_gian': '10:34:03', 'ts': '2025-10-23T03:34:53.061396+00:00'}
+2025-10-23T10:35:53.203115 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 590, 'temperature': 32, 'feed': 0, 'thoi_gian': '10:35:03', 'ts': '2025-10-23T03:35:53.077685+00:00'}
+2025-10-23T10:36:53.209043 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 604.2, 'temperature': 32, 'feed': 0, 'thoi_gian': '10:36:04', 'ts': '2025-10-23T03:36:53.079700+00:00'}
+2025-10-23T10:37:53.202917 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 618.4, 'temperature': 32, 'feed': 0, 'thoi_gian': '10:37:04', 'ts': '2025-10-23T03:37:53.095272+00:00'}
+2025-10-23T11:16:17.812887 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-23T11:16:17.812934 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/telemetry
+2025-10-23T11:16:18.785885 [MQTT]  CONNECTED with code=Success
+2025-10-23T11:16:18.787604 [MQTT] SUBSCRIBE sent topic=aquanova/telemetry mid=1 result=0
+2025-10-23T11:16:19.007000 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-23T12:32:35.445149 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-23T12:32:35.445191 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/telemetry
+2025-10-23T12:32:36.434935 [MQTT]  CONNECTED with code=Success
+2025-10-23T12:32:36.435862 [MQTT] SUBSCRIBE sent topic=aquanova/telemetry mid=1 result=0
+2025-10-23T12:32:36.662764 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-23T12:33:59.424758 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 273.7, 'temperature': 30, 'feed': 0, 'thoi_gian': '12:33:16', 'ts': '2025-10-23T05:33:59.306983+00:00'}
+2025-10-23T12:34:59.451096 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 573.3, 'temperature': 30, 'feed': 0, 'thoi_gian': '12:34:16', 'ts': '2025-10-23T05:34:59.281329+00:00'}
+2025-10-23T12:35:59.380921 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 639.6, 'temperature': 30, 'feed': 0, 'thoi_gian': '12:35:16', 'ts': '2025-10-23T05:35:59.274157+00:00'}
+2025-10-23T12:46:21.880905 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-23T12:46:21.880947 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/telemetry
+2025-10-23T12:46:22.732888 [MQTT]  CONNECTED with code=Success
+2025-10-23T12:46:22.734499 [MQTT] SUBSCRIBE sent topic=aquanova/telemetry mid=1 result=0
+2025-10-23T12:46:22.941716 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-23T13:01:00.082095 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-23T13:01:00.082132 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/telemetry
+2025-10-23T13:01:01.134227 [MQTT]  CONNECTED with code=Success
+2025-10-23T13:01:01.135139 [MQTT] SUBSCRIBE sent topic=aquanova/telemetry mid=1 result=0
+2025-10-23T13:01:01.351484 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-23T13:05:00.537485 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 7.1, 'temperature': 29, 'feed': 7, 'thoi_gian': '13:04:22', 'ts': '2025-10-23T06:05:00.446863+00:00'}
+2025-10-23T13:06:00.566957 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 7.1, 'temperature': 29, 'feed': 8, 'thoi_gian': '13:05:22', 'ts': '2025-10-23T06:06:00.472407+00:00'}
+2025-10-23T13:07:00.552523 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 9.8, 'temperature': 29, 'feed': 7, 'thoi_gian': '13:06:22', 'ts': '2025-10-23T06:07:00.463922+00:00'}
+2025-10-23T13:09:51.145432 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-23T13:09:51.145473 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/telemetry
+2025-10-23T13:09:52.076389 [MQTT]  CONNECTED with code=Success
+2025-10-23T13:09:52.077265 [MQTT] SUBSCRIBE sent topic=aquanova/telemetry mid=1 result=0
+2025-10-23T13:09:52.295523 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-23T13:11:26.678316 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 9.8, 'temperature': 29, 'feed': 8, 'thoi_gian': '13:10:56', 'ts': '2025-10-23T06:11:26.524898+00:00'}
+2025-10-23T13:12:56.533327 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 99.1, 'temperature': 29, 'feed': 8, 'thoi_gian': '13:11:56', 'ts': '2025-10-23T06:12:56.431451+00:00'}
+2025-10-23T13:13:56.530742 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 70.4, 'temperature': 29, 'feed': 1, 'thoi_gian': '13:12:56', 'ts': '2025-10-23T06:13:56.435861+00:00'}
+2025-10-23T13:14:56.548556 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 112.1, 'temperature': 29, 'feed': 15, 'thoi_gian': '13:13:56', 'ts': '2025-10-23T06:14:56.443400+00:00'}
+2025-10-23T13:15:56.571919 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 88.7, 'temperature': 29, 'feed': 23, 'thoi_gian': '13:14:56', 'ts': '2025-10-23T06:15:56.449925+00:00'}
+2025-10-23T13:16:56.517648 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 93.9, 'temperature': 29, 'feed': 23, 'thoi_gian': '13:15:56', 'ts': '2025-10-23T06:16:56.422711+00:00'}
+2025-10-23T13:17:56.523778 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 109.5, 'temperature': 29, 'feed': 23, 'thoi_gian': '13:16:56', 'ts': '2025-10-23T06:17:56.424725+00:00'}
+2025-10-23T13:18:56.520449 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 101.7, 'temperature': 29, 'feed': 23, 'thoi_gian': '13:17:56', 'ts': '2025-10-23T06:18:56.428638+00:00'}
+2025-10-23T13:19:56.546590 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 112.1, 'temperature': 29, 'feed': 23, 'thoi_gian': '13:18:56', 'ts': '2025-10-23T06:19:56.448770+00:00'}
+2025-10-23T13:20:56.539447 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 73, 'temperature': 29, 'feed': 23, 'thoi_gian': '13:19:56', 'ts': '2025-10-23T06:20:56.447307+00:00'}
+2025-10-23T13:21:56.627801 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 698.1, 'temperature': 29, 'feed': 33, 'thoi_gian': '13:20:57', 'ts': '2025-10-23T06:21:56.477629+00:00'}
+2025-10-23T13:22:56.586853 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 705, 'temperature': 28, 'feed': 25, 'thoi_gian': '13:21:57', 'ts': '2025-10-23T06:22:56.487556+00:00'}
+2025-10-23T13:23:56.540405 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 799.1, 'temperature': 28, 'feed': 25, 'thoi_gian': '13:22:57', 'ts': '2025-10-23T06:23:56.434025+00:00'}
+2025-10-23T13:24:56.561410 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 54.6, 'temperature': 29, 'feed': 0, 'thoi_gian': '13:23:57', 'ts': '2025-10-23T06:24:56.442782+00:00'}
+2025-10-23T13:25:56.571425 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 57.2, 'temperature': 29, 'feed': 0, 'thoi_gian': '13:24:57', 'ts': '2025-10-23T06:25:56.463787+00:00'}
+2025-10-23T13:26:56.860432 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 49.4, 'temperature': 29, 'feed': 0, 'thoi_gian': '13:25:57', 'ts': '2025-10-23T06:26:56.764827+00:00'}
+2025-10-23T13:27:56.547210 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 62.5, 'temperature': 29, 'feed': 0, 'thoi_gian': '13:26:57', 'ts': '2025-10-23T06:27:56.444141+00:00'}
+2025-10-23T13:28:56.538392 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 46.7, 'temperature': 29, 'feed': 0, 'thoi_gian': '13:27:58', 'ts': '2025-10-23T06:28:56.449736+00:00'}
+2025-10-23T13:29:56.543046 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 46.7, 'temperature': 29, 'feed': 0, 'thoi_gian': '13:28:58', 'ts': '2025-10-23T06:29:56.453887+00:00'}
+2025-10-23T13:30:56.537253 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 62.5, 'temperature': 29, 'feed': 0, 'thoi_gian': '13:29:58', 'ts': '2025-10-23T06:30:56.449854+00:00'}
+2025-10-23T13:31:56.569185 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 59.9, 'temperature': 29, 'feed': 0, 'thoi_gian': '13:30:58', 'ts': '2025-10-23T06:31:56.473130+00:00'}
+2025-10-23T13:32:57.036865 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 54.6, 'temperature': 29, 'feed': 0, 'thoi_gian': '13:31:58', 'ts': '2025-10-23T06:32:56.511817+00:00'}
+2025-10-23T13:33:56.570557 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 73, 'temperature': 29, 'feed': 0, 'thoi_gian': '13:32:58', 'ts': '2025-10-23T06:33:56.472407+00:00'}
+2025-10-23T13:34:56.597439 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 73, 'temperature': 29, 'feed': 0, 'thoi_gian': '13:33:58', 'ts': '2025-10-23T06:34:56.484955+00:00'}
+2025-10-23T13:35:56.580185 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 78.2, 'temperature': 29, 'feed': 0, 'thoi_gian': '13:34:58', 'ts': '2025-10-23T06:35:56.487765+00:00'}
+2025-10-23T13:36:17.555627 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-23T13:36:17.555662 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/telemetry
+2025-10-23T13:36:18.564459 [MQTT]  CONNECTED with code=Success
+2025-10-23T13:36:18.565415 [MQTT] SUBSCRIBE sent topic=aquanova/telemetry mid=1 result=0
+2025-10-23T13:36:18.912350 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-23T13:36:56.644064 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 67.7, 'temperature': 29, 'feed': 0, 'thoi_gian': '13:35:58', 'ts': '2025-10-23T06:36:56.545674+00:00'}
+2025-10-23T13:37:56.553391 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 54.6, 'temperature': 29, 'feed': 0, 'thoi_gian': '13:36:58', 'ts': '2025-10-23T06:37:56.461662+00:00'}
+2025-10-23T13:38:56.573725 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 70.4, 'temperature': 29, 'feed': 0, 'thoi_gian': '13:37:58', 'ts': '2025-10-23T06:38:56.472345+00:00'}
+2025-10-23T13:39:56.609592 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 83.4, 'temperature': 29, 'feed': 89, 'thoi_gian': '13:38:59', 'ts': '2025-10-23T06:39:56.511936+00:00'}
+2025-10-23T13:40:56.566898 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 75.6, 'temperature': 29, 'feed': 0, 'thoi_gian': '13:39:59', 'ts': '2025-10-23T06:40:56.466786+00:00'}
+2025-10-23T13:41:56.576114 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 75.6, 'temperature': 29, 'feed': 0, 'thoi_gian': '13:40:59', 'ts': '2025-10-23T06:41:56.472278+00:00'}
+2025-10-23T13:42:56.570739 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 86.1, 'temperature': 29, 'feed': 49, 'thoi_gian': '13:41:59', 'ts': '2025-10-23T06:42:56.469479+00:00'}
+2025-10-23T13:43:56.636171 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 86.1, 'temperature': 29, 'feed': 0, 'thoi_gian': '13:42:59', 'ts': '2025-10-23T06:43:56.516270+00:00'}
+2025-10-23T13:44:56.608376 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 91.3, 'temperature': 29, 'feed': 0, 'thoi_gian': '13:43:59', 'ts': '2025-10-23T06:44:56.496986+00:00'}
+2025-10-23T13:45:56.624000 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 83.4, 'temperature': 29, 'feed': 100, 'thoi_gian': '13:44:59', 'ts': '2025-10-23T06:45:56.512217+00:00'}
+2025-10-23T13:46:56.576488 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 91.3, 'temperature': 29, 'feed': 0, 'thoi_gian': '13:45:59', 'ts': '2025-10-23T06:46:56.481084+00:00'}
+2025-10-23T13:47:56.968963 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 88.7, 'temperature': 29, 'feed': 0, 'thoi_gian': '13:47:00', 'ts': '2025-10-23T06:47:56.852985+00:00'}
+2025-10-23T13:48:56.830073 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 91.3, 'temperature': 29, 'feed': 0, 'thoi_gian': '13:48:00', 'ts': '2025-10-23T06:48:56.737790+00:00'}
+2025-10-23T13:49:56.808414 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 91.3, 'temperature': 29, 'feed': 0, 'thoi_gian': '13:49:00', 'ts': '2025-10-23T06:49:56.712513+00:00'}
+2025-10-23T13:50:56.804206 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 88.7, 'temperature': 29, 'feed': 23, 'thoi_gian': '13:50:00', 'ts': '2025-10-23T06:50:56.708265+00:00'}
+2025-10-23T13:51:56.635504 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 88.7, 'temperature': 29, 'feed': 15, 'thoi_gian': '13:51:00', 'ts': '2025-10-23T06:51:56.522783+00:00'}
+2025-10-23T13:52:56.679428 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 88.7, 'temperature': 29, 'feed': 15, 'thoi_gian': '13:52:00', 'ts': '2025-10-23T06:52:56.571145+00:00'}
+2025-10-23T13:53:56.991649 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 88.7, 'temperature': 29, 'feed': 13, 'thoi_gian': '13:53:00', 'ts': '2025-10-23T06:53:56.876424+00:00'}
+2025-10-23T13:54:56.827101 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 80.8, 'temperature': 29, 'feed': 13, 'thoi_gian': '13:54:00', 'ts': '2025-10-23T06:54:56.669749+00:00'}
+2025-10-23T13:55:56.651124 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 75.6, 'temperature': 29, 'feed': 13, 'thoi_gian': '13:55:00', 'ts': '2025-10-23T06:55:56.539858+00:00'}
+2025-10-23T13:56:56.995813 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 119.9, 'temperature': 29, 'feed': 13, 'thoi_gian': '13:56:00', 'ts': '2025-10-23T06:56:56.889611+00:00'}
+2025-10-23T13:57:24.933976 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-23T13:57:24.934026 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/telemetry
+2025-10-23T13:57:25.896513 [MQTT]  CONNECTED with code=Success
+2025-10-23T13:57:25.898175 [MQTT] SUBSCRIBE sent topic=aquanova/telemetry mid=1 result=0
+2025-10-23T13:57:26.124630 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-23T13:57:56.778609 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 112.1, 'temperature': 29, 'feed': 6, 'thoi_gian': '13:57:00', 'ts': '2025-10-23T06:57:56.681398+00:00'}
+2025-10-23T13:58:57.317761 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 101.7, 'temperature': 29, 'feed': 6, 'thoi_gian': '13:58:01', 'ts': '2025-10-23T06:58:57.210178+00:00'}
+2025-10-23T13:59:56.882180 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 106.9, 'temperature': 29, 'feed': 13, 'thoi_gian': '13:59:01', 'ts': '2025-10-23T06:59:56.791082+00:00'}
+2025-10-23T14:00:57.120086 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 96.5, 'temperature': 29, 'feed': 13, 'thoi_gian': '14:00:01', 'ts': '2025-10-23T07:00:56.916990+00:00'}
+2025-10-23T14:01:56.608086 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 91.3, 'temperature': 29, 'feed': 13, 'thoi_gian': '14:01:01', 'ts': '2025-10-23T07:01:56.516078+00:00'}
+2025-10-23T14:02:56.726870 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 101.7, 'temperature': 29, 'feed': 13, 'thoi_gian': '14:02:01', 'ts': '2025-10-23T07:02:56.623078+00:00'}
+2025-10-23T14:03:56.646978 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 86.1, 'temperature': 29, 'feed': 13, 'thoi_gian': '14:03:01', 'ts': '2025-10-23T07:03:56.545771+00:00'}
+2025-10-23T14:04:43.415371 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-23T14:04:43.415424 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/telemetry
+2025-10-23T14:04:44.425331 [MQTT]  CONNECTED with code=Success
+2025-10-23T14:04:44.426614 [MQTT] SUBSCRIBE sent topic=aquanova/telemetry mid=1 result=0
+2025-10-23T14:04:44.647213 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-23T14:04:56.605430 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 119.9, 'temperature': 29, 'feed': 13, 'thoi_gian': '14:04:01', 'ts': '2025-10-23T07:04:56.514460+00:00'}
+2025-10-23T14:05:56.836396 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 119.9, 'temperature': 29, 'feed': 13, 'thoi_gian': '14:05:01', 'ts': '2025-10-23T07:05:56.744606+00:00'}
+2025-10-23T14:06:57.028271 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 119.9, 'temperature': 29, 'feed': 13, 'thoi_gian': '14:06:02', 'ts': '2025-10-23T07:06:56.856482+00:00'}
+2025-10-23T14:07:56.611623 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 122.5, 'temperature': 29, 'feed': 13, 'thoi_gian': '14:07:02', 'ts': '2025-10-23T07:07:56.521465+00:00'}
+2025-10-23T14:08:56.910606 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 122.5, 'temperature': 29, 'feed': 13, 'thoi_gian': '14:08:02', 'ts': '2025-10-23T07:08:56.761668+00:00'}
+2025-10-23T14:09:56.897269 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 122.5, 'temperature': 29, 'feed': 13, 'thoi_gian': '14:09:02', 'ts': '2025-10-23T07:09:56.781440+00:00'}
+2025-10-23T14:10:56.771663 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 122.5, 'temperature': 29, 'feed': 13, 'thoi_gian': '14:10:02', 'ts': '2025-10-23T07:10:56.680939+00:00'}
+2025-10-23T14:11:56.644228 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 135.5, 'temperature': 29, 'feed': 13, 'thoi_gian': '14:11:02', 'ts': '2025-10-23T07:11:56.552911+00:00'}
+2025-10-23T14:12:56.797577 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 122.5, 'temperature': 29, 'feed': 13, 'thoi_gian': '14:12:02', 'ts': '2025-10-23T07:12:56.696129+00:00'}
+2025-10-23T14:13:57.645840 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 119.9, 'temperature': 29, 'feed': 13, 'thoi_gian': '14:13:02', 'ts': '2025-10-23T07:13:57.551529+00:00'}
+2025-10-23T14:14:56.687717 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 122.5, 'temperature': 29, 'feed': 13, 'thoi_gian': '14:14:02', 'ts': '2025-10-23T07:14:56.599599+00:00'}
+2025-10-23T14:15:56.622575 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 119.9, 'temperature': 29, 'feed': 13, 'thoi_gian': '14:15:03', 'ts': '2025-10-23T07:15:56.537530+00:00'}
+2025-10-23T14:16:56.662233 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 122.5, 'temperature': 29, 'feed': 13, 'thoi_gian': '14:16:03', 'ts': '2025-10-23T07:16:56.568390+00:00'}
+2025-10-23T14:17:56.733444 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 119.9, 'temperature': 29, 'feed': 13, 'thoi_gian': '14:17:03', 'ts': '2025-10-23T07:17:56.620251+00:00'}
+2025-10-23T14:18:56.652283 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 122.5, 'temperature': 29, 'feed': 13, 'thoi_gian': '14:18:03', 'ts': '2025-10-23T07:18:56.546929+00:00'}
+2025-10-23T14:19:56.663604 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 117.3, 'temperature': 29, 'feed': 13, 'thoi_gian': '14:19:03', 'ts': '2025-10-23T07:19:56.563768+00:00'}
+2025-10-23T14:20:56.672431 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 112.1, 'temperature': 29, 'feed': 13, 'thoi_gian': '14:20:03', 'ts': '2025-10-23T07:20:56.572168+00:00'}
+2025-10-23T14:21:56.694404 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 114.7, 'temperature': 29, 'feed': 13, 'thoi_gian': '14:21:03', 'ts': '2025-10-23T07:21:56.576814+00:00'}
+2025-10-23T14:22:56.759495 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 117.3, 'temperature': 29, 'feed': 13, 'thoi_gian': '14:22:03', 'ts': '2025-10-23T07:22:56.658922+00:00'}
+2025-10-23T14:23:56.672102 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 117.3, 'temperature': 29, 'feed': 13, 'thoi_gian': '14:23:03', 'ts': '2025-10-23T07:23:56.549319+00:00'}
+2025-10-23T14:24:56.664897 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 112.1, 'temperature': 29, 'feed': 13, 'thoi_gian': '14:24:04', 'ts': '2025-10-23T07:24:56.555938+00:00'}
+2025-10-23T14:25:56.771362 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 109.5, 'temperature': 29, 'feed': 13, 'thoi_gian': '14:25:04', 'ts': '2025-10-23T07:25:56.577719+00:00'}
+2025-10-23T14:26:56.692818 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 112.1, 'temperature': 29, 'feed': 13, 'thoi_gian': '14:26:04', 'ts': '2025-10-23T07:26:56.551828+00:00'}
+2025-10-23T14:27:56.674523 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 114.7, 'temperature': 29, 'feed': 13, 'thoi_gian': '14:27:04', 'ts': '2025-10-23T07:27:56.558617+00:00'}
+2025-10-23T14:28:57.334536 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 117.3, 'temperature': 29, 'feed': 13, 'thoi_gian': '14:28:04', 'ts': '2025-10-23T07:28:57.204916+00:00'}
+2025-10-23T14:29:56.749537 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 109.5, 'temperature': 29, 'feed': 13, 'thoi_gian': '14:29:04', 'ts': '2025-10-23T07:29:56.590137+00:00'}
+2025-10-23T14:30:56.947655 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 106.9, 'temperature': 29, 'feed': 13, 'thoi_gian': '14:30:04', 'ts': '2025-10-23T07:30:56.807129+00:00'}
+2025-10-23T14:31:56.771548 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 112.1, 'temperature': 29, 'feed': 13, 'thoi_gian': '14:31:04', 'ts': '2025-10-23T07:31:56.657822+00:00'}
+2025-10-23T14:32:57.060610 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 106.9, 'temperature': 29, 'feed': 13, 'thoi_gian': '14:32:04', 'ts': '2025-10-23T07:32:56.928213+00:00'}
+2025-10-23T14:33:56.833444 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 117.3, 'temperature': 29, 'feed': 13, 'thoi_gian': '14:33:05', 'ts': '2025-10-23T07:33:56.736336+00:00'}
+2025-10-23T14:34:56.743119 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 125.1, 'temperature': 29, 'feed': 13, 'thoi_gian': '14:34:05', 'ts': '2025-10-23T07:34:56.591634+00:00'}
+2025-10-23T14:35:56.685174 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 101.7, 'temperature': 29, 'feed': 13, 'thoi_gian': '14:35:05', 'ts': '2025-10-23T07:35:56.569624+00:00'}
+2025-10-23T14:36:57.362668 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 99.1, 'temperature': 29, 'feed': 13, 'thoi_gian': '14:36:05', 'ts': '2025-10-23T07:36:57.259999+00:00'}
+2025-10-23T14:37:56.779047 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 96.5, 'temperature': 29, 'feed': 13, 'thoi_gian': '14:37:05', 'ts': '2025-10-23T07:37:56.652999+00:00'}
+2025-10-23T14:38:56.716031 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 96.5, 'temperature': 29, 'feed': 13, 'thoi_gian': '14:38:05', 'ts': '2025-10-23T07:38:56.596392+00:00'}
+2025-10-23T14:39:56.705559 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 101.7, 'temperature': 29, 'feed': 13, 'thoi_gian': '14:39:05', 'ts': '2025-10-23T07:39:56.599950+00:00'}
+2025-10-23T14:40:56.734715 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 96.5, 'temperature': 29, 'feed': 13, 'thoi_gian': '14:40:05', 'ts': '2025-10-23T07:40:56.625743+00:00'}
+2025-10-23T14:41:57.082429 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 93.9, 'temperature': 29, 'feed': 13, 'thoi_gian': '14:41:05', 'ts': '2025-10-23T07:41:56.881902+00:00'}
+2025-10-23T14:42:57.295727 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 96.5, 'temperature': 29, 'feed': 13, 'thoi_gian': '14:42:06', 'ts': '2025-10-23T07:42:57.094545+00:00'}
+2025-10-23T14:43:56.788371 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 91.3, 'temperature': 29, 'feed': 13, 'thoi_gian': '14:43:06', 'ts': '2025-10-23T07:43:56.682845+00:00'}
+2025-10-23T14:44:56.914253 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 93.9, 'temperature': 29, 'feed': 13, 'thoi_gian': '14:44:06', 'ts': '2025-10-23T07:44:56.797077+00:00'}
+2025-10-23T14:45:56.709456 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 93.9, 'temperature': 29, 'feed': 13, 'thoi_gian': '14:45:06', 'ts': '2025-10-23T07:45:56.599839+00:00'}
+2025-10-23T14:46:56.691865 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 96.5, 'temperature': 29, 'feed': 13, 'thoi_gian': '14:46:06', 'ts': '2025-10-23T07:46:56.590923+00:00'}
+2025-10-23T14:47:56.830869 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 88.7, 'temperature': 29, 'feed': 13, 'thoi_gian': '14:47:06', 'ts': '2025-10-23T07:47:56.718978+00:00'}
+2025-10-23T14:48:57.121148 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 88.7, 'temperature': 29, 'feed': 13, 'thoi_gian': '14:48:06', 'ts': '2025-10-23T07:48:57.021730+00:00'}
+2025-10-23T14:49:56.842232 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 93.9, 'temperature': 29, 'feed': 13, 'thoi_gian': '14:49:06', 'ts': '2025-10-23T07:49:56.727816+00:00'}
+2025-10-23T14:50:56.764567 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 93.9, 'temperature': 29, 'feed': 13, 'thoi_gian': '14:50:06', 'ts': '2025-10-23T07:50:56.636713+00:00'}
+2025-10-23T14:51:56.709066 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 88.7, 'temperature': 29, 'feed': 13, 'thoi_gian': '14:51:06', 'ts': '2025-10-23T07:51:56.604764+00:00'}
+2025-10-23T14:52:56.838933 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 96.5, 'temperature': 29, 'feed': 13, 'thoi_gian': '14:52:06', 'ts': '2025-10-23T07:52:56.642928+00:00'}
+2025-10-23T14:53:57.294340 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 99.1, 'temperature': 29, 'feed': 13, 'thoi_gian': '14:53:06', 'ts': '2025-10-23T07:53:57.167945+00:00'}
+2025-10-23T14:54:57.062446 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 83.4, 'temperature': 29, 'feed': 13, 'thoi_gian': '14:54:06', 'ts': '2025-10-23T07:54:56.959176+00:00'}
+2025-10-23T14:55:56.786492 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 91.3, 'temperature': 29, 'feed': 13, 'thoi_gian': '14:55:07', 'ts': '2025-10-23T07:55:56.676918+00:00'}
+2025-10-23T14:56:56.820551 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 96.5, 'temperature': 29, 'feed': 13, 'thoi_gian': '14:56:07', 'ts': '2025-10-23T07:56:56.685419+00:00'}
+2025-10-23T14:57:56.729650 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 93.9, 'temperature': 29, 'feed': 13, 'thoi_gian': '14:57:07', 'ts': '2025-10-23T07:57:56.624584+00:00'}
+2025-10-23T14:58:56.904321 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 86.1, 'temperature': 29, 'feed': 13, 'thoi_gian': '14:58:07', 'ts': '2025-10-23T07:58:56.792009+00:00'}
+2025-10-23T15:02:41.561784 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-23T15:02:41.561857 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/telemetry
+2025-10-23T15:02:42.418696 [MQTT]  CONNECTED with code=Success
+2025-10-23T15:02:42.419636 [MQTT] SUBSCRIBE sent topic=aquanova/telemetry mid=1 result=0
+2025-10-23T15:02:42.883040 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-23T15:02:57.227589 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 80.8, 'temperature': 29, 'feed': 13, 'thoi_gian': '15:02:07', 'ts': '2025-10-23T08:02:57.124751+00:00'}
+2025-10-23T15:03:56.760836 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 83.4, 'temperature': 29, 'feed': 13, 'thoi_gian': '15:03:07', 'ts': '2025-10-23T08:03:56.657347+00:00'}
+2025-10-23T15:04:57.031795 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 80.8, 'temperature': 29, 'feed': 13, 'thoi_gian': '15:04:07', 'ts': '2025-10-23T08:04:56.930234+00:00'}
+2025-10-23T15:05:56.792096 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 75.6, 'temperature': 29, 'feed': 13, 'thoi_gian': '15:05:07', 'ts': '2025-10-23T08:05:56.679637+00:00'}
+2025-10-23T15:06:56.895996 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 80.8, 'temperature': 29, 'feed': 13, 'thoi_gian': '15:06:07', 'ts': '2025-10-23T08:06:56.732440+00:00'}
+2025-10-23T15:10:53.925443 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-23T15:10:53.925486 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/telemetry
+2025-10-23T15:10:54.864401 [MQTT]  CONNECTED with code=Success
+2025-10-23T15:10:54.866752 [MQTT] SUBSCRIBE sent topic=aquanova/telemetry mid=1 result=0
+2025-10-23T15:10:55.070982 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-23T15:10:58.750771 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 78.2, 'temperature': 29, 'feed': 21, 'thoi_gian': '15:10:07', 'ts': '2025-10-23T08:10:56.796836+00:00'}
+2025-10-23T15:11:57.768218 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 73, 'temperature': 29, 'feed': 21, 'thoi_gian': '15:11:07', 'ts': '2025-10-23T08:11:56.781814+00:00'}
+2025-10-23T15:12:56.988592 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 75.6, 'temperature': 29, 'feed': 21, 'thoi_gian': '15:12:07', 'ts': '2025-10-23T08:12:56.717120+00:00'}
+2025-10-23T15:13:56.988700 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 73, 'temperature': 29, 'feed': 21, 'thoi_gian': '15:13:07', 'ts': '2025-10-23T08:13:56.675998+00:00'}
+2025-10-23T15:14:57.209625 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 75.6, 'temperature': 29, 'feed': 21, 'thoi_gian': '15:14:07', 'ts': '2025-10-23T08:14:56.652661+00:00'}
+2025-10-23T15:15:57.030604 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 75.6, 'temperature': 29, 'feed': 13, 'thoi_gian': '15:15:07', 'ts': '2025-10-23T08:15:56.749383+00:00'}
+2025-10-23T15:16:57.027374 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 70.4, 'temperature': 29, 'feed': 13, 'thoi_gian': '15:16:07', 'ts': '2025-10-23T08:16:56.751587+00:00'}
+2025-10-23T15:17:56.939632 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 75.6, 'temperature': 29, 'feed': 13, 'thoi_gian': '15:17:07', 'ts': '2025-10-23T08:17:56.667223+00:00'}
+2025-10-23T15:18:57.025428 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 73, 'temperature': 29, 'feed': 13, 'thoi_gian': '15:18:07', 'ts': '2025-10-23T08:18:56.721207+00:00'}
+2025-10-23T15:19:56.987036 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 67.7, 'temperature': 29, 'feed': 13, 'thoi_gian': '15:19:07', 'ts': '2025-10-23T08:19:56.693474+00:00'}
+2025-10-23T15:20:57.013702 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 78.2, 'temperature': 29, 'feed': 13, 'thoi_gian': '15:20:08', 'ts': '2025-10-23T08:20:56.714104+00:00'}
+2025-10-23T15:21:57.015033 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 65.1, 'temperature': 29, 'feed': 13, 'thoi_gian': '15:21:08', 'ts': '2025-10-23T08:21:56.733509+00:00'}
+2025-10-23T15:22:56.986670 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 59.9, 'temperature': 29, 'feed': 13, 'thoi_gian': '15:22:08', 'ts': '2025-10-23T08:22:56.701966+00:00'}
+2025-10-23T15:23:57.192599 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 67.7, 'temperature': 29, 'feed': 13, 'thoi_gian': '15:23:08', 'ts': '2025-10-23T08:23:56.890575+00:00'}
+2025-10-23T15:24:56.943256 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 67.7, 'temperature': 29, 'feed': 13, 'thoi_gian': '15:24:08', 'ts': '2025-10-23T08:24:56.666227+00:00'}
+2025-10-23T15:25:57.101352 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 67.7, 'temperature': 29, 'feed': 13, 'thoi_gian': '15:25:08', 'ts': '2025-10-23T08:25:56.670518+00:00'}
+2025-10-23T15:26:57.025872 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 73, 'temperature': 29, 'feed': 13, 'thoi_gian': '15:26:08', 'ts': '2025-10-23T08:26:56.746115+00:00'}
+2025-10-23T15:27:56.934111 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 70.4, 'temperature': 29, 'feed': 13, 'thoi_gian': '15:27:08', 'ts': '2025-10-23T08:27:56.675387+00:00'}
+2025-10-23T15:28:57.163811 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 62.5, 'temperature': 29, 'feed': 13, 'thoi_gian': '15:28:08', 'ts': '2025-10-23T08:28:56.879832+00:00'}
+2025-10-23T15:29:57.278900 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 140.7, 'temperature': 29, 'feed': 13, 'thoi_gian': '15:29:08', 'ts': '2025-10-23T08:29:56.996464+00:00'}
+2025-10-23T15:30:56.977227 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 130.3, 'temperature': 29, 'feed': 13, 'thoi_gian': '15:30:08', 'ts': '2025-10-23T08:30:56.711563+00:00'}
+2025-10-23T15:31:56.981515 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 130.3, 'temperature': 29, 'feed': 13, 'thoi_gian': '15:31:08', 'ts': '2025-10-23T08:31:56.715158+00:00'}
+2025-10-23T15:32:56.956573 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 122.5, 'temperature': 29, 'feed': 13, 'thoi_gian': '15:32:08', 'ts': '2025-10-23T08:32:56.688354+00:00'}
+2025-10-23T15:33:56.985980 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 135.5, 'temperature': 29, 'feed': 13, 'thoi_gian': '15:33:08', 'ts': '2025-10-23T08:33:56.688557+00:00'}
+2025-10-23T15:34:56.978684 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 127.7, 'temperature': 29, 'feed': 13, 'thoi_gian': '15:34:08', 'ts': '2025-10-23T08:34:56.709849+00:00'}
+2025-10-23T15:35:57.039393 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 127.7, 'temperature': 29, 'feed': 13, 'thoi_gian': '15:35:09', 'ts': '2025-10-23T08:35:56.712002+00:00'}
+2025-10-23T15:36:57.244808 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 125.1, 'temperature': 29, 'feed': 13, 'thoi_gian': '15:36:09', 'ts': '2025-10-23T08:36:56.893548+00:00'}
+2025-10-23T15:37:56.954711 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 127.7, 'temperature': 29, 'feed': 13, 'thoi_gian': '15:37:09', 'ts': '2025-10-23T08:37:56.691725+00:00'}
+2025-10-23T15:38:56.971566 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 127.7, 'temperature': 29, 'feed': 13, 'thoi_gian': '15:38:09', 'ts': '2025-10-23T08:38:56.697525+00:00'}
+2025-10-23T15:39:56.974222 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 117.3, 'temperature': 29, 'feed': 13, 'thoi_gian': '15:39:09', 'ts': '2025-10-23T08:39:56.708761+00:00'}
+2025-10-23T15:52:06.572240 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-23T15:52:06.572283 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/telemetry
+2025-10-23T15:52:07.548577 [MQTT]  CONNECTED with code=Success
+2025-10-23T15:52:07.549646 [MQTT] SUBSCRIBE sent topic=aquanova/telemetry mid=1 result=0
+2025-10-23T15:52:07.772061 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-23T15:52:57.221617 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 114.7, 'temperature': 29, 'feed': 13, 'thoi_gian': '15:52:10', 'ts': '2025-10-23T08:52:56.740190+00:00'}
+2025-10-23T16:01:41.890891 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-23T16:01:41.890925 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/telemetry
+2025-10-23T16:01:42.818594 [MQTT]  CONNECTED with code=Success
+2025-10-23T16:01:42.821315 [MQTT] SUBSCRIBE sent topic=aquanova/telemetry mid=1 result=0
+2025-10-23T16:01:43.044307 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-23T16:01:57.284276 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 125.1, 'temperature': 29, 'feed': 13, 'thoi_gian': '16:01:11', 'ts': '2025-10-23T09:01:56.991505+00:00'}
+2025-10-23T16:02:57.012046 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 130.3, 'temperature': 29, 'feed': 13, 'thoi_gian': '16:02:12', 'ts': '2025-10-23T09:02:56.744012+00:00'}
+2025-10-23T16:03:57.022879 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 112.1, 'temperature': 29, 'feed': 13, 'thoi_gian': '16:03:12', 'ts': '2025-10-23T09:03:56.748344+00:00'}
+2025-10-23T16:04:57.042261 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 119.9, 'temperature': 29, 'feed': 13, 'thoi_gian': '16:04:12', 'ts': '2025-10-23T09:04:56.765622+00:00'}
+2025-10-23T16:05:57.046919 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 127.7, 'temperature': 29, 'feed': 13, 'thoi_gian': '16:05:12', 'ts': '2025-10-23T09:05:56.783213+00:00'}
+2025-10-23T16:06:57.052989 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 117.3, 'temperature': 29, 'feed': 13, 'thoi_gian': '16:06:12', 'ts': '2025-10-23T09:06:56.750633+00:00'}
+2025-10-23T16:07:27.784642 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-23T16:07:27.784684 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/telemetry
+2025-10-23T16:07:28.715552 [MQTT]  CONNECTED with code=Success
+2025-10-23T16:07:28.717278 [MQTT] SUBSCRIBE sent topic=aquanova/telemetry mid=1 result=0
+2025-10-23T16:07:28.938290 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-23T16:07:57.033583 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 117.3, 'temperature': 29, 'feed': 13, 'thoi_gian': '16:07:12', 'ts': '2025-10-23T09:07:56.748311+00:00'}
+2025-10-23T16:08:14.414160 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-23T16:08:14.414191 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/telemetry
+2025-10-23T16:08:15.354120 [MQTT]  CONNECTED with code=Success
+2025-10-23T16:08:15.356208 [MQTT] SUBSCRIBE sent topic=aquanova/telemetry mid=1 result=0
+2025-10-23T16:08:15.583130 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]

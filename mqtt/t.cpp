@@ -1,11 +1,15 @@
-17:06:04.528 -> [WiFi] Connecting to Zun
-17:06:04.528 -> ......
-17:06:04.528 -> [WiFi
-17:06:04.528 -> [WiFi] IP: 10.77.235.196
-17:06:04.528 -> [NTP] Syncing time...
-17:06:04.528 -> [NTP] Time synced!
-17:06:04.528 -> [SYSTEM] Setup complete!
-17:06:04.528 -> [MQTT] Attempting connection... connected!
-17:06:04.528 -> [MQTT] Subscribed to: aquanova/control
-17:06:04.528 -> From STM32: 702.7,29.0,0,14:39:48
-17:06:04.528 -> [PUBLISH] {"turbidity":702.7,"temperature":29,"feed":0,"thoi_gian":"14:39:48"}
+{'cmd': 'feed', 'amount': 10}
+127.0.0.1 - - [16/Oct/2025 12:00:11] "POST /control/feed-now HTTP/1.1" 200 -
+{'cmd': 'feed', 'amount': 10}
+127.0.0.1 - - [16/Oct/2025 12:00:11] "POST /control/feed-now HTTP/1.1" 200 -
+127.0.0.1 - - [16/Oct/2025 12:00:12] "POST /control/feed-now HTTP/1.1" 200 -
+127.0.0.1 - - [16/Oct/2025 12:00:12] "POST /control/feed-now HTTP/1.1" 200 -
+127.0.0.1 - - [16/Oct/2025 12:00:12] "POST /control/feed-now HTTP/1.1" 200 -
+127.0.0.1 - - [16/Oct/2025 12:00:12] "POST /control/feed-now HTTP/1.1" 200 -
+2025-10-16T12:00:33.326305 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'turbidity':
+2025-10-16T12:00:33.346791 [MQTT] 📩 MESSAGE topic=aquanova/devices/telemetry payload={'turbidity':
+25-10-16T05:00:33.013879+00:00'}
+127.0.0.1 - - [16/Oct/2025 12:00:35] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [16/Oct/2025 12:00:36] "GET /static/css/styles.css HTTP/1.1" 304 -
+127.0.0.1 - - [16/Oct/2025 12:00:36] "GET /dashboard/last HTTP/1.1" 200 -
+127.0.0.1 - - [16/Oct/2025 12:00:36] "GET /static/img/logo_aquanova.png HTTP/1.1" 304 -

@@ -66,7 +66,7 @@ def announce_count():
         turb = r.get("turbidity")
         if t is not None and (t < 24 or t > 30):
             cnt += 1
-        if turb is not None and turb > 1000:
+        if turb is not None and turb > 200:
             cnt += 1
     return jsonify({"count": cnt})
 

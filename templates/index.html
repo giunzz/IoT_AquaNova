@@ -249,10 +249,16 @@
 
       // --- Chart Turbidity ---
       const arr = items.slice().reverse();
-      const labels = arr.map(r=>{
-        const dt = new Date(r.ts||'');
-        return isNaN(dt) ? (r.ts||'') : dt.toISOString().substring(11,19);
-      });
+      const labels = arr.map(r => {
+      const dt = new Date(r.ts || '');
+      if (isNaN(dt)) return r.ts || '';
+      
+      // Chuyển sang múi giờ Việt Nam (UTC+7)
+      dt.setHours(dt.getHours());
+
+      // Hiển thị giờ dạng HH:MM:SS
+      return dt.toLocaleTimeString('vi-VN', { hour12: false });
+    });
       const turb = arr.map(r => Number(r.turbidity ?? NaN));
       ensureChart(document.getElementById('turbChart').getContext('2d'), labels, turb);
       document.getElementById('chartUpdated').textContent = 'Updated: ' + new Date().toLocaleTimeString();
@@ -280,7 +286,7 @@
     }
 
     loadAll();
-    setInterval(loadAll, 5000);
+    setInterval(loadAll, 60000);
   </script>
 </body>
 </html>

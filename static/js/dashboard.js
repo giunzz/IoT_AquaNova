@@ -1,20 +1,37 @@
 // ===============================================
-//  AquaNova Dashboard Script (Fixed + Simplified)
-//  Hiển thị dữ liệu mới nhất & phần trăm thức ăn
+//  AquaNova Dashboard Script (Final Version)
+//  Hiển thị dữ liệu cảm biến, đồng bộ thời gian,
+//  biểu đồ thức ăn và thống kê tổng quan hệ thống
+//  (Đã fix hiển thị múi giờ Việt Nam GMT+7)
 // ===============================================
 
 // ---- API endpoints ----
 const LATEST_API = '/dashboard/latest?n=200';
 const SUMMARY_API = '/dashboard/summary';
 
+// ------------------------------------------------------------
+// 🕐 Hàm tiện ích: Chuyển thời gian UTC → Giờ Việt Nam (GMT+7)
+// ------------------------------------------------------------
+function toVNTime(ts) {
+  if (!ts) return '';
+  const d = new Date(ts);
+  if (isNaN(d)) return ts;
+  d.setHours(d.getHours() + 7);
+  return d.toLocaleString('vi-VN', { hour12: false });
+}
+
+// ------------------------------------------------------------
+// 📊 Load thống kê tổng quan (số hồ, số thiết bị)
+// ------------------------------------------------------------
 async function loadSummary() {
   try {
     const res = await fetch(SUMMARY_API);
     if (!res.ok) throw new Error('HTTP ' + res.status);
     const json = await res.json();
-    document.getElementById('summary').innerHTML =
-      `<div>Ponds: <b>${json.ponds ?? 0}</b></div>
-       <div>Devices: <b>${json.devices ?? 0}</b></div>`;
+
+    document.getElementById('summary').innerHTML = `
+      <div>Ponds: <b>${json.ponds ?? 0}</b></div>
+      <div>Devices: <b>${json.devices ?? 0}</b></div>`;
   } catch (e) {
     console.error(e);
     const el = document.getElementById('summary');
@@ -22,7 +39,9 @@ async function loadSummary() {
   }
 }
 
-// ---- Load Latest Readings & Feed Percentage ----
+// ------------------------------------------------------------
+// 📈 Load dữ liệu mới nhất (độ đục, nhiệt độ, % thức ăn)
+// ------------------------------------------------------------
 async function loadLatest() {
   try {
     const res = await fetch(LATEST_API);
@@ -36,37 +55,31 @@ async function loadLatest() {
       tbody.innerHTML = '';
       items.forEach(r => {
         const tr = document.createElement('tr');
-        const ts = r.ts || '';
-        const do_duc = r.turbidity ?? '';
-        const nhiet_do = r.temperature ?? '';
-        const phan_tram = r.feed ?? '';
-
         tr.innerHTML = `
-          <td>${ts}</td>
-          <td>${do_duc}</td>
-          <td>${nhiet_do}</td>
-          <td>${phan_tram}%</td>`;
+          <td>${toVNTime(r.ts)}</td>
+          <td>${r.turbidity ?? ''}</td>
+          <td>${r.temperature ?? ''}</td>
+          <td>${r.feed ?? ''}%</td>`;
         tbody.appendChild(tr);
       });
     }
 
-    // --- chuẩn hoá dữ liệu feed (% thức ăn) ---
+    // --- chuẩn hoá dữ liệu thức ăn (% feed) ---
     const normalized = items
-      .map(x => ({
-        ts: x.ts,
-        feed: x.feed ?? null
-      }))
+      .map(x => ({ ts: x.ts, feed: x.feed ?? null }))
       .filter(x => x.feed != null && x.ts)
       .sort((a, b) => new Date(a.ts) - new Date(b.ts));
 
-    // --- cập nhật 1 doughnut mới nhất ---
+    // --- cập nhật biểu đồ thức ăn ---
     updateFeedPie(normalized);
   } catch (e) {
     console.error('[loadLatest] error:', e);
   }
 }
 
-// ---- Doughnut Chart ----
+// ------------------------------------------------------------
+// 🥧 Biểu đồ Doughnut hiển thị phần trăm thức ăn
+// ------------------------------------------------------------
 let feedPieChart = null;
 
 function ensureFeedPie() {
@@ -86,7 +99,10 @@ function ensureFeedPie() {
         cutout: '65%'
       }]
     },
-    options: { plugins: { legend: { display: false } }, animation: { duration: 300 } }
+    options: { 
+      plugins: { legend: { display: false } },
+      animation: { duration: 300 } 
+    }
   });
   return feedPieChart;
 }
@@ -108,19 +124,19 @@ function setPie(percent, ts) {
 
   const used = 100 - p;
   let color = '#4f46e5';
-  if (p < 10) color = '#dc2626';
-  else if (p < 30) color = '#d97706';
+  if (p < 10) color = '#dc2626';     // đỏ cảnh báo
+  else if (p < 30) color = '#d97706'; // cam cảnh báo nhẹ
 
   chart.data.datasets[0].data = [p, used];
   chart.data.datasets[0].backgroundColor = [color, '#e8eefb'];
   chart.update();
 
+  // Hiển thị giá trị % và thời gian tương ứng
   document.getElementById('feedPie1Num').textContent = `${p.toFixed(1)}%`;
-  const d = new Date(ts);
-  document.getElementById('feedPie1Time').textContent = isNaN(d) ? (ts || '') : d.toLocaleTimeString();
+  document.getElementById('feedPie1Time').textContent = toVNTime(ts);
 }
 
-// --- cập nhật 1 biểu đồ gần nhất ---
+// --- cập nhật biểu đồ với bản ghi mới nhất ---
 function updateFeedPie(sortedItemsAsc) {
   if (!sortedItemsAsc.length) {
     setPie(NaN, '');
@@ -130,11 +146,19 @@ function updateFeedPie(sortedItemsAsc) {
   setPie(Number(last.feed), last.ts);
 }
 
-// ---- Khởi chạy ban đầu & cập nhật định kỳ ----
-loadSummary();
-loadLatest();
-setInterval(() => { loadLatest(); loadSummary(); }, 10000);
-document.addEventListener('DOMContentLoaded', () => {
-  loadFeedStatus();
-  setInterval(loadFeedStatus, 10000);
-});
+// ------------------------------------------------------------
+// ⏱️ Khởi chạy ban đầu & cập nhật định kỳ
+// ------------------------------------------------------------
+function initDashboard() {
+  loadSummary();
+  loadLatest();
+
+  // Cập nhật mỗi 10 giây
+  setInterval(() => {
+    loadLatest();
+    loadSummary();
+  }, 10000);
+}
+
+// Khi trang web đã load xong
+document.addEventListener('DOMContentLoaded', initDashboard);
