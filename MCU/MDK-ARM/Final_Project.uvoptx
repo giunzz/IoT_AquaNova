@@ -170,6 +170,11 @@
           <WinNumber>1</WinNumber>
           <ItemText>TEMP</ItemText>
         </Ww>
+        <Ww>
+          <count>4</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>voltage</ItemText>
+        </Ww>
       </WatchWindow1>
       <WatchWindow2>
         <Ww>

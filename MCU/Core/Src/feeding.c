@@ -14,10 +14,10 @@ struct feeding_t *_feed;
 
 DS3231_Time_t settime = {
 		.seconds = 0,
-		.minutes = 44,
-		.hour = 17,
+		.minutes = 48,
+		.hour = 9,
 		.dayofweek = 5,
-		.dayofmonth = 9,
+		.dayofmonth = 23,
 		.month = 10,
 		.year = 25
 };
@@ -56,6 +56,15 @@ void feeding_ISR(uint16_t GPIO_Pin) {
 			lcd_timer = HAL_GetTick();
 		}
 	}
+	if (GPIO_Pin == BUTTON_OFF_Pin) {
+		if(_feed->IsSetTime == 1)
+		{
+			_feed->IsSetTime = 0; 		
+			_feed->IsAlarmEnabled = 0; 	
+			lcd_state = LCD_STATE_SET_OFF; 
+			lcd_timer = HAL_GetTick(); 	
+		}
+	}	
 	if (GPIO_Pin == ALARM_Pin) {
 		uint8_t status;
 		HAL_I2C_Mem_Read(_feed->hi2c, 0xD0, 0x0F, 1, &status, 1, 1000);
@@ -105,11 +114,11 @@ void feeding_ISR(uint16_t GPIO_Pin) {
 void feeding_Servo_Spin(uint32_t delay_time) {
     switch(_feed->IsFeed) {
         case 1:
-            feeding_Servo_Angle(180);
+            feeding_Servo_Angle(30);
             _feed->IsFeed = 2;
             break;
         case 3:
-            feeding_Servo_Angle(0);
+            feeding_Servo_Angle(5);
     		_feed->IsFeed = 0;
         	break;
     }
@@ -144,12 +153,12 @@ void feeding_Init(struct feeding_t *feed) {
 	HAL_I2C_Mem_Write(_feed->hi2c, 0xD0, 0x0F, 1, &status_reg, 1, 1000);
 	
 
-	// DS3231_SetTime(settime);
+	//DS3231_SetTime(settime);
 }
 
 static void feeding_Servo_Angle(int16_t angle) {
 	if(angle > 180) angle = 180;
-	if(angle < 0) angle = 0;
+	if(angle < 5) angle = 5 ;
 
 	int duty = -(angle * 50/9) + 1250;
 	__HAL_TIM_SET_COMPARE(_feed->htim, _feed->channel, duty);
@@ -157,39 +166,4 @@ static void feeding_Servo_Angle(int16_t angle) {
 }
 
 /* Unused */
-//uint8_t feeding_delay(uint32_t delay_ms) {
-//    static uint32_t tickstart = 0;
-//    static uint8_t active = 0;
-//
-//    if (!active) {
-//        tickstart = HAL_GetTick();
-//        active = 1;
-//        return 0;
-//    }
-//
-//    if ((HAL_GetTick() - tickstart) >= delay_ms) {
-//        active = 0;
-//        return 1;
-//    }
-//    return 0;
-//}
-//void feeding_Servo_Spin(uint32_t delay_time) {
-//    static uint8_t state = 0;
-//    static uint32_t tickstart = 0;
-//
-//    switch(state) {
-//        case 0:
-//            feeding_Servo_Angle(180);
-//            tickstart = HAL_GetTick();
-//            state = 1;
-//            break;
-//
-//        case 1:
-//            if (HAL_GetTick() - tickstart >= delay_time) {
-//                feeding_Servo_Angle(0);
-//                state = 0;
-//        		_feed->IsFeed = 0;
-//            }
-//            break;
-//    }
-//}
+

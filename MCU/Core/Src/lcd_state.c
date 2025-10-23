@@ -7,7 +7,10 @@ typedef enum {
    LCD_STATE_TIMESET,
    LCD_STATE_INFO, 	    // Khi set time
 	LCD_STATE_SET,
-   LCD_STATE_DISTANCE
+   LCD_STATE_DISTANCE,
+   LCD_STATE_SET_OFF,
+   LCD_STATE_LIGHT_ON,
+   LCD_STATE_LIGHT_OFF
 } LCD_State_t;
 
 /* Khai báo biến toàn cục để các module khác dùng */

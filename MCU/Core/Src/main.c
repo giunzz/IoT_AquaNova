@@ -80,8 +80,8 @@ uint32_t Value1 = 0;
 uint32_t Value2 = 0;
 float Distance = 0.0f; // cm
 
-float D_empty = 12.0f;   // cm
-float D_full  = 7.0f;   // cm
+float D_empty = 10.0f;   // cm
+float D_full  = 5.0f;   // cm
 float percent;
 
 uint8_t is_turbidity_warning_active = 0;      
@@ -99,8 +99,8 @@ uint32_t last_uart_send_time = 0;
 
 //uint32_t lcd_timer = 0;
 
-uint32_t lcd_command_timer = 0; 
-char lcd_command_buffer[20];  
+//uint32_t lcd_command_timer = 0; 
+//char lcd_command_buffer[20];  
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
@@ -110,10 +110,14 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
     {
       case 'L':
 				HAL_GPIO_WritePin(LIGHT_GPIO_Port, LIGHT_Pin, GPIO_PIN_SET);
+				lcd_state = LCD_STATE_LIGHT_ON; 
+				lcd_timer = HAL_GetTick(); 
         break;
 
       case 'l':
 				HAL_GPIO_WritePin(LIGHT_GPIO_Port, LIGHT_Pin, GPIO_PIN_RESET);
+				lcd_state = LCD_STATE_LIGHT_OFF; 
+				lcd_timer = HAL_GetTick(); 
         break;
 				
       case 'F':
@@ -181,11 +185,11 @@ void LCD_Update(void) {
         case LCD_STATE_FEEDING:
             //CLCD_I2C_Clear(&LCD1);
             CLCD_I2C_SetCursor(&LCD1, 0, 0);
-            CLCD_I2C_WriteString(&LCD1, "FEEDING ...     ");
+            CLCD_I2C_WriteString(&LCD1, "  FEEDING ...   ");
             CLCD_I2C_SetCursor(&LCD1, 0, 1);
             CLCD_I2C_WriteString(&LCD1, "                ");
 				
-            if (HAL_GetTick() - lcd_timer >= 2000) {
+            if (HAL_GetTick() - lcd_timer >= 1000) {
                 lcd_state = LCD_STATE_NORMAL;
                 CLCD_I2C_Clear(&LCD1);
             }
@@ -207,7 +211,7 @@ void LCD_Update(void) {
                 CLCD_I2C_Clear(&LCD1);
             }
             break;
-
+						
         case LCD_STATE_INFO:
 						sprintf(buffer, "Time: %02d:%02d:%02d    ", 
             timenow.hour, timenow.minutes, timenow.seconds);
@@ -239,6 +243,42 @@ void LCD_Update(void) {
                 CLCD_I2C_Clear(&LCD1);
             }
             break;	
+
+        case LCD_STATE_SET_OFF:
+            CLCD_I2C_SetCursor(&LCD1, 0, 0);
+            CLCD_I2C_WriteString(&LCD1, "Alarm's deleted ");
+				    CLCD_I2C_SetCursor(&LCD1, 0, 1);
+            CLCD_I2C_WriteString(&LCD1, "                ");
+				
+						if (HAL_GetTick() - lcd_timer >= 2000) {
+                lcd_state = LCD_STATE_NORMAL;
+                CLCD_I2C_Clear(&LCD1);
+            }
+            break;
+
+        case LCD_STATE_LIGHT_ON:
+            CLCD_I2C_SetCursor(&LCD1, 0, 0);
+            CLCD_I2C_WriteString(&LCD1, "  Light was on  ");
+				    CLCD_I2C_SetCursor(&LCD1, 0, 1);
+            CLCD_I2C_WriteString(&LCD1, "                ");
+				
+						if (HAL_GetTick() - lcd_timer >= 1000) {
+                lcd_state = LCD_STATE_NORMAL;
+                CLCD_I2C_Clear(&LCD1);
+            }
+            break;
+						
+        case LCD_STATE_LIGHT_OFF:
+            CLCD_I2C_SetCursor(&LCD1, 0, 0);
+            CLCD_I2C_WriteString(&LCD1, "  Light was off ");
+				    CLCD_I2C_SetCursor(&LCD1, 0, 1);
+            CLCD_I2C_WriteString(&LCD1, "                ");
+				
+						if (HAL_GetTick() - lcd_timer >= 1000) {
+                lcd_state = LCD_STATE_NORMAL;
+                CLCD_I2C_Clear(&LCD1);
+            }
+            break;
 						
 				case LCD_STATE_DISTANCE:
 						sprintf(buffer, "Dist: %.1f cm   ", Distance);
@@ -328,7 +368,7 @@ void HAL_SYSTICK_Callback(void)
 {
 		// dong co quay trong 1s
 		static uint32_t counter = 0;
-    if(counter >= 2000) {  // 1000 * 1ms = 1s
+    if(counter >= 1000) {  
     	feed.IsFeed = 3;
         counter = 0;
     }
@@ -344,7 +384,6 @@ void HAL_SYSTICK_Callback(void)
   */
 int main(void)
 {
-	                                                                             
 
   /* USER CODE BEGIN 1 */
 
@@ -795,8 +834,8 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : ALARM_Pin BUTTON_CONTROL_Pin */
-  GPIO_InitStruct.Pin = ALARM_Pin|BUTTON_CONTROL_Pin;
+  /*Configure GPIO pins : ALARM_Pin BUTTON_CONTROL_Pin BUTTON_Pin */
+  GPIO_InitStruct.Pin = ALARM_Pin|BUTTON_CONTROL_Pin|BUTTON_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
@@ -808,8 +847,14 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(DS18B20_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : BUTTON_DOWN_Pin BUTTON_UP_Pin BUTTON_Pin */
-  GPIO_InitStruct.Pin = BUTTON_DOWN_Pin|BUTTON_UP_Pin|BUTTON_Pin;
+  /*Configure GPIO pin : BUTTON_OFF_Pin */
+  GPIO_InitStruct.Pin = BUTTON_OFF_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(BUTTON_OFF_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : BUTTON_DOWN_Pin BUTTON_UP_Pin */
+  GPIO_InitStruct.Pin = BUTTON_DOWN_Pin|BUTTON_UP_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
@@ -826,6 +871,9 @@ static void MX_GPIO_Init(void)
 
   HAL_NVIC_SetPriority(EXTI9_5_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
+
+  HAL_NVIC_SetPriority(EXTI15_10_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
 
   /* USER CODE BEGIN MX_GPIO_Init_2 */
 
@@ -845,10 +893,8 @@ void process_turbidity(void)
     float voltage_raw = (avg_adc * 3.3f) / 4095.0f;
     float voltage = voltage_raw + 0.01f; 
 
-    // C�ng th?c t�nh to�n d? d?c
     turbidity = -900.4f * (voltage * voltage) - 336.302f * voltage + 2973.295f;
 
-    // Gi?i h?n gi� tr? d? d?c trong kho?ng h?p l�
     if (turbidity < 0)
     {
         turbidity = 0;
@@ -870,7 +916,7 @@ void measure_food_level(void)
 
 void handle_turbidity_warning(void)
 {
-    if (turbidity >= 1000 && !is_warning_silenced_by_user)
+    if (turbidity >= 300 && !is_warning_silenced_by_user)
     {
         is_turbidity_warning_active = 1;
 
