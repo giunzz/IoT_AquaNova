@@ -6685,3 +6685,21 @@
 2025-10-23T16:08:15.354120 [MQTT]  CONNECTED with code=Success
 2025-10-23T16:08:15.356208 [MQTT] SUBSCRIBE sent topic=aquanova/telemetry mid=1 result=0
 2025-10-23T16:08:15.583130 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-23T17:38:40.132061 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-23T17:38:40.132097 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/telemetry
+2025-10-23T17:38:41.102438 [MQTT]  CONNECTED with code=Success
+2025-10-23T17:38:41.103535 [MQTT] SUBSCRIBE sent topic=aquanova/telemetry mid=1 result=0
+2025-10-23T17:38:41.331104 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-23T17:43:09.589807 [MQTT] ERROR: Timeout of 60.0s exceeded, last exception: 503 Getting metadata from plugin failed with error: ('invalid_grant: Invalid JWT Signature.', {'error': 'invalid_grant', 'error_description': 'Invalid JWT Signature.'}) | payload=b'{"error":"Invalid payload format","raw_payload":"\xff\xff\xff"}'
+2025-10-23T17:46:07.562776 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-23T17:46:07.562810 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/telemetry
+2025-10-23T17:46:08.477984 [MQTT]  CONNECTED with code=Success
+2025-10-23T17:46:08.479626 [MQTT] SUBSCRIBE sent topic=aquanova/telemetry mid=1 result=0
+2025-10-23T17:46:08.703462 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-23T17:46:11.833951 [MQTT] ERROR: 403 Missing or insufficient permissions. | payload=b'{"turbidity":148.4,"temperature":29,"feed":0,"thoi_gian":"17:45:38"}'
+2025-10-23T17:47:40.229846 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 176.8, 'temperature': 29, 'feed': 0, 'thoi_gian': '17:46:39', 'ts': '2025-10-23T10:47:39.936766+00:00'}
+2025-10-23T18:32:15.695674 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-23T18:32:15.695732 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/telemetry
+2025-10-23T18:32:16.740677 [MQTT]  CONNECTED with code=Success
+2025-10-23T18:32:16.742371 [MQTT] SUBSCRIBE sent topic=aquanova/telemetry mid=1 result=0
+2025-10-23T18:32:16.969942 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]

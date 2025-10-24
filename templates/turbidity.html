@@ -25,7 +25,7 @@
     @media (max-width:1000px){ .layout{grid-template-columns:1fr} aside{display:none} .row{grid-template-columns:1fr} }
     .toolbar{display:flex; flex-wrap:wrap; gap:10px; align-items:end; margin-bottom:12px}
     label{font-size:13px; color:#374151; display:block; margin-bottom:6px}
-    input, select{padding:8px 10px; border:1px solid #e5e7eb; border-radius:8px; background:#fff}
+    input{padding:8px 10px; border:1px solid #e5e7eb; border-radius:8px; background:#fff}
     .btn{background:#2563eb;color:#fff;border:none;border-radius:10px;padding:10px 14px;cursor:pointer}
     .btn.secondary{background:#0ea5e9}
     .btn.ghost{background:#f3f4f6; color:#111}
@@ -41,9 +41,7 @@
 </head>
 <body>
   <header>
-    <h2>
-      AquaNova
-    </h2>
+    <h2>AquaNova</h2>
     <div style="opacity:.95; display:flex; gap:14px; align-items:center">
       <span>Turbidity</span>
       <a href="{{ url_for('admin_page') }}" style="color:#fff; text-decoration:none">Admin</a>
@@ -67,12 +65,6 @@
       <!-- Filter + Actions -->
       <div class="card" style="margin-bottom:16px">
         <div class="toolbar">
-          <div>
-            <label for="deviceSelect">Device</label>
-            <select id="deviceSelect">
-              <option value="">All devices</option>
-            </select>
-          </div>
           <div>
             <label>From</label>
             <input type="datetime-local" id="fromDt">
@@ -109,7 +101,7 @@
           <h3 style="margin-top:0">Summary</h3>
           <div id="summaryBox" class="muted">—</div>
           <div style="margin-top:10px">
-            <span id="warnTag" class="tag">Warn if &gt; 70</span>
+            <span id="warnTag" class="tag">Warn if > 70 NTU</span>
           </div>
         </div>
       </div>
@@ -125,12 +117,11 @@
             <tr>
               <th>#</th>
               <th>Date time</th>
-              <th>Device</th>
               <th>Turbidity (NTU / %)</th>
               <th>Status</th>
             </tr>
           </thead>
-        <tbody id="rows"></tbody>
+          <tbody id="rows"></tbody>
         </table>
         <div class="pagination">
           <button class="btn ghost" id="prevBtn">Prev</button>
@@ -142,38 +133,25 @@
   </div>
 
   <script>
-    // ===== Config =====
-    const TURBIDITY_WARN = 70; // đổi theo ao của bạn
+    const TURBIDITY_WARN = 200;
     const PAGE_SIZE = 20;
     const FETCH_N = 500;
 
-    // ===== State =====
     let allItems = [];
     let filtered = [];
     let page = 1;
 
-    // ===== Helpers =====
     const byTimeAsc  = (a,b)=> new Date(a.ts) - new Date(b.ts);
     const byTimeDesc = (a,b)=> new Date(b.ts) - new Date(a.ts);
 
     function fmtDate(s){ const d = new Date(s); return isNaN(d) ? s : d.toLocaleString(); }
     function statusBadge(v){ const ok = v <= TURBIDITY_WARN; return `<span class="status ${ok?'ok':'bad'}">${ok?'OK':'High'}</span>`; }
 
-    function fillDeviceSelect(items){
-      const sel = document.getElementById('deviceSelect');
-      const ids = Array.from(new Set(items.map(x => (x.deviceId || x.device_id || '').trim()).filter(Boolean))).sort();
-      ids.forEach(id=>{
-        const opt = document.createElement('option'); opt.value = id; opt.textContent = id; sel.appendChild(opt);
-      });
-    }
-
     function applyFilter(){
-      const dev = document.getElementById('deviceSelect').value.trim();
       const fromV = document.getElementById('fromDt').value;
       const toV   = document.getElementById('toDt').value;
-
       let arr = [...allItems];
-      if (dev) arr = arr.filter(x => (x.deviceId || x.device_id) === dev);
+
       if (fromV){ const from = new Date(fromV); arr = arr.filter(x => new Date(x.ts) >= from); }
       if (toV){   const to   = new Date(toV);   arr = arr.filter(x => new Date(x.ts) <= to); }
 
@@ -186,8 +164,7 @@
 
     function updateInfoLine(){
       const total = filtered.length;
-      const dev = document.getElementById('deviceSelect').value || 'All devices';
-      document.getElementById('infoLine').textContent = `Showing ${total} records — ${dev}`;
+      document.getElementById('infoLine').textContent = `Showing ${total} records`;
     }
 
     // ===== Table + Pagination =====
@@ -203,7 +180,6 @@
         tr.innerHTML = `
           <td>${start + i + 1}</td>
           <td>${fmtDate(r.ts)}</td>
-          <td>${r.deviceId ?? r.device_id ?? ''}</td>
           <td>${isNaN(v)?'':v.toFixed(2)}</td>
           <td>${isNaN(v)?'':statusBadge(v)}</td>`;
         tbody.appendChild(tr);
@@ -214,9 +190,9 @@
       document.getElementById('prevBtn').disabled = page <= 1;
       document.getElementById('nextBtn').disabled = page >= totalPages;
 
-      document.getElementById('tableUpdated').textContent =
-        'Updated: ' + new Date().toLocaleTimeString();
+      document.getElementById('tableUpdated').textContent = 'Updated: ' + new Date().toLocaleTimeString();
     }
+
     document.getElementById('prevBtn').onclick = ()=>{ if (page>1){ page--; renderTable(); } };
     document.getElementById('nextBtn').onclick = ()=>{
       const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
@@ -241,6 +217,7 @@
       });
       return turbChart;
     }
+
     function renderChart(){
       const ctx = document.getElementById('turbChart').getContext('2d');
       const c = ensureChart(ctx);
@@ -269,10 +246,10 @@
 
     // ===== Export CSV =====
     document.getElementById('exportBtn').onclick = () => {
-      const lines = [['timestamp','device','turbidity']];
+      const lines = [['timestamp','turbidity']];
       filtered.slice().reverse().forEach(r=>{
         const v = Number(r.turbidity ?? NaN);
-        lines.push([r.ts, r.deviceId ?? r.device_id ?? '', isNaN(v)?'':v]);
+        lines.push([r.ts, isNaN(v)?'':v]);
       });
       const csv = lines.map(row => row.map(v=>String(v).replaceAll('"','""')).map(v=>`"${v}"`).join(',')).join('\n');
       const blob = new Blob([csv], {type:'text/csv;charset=utf-8;'});
@@ -293,7 +270,6 @@
     async function init(){
       try{
         allItems = await fetchData();
-        fillDeviceSelect(allItems);
         filtered = allItems.slice().sort(byTimeDesc);
         renderChart();
         renderTable();
@@ -305,7 +281,6 @@
     }
 
     document.getElementById('applyBtn').onclick = applyFilter;
-
     init();
   </script>
 </body>

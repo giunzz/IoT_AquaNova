@@ -25,7 +25,7 @@
     @media (max-width:1000px){ .layout{grid-template-columns:1fr} aside{display:none} .row{grid-template-columns:1fr} }
     .toolbar{display:flex; flex-wrap:wrap; gap:10px; align-items:end; margin-bottom:12px}
     label{font-size:13px; color:#374151; display:block; margin-bottom:6px}
-    input, select{padding:8px 10px; border:1px solid #e5e7eb; border-radius:8px; background:#fff}
+    input{padding:8px 10px; border:1px solid #e5e7eb; border-radius:8px; background:#fff}
     .btn{background:#2563eb;color:#fff;border:none;border-radius:10px;padding:10px 14px;cursor:pointer}
     .btn.secondary{background:#0ea5e9}
     .btn.ghost{background:#f3f4f6; color:#111}
@@ -41,9 +41,7 @@
 </head>
 <body>
   <header>
-    <h2>
-      AquaNova
-    </h2>
+    <h2>AquaNova</h2>
     <div style="opacity:.95; display:flex; gap:14px; align-items:center">
       <span>Temperature</span>
       <a href="{{ url_for('admin_page') }}" style="color:#fff; text-decoration:none">Admin</a>
@@ -67,12 +65,6 @@
       <!-- Filter + Actions -->
       <div class="card" style="margin-bottom:16px">
         <div class="toolbar">
-          <div>
-            <label for="deviceSelect">Device</label>
-            <select id="deviceSelect">
-              <option value="">All devices</option>
-            </select>
-          </div>
           <div>
             <label>From</label>
             <input type="datetime-local" id="fromDt">
@@ -125,7 +117,6 @@
             <tr>
               <th>#</th>
               <th>Date time</th>
-              <th>Device</th>
               <th>Temperature (°C)</th>
               <th>Status</th>
             </tr>
@@ -142,17 +133,14 @@
   </div>
 
   <script>
-    // ===== Config =====
     const SAFE_MIN = 24, SAFE_MAX = 30;
-    const PAGE_SIZE = 20;     // số dòng / trang
-    const FETCH_N = 500;      // lấy tối đa N bản ghi mới nhất từ API
+    const PAGE_SIZE = 20;
+    const FETCH_N = 500;
 
-    // ===== State =====
-    let allItems = [];     // dữ liệu từ API
-    let filtered = [];     // dữ liệu sau filter
+    let allItems = [];
+    let filtered = [];
     let page = 1;
 
-    // ===== Helpers =====
     const byTimeAsc = (a,b)=> new Date(a.ts) - new Date(b.ts);
     const byTimeDesc = (a,b)=> new Date(b.ts) - new Date(a.ts);
 
@@ -165,23 +153,10 @@
       return `<span class="status ${ok?'ok':'bad'}">${ok?'Safe':'Alert'}</span>`;
     }
 
-    function fillDeviceSelect(items){
-      const sel = document.getElementById('deviceSelect');
-      const ids = Array.from(new Set(items.map(x => (x.deviceId || x.device_id || '').trim()).filter(Boolean))).sort();
-      ids.forEach(id=>{
-        const opt = document.createElement('option');
-        opt.value = id; opt.textContent = id;
-        sel.appendChild(opt);
-      });
-    }
-
     function applyFilter(){
-      const dev = document.getElementById('deviceSelect').value.trim();
       const fromV = document.getElementById('fromDt').value;
       const toV = document.getElementById('toDt').value;
-
       let arr = [...allItems];
-      if (dev) arr = arr.filter(x => (x.deviceId || x.device_id) === dev);
 
       if (fromV){
         const from = new Date(fromV);
@@ -201,9 +176,7 @@
 
     function updateInfoLine(){
       const total = filtered.length;
-      const dev = document.getElementById('deviceSelect').value || 'All devices';
-      document.getElementById('infoLine').textContent =
-        `Showing ${total} records — ${dev}`;
+      document.getElementById('infoLine').textContent = `Showing ${total} records`;
     }
 
     // ===== Table + Pagination =====
@@ -219,7 +192,6 @@
         tr.innerHTML = `
           <td>${start + i + 1}</td>
           <td>${fmtDate(r.ts)}</td>
-          <td>${r.deviceId ?? r.device_id ?? ''}</td>
           <td>${isNaN(temp) ? '' : temp.toFixed(2)}</td>
           <td>${isNaN(temp) ? '' : statusBadge(temp)}</td>`;
         tbody.appendChild(tr);
@@ -262,9 +234,7 @@
     function renderChart(){
       const ctx = document.getElementById('tempChart').getContext('2d');
       const c = ensureChart(ctx);
-
-      // để chart tự nhiên: thời gian tăng dần
-      const arr = filtered.slice().sort(byTimeAsc).slice(-200); // tối đa 200 điểm cho nhẹ
+      const arr = filtered.slice().sort(byTimeAsc).slice(-200);
       const labels = arr.map(r => {
         const d = new Date(r.ts);
         return isNaN(d) ? r.ts : d.toLocaleTimeString();
@@ -278,7 +248,6 @@
       document.getElementById('chartUpdated').textContent =
         'Updated: ' + new Date().toLocaleTimeString();
 
-      // summary
       if (arr.length){
         const min = Math.min(...data), max = Math.max(...data);
         const avg = data.reduce((a,b)=>a+b,0) / data.length;
@@ -293,10 +262,10 @@
 
     // ===== Export CSV =====
     document.getElementById('exportBtn').onclick = () => {
-      const lines = [['timestamp','device','temperature']];
+      const lines = [['timestamp','temperature']];
       filtered.slice().reverse().forEach(r=>{
         const t = Number(r.temperature ?? r.temp ?? NaN);
-        lines.push([r.ts, r.deviceId ?? r.device_id ?? '', isNaN(t)?'':t]);
+        lines.push([r.ts, isNaN(t)?'':t]);
       });
       const csv = lines.map(row => row.map(v=>String(v).replaceAll('"','""')).map(v=>`"${v}"`).join(',')).join('\n');
       const blob = new Blob([csv], {type:'text/csv;charset=utf-8;'});
@@ -306,7 +275,6 @@
       document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
     };
 
-    // ===== Load from API =====
     async function fetchData(){
       const res = await fetch(`/dashboard/latest?n=${FETCH_N}`);
       if (!res.ok) throw new Error('HTTP '+res.status);
@@ -317,9 +285,6 @@
     async function init(){
       try{
         allItems = await fetchData();
-        // điền danh sách device
-        fillDeviceSelect(allItems);
-        // mặc định hiển thị tất cả
         filtered = allItems.slice().sort(byTimeDesc);
         renderChart();
         renderTable();
@@ -331,7 +296,6 @@
     }
 
     document.getElementById('applyBtn').onclick = applyFilter;
-
     init();
   </script>
 </body>
