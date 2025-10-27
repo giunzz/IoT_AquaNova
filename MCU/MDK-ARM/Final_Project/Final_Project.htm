@@ -3,7 +3,7 @@
 <title>Static Call Graph - [Final_Project\Final_Project.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image Final_Project\Final_Project.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Thu Oct 23 09:49:19 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Sun Oct 26 21:52:14 2025
 <BR><P>
 <H3>Maximum Stack Usage =        324 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1437,7 +1437,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[9f]"></a>feeding_ISR</STRONG> (Thumb, 262 bytes, Stack size 48 bytes, feeding.o(i.feeding_ISR))
+<P><STRONG><a name="[9f]"></a>feeding_ISR</STRONG> (Thumb, 282 bytes, Stack size 48 bytes, feeding.o(i.feeding_ISR))
 <BR><BR>[Stack]<UL><LI>Max Depth = 184<LI>Call Chain = feeding_ISR &rArr; HAL_I2C_Mem_Read &rArr; I2C_RequestMemoryRead &rArr; I2C_WaitOnMasterAddressFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
@@ -1467,8 +1467,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;feeding_Handler
 </UL>
 
-<P><STRONG><a name="[f5]"></a>handle_turbidity_warning</STRONG> (Thumb, 80 bytes, Stack size 24 bytes, main.o(i.handle_turbidity_warning))
-<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = handle_turbidity_warning
+<P><STRONG><a name="[f5]"></a>handle_turbidity_warning</STRONG> (Thumb, 78 bytes, Stack size 16 bytes, main.o(i.handle_turbidity_warning))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = handle_turbidity_warning
 </UL>
 <BR>[Calls]<UL><LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 <LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_TogglePin

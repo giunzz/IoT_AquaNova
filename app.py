@@ -46,8 +46,8 @@ def create_app():
 
     # Bắt đầu MQTT listener và scheduler
     start_mqtt_background(app)
-    with app.app_context():
-        start_scheduler()  
+    start_scheduler(app)
+
 
     return app
 
