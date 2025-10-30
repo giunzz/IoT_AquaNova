@@ -34,6 +34,7 @@ void process_turbidity(void);
 void measure_food_level(void);
 void handle_turbidity_warning(void);
 void handle_uart_transmission(void);
+void LCD_Update(void);
 
 /* USER CODE END Includes */
 
@@ -80,8 +81,8 @@ uint32_t Value1 = 0;
 uint32_t Value2 = 0;
 float Distance = 0.0f; // cm
 
-float D_empty = 10.0f;   // cm
-float D_full  = 5.0f;   // cm
+float D_empty = 12.0f;   // cm
+float D_full  = 7.0f;   // cm
 float percent;
 
 uint8_t is_turbidity_warning_active = 0;      
@@ -95,237 +96,19 @@ int i=0;
 char uart_tx_buffer[100]; 
 uint32_t last_uart_send_time = 0; 
 //#define UART_SEND_INTERVAL 3600000 
-#define UART_SEND_INTERVAL 60000 
-
-//uint32_t lcd_timer = 0;
-
-//uint32_t lcd_command_timer = 0; 
-//char lcd_command_buffer[20];  
-
-void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
-{
-  if (huart->Instance == USART1) 
-  {
-    switch (rec)
-    {
-      case 'L':
-				HAL_GPIO_WritePin(LIGHT_GPIO_Port, LIGHT_Pin, GPIO_PIN_SET);
-				lcd_state = LCD_STATE_LIGHT_ON; 
-				lcd_timer = HAL_GetTick(); 
-        break;
-
-      case 'l':
-				HAL_GPIO_WritePin(LIGHT_GPIO_Port, LIGHT_Pin, GPIO_PIN_RESET);
-				lcd_state = LCD_STATE_LIGHT_OFF; 
-				lcd_timer = HAL_GetTick(); 
-        break;
-				
-      case 'F':
-				feeding_Alarm();
-        break;
-			
-      default:
-        break;			
-    }
-
-    HAL_UART_Receive_IT(&huart1, (uint8_t *)&rec, 1);
-  }
-}
-
-uint16_t Read_ADC(void) 														// Doc ADC
-{
-    uint16_t val = 0;
-    HAL_ADC_Start(&hadc1);                              
-    if (HAL_ADC_PollForConversion(&hadc1, 10) == HAL_OK) 
-    {
-        val = HAL_ADC_GetValue(&hadc1);                
-    }
-    HAL_ADC_Stop(&hadc1);
-    return val;
-}
-
-uint32_t Read_ADC_Avg(uint8_t samples)			// Doc ADC lay nhieu mau
-{
-    uint32_t sum = 0;
-    for(uint8_t i = 0; i < samples; i++)
-    {
-        HAL_ADC_Start(&hadc1);
-        HAL_ADC_PollForConversion(&hadc1, 10);
-        sum += HAL_ADC_GetValue(&hadc1);
-        HAL_ADC_Stop(&hadc1);
-    }
-    return sum / samples;
-}
-
+#define UART_SEND_INTERVAL 60000  
 
 struct feeding_t feed = {
-		.hi2c = &hi2c1,
-		.htim = &htim4,
-		.channel = TIM_CHANNEL_4,
-		.alarm_time = {
-				.seconds = 0,
-				.minutes = 00,
-				.hour = 15,
-		},
-};
+            .hi2c = &hi2c1,
+            .htim = &htim4,
+            .channel = TIM_CHANNEL_4,
+            .alarm_time = {
+                    .seconds = 0,
+                    .minutes = 00,
+                    .hour = 15,
+            },
+    };
 
-void LCD_Update(void) {
-    char buffer[20];
-	
-    if (is_turbidity_warning_active == 1)
-    {
-        CLCD_I2C_SetCursor(&LCD1, 0, 0);
-        CLCD_I2C_WriteString(&LCD1, "  !!WARNING!!   ");
-        CLCD_I2C_SetCursor(&LCD1, 0, 1);
-        CLCD_I2C_WriteString(&LCD1, " TURBIDITY HIGH ");
-        return;
-    }
-
-    switch(lcd_state) {
-        case LCD_STATE_FEEDING:
-            //CLCD_I2C_Clear(&LCD1);
-            CLCD_I2C_SetCursor(&LCD1, 0, 0);
-            CLCD_I2C_WriteString(&LCD1, "  FEEDING ...   ");
-            CLCD_I2C_SetCursor(&LCD1, 0, 1);
-            CLCD_I2C_WriteString(&LCD1, "                ");
-				
-            if (HAL_GetTick() - lcd_timer >= 1000) {
-                lcd_state = LCD_STATE_NORMAL;
-                CLCD_I2C_Clear(&LCD1);
-            }
-            break;
-
-        case LCD_STATE_TIMESET:
-            //CLCD_I2C_Clear(&LCD1);
-            sprintf(buffer, "Set: %02d:%02d:%02d         ",
-                    feed.alarm_time.hour,
-                    feed.alarm_time.minutes,
-                    feed.alarm_time.seconds);
-            CLCD_I2C_SetCursor(&LCD1, 0, 0);
-            CLCD_I2C_WriteString(&LCD1, buffer);
-				    CLCD_I2C_SetCursor(&LCD1, 0, 1);
-            CLCD_I2C_WriteString(&LCD1, "                ");
-				
-						if (HAL_GetTick() - lcd_timer >= 2000) {
-                lcd_state = LCD_STATE_NORMAL;
-                CLCD_I2C_Clear(&LCD1);
-            }
-            break;
-						
-        case LCD_STATE_INFO:
-						sprintf(buffer, "Time: %02d:%02d:%02d    ", 
-            timenow.hour, timenow.minutes, timenow.seconds);
-						CLCD_I2C_SetCursor(&LCD1, 0, 0);
-						CLCD_I2C_WriteString(&LCD1, buffer);
-
-						if (feed.IsAlarmEnabled == 1) {
-							sprintf(buffer, "Alarm: %02d:00:00     ", feed.alarm_time.hour);
-						} else {
-								sprintf(buffer, "No set alarm    ");
-						}
-						CLCD_I2C_SetCursor(&LCD1, 0, 1);
-						CLCD_I2C_WriteString(&LCD1, buffer);
-						
-            if (HAL_GetTick() - lcd_timer >= 2000) { 
-                lcd_state = LCD_STATE_NORMAL;
-                CLCD_I2C_Clear(&LCD1);
-            }
-            break;						
-
-        case LCD_STATE_SET:
-            CLCD_I2C_SetCursor(&LCD1, 0, 0);
-            CLCD_I2C_WriteString(&LCD1, "Time's been set "); 
-            CLCD_I2C_SetCursor(&LCD1, 0, 1);
-            CLCD_I2C_WriteString(&LCD1, "                ");
-
-            if (HAL_GetTick() - lcd_timer >= 2000) { 
-                lcd_state = LCD_STATE_NORMAL;
-                CLCD_I2C_Clear(&LCD1);
-            }
-            break;	
-
-        case LCD_STATE_SET_OFF:
-            CLCD_I2C_SetCursor(&LCD1, 0, 0);
-            CLCD_I2C_WriteString(&LCD1, "Alarm's deleted ");
-				    CLCD_I2C_SetCursor(&LCD1, 0, 1);
-            CLCD_I2C_WriteString(&LCD1, "                ");
-				
-						if (HAL_GetTick() - lcd_timer >= 2000) {
-                lcd_state = LCD_STATE_NORMAL;
-                CLCD_I2C_Clear(&LCD1);
-            }
-            break;
-
-        case LCD_STATE_LIGHT_ON:
-            CLCD_I2C_SetCursor(&LCD1, 0, 0);
-            CLCD_I2C_WriteString(&LCD1, "  Light was on  ");
-				    CLCD_I2C_SetCursor(&LCD1, 0, 1);
-            CLCD_I2C_WriteString(&LCD1, "                ");
-				
-						if (HAL_GetTick() - lcd_timer >= 1000) {
-                lcd_state = LCD_STATE_NORMAL;
-                CLCD_I2C_Clear(&LCD1);
-            }
-            break;
-						
-        case LCD_STATE_LIGHT_OFF:
-            CLCD_I2C_SetCursor(&LCD1, 0, 0);
-            CLCD_I2C_WriteString(&LCD1, "  Light was off ");
-				    CLCD_I2C_SetCursor(&LCD1, 0, 1);
-            CLCD_I2C_WriteString(&LCD1, "                ");
-				
-						if (HAL_GetTick() - lcd_timer >= 1000) {
-                lcd_state = LCD_STATE_NORMAL;
-                CLCD_I2C_Clear(&LCD1);
-            }
-            break;
-						
-				case LCD_STATE_DISTANCE:
-						sprintf(buffer, "Dist: %.1f cm   ", Distance);
-						CLCD_I2C_SetCursor(&LCD1, 0, 0);
-						CLCD_I2C_WriteString(&LCD1, buffer);
-
-						sprintf(buffer, "Feed: %.0f%%      ", percent);
-						CLCD_I2C_SetCursor(&LCD1, 0, 1);
-						CLCD_I2C_WriteString(&LCD1, buffer);
-
-						if (HAL_GetTick() - lcd_timer >= 10000) {
-						lcd_state = LCD_STATE_NORMAL;
-						CLCD_I2C_Clear(&LCD1);
-						}
-						break;	
-						
-        case LCD_STATE_NORMAL:
-        default:
-            sprintf(buffer,"Temp: %.1f C       ", TEMP);
-            CLCD_I2C_SetCursor(&LCD1, 0, 0);
-            CLCD_I2C_WriteString(&LCD1, buffer);
-
-            sprintf(buffer,"Turb: %.1f NTU      ", turbidity);
-            CLCD_I2C_SetCursor(&LCD1, 0, 1);
-            CLCD_I2C_WriteString(&LCD1, buffer);
-            break;
-				
-    }
-}
-
-void HCSR04_Read(void)
-{
-  HAL_GPIO_WritePin(TRIG_HCSR04_GPIO_Port, TRIG_HCSR04_Pin, GPIO_PIN_SET);
-  __HAL_TIM_SET_COUNTER(&htim2, 0);
-  while (__HAL_TIM_GET_COUNTER(&htim2) < 10); // 10us pulse
-  HAL_GPIO_WritePin(TRIG_HCSR04_GPIO_Port, TRIG_HCSR04_Pin, GPIO_PIN_RESET);
-
-  pMillis = HAL_GetTick();
-  while (!(HAL_GPIO_ReadPin(ECHO_GPIO_Port, ECHO_Pin)) && (HAL_GetTick() - pMillis) < 20);
-  Value1 = __HAL_TIM_GET_COUNTER(&htim2);
-
-  pMillis = HAL_GetTick();
-  while ((HAL_GPIO_ReadPin(ECHO_GPIO_Port, ECHO_Pin)) && (HAL_GetTick() - pMillis) < 50);
-  Value2 = __HAL_TIM_GET_COUNTER(&htim2);
-
-  Distance = (float)(Value2 - Value1) * 0.034 / 2;
-}
 
 /* USER CODE END PV */
 
@@ -345,37 +128,7 @@ static void MX_USART1_UART_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
-{
-    if (GPIO_Pin == BUTTON_CONTROL_Pin || GPIO_Pin == BUTTON_UP_Pin || 
-        GPIO_Pin == BUTTON_DOWN_Pin || GPIO_Pin == BUTTON_Pin)
-    {
-				if (is_turbidity_warning_active)
-        {
-            is_turbidity_warning_active = 0;   
-            is_warning_silenced_by_user = 1;  
-            HAL_GPIO_WritePin(BUZZER_GPIO_Port, BUZZER_Pin, GPIO_PIN_RESET); 
-            lcd_state = LCD_STATE_NORMAL;
-            
-            return; 
-        }
-    }
-	
-    feeding_ISR(GPIO_Pin);
-}
 
-void HAL_SYSTICK_Callback(void)
-{
-		// dong co quay trong 1s
-		static uint32_t counter = 0;
-    if(counter >= 1000) {  
-    	feed.IsFeed = 3;
-        counter = 0;
-    }
-    if (feed.IsFeed == 2) {
-        counter++;
-    }
-}
 /* USER CODE END 0 */
 
 /**
@@ -881,6 +634,251 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+    if (GPIO_Pin == BUTTON_CONTROL_Pin || GPIO_Pin == BUTTON_UP_Pin || 
+        GPIO_Pin == BUTTON_DOWN_Pin || GPIO_Pin == BUTTON_Pin)
+    {
+				if (is_turbidity_warning_active)
+        {
+            is_turbidity_warning_active = 0;   
+            is_warning_silenced_by_user = 1;  
+            HAL_GPIO_WritePin(BUZZER_GPIO_Port, BUZZER_Pin, GPIO_PIN_RESET); 
+            lcd_state = LCD_STATE_NORMAL;
+            
+            return; 
+        }
+    }
+	
+    feeding_ISR(GPIO_Pin);
+}
+
+void HAL_SYSTICK_Callback(void)
+{
+		// dong co quay trong 1s
+		static uint32_t counter = 0;
+    if(counter >= 1000) {  
+    	feed.IsFeed = 3;
+        counter = 0;
+    }
+    if (feed.IsFeed == 2) {
+        counter++;
+    }
+}
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+  if (huart->Instance == USART1) 
+  {
+    switch (rec)
+    {
+      case 'L':
+				HAL_GPIO_WritePin(LIGHT_GPIO_Port, LIGHT_Pin, GPIO_PIN_SET);
+				lcd_state = LCD_STATE_LIGHT_ON; 
+				lcd_timer = HAL_GetTick(); 
+        break;
+
+      case 'l':
+				HAL_GPIO_WritePin(LIGHT_GPIO_Port, LIGHT_Pin, GPIO_PIN_RESET);
+				lcd_state = LCD_STATE_LIGHT_OFF; 
+				lcd_timer = HAL_GetTick(); 
+        break;
+				
+      case 'F':
+				feeding_Alarm();
+        break;
+			
+      default:
+        break;			
+    }
+
+    HAL_UART_Receive_IT(&huart1, (uint8_t *)&rec, 1);
+  }
+}
+
+uint16_t Read_ADC(void) 														// Doc ADC
+{
+    uint16_t val = 0;
+    HAL_ADC_Start(&hadc1);                              
+    if (HAL_ADC_PollForConversion(&hadc1, 10) == HAL_OK) 
+    {
+        val = HAL_ADC_GetValue(&hadc1);                
+    }
+    HAL_ADC_Stop(&hadc1);
+    return val;
+}
+
+uint32_t Read_ADC_Avg(uint8_t samples)			// Doc ADC lay nhieu mau
+{
+    uint32_t sum = 0;
+    for(uint8_t i = 0; i < samples; i++)
+    {
+        HAL_ADC_Start(&hadc1);
+        HAL_ADC_PollForConversion(&hadc1, 10);
+        sum += HAL_ADC_GetValue(&hadc1);
+        HAL_ADC_Stop(&hadc1);
+    }
+    return sum / samples;
+}
+
+void LCD_Update(void) {
+    char buffer[20];
+	
+    if (is_turbidity_warning_active == 1)
+    {
+        CLCD_I2C_SetCursor(&LCD1, 0, 0);
+        CLCD_I2C_WriteString(&LCD1, "  !!WARNING!!   ");
+        CLCD_I2C_SetCursor(&LCD1, 0, 1);
+        CLCD_I2C_WriteString(&LCD1, " TURBIDITY HIGH ");
+        return;
+    }
+
+    switch(lcd_state) {
+        case LCD_STATE_FEEDING:
+            //CLCD_I2C_Clear(&LCD1);
+            CLCD_I2C_SetCursor(&LCD1, 0, 0);
+            CLCD_I2C_WriteString(&LCD1, "  FEEDING ...   ");
+            CLCD_I2C_SetCursor(&LCD1, 0, 1);
+            CLCD_I2C_WriteString(&LCD1, "                ");
+				
+            if (HAL_GetTick() - lcd_timer >= 1000) {
+                lcd_state = LCD_STATE_NORMAL;
+                CLCD_I2C_Clear(&LCD1);
+            }
+            break;
+
+        case LCD_STATE_TIMESET:
+            //CLCD_I2C_Clear(&LCD1);
+            sprintf(buffer, "Set: %02d:%02d:%02d         ",
+                    feed.alarm_time.hour,
+                    feed.alarm_time.minutes,
+                    feed.alarm_time.seconds);
+            CLCD_I2C_SetCursor(&LCD1, 0, 0);
+            CLCD_I2C_WriteString(&LCD1, buffer);
+				    CLCD_I2C_SetCursor(&LCD1, 0, 1);
+            CLCD_I2C_WriteString(&LCD1, "                ");
+				
+						if (HAL_GetTick() - lcd_timer >= 2000) {
+                lcd_state = LCD_STATE_NORMAL;
+                CLCD_I2C_Clear(&LCD1);
+            }
+            break;
+						
+        case LCD_STATE_INFO:
+						sprintf(buffer, "Time: %02d:%02d:%02d    ", 
+            timenow.hour, timenow.minutes, timenow.seconds);
+						CLCD_I2C_SetCursor(&LCD1, 0, 0);
+						CLCD_I2C_WriteString(&LCD1, buffer);
+
+						if (feed.IsAlarmEnabled == 1) {
+							sprintf(buffer, "Alarm: %02d:00:00     ", feed.alarm_time.hour);
+						} else {
+								sprintf(buffer, "No set alarm    ");
+						}
+						CLCD_I2C_SetCursor(&LCD1, 0, 1);
+						CLCD_I2C_WriteString(&LCD1, buffer);
+						
+            if (HAL_GetTick() - lcd_timer >= 2000) { 
+                lcd_state = LCD_STATE_NORMAL;
+                CLCD_I2C_Clear(&LCD1);
+            }
+            break;						
+
+        case LCD_STATE_SET:
+            CLCD_I2C_SetCursor(&LCD1, 0, 0);
+            CLCD_I2C_WriteString(&LCD1, "Time's been set "); 
+            CLCD_I2C_SetCursor(&LCD1, 0, 1);
+            CLCD_I2C_WriteString(&LCD1, "                ");
+
+            if (HAL_GetTick() - lcd_timer >= 2000) { 
+                lcd_state = LCD_STATE_NORMAL;
+                CLCD_I2C_Clear(&LCD1);
+            }
+            break;	
+
+        case LCD_STATE_SET_OFF:
+            CLCD_I2C_SetCursor(&LCD1, 0, 0);
+            CLCD_I2C_WriteString(&LCD1, "Alarm's deleted ");
+				    CLCD_I2C_SetCursor(&LCD1, 0, 1);
+            CLCD_I2C_WriteString(&LCD1, "                ");
+				
+						if (HAL_GetTick() - lcd_timer >= 2000) {
+                lcd_state = LCD_STATE_NORMAL;
+                CLCD_I2C_Clear(&LCD1);
+            }
+            break;
+
+        case LCD_STATE_LIGHT_ON:
+            CLCD_I2C_SetCursor(&LCD1, 0, 0);
+            CLCD_I2C_WriteString(&LCD1, "  Light was on  ");
+				    CLCD_I2C_SetCursor(&LCD1, 0, 1);
+            CLCD_I2C_WriteString(&LCD1, "                ");
+				
+						if (HAL_GetTick() - lcd_timer >= 1000) {
+                lcd_state = LCD_STATE_NORMAL;
+                CLCD_I2C_Clear(&LCD1);
+            }
+            break;
+						
+        case LCD_STATE_LIGHT_OFF:
+            CLCD_I2C_SetCursor(&LCD1, 0, 0);
+            CLCD_I2C_WriteString(&LCD1, "  Light was off ");
+				    CLCD_I2C_SetCursor(&LCD1, 0, 1);
+            CLCD_I2C_WriteString(&LCD1, "                ");
+				
+						if (HAL_GetTick() - lcd_timer >= 1000) {
+                lcd_state = LCD_STATE_NORMAL;
+                CLCD_I2C_Clear(&LCD1);
+            }
+            break;
+						
+				case LCD_STATE_DISTANCE:
+						sprintf(buffer, "Dist: %.1f cm   ", Distance);
+						CLCD_I2C_SetCursor(&LCD1, 0, 0);
+						CLCD_I2C_WriteString(&LCD1, buffer);
+
+						sprintf(buffer, "Feed: %.0f%%      ", percent);
+						CLCD_I2C_SetCursor(&LCD1, 0, 1);
+						CLCD_I2C_WriteString(&LCD1, buffer);
+
+						if (HAL_GetTick() - lcd_timer >= 10000) {
+						lcd_state = LCD_STATE_NORMAL;
+						CLCD_I2C_Clear(&LCD1);
+						}
+						break;	
+						
+        case LCD_STATE_NORMAL:
+        default:
+            sprintf(buffer,"Temp: %.1f C       ", TEMP);
+            CLCD_I2C_SetCursor(&LCD1, 0, 0);
+            CLCD_I2C_WriteString(&LCD1, buffer);
+
+            sprintf(buffer,"Turb: %.1f NTU      ", turbidity);
+            CLCD_I2C_SetCursor(&LCD1, 0, 1);
+            CLCD_I2C_WriteString(&LCD1, buffer);
+            break;
+				
+    }
+}
+
+void HCSR04_Read(void)
+{
+  HAL_GPIO_WritePin(TRIG_HCSR04_GPIO_Port, TRIG_HCSR04_Pin, GPIO_PIN_SET);
+  __HAL_TIM_SET_COUNTER(&htim2, 0);
+  while (__HAL_TIM_GET_COUNTER(&htim2) < 10); // 10us pulse
+  HAL_GPIO_WritePin(TRIG_HCSR04_GPIO_Port, TRIG_HCSR04_Pin, GPIO_PIN_RESET);
+
+  pMillis = HAL_GetTick();
+  while (!(HAL_GPIO_ReadPin(ECHO_GPIO_Port, ECHO_Pin)) && (HAL_GetTick() - pMillis) < 20);
+  Value1 = __HAL_TIM_GET_COUNTER(&htim2);
+
+  pMillis = HAL_GetTick();
+  while ((HAL_GPIO_ReadPin(ECHO_GPIO_Port, ECHO_Pin)) && (HAL_GetTick() - pMillis) < 50);
+  Value2 = __HAL_TIM_GET_COUNTER(&htim2);
+
+  Distance = (float)(Value2 - Value1) * 0.034 / 2;
+}
+
 void read_sensors_data(void)
 {
     DS3231_GetTime(&timenow);
@@ -893,7 +891,8 @@ void process_turbidity(void)
     float voltage_raw = (avg_adc * 3.3f) / 4095.0f;
     float voltage = voltage_raw + 0.01f; 
 
-    turbidity = -900.4f * (voltage * voltage) - 336.302f * voltage + 2973.295f;
+    //turbidity = -900.4f * (voltage * voltage) - 336.302f * voltage + 2973.295f;
+     turbidity = 50.5;
 
     if (turbidity < 0)
     {

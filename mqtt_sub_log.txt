@@ -6873,3 +6873,934 @@
 2025-10-25T09:45:50.348849 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 0, 'temperature': 24, 'feed': 2, 'thoi_gian': '09:44:48', 'ts': '2025-10-25T02:45:50.001543+00:00'}
 2025-10-25T09:46:50.026972 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 1000, 'temperature': 24, 'feed': 2, 'thoi_gian': '09:45:48', 'ts': '2025-10-25T02:46:49.672538+00:00'}
 2025-10-25T09:47:49.996381 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 1000, 'temperature': 24, 'feed': 2, 'thoi_gian': '09:46:48', 'ts': '2025-10-25T02:47:49.675536+00:00'}
+2025-10-28T21:14:11.013396 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-28T21:14:11.013436 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/telemetry
+2025-10-28T21:14:13.827534 [MQTT]  CONNECTED with code=Success
+2025-10-28T21:14:13.828472 [MQTT] SUBSCRIBE sent topic=aquanova/telemetry mid=1 result=0
+2025-10-28T21:14:14.169145 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-28T21:18:50.741868 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-28T21:18:50.741922 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/telemetry
+2025-10-28T21:18:52.414650 [MQTT]  CONNECTED with code=Success
+2025-10-28T21:18:52.415323 [MQTT] SUBSCRIBE sent topic=aquanova/telemetry mid=1 result=0
+2025-10-28T21:18:52.765422 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-28T21:23:12.865682 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-28T21:23:12.865733 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/telemetry
+2025-10-28T21:23:14.415651 [MQTT]  CONNECTED with code=Success
+2025-10-28T21:23:14.417340 [MQTT] SUBSCRIBE sent topic=aquanova/telemetry mid=1 result=0
+2025-10-28T21:23:14.787986 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-28T22:14:42.300598 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-28T22:14:42.300669 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/telemetry
+2025-10-28T22:14:43.365331 [MQTT]  CONNECTED with code=Success
+2025-10-28T22:14:43.366656 [MQTT] SUBSCRIBE sent topic=aquanova/telemetry mid=1 result=0
+2025-10-28T22:14:43.594299 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-28T22:16:52.458553 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-28T22:16:52.458688 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/telemetry
+2025-10-28T22:16:53.932006 [MQTT]  CONNECTED with code=Success
+2025-10-28T22:16:53.933365 [MQTT] SUBSCRIBE sent topic=aquanova/telemetry mid=1 result=0
+2025-10-28T22:16:54.304452 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-29T17:42:20.699525 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-29T17:42:20.699576 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/telemetry
+2025-10-29T17:42:21.976963 [MQTT]  CONNECTED with code=Success
+2025-10-29T17:42:21.978103 [MQTT] SUBSCRIBE sent topic=aquanova/telemetry mid=1 result=0
+2025-10-29T17:42:22.229471 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-29T18:07:52.818255 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 67.7, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:06:10', 'ts': '2025-10-29T11:07:52.699967+00:00'}
+2025-10-29T18:08:52.809397 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 73, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:07:10', 'ts': '2025-10-29T11:08:52.706375+00:00'}
+2025-10-29T18:09:52.860111 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 67.7, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:08:10', 'ts': '2025-10-29T11:09:52.748489+00:00'}
+2025-10-29T18:10:52.884586 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 67.7, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:09:10', 'ts': '2025-10-29T11:10:52.767216+00:00'}
+2025-10-29T18:11:52.821727 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 65.1, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:10:11', 'ts': '2025-10-29T11:11:52.716419+00:00'}
+2025-10-29T18:12:11.286617 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-29T18:12:11.286680 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/telemetry
+2025-10-29T18:12:12.293295 [MQTT]  CONNECTED with code=Success
+2025-10-29T18:12:12.295027 [MQTT] SUBSCRIBE sent topic=aquanova/telemetry mid=1 result=0
+2025-10-29T18:12:12.526613 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-29T18:12:53.211790 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 67.7, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:11:11', 'ts': '2025-10-29T11:12:52.867197+00:00'}
+2025-10-29T18:12:55.102503 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 67.7, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:11:11', 'ts': '2025-10-29T11:12:52.867700+00:00'}
+2025-10-29T18:13:53.057608 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 67.7, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:12:11', 'ts': '2025-10-29T11:13:52.757518+00:00'}
+2025-10-29T18:13:53.061299 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 67.7, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:12:11', 'ts': '2025-10-29T11:13:52.758663+00:00'}
+2025-10-29T18:14:39.345215 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-29T18:14:39.345276 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/telemetry
+2025-10-29T18:14:40.226193 [MQTT]  CONNECTED with code=Success
+2025-10-29T18:14:40.227893 [MQTT] SUBSCRIBE sent topic=aquanova/telemetry mid=1 result=0
+2025-10-29T18:14:40.445443 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-29T18:14:52.876176 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 70.4, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:13:11', 'ts': '2025-10-29T11:14:52.775207+00:00'}
+2025-10-29T18:14:52.878937 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 70.4, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:13:11', 'ts': '2025-10-29T11:14:52.773517+00:00'}
+2025-10-29T18:14:53.779142 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 70.4, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:13:11', 'ts': '2025-10-29T11:14:52.762380+00:00'}
+2025-10-29T18:15:52.822598 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 125.1, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:14:11', 'ts': '2025-10-29T11:15:52.718538+00:00'}
+2025-10-29T18:15:52.823322 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 125.1, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:14:11', 'ts': '2025-10-29T11:15:52.716489+00:00'}
+2025-10-29T18:16:17.626231 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-29T18:16:17.626278 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/telemetry
+2025-10-29T18:16:18.613804 [MQTT]  CONNECTED with code=Success
+2025-10-29T18:16:18.618947 [MQTT] SUBSCRIBE sent topic=aquanova/telemetry mid=1 result=0
+2025-10-29T18:16:18.856365 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-29T18:16:52.822891 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 78.2, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:15:11', 'ts': '2025-10-29T11:16:52.721466+00:00'}
+2025-10-29T18:16:52.822866 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 78.2, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:15:11', 'ts': '2025-10-29T11:16:52.722501+00:00'}
+2025-10-29T18:16:53.730983 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 78.2, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:15:11', 'ts': '2025-10-29T11:16:52.708011+00:00'}
+2025-10-29T18:17:52.873929 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 80.8, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:16:11', 'ts': '2025-10-29T11:17:52.765461+00:00'}
+2025-10-29T18:17:52.878112 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 80.8, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:16:11', 'ts': '2025-10-29T11:17:52.766192+00:00'}
+2025-10-29T18:18:52.873835 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 101.7, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:17:12', 'ts': '2025-10-29T11:18:52.761458+00:00'}
+2025-10-29T18:18:52.871689 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 101.7, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:17:12', 'ts': '2025-10-29T11:18:52.776783+00:00'}
+2025-10-29T18:19:52.814292 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 88.7, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:18:12', 'ts': '2025-10-29T11:19:52.724775+00:00'}
+2025-10-29T18:19:52.830675 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 88.7, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:18:12', 'ts': '2025-10-29T11:19:52.722551+00:00'}
+2025-10-29T18:19:52.836675 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 88.7, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:18:12', 'ts': '2025-10-29T11:19:52.709276+00:00'}
+2025-10-29T18:20:52.830883 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 70.4, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:19:12', 'ts': '2025-10-29T11:20:52.718153+00:00'}
+2025-10-29T18:20:52.838468 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 70.4, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:19:12', 'ts': '2025-10-29T11:20:52.733900+00:00'}
+2025-10-29T18:20:52.844515 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 70.4, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:19:12', 'ts': '2025-10-29T11:20:52.732189+00:00'}
+2025-10-29T18:21:52.862811 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 67.7, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:20:12', 'ts': '2025-10-29T11:21:52.758345+00:00'}
+2025-10-29T18:21:52.871961 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 67.7, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:20:12', 'ts': '2025-10-29T11:21:52.772445+00:00'}
+2025-10-29T18:21:52.881452 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 67.7, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:20:12', 'ts': '2025-10-29T11:21:52.770782+00:00'}
+2025-10-29T18:22:52.893857 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 70.4, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:21:12', 'ts': '2025-10-29T11:22:52.776082+00:00'}
+2025-10-29T18:23:52.891725 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 70.4, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:22:12', 'ts': '2025-10-29T11:23:52.786775+00:00'}
+2025-10-29T18:23:52.899212 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 70.4, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:22:12', 'ts': '2025-10-29T11:23:52.771986+00:00'}
+2025-10-29T18:23:52.899623 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 70.4, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:22:12', 'ts': '2025-10-29T11:23:52.785510+00:00'}
+2025-10-29T18:24:52.831364 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 67.7, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:23:12', 'ts': '2025-10-29T11:24:52.722005+00:00'}
+2025-10-29T18:24:52.847318 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 67.7, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:23:12', 'ts': '2025-10-29T11:24:52.738980+00:00'}
+2025-10-29T18:25:52.835198 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 70.4, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:24:12', 'ts': '2025-10-29T11:25:52.725817+00:00'}
+2025-10-29T18:25:52.839477 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 70.4, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:24:12', 'ts': '2025-10-29T11:25:52.739596+00:00'}
+2025-10-29T18:25:52.851256 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 70.4, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:24:12', 'ts': '2025-10-29T11:25:52.739596+00:00'}
+2025-10-29T18:26:52.888691 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 70.4, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:25:12', 'ts': '2025-10-29T11:26:52.783605+00:00'}
+2025-10-29T18:26:52.900607 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 70.4, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:25:12', 'ts': '2025-10-29T11:26:52.798420+00:00'}
+2025-10-29T18:26:52.900780 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 70.4, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:25:12', 'ts': '2025-10-29T11:26:52.792339+00:00'}
+2025-10-29T18:27:47.044678 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-29T18:27:47.044727 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/telemetry
+2025-10-29T18:27:48.087218 [MQTT]  CONNECTED with code=Success
+2025-10-29T18:27:48.089375 [MQTT] SUBSCRIBE sent topic=aquanova/telemetry mid=1 result=0
+2025-10-29T18:27:48.334254 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-29T18:27:52.901160 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 67.7, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:26:13', 'ts': '2025-10-29T11:27:52.790513+00:00'}
+2025-10-29T18:27:52.906138 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 67.7, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:26:13', 'ts': '2025-10-29T11:27:52.790431+00:00'}
+2025-10-29T18:27:53.790641 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 67.7, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:26:13', 'ts': '2025-10-29T11:27:52.785433+00:00'}
+2025-10-29T18:28:50.722491 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-29T18:28:50.722533 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/telemetry
+2025-10-29T18:28:51.686409 [MQTT]  CONNECTED with code=Success
+2025-10-29T18:28:51.687559 [MQTT] SUBSCRIBE sent topic=aquanova/telemetry mid=1 result=0
+2025-10-29T18:28:51.899534 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-29T18:28:52.890846 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 65.1, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:27:13', 'ts': '2025-10-29T11:28:52.788575+00:00'}
+2025-10-29T18:28:52.890805 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 65.1, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:27:13', 'ts': '2025-10-29T11:28:52.790038+00:00'}
+2025-10-29T18:28:53.812060 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 65.1, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:27:13', 'ts': '2025-10-29T11:28:52.771247+00:00'}
+2025-10-29T18:29:52.834266 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 73, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:28:13', 'ts': '2025-10-29T11:29:52.727318+00:00'}
+2025-10-29T18:29:52.840898 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 73, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:28:13', 'ts': '2025-10-29T11:29:52.741824+00:00'}
+2025-10-29T18:29:52.855207 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 73, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:28:13', 'ts': '2025-10-29T11:29:52.745566+00:00'}
+2025-10-29T18:30:52.842330 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 70.4, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:29:13', 'ts': '2025-10-29T11:30:52.732411+00:00'}
+2025-10-29T18:30:52.850781 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 70.4, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:29:13', 'ts': '2025-10-29T11:30:52.749802+00:00'}
+2025-10-29T18:30:52.859958 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 70.4, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:29:13', 'ts': '2025-10-29T11:30:52.748308+00:00'}
+2025-10-29T18:31:52.902439 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 106.9, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:30:13', 'ts': '2025-10-29T11:31:52.791044+00:00'}
+2025-10-29T18:31:52.902802 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 106.9, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:30:13', 'ts': '2025-10-29T11:31:52.791044+00:00'}
+2025-10-29T18:32:26.438498 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-29T18:32:26.438555 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/telemetry
+2025-10-29T18:32:27.397294 [MQTT]  CONNECTED with code=Success
+2025-10-29T18:32:27.399063 [MQTT] SUBSCRIBE sent topic=aquanova/telemetry mid=1 result=0
+2025-10-29T18:32:27.633009 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-29T18:32:52.896988 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 75.6, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:31:13', 'ts': '2025-10-29T11:32:52.793352+00:00'}
+2025-10-29T18:32:52.900704 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 75.6, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:31:13', 'ts': '2025-10-29T11:32:52.794644+00:00'}
+2025-10-29T18:32:53.991645 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 75.6, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:31:13', 'ts': '2025-10-29T11:32:52.775595+00:00'}
+2025-10-29T18:33:52.889801 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 65.1, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:32:13', 'ts': '2025-10-29T11:33:52.789663+00:00'}
+2025-10-29T18:33:52.889801 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 65.1, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:32:13', 'ts': '2025-10-29T11:33:52.775865+00:00'}
+2025-10-29T18:33:52.898279 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 65.1, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:32:13', 'ts': '2025-10-29T11:33:52.791793+00:00'}
+2025-10-29T18:34:52.910110 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 73, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:33:13', 'ts': '2025-10-29T11:34:52.808114+00:00'}
+2025-10-29T18:34:52.915324 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 73, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:33:13', 'ts': '2025-10-29T11:34:52.806504+00:00'}
+2025-10-29T18:35:01.932499 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-29T18:35:01.932569 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/telemetry
+2025-10-29T18:35:02.915812 [MQTT]  CONNECTED with code=Success
+2025-10-29T18:35:02.917471 [MQTT] SUBSCRIBE sent topic=aquanova/telemetry mid=1 result=0
+2025-10-29T18:35:03.159173 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-29T18:35:52.908162 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 70.4, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:34:13', 'ts': '2025-10-29T11:35:52.814130+00:00'}
+2025-10-29T18:35:52.920854 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 70.4, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:34:13', 'ts': '2025-10-29T11:35:52.815395+00:00'}
+2025-10-29T18:35:55.023232 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 70.4, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:34:13', 'ts': '2025-10-29T11:35:52.814178+00:00'}
+2025-10-29T18:36:52.850817 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 70.4, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:35:13', 'ts': '2025-10-29T11:36:52.757177+00:00'}
+2025-10-29T18:36:52.850872 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 70.4, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:35:13', 'ts': '2025-10-29T11:36:52.758842+00:00'}
+2025-10-29T18:36:53.055813 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 70.4, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:35:13', 'ts': '2025-10-29T11:36:52.756069+00:00'}
+2025-10-29T18:37:52.868064 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 73, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:36:14', 'ts': '2025-10-29T11:37:52.763748+00:00'}
+2025-10-29T18:37:52.870417 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 73, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:36:14', 'ts': '2025-10-29T11:37:52.764531+00:00'}
+2025-10-29T18:38:52.865000 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 65.1, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:37:14', 'ts': '2025-10-29T11:38:52.761927+00:00'}
+2025-10-29T18:38:53.656237 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 65.1, 'temperature': 28, 'feed': 0, 'thoi_gian': '18:37:14', 'ts': '2025-10-29T11:38:52.760362+00:00'}
+2025-10-29T18:39:46.019039 [MQTT]  DISCONNECTED (reason_code=Unspecified error) — attempting reconnect...
+2025-10-29T18:39:52.726547 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-29T18:39:52.726625 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/telemetry
+2025-10-29T18:39:52.911073 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 728.2, 'temperature': 27, 'feed': 0, 'thoi_gian': '18:38:14', 'ts': '2025-10-29T11:39:52.803522+00:00'}
+2025-10-29T18:39:52.912208 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 728.2, 'temperature': 27, 'feed': 0, 'thoi_gian': '18:38:14', 'ts': '2025-10-29T11:39:52.803504+00:00'}
+2025-10-29T18:39:53.714120 [MQTT]  CONNECTED with code=Success
+2025-10-29T18:39:53.715432 [MQTT] SUBSCRIBE sent topic=aquanova/telemetry mid=1 result=0
+2025-10-29T18:39:53.976568 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-29T18:40:52.901999 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 714.3, 'temperature': 27, 'feed': 0, 'thoi_gian': '18:39:14', 'ts': '2025-10-29T11:40:52.811168+00:00'}
+2025-10-29T18:40:52.912293 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 714.3, 'temperature': 27, 'feed': 0, 'thoi_gian': '18:39:14', 'ts': '2025-10-29T11:40:52.811767+00:00'}
+2025-10-29T18:40:53.701565 [MQTT] ERROR: 403 Cloud Firestore API has not been used in project aquanova2-5f608 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "firestore.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Cloud Firestore API"
+}
+metadata {
+  key: "containerInfo"
+  value: "aquanova2-5f608"
+}
+metadata {
+  key: "consumer"
+  value: "projects/aquanova2-5f608"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608"
+}
+, locale: "en-US"
+message: "Cloud Firestore API has not been used in project aquanova2-5f608 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608"
+}
+] | payload=b'{"turbidity":714.3,"temperature":27,"feed":0,"thoi_gian":"18:39:14"}'
+2025-10-29T18:41:52.908135 [MQTT] ERROR: 403 Cloud Firestore API has not been used in project aquanova2-5f608 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "firestore.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Cloud Firestore API"
+}
+metadata {
+  key: "containerInfo"
+  value: "aquanova2-5f608"
+}
+metadata {
+  key: "consumer"
+  value: "projects/aquanova2-5f608"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608"
+}
+, locale: "en-US"
+message: "Cloud Firestore API has not been used in project aquanova2-5f608 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608"
+}
+] | payload=b'{"turbidity":712,"temperature":27,"feed":0,"thoi_gian":"18:40:14"}'
+2025-10-29T18:41:52.920692 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 712, 'temperature': 27, 'feed': 0, 'thoi_gian': '18:40:14', 'ts': '2025-10-29T11:41:52.816148+00:00'}
+2025-10-29T18:41:52.922508 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 712, 'temperature': 27, 'feed': 0, 'thoi_gian': '18:40:14', 'ts': '2025-10-29T11:41:52.816214+00:00'}
+2025-10-29T18:42:52.857177 [MQTT] ERROR: 403 Cloud Firestore API has not been used in project aquanova2-5f608 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "firestore.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Cloud Firestore API"
+}
+metadata {
+  key: "containerInfo"
+  value: "aquanova2-5f608"
+}
+metadata {
+  key: "consumer"
+  value: "projects/aquanova2-5f608"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608"
+}
+, locale: "en-US"
+message: "Cloud Firestore API has not been used in project aquanova2-5f608 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608"
+}
+] | payload=b'{"turbidity":23,"temperature":27,"feed":0,"thoi_gian":"18:41:14"}'
+2025-10-29T18:42:52.890033 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 23, 'temperature': 27, 'feed': 0, 'thoi_gian': '18:41:14', 'ts': '2025-10-29T11:42:52.771857+00:00'}
+2025-10-29T18:42:52.895380 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 23, 'temperature': 27, 'feed': 0, 'thoi_gian': '18:41:14', 'ts': '2025-10-29T11:42:52.770586+00:00'}
+2025-10-29T18:43:52.854127 [MQTT] ERROR: 403 Cloud Firestore API has not been used in project aquanova2-5f608 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "firestore.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Cloud Firestore API"
+}
+metadata {
+  key: "containerInfo"
+  value: "aquanova2-5f608"
+}
+metadata {
+  key: "consumer"
+  value: "projects/aquanova2-5f608"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608"
+}
+, locale: "en-US"
+message: "Cloud Firestore API has not been used in project aquanova2-5f608 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608"
+}
+] | payload=b'{"turbidity":25.7,"temperature":27,"feed":0,"thoi_gian":"18:42:14"}'
+2025-10-29T18:43:52.867403 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 25.7, 'temperature': 27, 'feed': 0, 'thoi_gian': '18:42:14', 'ts': '2025-10-29T11:43:52.774958+00:00'}
+2025-10-29T18:43:52.888867 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 25.7, 'temperature': 27, 'feed': 0, 'thoi_gian': '18:42:14', 'ts': '2025-10-29T11:43:52.772743+00:00'}
+2025-10-29T18:44:52.858116 [MQTT] ERROR: 403 Cloud Firestore API has not been used in project aquanova2-5f608 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "firestore.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Cloud Firestore API"
+}
+metadata {
+  key: "containerInfo"
+  value: "aquanova2-5f608"
+}
+metadata {
+  key: "consumer"
+  value: "projects/aquanova2-5f608"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608"
+}
+, locale: "en-US"
+message: "Cloud Firestore API has not been used in project aquanova2-5f608 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608"
+}
+] | payload=b'{"turbidity":25.7,"temperature":27,"feed":0,"thoi_gian":"18:43:14"}'
+2025-10-29T18:44:52.899404 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 25.7, 'temperature': 27, 'feed': 0, 'thoi_gian': '18:43:14', 'ts': '2025-10-29T11:44:52.778131+00:00'}
+2025-10-29T18:44:52.900039 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 25.7, 'temperature': 27, 'feed': 0, 'thoi_gian': '18:43:14', 'ts': '2025-10-29T11:44:52.777119+00:00'}
+2025-10-29T18:45:52.909043 [MQTT] ERROR: 403 Cloud Firestore API has not been used in project aquanova2-5f608 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "firestore.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Cloud Firestore API"
+}
+metadata {
+  key: "containerInfo"
+  value: "aquanova2-5f608"
+}
+metadata {
+  key: "consumer"
+  value: "projects/aquanova2-5f608"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608"
+}
+, locale: "en-US"
+message: "Cloud Firestore API has not been used in project aquanova2-5f608 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608"
+}
+] | payload=b'{"turbidity":28.3,"temperature":27,"feed":0,"thoi_gian":"18:44:14"}'
+2025-10-29T18:45:52.919995 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 28.3, 'temperature': 27, 'feed': 0, 'thoi_gian': '18:44:14', 'ts': '2025-10-29T11:45:52.814868+00:00'}
+2025-10-29T18:45:52.935236 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 28.3, 'temperature': 27, 'feed': 0, 'thoi_gian': '18:44:14', 'ts': '2025-10-29T11:45:52.817315+00:00'}
+2025-10-29T18:46:52.871777 [MQTT] ERROR: 403 Cloud Firestore API has not been used in project aquanova2-5f608 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "firestore.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Cloud Firestore API"
+}
+metadata {
+  key: "containerInfo"
+  value: "aquanova2-5f608"
+}
+metadata {
+  key: "consumer"
+  value: "projects/aquanova2-5f608"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608"
+}
+, locale: "en-US"
+message: "Cloud Firestore API has not been used in project aquanova2-5f608 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608"
+}
+] | payload=b'{"turbidity":523,"temperature":27,"feed":0,"thoi_gian":"18:45:14"}'
+2025-10-29T18:46:52.948567 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 523, 'temperature': 27, 'feed': 0, 'thoi_gian': '18:45:14', 'ts': '2025-10-29T11:46:52.835071+00:00'}
+2025-10-29T18:46:52.960491 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 523, 'temperature': 27, 'feed': 0, 'thoi_gian': '18:45:14', 'ts': '2025-10-29T11:46:52.832324+00:00'}
+2025-10-29T18:47:52.818872 [MQTT] ERROR: 403 Cloud Firestore API has not been used in project aquanova2-5f608 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "firestore.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Cloud Firestore API"
+}
+metadata {
+  key: "containerInfo"
+  value: "aquanova2-5f608"
+}
+metadata {
+  key: "consumer"
+  value: "projects/aquanova2-5f608"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608"
+}
+, locale: "en-US"
+message: "Cloud Firestore API has not been used in project aquanova2-5f608 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608"
+}
+] | payload=b'{"turbidity":25.7,"temperature":27,"feed":0,"thoi_gian":"18:46:14"}'
+2025-10-29T18:47:52.880436 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 25.7, 'temperature': 27, 'feed': 0, 'thoi_gian': '18:46:14', 'ts': '2025-10-29T11:47:52.778589+00:00'}
+2025-10-29T18:47:52.881049 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 25.7, 'temperature': 27, 'feed': 0, 'thoi_gian': '18:46:14', 'ts': '2025-10-29T11:47:52.780561+00:00'}
+2025-10-29T18:48:52.823990 [MQTT] ERROR: 403 Cloud Firestore API has not been used in project aquanova2-5f608 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "firestore.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Cloud Firestore API"
+}
+metadata {
+  key: "containerInfo"
+  value: "aquanova2-5f608"
+}
+metadata {
+  key: "consumer"
+  value: "projects/aquanova2-5f608"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608"
+}
+, locale: "en-US"
+message: "Cloud Firestore API has not been used in project aquanova2-5f608 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608"
+}
+] | payload=b'{"turbidity":38.8,"temperature":27,"feed":0,"thoi_gian":"18:47:14"}'
+2025-10-29T18:48:52.895451 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 38.8, 'temperature': 27, 'feed': 0, 'thoi_gian': '18:47:14', 'ts': '2025-10-29T11:48:52.784766+00:00'}
+2025-10-29T18:48:52.905447 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 38.8, 'temperature': 27, 'feed': 0, 'thoi_gian': '18:47:14', 'ts': '2025-10-29T11:48:52.787048+00:00'}
+2025-10-29T18:49:52.820070 [MQTT] ERROR: 403 Cloud Firestore API has not been used in project aquanova2-5f608 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "firestore.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Cloud Firestore API"
+}
+metadata {
+  key: "containerInfo"
+  value: "aquanova2-5f608"
+}
+metadata {
+  key: "consumer"
+  value: "projects/aquanova2-5f608"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608"
+}
+, locale: "en-US"
+message: "Cloud Firestore API has not been used in project aquanova2-5f608 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608"
+}
+] | payload=b'{"turbidity":33.6,"temperature":27,"feed":0,"thoi_gian":"18:48:14"}'
+2025-10-29T18:49:52.884619 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 33.6, 'temperature': 27, 'feed': 0, 'thoi_gian': '18:48:14', 'ts': '2025-10-29T11:49:52.783574+00:00'}
+2025-10-29T18:49:52.885431 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 33.6, 'temperature': 27, 'feed': 0, 'thoi_gian': '18:48:14', 'ts': '2025-10-29T11:49:52.783523+00:00'}
+2025-10-29T18:50:52.886200 [MQTT] ERROR: 403 Cloud Firestore API has not been used in project aquanova2-5f608 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "firestore.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Cloud Firestore API"
+}
+metadata {
+  key: "containerInfo"
+  value: "aquanova2-5f608"
+}
+metadata {
+  key: "consumer"
+  value: "projects/aquanova2-5f608"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608"
+}
+, locale: "en-US"
+message: "Cloud Firestore API has not been used in project aquanova2-5f608 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608"
+}
+] | payload=b'{"turbidity":1000,"temperature":27,"feed":0,"thoi_gian":"18:49:15"}'
+2025-10-29T18:50:52.954043 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 1000, 'temperature': 27, 'feed': 0, 'thoi_gian': '18:49:15', 'ts': '2025-10-29T11:50:52.847577+00:00'}
+2025-10-29T18:51:52.823427 [MQTT] ERROR: 403 Cloud Firestore API has not been used in project aquanova2-5f608 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "firestore.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Cloud Firestore API"
+}
+metadata {
+  key: "containerInfo"
+  value: "aquanova2-5f608"
+}
+metadata {
+  key: "consumer"
+  value: "projects/aquanova2-5f608"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608"
+}
+, locale: "en-US"
+message: "Cloud Firestore API has not been used in project aquanova2-5f608 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608"
+}
+] | payload=b'{"turbidity":1000,"temperature":27,"feed":0,"thoi_gian":"18:50:15"}'
+2025-10-29T18:51:52.894293 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 1000, 'temperature': 27, 'feed': 0, 'thoi_gian': '18:50:15', 'ts': '2025-10-29T11:51:52.786202+00:00'}
+2025-10-29T18:51:52.896281 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 1000, 'temperature': 27, 'feed': 0, 'thoi_gian': '18:50:15', 'ts': '2025-10-29T11:51:52.787957+00:00'}
+2025-10-29T18:52:52.831533 [MQTT] ERROR: 403 Cloud Firestore API has not been used in project aquanova2-5f608 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "firestore.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Cloud Firestore API"
+}
+metadata {
+  key: "containerInfo"
+  value: "aquanova2-5f608"
+}
+metadata {
+  key: "consumer"
+  value: "projects/aquanova2-5f608"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608"
+}
+, locale: "en-US"
+message: "Cloud Firestore API has not been used in project aquanova2-5f608 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608"
+}
+] | payload=b'{"turbidity":1000,"temperature":27,"feed":0,"thoi_gian":"18:51:15"}'
+2025-10-29T18:52:52.899568 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 1000, 'temperature': 27, 'feed': 0, 'thoi_gian': '18:51:15', 'ts': '2025-10-29T11:52:52.790829+00:00'}
+2025-10-29T18:52:52.899993 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 1000, 'temperature': 27, 'feed': 0, 'thoi_gian': '18:51:15', 'ts': '2025-10-29T11:52:52.792190+00:00'}
+2025-10-29T18:53:52.884273 [MQTT] ERROR: 403 Cloud Firestore API has not been used in project aquanova2-5f608 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "firestore.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Cloud Firestore API"
+}
+metadata {
+  key: "containerInfo"
+  value: "aquanova2-5f608"
+}
+metadata {
+  key: "consumer"
+  value: "projects/aquanova2-5f608"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608"
+}
+, locale: "en-US"
+message: "Cloud Firestore API has not been used in project aquanova2-5f608 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608"
+}
+] | payload=b'{"turbidity":1000,"temperature":27,"feed":0,"thoi_gian":"18:52:15"}'
+2025-10-29T18:53:52.953378 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 1000, 'temperature': 27, 'feed': 0, 'thoi_gian': '18:52:15', 'ts': '2025-10-29T11:53:52.846965+00:00'}
+2025-10-29T18:53:52.959263 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 1000, 'temperature': 27, 'feed': 0, 'thoi_gian': '18:52:15', 'ts': '2025-10-29T11:53:52.847905+00:00'}
+2025-10-29T18:54:52.873200 [MQTT] ERROR: 403 Cloud Firestore API has not been used in project aquanova2-5f608 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "firestore.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Cloud Firestore API"
+}
+metadata {
+  key: "containerInfo"
+  value: "aquanova2-5f608"
+}
+metadata {
+  key: "consumer"
+  value: "projects/aquanova2-5f608"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608"
+}
+, locale: "en-US"
+message: "Cloud Firestore API has not been used in project aquanova2-5f608 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608"
+}
+] | payload=b'{"turbidity":1000,"temperature":27,"feed":0,"thoi_gian":"18:53:15"}'
+2025-10-29T18:54:52.933855 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 1000, 'temperature': 27, 'feed': 0, 'thoi_gian': '18:53:15', 'ts': '2025-10-29T11:54:52.839758+00:00'}
+2025-10-29T18:54:52.943875 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 1000, 'temperature': 27, 'feed': 0, 'thoi_gian': '18:53:15', 'ts': '2025-10-29T11:54:52.837940+00:00'}
+2025-10-29T18:55:52.839681 [MQTT] ERROR: 403 Cloud Firestore API has not been used in project aquanova2-5f608 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "firestore.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Cloud Firestore API"
+}
+metadata {
+  key: "containerInfo"
+  value: "aquanova2-5f608"
+}
+metadata {
+  key: "consumer"
+  value: "projects/aquanova2-5f608"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608"
+}
+, locale: "en-US"
+message: "Cloud Firestore API has not been used in project aquanova2-5f608 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608"
+}
+] | payload=b'{"turbidity":23,"temperature":27,"feed":0,"thoi_gian":"18:54:15"}'
+2025-10-29T18:55:52.920223 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 23, 'temperature': 27, 'feed': 0, 'thoi_gian': '18:54:15', 'ts': '2025-10-29T11:55:52.804470+00:00'}
+2025-10-29T18:55:52.921848 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 23, 'temperature': 27, 'feed': 0, 'thoi_gian': '18:54:15', 'ts': '2025-10-29T11:55:52.801840+00:00'}
+2025-10-29T18:56:52.837235 [MQTT] ERROR: 403 Cloud Firestore API has not been used in project aquanova2-5f608 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "firestore.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Cloud Firestore API"
+}
+metadata {
+  key: "containerInfo"
+  value: "aquanova2-5f608"
+}
+metadata {
+  key: "consumer"
+  value: "projects/aquanova2-5f608"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608"
+}
+, locale: "en-US"
+message: "Cloud Firestore API has not been used in project aquanova2-5f608 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608"
+}
+] | payload=b'{"turbidity":721.2,"temperature":27,"feed":0,"thoi_gian":"18:55:15"}'
+2025-10-29T18:56:52.905734 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 721.2, 'temperature': 27, 'feed': 0, 'thoi_gian': '18:55:15', 'ts': '2025-10-29T11:56:52.799583+00:00'}
+2025-10-29T18:56:52.906147 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 721.2, 'temperature': 27, 'feed': 0, 'thoi_gian': '18:55:15', 'ts': '2025-10-29T11:56:52.797304+00:00'}
+2025-10-29T18:57:52.921480 [MQTT] ERROR: 403 Cloud Firestore API has not been used in project aquanova2-5f608 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "firestore.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Cloud Firestore API"
+}
+metadata {
+  key: "containerInfo"
+  value: "aquanova2-5f608"
+}
+metadata {
+  key: "consumer"
+  value: "projects/aquanova2-5f608"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608"
+}
+, locale: "en-US"
+message: "Cloud Firestore API has not been used in project aquanova2-5f608 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608"
+}
+] | payload=b'{"turbidity":1000,"temperature":27,"feed":0,"thoi_gian":"18:56:15"}'
+2025-10-29T18:57:52.952025 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 1000, 'temperature': 27, 'feed': 0, 'thoi_gian': '18:56:15', 'ts': '2025-10-29T11:57:52.840027+00:00'}
+2025-10-29T18:57:52.952814 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 1000, 'temperature': 27, 'feed': 0, 'thoi_gian': '18:56:15', 'ts': '2025-10-29T11:57:52.841365+00:00'}
+2025-10-29T18:58:52.932602 [MQTT] ERROR: 403 Cloud Firestore API has not been used in project aquanova2-5f608 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "firestore.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Cloud Firestore API"
+}
+metadata {
+  key: "containerInfo"
+  value: "aquanova2-5f608"
+}
+metadata {
+  key: "consumer"
+  value: "projects/aquanova2-5f608"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608"
+}
+, locale: "en-US"
+message: "Cloud Firestore API has not been used in project aquanova2-5f608 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608"
+}
+] | payload=b'{"turbidity":1000,"temperature":27,"feed":0,"thoi_gian":"18:57:15"}'
+2025-10-29T18:58:52.965258 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 1000, 'temperature': 27, 'feed': 0, 'thoi_gian': '18:57:15', 'ts': '2025-10-29T11:58:52.857525+00:00'}
+2025-10-29T18:58:52.965604 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 1000, 'temperature': 27, 'feed': 0, 'thoi_gian': '18:57:15', 'ts': '2025-10-29T11:58:52.858947+00:00'}
+2025-10-29T18:59:52.844791 [MQTT] ERROR: 403 Cloud Firestore API has not been used in project aquanova2-5f608 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "firestore.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Cloud Firestore API"
+}
+metadata {
+  key: "containerInfo"
+  value: "aquanova2-5f608"
+}
+metadata {
+  key: "consumer"
+  value: "projects/aquanova2-5f608"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608"
+}
+, locale: "en-US"
+message: "Cloud Firestore API has not been used in project aquanova2-5f608 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608"
+}
+] | payload=b'{"turbidity":1000,"temperature":27,"feed":0,"thoi_gian":"18:58:16"}'
+2025-10-29T18:59:52.910070 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 1000, 'temperature': 27, 'feed': 0, 'thoi_gian': '18:58:16', 'ts': '2025-10-29T11:59:52.806096+00:00'}
+2025-10-29T18:59:52.918120 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 1000, 'temperature': 27, 'feed': 0, 'thoi_gian': '18:58:16', 'ts': '2025-10-29T11:59:52.806096+00:00'}
+2025-10-29T19:00:52.843661 [MQTT] ERROR: 403 Cloud Firestore API has not been used in project aquanova2-5f608 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "firestore.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Cloud Firestore API"
+}
+metadata {
+  key: "containerInfo"
+  value: "aquanova2-5f608"
+}
+metadata {
+  key: "consumer"
+  value: "projects/aquanova2-5f608"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608"
+}
+, locale: "en-US"
+message: "Cloud Firestore API has not been used in project aquanova2-5f608 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608"
+}
+] | payload=b'{"turbidity":1000,"temperature":27,"feed":0,"thoi_gian":"18:59:16"}'
+2025-10-29T19:00:52.912502 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 1000, 'temperature': 27, 'feed': 0, 'thoi_gian': '18:59:16', 'ts': '2025-10-29T12:00:52.809121+00:00'}
+2025-10-29T19:00:52.932532 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 1000, 'temperature': 27, 'feed': 0, 'thoi_gian': '18:59:16', 'ts': '2025-10-29T12:00:52.806627+00:00'}
+2025-10-29T19:01:52.900087 [MQTT] ERROR: 403 Cloud Firestore API has not been used in project aquanova2-5f608 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "firestore.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Cloud Firestore API"
+}
+metadata {
+  key: "containerInfo"
+  value: "aquanova2-5f608"
+}
+metadata {
+  key: "consumer"
+  value: "projects/aquanova2-5f608"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608"
+}
+, locale: "en-US"
+message: "Cloud Firestore API has not been used in project aquanova2-5f608 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608"
+}
+] | payload=b'{"turbidity":1000,"temperature":27,"feed":0,"thoi_gian":"19:00:16"}'
+2025-10-29T19:01:52.928331 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 1000, 'temperature': 27, 'feed': 0, 'thoi_gian': '19:00:16', 'ts': '2025-10-29T12:01:52.810601+00:00'}
+2025-10-29T19:01:52.938895 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 1000, 'temperature': 27, 'feed': 0, 'thoi_gian': '19:00:16', 'ts': '2025-10-29T12:01:52.812331+00:00'}
+2025-10-29T19:02:52.848629 [MQTT] ERROR: 403 Cloud Firestore API has not been used in project aquanova2-5f608 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "firestore.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Cloud Firestore API"
+}
+metadata {
+  key: "containerInfo"
+  value: "aquanova2-5f608"
+}
+metadata {
+  key: "consumer"
+  value: "projects/aquanova2-5f608"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608"
+}
+, locale: "en-US"
+message: "Cloud Firestore API has not been used in project aquanova2-5f608 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608"
+}
+] | payload=b'{"turbidity":1000,"temperature":27,"feed":0,"thoi_gian":"19:01:16"}'
+2025-10-29T19:02:52.927154 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 1000, 'temperature': 27, 'feed': 0, 'thoi_gian': '19:01:16', 'ts': '2025-10-29T12:02:52.809142+00:00'}
+2025-10-29T19:02:52.927715 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 1000, 'temperature': 27, 'feed': 0, 'thoi_gian': '19:01:16', 'ts': '2025-10-29T12:02:52.815356+00:00'}
+2025-10-29T19:03:52.853880 [MQTT] ERROR: 403 Cloud Firestore API has not been used in project aquanova2-5f608 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "firestore.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Cloud Firestore API"
+}
+metadata {
+  key: "containerInfo"
+  value: "aquanova2-5f608"
+}
+metadata {
+  key: "consumer"
+  value: "projects/aquanova2-5f608"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608"
+}
+, locale: "en-US"
+message: "Cloud Firestore API has not been used in project aquanova2-5f608 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608"
+}
+] | payload=b'{"turbidity":1000,"temperature":27,"feed":0,"thoi_gian":"19:02:16"}'
+2025-10-29T19:03:52.933735 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 1000, 'temperature': 27, 'feed': 0, 'thoi_gian': '19:02:16', 'ts': '2025-10-29T12:03:52.820227+00:00'}
+2025-10-29T19:03:52.948424 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 1000, 'temperature': 27, 'feed': 0, 'thoi_gian': '19:02:16', 'ts': '2025-10-29T12:03:52.815551+00:00'}
+2025-10-29T19:04:52.894503 [MQTT] ERROR: 403 Cloud Firestore API has not been used in project aquanova2-5f608 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "firestore.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Cloud Firestore API"
+}
+metadata {
+  key: "containerInfo"
+  value: "aquanova2-5f608"
+}
+metadata {
+  key: "consumer"
+  value: "projects/aquanova2-5f608"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608"
+}
+, locale: "en-US"
+message: "Cloud Firestore API has not been used in project aquanova2-5f608 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=aquanova2-5f608"
+}
+] | payload=b'{"turbidity":1000,"temperature":27,"feed":0,"thoi_gian":"19:03:16"}'
+2025-10-29T19:04:52.921428 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 1000, 'temperature': 27, 'feed': 0, 'thoi_gian': '19:03:16', 'ts': '2025-10-29T12:04:52.814518+00:00'}
+2025-10-29T19:04:52.920784 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 1000, 'temperature': 27, 'feed': 0, 'thoi_gian': '19:03:16', 'ts': '2025-10-29T12:04:52.814672+00:00'}
+2025-10-30T11:01:22.609047 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-30T11:01:22.609100 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/telemetry
+2025-10-30T11:01:23.938310 [MQTT]  CONNECTED with code=Success
+2025-10-30T11:01:23.939434 [MQTT] SUBSCRIBE sent topic=aquanova/telemetry mid=1 result=0
+2025-10-30T11:01:24.177760 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-10-30T11:04:04.358080 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-10-30T11:04:04.358158 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/telemetry
+2025-10-30T11:04:05.415117 [MQTT]  CONNECTED with code=Success
+2025-10-30T11:04:05.416674 [MQTT] SUBSCRIBE sent topic=aquanova/telemetry mid=1 result=0
+2025-10-30T11:04:05.653980 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
