@@ -8,41 +8,150 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 
-
-  <style>
+<style>
     :root { --brand:#0ea5e9; --muted:#6b7280; --bg:#f6f7fb; --ok:#16a34a; --bad:#dc2626; }
-    *{box-sizing:border-box}
-    body{font-family:system-ui, Arial, sans-serif; margin:0; background:var(--bg); color:#111;}
-    header{display:flex;align-items:center;justify-content:space-between; gap:12px; padding:14px 18px; background:var(--brand); color:#fff;}
-    header h2{margin:0; display:flex; align-items:center; gap:10px}
-    header img{height:22px; width:auto}
-    .layout{display:grid; grid-template-columns:220px 1fr; min-height:calc(100vh - 56px);}
-    aside{background:#fff; border-right:1px solid #e5e7eb; padding:16px;}
-    aside .menu a{display:block; padding:10px 12px; color:#111; text-decoration:none; border-radius:10px;}
-    aside .menu a.active{background:#eef7ff; color:#0a6db2;}
-    main{padding:20px; max-width:1400px}
-    .card{background:#fff; padding:16px; border-radius:14px; box-shadow:0 2px 12px rgba(0,0,0,.05);}
-    .grid{display:grid; grid-template-columns:1.1fr 1fr; gap:16px}
-    @media (max-width:1000px){ .layout{grid-template-columns:1fr} aside{display:none} .grid{grid-template-columns:1fr} }
-    .toolbar{display:flex; gap:12px; align-items:center; flex-wrap:wrap}
-    label{font-size:13px; color:#374151; display:block; margin-bottom:6px}
-    input, select{padding:9px 10px; border:1px solid #e5e7eb; border-radius:10px; background:#fff; min-width:120px}
-    .btn{background:#2563eb; color:#fff; border:none; border-radius:10px; padding:10px 14px; cursor:pointer}
-    .btn.secondary{background:#0ea5e9}
-    .btn.ghost{background:#f3f4f6;color:#111}
-    .muted{color:var(--muted); font-size:13px}
-    table{width:100%; border-collapse:collapse}
-    th,td{padding:10px 12px; border-bottom:1px solid #edf0f4; font-size:14px; text-align:left}
-    .tag{font-size:12px; padding:2px 8px; border-radius:999px; background:#eef2ff; color:#3730a3}
-    .schedule-full {
-  grid-column: 1 / -1;   /* bảng chiếm toàn chiều ngang của grid */
-  width: 100%;
-}
+    * { box-sizing: border-box; }
 
-  </style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, Arial, sans-serif;
+      background: var(--bg);
+      color:#111;
+    }
+
+    /* WRAPPER CHÍNH TOÀN TRANG */
+    .page-wrapper {
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* LAYOUT GIÃN HẾT CHIỀU CAO */
+    .layout {
+      flex: 1;
+      display: grid;
+      grid-template-columns:220px 1fr;
+    }
+
+    /* SIDEBAR */
+    aside {
+      background:#fff;
+      border-right:1px solid #e5e7eb;
+      padding:16px;
+    }
+    aside .menu a {
+      display:block;
+      padding:10px 12px;
+      color:#111;
+      text-decoration:none;
+      border-radius:10px;
+    }
+    aside .menu a.active {
+      background:#eef7ff;
+      color:#0a6db2;
+    }
+
+    /* HEADER */
+    header {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:14px 18px;
+      background:var(--brand);
+      color:#fff;
+    }
+
+    /* MAIN CONTENT */
+    main {
+      padding:20px;
+      max-width:1400px;
+      width:100%;
+    }
+
+    .card {
+      background:#fff;
+      padding:16px;
+      border-radius:14px;
+      box-shadow:0 2px 12px rgba(0,0,0,.05);
+    }
+
+    .grid {
+      display:grid;
+      grid-template-columns:1.1fr 1fr;
+      gap:16px;
+    }
+
+    @media (max-width:1000px) {
+      .layout { grid-template-columns:1fr }
+      aside { display:none }
+      .grid { grid-template-columns:1fr }
+    }
+
+    .toolbar {
+      display:flex;
+      gap:12px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    label { font-size:13px; color:#374151; margin-bottom:6px; display:block }
+    input, select {
+      padding:9px 10px;
+      border:1px solid #e5e7eb;
+      border-radius:10px;
+      background:#fff;
+      min-width:120px;
+    }
+
+    .btn {
+      background:#2563eb;
+      color:#fff;
+      border:none;
+      border-radius:10px;
+      padding:10px 14px;
+      cursor:pointer;
+    }
+
+    .btn.secondary { background:#0ea5e9 }
+    .btn.ghost { background:#f3f4f6; color:#111 }
+
+    table { width:100%; border-collapse:collapse }
+    th, td {
+      padding:10px 12px;
+      border-bottom:1px solid #edf0f4;
+      font-size:14px;
+      text-align:left;
+    }
+
+    .schedule-full {
+      grid-column:1 / -1;
+      width:100%;
+    }
+
+    /* FOOTER FULL WIDTH */
+    footer {
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      padding:14px 0;
+      text-align:center;
+      background:#ffffff;
+      color:#6b7280;
+      border-top:1px solid #e5e7eb;
+      margin-top:40px;
+      display:block;
+    }
+</style>
 </head>
 
 <body>
+<div class="page-wrapper">
+
+  <!-- HEADER -->
   <header>
     <h2>AquaNova</h2>
     <div style="opacity:.95; display:flex; gap:14px; align-items:center">
@@ -51,7 +160,10 @@
     </div>
   </header>
 
+  <!-- LAYOUT -->
   <div class="layout">
+
+    <!-- SIDEBAR -->
     <aside>
       <nav class="menu">
         <a class="tab-link" href="{{ url_for('home') }}">Dashboard</a>
@@ -61,9 +173,12 @@
       </nav>
     </aside>
 
+    <!-- MAIN -->
     <main>
+
       <div class="grid">
-        <!-- LEFT -->
+
+        <!-- LEFT COLUMN -->
         <div class="card">
           <h3 style="margin-top:0">Feeder Control</h3>
 
@@ -81,7 +196,7 @@
             </div>
           </div>
 
-          <!-- Schedule -->
+          <!-- Schedule Form -->
           <div class="card" style="padding:12px">
             <h4 style="margin:0 0 8px">Add Schedule</h4>
             <div class="toolbar">
@@ -113,139 +228,155 @@
           </div>
         </div>
 
-        <!-- RIGHT: Feed chart -->
-<div class="card" style="display:flex;flex-direction:column;align-items:center;justify-content:center">
-  <h3 style="margin:0 0 12px;text-align:center">Feed Status</h3>
-  <div style="width:180px;height:180px;position:relative">
-    <canvas id="feedPie1"></canvas>
+        <!-- RIGHT: Feed Status Pie Chart -->
+        <div class="card" style="display:flex;flex-direction:column;align-items:center;justify-content:center">
+          <h3 style="margin:0 0 12px;text-align:center">Feed Status</h3>
+          <div style="width:180px;height:180px;position:relative">
+            <canvas id="feedPie1"></canvas>
+          </div>
+          <div style="margin-top:8px;text-align:center" class="muted">
+            <b id="feedPie1Num">--%</b> · <span id="feedPie1Time">—</span>
+            <div id="feedPie1Warn" class="tag" style="display:none;margin-top:6px">Low feed (&lt;10%)</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- SCHEDULE TABLE -->
+      <div class="card schedule-full" style="margin-top:16px">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px">
+          <h3 style="margin:0">Current Schedules</h3>
+          <button class="btn ghost" id="refreshScheduleBtn">Refresh</button>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Repeat</th>
+              <th>Amount (g)</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="scRows"></tbody>
+        </table>
+      </div>
+
+    </main>
   </div>
-  <div style="margin-top:8px;text-align:center" class="muted">
-    <b id="feedPie1Num">--%</b> · <span id="feedPie1Time">—</span>
-    <div id="feedPie1Warn" class="tag" style="display:none;margin-top:6px">Low feed (&lt;10%)</div>
-  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    AquaNova © 2025 – IoT Fish Monitoring System
+  </footer>
+
 </div>
 
+<script>
+  const FEED_NOW_API = '/control/feed-now';
+  const SCHEDULE_API = '/control/schedule';
+  const SCHEDULES_API = '/control/schedules';
 
-      <!-- Schedule Table -->
-<div class="card schedule-full" style="margin-top:16px">
-  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px">
-    <h3 style="margin:0">Current Schedules</h3>
-    <button class="btn ghost" id="refreshScheduleBtn">Refresh</button>
-  </div>
-  <table>
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Date</th>
-        <th>Time</th>
-        <th>Repeat</th>
-        <th>Amount (g)</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody id="scRows"></tbody>
-  </table>
-</div>
+  document.getElementById('feedNowBtn').onclick = async ()=> {
+    const amount = Number(document.getElementById('fnAmount').value || 0);
+    const msg = document.getElementById('feedNowMsg');
+    if(amount <= 0){ msg.textContent='Please enter a valid amount.'; return; }
+    msg.textContent = 'Sending...';
+    try{
+      const r = await fetch(FEED_NOW_API, {
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({amount})
+      });
+      const j = await r.json();
+      if(!r.ok || j.error) throw new Error(j.error || r.status);
+      msg.textContent = 'Feed command sent.';
+    }catch(e){
+      msg.textContent = 'Failed: ' + e.message;
+    }finally{
+      setTimeout(()=> msg.textContent='', 2500);
+    }
+  }
 
+  async function refreshSchedules(){
+    const tbody = document.getElementById('scRows');
+    tbody.innerHTML = '<tr><td colspan="6" class="muted">Loading…</td></tr>';
+    try{
+      const r = await fetch(SCHEDULES_API);
+      const j = await r.json();
+      const list = j.items || [];
+      tbody.innerHTML = '';
+      list.forEach((s,idx)=>{
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${idx+1}</td>
+          <td>${s.date || '-'}</td>
+          <td>${s.time || ''}</td>
+          <td>${s.repeat === 'weekly' ? 'Weekly' : s.repeat === 'daily' ? 'Daily' : 'Once'}</td>
+          <td>${s.amount ?? ''}</td>
+          <td><button class="btn ghost" onclick="deleteSchedule('${s.id}')">Delete</button></td>
+        `;
+        tbody.appendChild(tr);
+      });
+      if(!list.length) tbody.innerHTML = '<tr><td colspan="6" class="muted">No schedules.</td></tr>';
+    }catch(e){
+      tbody.innerHTML = `<tr><td colspan="6" class="muted">Load failed: ${e.message}</td></tr>`;
+    }
+  }
 
-  <script>
-    const FEED_NOW_API = '/control/feed-now';
-    const SCHEDULE_API = '/control/schedule';
-    const SCHEDULES_API = '/control/schedules';
-    
+  async function addSchedule(){
+    const date = document.getElementById('scDate').value;
+    const time = document.getElementById('scTime').value;
+    const repeat = document.getElementById('scRepeat').value;
+    const amount = Number(document.getElementById('scAmount').value || 0);
+    const msg = document.getElementById('addScheduleMsg');
 
-    // ===== Feed Now =====
-    document.getElementById('feedNowBtn').onclick = async ()=>{
-      const amount = Number(document.getElementById('fnAmount').value || 0);
-      const msg = document.getElementById('feedNowMsg');
-      if (amount <= 0){ msg.textContent='Please enter a valid amount.'; return; }
-      msg.textContent = 'Sending...';
-      try {
-        const r = await fetch(FEED_NOW_API, {
-          method:'POST',
-          headers:{'Content-Type':'application/json'},
-          body: JSON.stringify({ amount })
-        });
-        const j = await r.json();
-        if (!r.ok || j.error) throw new Error(j.error || ('HTTP '+r.status));
-        msg.textContent = 'Feed command sent.';
-      } catch(e){
-        msg.textContent = 'Failed: ' + e.message;
-      } finally {
-        setTimeout(()=>msg.textContent='', 2500);
-      }
-    };
-
-    // ===== Schedule CRUD =====
-    async function refreshSchedules(){
-      const tbody = document.getElementById('scRows');
-      tbody.innerHTML = '<tr><td colspan="6" class="muted">Loading…</td></tr>';
-      try{
-        const r = await fetch(SCHEDULES_API);
-        const j = await r.json();
-        const list = j.items || [];
-        tbody.innerHTML = '';
-        list.forEach((s,idx)=>{
-          const tr = document.createElement('tr');
-          tr.innerHTML = `
-            <td>${idx+1}</td>
-            <td>${s.date || '-'}</td>
-            <td>${s.time || ''}</td>
-            <td>${s.repeat === 'weekly' ? 'Weekly' : s.repeat === 'daily' ? 'Daily' : 'Once'}</td>
-            <td>${s.amount ?? ''}</td>
-            <td><button class="btn ghost" onclick="deleteSchedule('${s.id}')">Delete</button></td>`;
-          tbody.appendChild(tr);
-        });
-        if (!list.length) tbody.innerHTML = '<tr><td colspan="6" class="muted">No schedules.</td></tr>';
-      }catch(e){
-        tbody.innerHTML = `<tr><td colspan="6" class="muted">Load failed: ${e.message}</td></tr>`;
-      }
+    if(!date || !time || amount <= 0){
+      msg.textContent='Please fill all fields.';
+      return;
     }
 
-    async function addSchedule(){
-      const date = document.getElementById('scDate').value;
-      const time = document.getElementById('scTime').value;
-      const repeat = document.getElementById('scRepeat').value;
-      const amount = Number(document.getElementById('scAmount').value || 0);
-      const msg = document.getElementById('addScheduleMsg');
-      if (!date || !time || amount <= 0){
-        msg.textContent='Please fill all fields.'; return;
-      }
-
-      msg.textContent = 'Creating…';
-      try{
-        const r = await fetch(SCHEDULE_API, {
-          method:'POST',
-          headers:{'Content-Type':'application/json'},
-          body: JSON.stringify({ date, time, repeat, amount })
-        });
-        const j = await r.json();
-        if (!r.ok || j.error) throw new Error(j.error || ('HTTP '+r.status));
-        msg.textContent = 'Added.'; await refreshSchedules();
-      }catch(e){ msg.textContent = 'Failed: ' + e.message; }
-      finally{ setTimeout(()=>msg.textContent='', 2500); }
-    }
-
-    async function deleteSchedule(id){
-      if (!confirm('Delete this schedule?')) return;
-      try{
-        const r = await fetch(`${SCHEDULES_API}/${encodeURIComponent(id)}`, { method:'DELETE' });
-        const j = await r.json();
-        if (!r.ok || j.error) throw new Error(j.error || ('HTTP '+r.status));
-        refreshSchedules();
-      }catch(e){ alert('Delete failed: '+e.message); }
-    }
-    window.deleteSchedule = deleteSchedule;
-
-    document.getElementById('addScheduleBtn').onclick = addSchedule;
-    document.getElementById('refreshScheduleBtn').onclick = refreshSchedules;
-
-    // ===== Init =====
-    (async function init(){
+    msg.textContent = 'Creating…';
+    try{
+      const r = await fetch(SCHEDULE_API, {
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({date, time, repeat, amount})
+      });
+      const j = await r.json();
+      if(!r.ok || j.error) throw new Error(j.error || r.status);
+      msg.textContent = 'Added.';
       await refreshSchedules();
-    })();
-  </script>
-    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+    }catch(e){
+      msg.textContent = 'Failed: ' + e.message;
+    }finally{
+      setTimeout(()=> msg.textContent='', 2500);
+    }
+  }
+
+  async function deleteSchedule(id){
+    if(!confirm('Delete this schedule?')) return;
+    try{
+      const r = await fetch(`${SCHEDULES_API}/${encodeURIComponent(id)}`, {
+        method:'DELETE'
+      });
+      const j = await r.json();
+      if(!r.ok || j.error) throw new Error(j.error || r.status);
+      refreshSchedules();
+    }catch(e){
+      alert('Delete failed: ' + e.message);
+    }
+  }
+  window.deleteSchedule = deleteSchedule;
+
+  document.getElementById('addScheduleBtn').onclick = addSchedule;
+  document.getElementById('refreshScheduleBtn').onclick = refreshSchedules;
+
+  (async function init(){
+    await refreshSchedules();
+  })();
+</script>
 
 </body>
 </html>

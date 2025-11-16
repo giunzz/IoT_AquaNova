@@ -1,8 +1,425 @@
-2025-10-24T21:23:42.437787 [MQTT]  MESSAGE topic=aquanova/telemetry payload={'turbidity': 202.4, 'temperature': 28, 'feed': 0, 'thoi_gian': '21:22:39', 'ts': '2025-10-24T14:23:42.166958+00:00'}
-127.0.0.1 - - [24/Oct/2025 21:23:49] "GET /dashboard/latest?n=200 HTTP/1.1" 200 -
-127.0.0.1 - - [24/Oct/2025 21:24:18] "GET /dashboard/latest?n=200 HTTP/1.1" 200 -
-127.0.0.1 - - [24/Oct/2025 21:24:20] "GET /dashboard/summary HTTP/1.1" 200 -
-[DEBUG] Checking schedules at 21:24:22
-[SCHEDULE] Feed → aquanova/control (repeat=none)
-[SCHEDULE] Published feed successfully.
-[SCHEDULE] Deleted one-time schedule f8c0b403ba81
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>AquaNova – Feed Timer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/logo_aquanova.png') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+  <style>
+    :root { --brand:#0ea5e9; --muted:#6b7280; --bg:#f6f7fb; --ok:#16a34a; --bad:#dc2626; }
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: system-ui, Arial, sans-serif;
+      margin: 0;
+      background: var(--bg);
+      color:#111;
+    }
+
+    header {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding:14px 18px;
+      background:var(--brand);
+      color:#fff;
+    }
+
+    header h2 {
+      margin:0;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .layout {
+      display:grid;
+      grid-template-columns:220px 1fr;
+      min-height:auto;         /* FIXED → kéo dài theo nội dung */
+    }
+
+    aside {
+      background:#fff;
+      border-right:1px solid #e5e7eb;
+      padding:16px;
+    }
+
+    aside .menu a {
+      display:block;
+      padding:10px 12px;
+      color:#111;
+      text-decoration:none;
+      border-radius:10px;
+    }
+
+    aside .menu a.active {
+      background:#eef7ff;
+      color:#0a6db2;
+    }
+
+    main {
+      padding:20px;
+      max-width:1400px;
+    }
+
+    .card {
+      background:#fff;
+      padding:16px;
+      border-radius:14px;
+      box-shadow:0 2px 12px rgba(0,0,0,.05);
+    }
+
+    .grid {
+      display:grid;
+      grid-template-columns:1.1fr 1fr;
+      gap:16px;
+    }
+
+    @media (max-width:1000px) {
+      .layout { grid-template-columns:1fr }
+      aside { display:none }
+      .grid { grid-template-columns:1fr }
+    }
+
+    .toolbar {
+      display:flex;
+      gap:12px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    label {
+      font-size:13px;
+      color:#374151;
+      display:block;
+      margin-bottom:6px;
+    }
+
+    input, select {
+      padding:9px 10px;
+      border:1px solid #e5e7eb;
+      border-radius:10px;
+      background:#fff;
+      min-width:120px;
+    }
+
+    .btn {
+      background:#2563eb;
+      color:#fff;
+      border:none;
+      border-radius:10px;
+      padding:10px 14px;
+      cursor:pointer;
+    }
+
+    .btn.secondary { background:#0ea5e9; }
+    .btn.ghost { background:#f3f4f6;color:#111; }
+
+    .muted { color:var(--muted); font-size:13px }
+
+    table {
+      width:100%;
+      border-collapse:collapse;
+    }
+
+    th, td {
+      padding:10px 12px;
+      border-bottom:1px solid #edf0f4;
+      font-size:14px;
+      text-align:left;
+    }
+
+    .tag {
+      font-size:12px;
+      padding:2px 8px;
+      border-radius:999px;
+      background:#eef2ff;
+      color:#3730a3;
+    }
+
+    .schedule-full {
+      grid-column:1 / -1;
+      width:100%;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h2>AquaNova</h2>
+    <div style="opacity:.95; display:flex; gap:14px; align-items:center">
+      <span>Feed Timer</span>
+      <a href="{{ url_for('admin_page') }}" style="color:#fff; text-decoration:none">Admin</a>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside>
+      <nav class="menu">
+        <a class="tab-link" href="{{ url_for('home') }}">Dashboard</a>
+        <a class="tab-link" href="{{ url_for('temperature_page') }}">Temperature</a>
+        <a class="tab-link" href="{{ url_for('turbidity_page') }}">Turbidity</a>
+        <a class="tab-link active" href="{{ url_for('feed_timer_page') }}">Feed Timer</a>
+      </nav>
+    </aside>
+
+    <main>
+
+      <div class="grid">
+
+        <!-- LEFT -->
+        <div class="card">
+          <h3 style="margin-top:0">Feeder Control</h3>
+
+          <!-- Feed Now -->
+          <div class="card" style="margin-bottom:14px; padding:12px">
+            <div class="toolbar">
+              <div>
+                <label>Amount (g)</label>
+                <input type="number" id="fnAmount" min="1" step="1" value="20">
+              </div>
+              <div style="align-self:end">
+                <button class="btn" id="feedNowBtn">Feed Now</button>
+              </div>
+              <div class="muted" id="feedNowMsg"></div>
+            </div>
+          </div>
+
+          <!-- Schedule -->
+          <div class="card" style="padding:12px">
+            <h4 style="margin:0 0 8px">Add Schedule</h4>
+
+            <div class="toolbar">
+              <div>
+                <label>Date</label>
+                <input type="date" id="scDate">
+              </div>
+
+              <div>
+                <label>Time</label>
+                <input type="time" id="scTime" value="08:30">
+              </div>
+
+              <div>
+                <label>Repeat</label>
+                <select id="scRepeat">
+                  <option value="none">Once</option>
+                  <option value="daily">Daily</option>
+                  <option value="weekly">Weekly</option>
+                </select>
+              </div>
+
+              <div>
+                <label>Amount (g)</label>
+                <input type="number" id="scAmount" min="1" step="1" value="20">
+              </div>
+
+              <div style="align-self:end">
+                <button class="btn secondary" id="addScheduleBtn">Add</button>
+              </div>
+
+              <div class="muted" id="addScheduleMsg"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT FEED STATUS -->
+        <div class="card" style="display:flex;flex-direction:column;align-items:center;justify-content:center">
+          <h3 style="margin:0 0 12px;text-align:center">Feed Status</h3>
+
+          <div style="width:180px;height:180px;position:relative">
+            <canvas id="feedPie1"></canvas>
+          </div>
+
+          <div style="margin-top:8px;text-align:center" class="muted">
+            <b id="feedPie1Num">--%</b> · <span id="feedPie1Time">—</span>
+            <div id="feedPie1Warn" class="tag" style="display:none;margin-top:6px">Low feed (&lt;10%)</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- SCHEDULE TABLE -->
+      <div class="card schedule-full" style="margin-top:16px">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px">
+          <h3 style="margin:0">Current Schedules</h3>
+          <button class="btn ghost" id="refreshScheduleBtn">Refresh</button>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Repeat</th>
+              <th>Amount (g)</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="scRows"></tbody>
+        </table>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- JS SCHEDULE + FEED LOGIC (output giữ nguyên) -->
+  <script>
+    const FEED_NOW_API = '/control/feed-now';
+    const SCHEDULE_API = '/control/schedule';
+    const SCHEDULES_API = '/control/schedules';
+    
+
+    // ===== Feed Now =====
+    document.getElementById('feedNowBtn').onclick = async ()=>{
+      const amount = Number(document.getElementById('fnAmount').value || 0);
+      const msg = document.getElementById('feedNowMsg');
+      if (amount <= 0){ msg.textContent='Please enter a valid amount.'; return; }
+      msg.textContent = 'Sending...';
+      try {
+        const r = await fetch(FEED_NOW_API, {
+          method:'POST',
+          headers:{'Content-Type':'application/json'},
+          body: JSON.stringify({ amount })
+        });
+        const j = await r.json();
+        if (!r.ok || j.error) throw new Error(j.error || ('HTTP '+r.status));
+        msg.textContent = 'Feed command sent.';
+      } catch(e){
+        msg.textContent = 'Failed: ' + e.message;
+      } finally {
+        setTimeout(()=>msg.textContent='', 2500);
+      }
+    };
+
+    // ===== Schedule CRUD =====
+    async function refreshSchedules(){
+      const tbody = document.getElementById('scRows');
+      tbody.innerHTML = '<tr><td colspan="6" class="muted">Loading…</td></tr>';
+      try{
+        const r = await fetch(SCHEDULES_API);
+        const j = await r.json();
+        const list = j.items || [];
+        tbody.innerHTML = '';
+        list.forEach((s,idx)=>{
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td>${idx+1}</td>
+            <td>${s.date || '-'}</td>
+            <td>${s.time || ''}</td>
+            <td>${s.repeat === 'weekly' ? 'Weekly' : s.repeat === 'daily' ? 'Daily' : 'Once'}</td>
+            <td>${s.amount ?? ''}</td>
+            <td><button class="btn ghost" onclick="deleteSchedule('${s.id}')">Delete</button></td>`;
+          tbody.appendChild(tr);
+        });
+        if (!list.length) tbody.innerHTML = '<tr><td colspan="6" class="muted">No schedules.</td></tr>';
+      }catch(e){
+        tbody.innerHTML = `<tr><td colspan="6" class="muted">Load failed: ${e.message}</td></tr>`;
+      }
+    }
+
+    async function addSchedule(){
+      const date = document.getElementById('scDate').value;
+      const time = document.getElementById('scTime').value;
+      const repeat = document.getElementById('scRepeat').value;
+      const amount = Number(document.getElementById('scAmount').value || 0);
+      const msg = document.getElementById('addScheduleMsg');
+      if (!date || !time || amount <= 0){
+        msg.textContent='Please fill all fields.'; return;
+      }
+
+      msg.textContent = 'Creating…';
+      try{
+        const r = await fetch(SCHEDULE_API, {
+          method:'POST',
+          headers:{'Content-Type':'application/json'},
+          body: JSON.stringify({ date, time, repeat, amount })
+        });
+        const j = await r.json();
+        if (!r.ok || j.error) throw new Error(j.error || ('HTTP '+r.status));
+        msg.textContent = 'Added.'; await refreshSchedules();
+      }catch(e){ msg.textContent = 'Failed: ' + e.message; }
+      finally{ setTimeout(()=>msg.textContent='', 2500); }
+    }
+
+    async function deleteSchedule(id){
+      if (!confirm('Delete this schedule?')) return;
+      try{
+        const r = await fetch(`${SCHEDULES_API}/${encodeURIComponent(id)}`, { method:'DELETE' });
+        const j = await r.json();
+        if (!r.ok || j.error) throw new Error(j.error || ('HTTP '+r.status));
+        refreshSchedules();
+      }catch(e){ alert('Delete failed: '+e.message); }
+    }
+    window.deleteSchedule = deleteSchedule;
+
+    document.getElementById('addScheduleBtn').onclick = addSchedule;
+    document.getElementById('refreshScheduleBtn').onclick = refreshSchedules;
+
+    // ===== Init =====
+    (async function init(){
+      await refreshSchedules();
+    })();
+  </script>
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+    <script>
+      // ===== Feed Status Pie Chart =====
+      const feedPie1Ctx = document.getElementById('feedPie1').getContext('2d');
+      const feedPie1Chart = new Chart(feedPie1Ctx, {
+        type: 'doughnut',
+        data: {
+          labels: ['Feed Remaining', 'Feed Used'],
+          datasets: [{
+            data: [0, 100],
+            backgroundColor: ['#0ea5e9', '#e5e7eb'],
+            borderWidth: 0
+          }]
+        },
+        options: {
+          cutout: '75%',
+          plugins: {
+            legend: { display: false }
+          }
+        }
+      });
+
+      async function updateFeedStatus(){
+        try {
+          const r = await fetch('/status/feed-status');
+          const j = await r.json();
+          const percent = j.percentage ?? 0;
+          const lastFed = j.last_fed ? new Date(j.last_fed) : null;
+
+          feedPie1Chart.data.datasets[0].data = [percent, 100 - percent];
+          feedPie1Chart.update();
+
+          document.getElementById('feedPie1Num').textContent = percent.toFixed(1) + '%';
+          document.getElementById('feedPie1Warn').style.display = percent < 10 ? 'inline-block' : 'none';
+          document.getElementById('feedPie1Time').textContent = lastFed ? `Last fed: ${lastFed.toLocaleString()}` : 'Never fed';
+        } catch(e){
+          console.error('Failed to update feed status:', e);
+        }
+      }
+
+      // Initial and periodic update
+      updateFeedStatus();
+      setInterval(updateFeedStatus, 60000); // every 60 seconds
+
+  <footer style="
+    margin-top:20px;
+    padding:14px 0;
+    text-align:center;
+    font-size:14px;
+    color:#6b7280;
+    background:#ffffff;
+    border-top:1px solid #e5e7eb;
+  ">
+    AquaNova © 2025 – IoT Fish Monitoring System
+  </footer>
+</body>
+</html>

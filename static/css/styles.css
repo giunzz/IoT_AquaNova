@@ -1,9 +1,144 @@
-body { font-family: system-ui, sans-serif; margin: 0; background: #f7fafc; color:#111; }
-header { display:flex; align-items:center; justify-content:space-between; padding:12px 20px; background:#0ea5e9; color:#fff; }
-header a { color:#fff; margin-left:12px; text-decoration:none; }
-.cards { display:grid; grid-template-columns: 1fr 2fr; gap:16px; padding:20px; }
-.card { background:#fff; border-radius:12px; padding:16px; box-shadow:0 2px 8px rgba(0,0,0,.08); }
-table { width:100%; border-collapse:collapse; }
-th, td { padding:8px 10px; border-bottom:1px solid #e5e7eb; font-size:14px; }
-aside .menu a{display:flex;align-items:center;gap:10px;padding:10px 12px;color:#111;text-decoration:none;border-radius:10px;}
-aside .menu a.active{background:#eef7ff;color:#0a6db2;}
+/* ======= BASE STYLE ======= */
+body { 
+  font-family: system-ui, sans-serif; 
+  margin: 0; 
+  background: #f7fafc; 
+  color:#111; 
+}
+
+header { 
+  display:flex; 
+  align-items:center; 
+  justify-content:space-between; 
+  padding:12px 20px; 
+  background:#0ea5e9; 
+  color:#fff; 
+}
+
+header a { 
+  color:#fff; 
+  margin-left:12px; 
+  text-decoration:none; 
+}
+
+.cards { 
+  display:grid; 
+  grid-template-columns: 1fr 2fr; 
+  gap:16px; 
+  padding:20px; 
+}
+
+.card { 
+  background:#fff; 
+  border-radius:12px; 
+  padding:16px; 
+  box-shadow:0 2px 8px rgba(0,0,0,.08); 
+}
+
+table { 
+  width:100%; 
+  border-collapse:collapse; 
+}
+
+th, td { 
+  padding:8px 10px; 
+  border-bottom:1px solid #e5e7eb; 
+  font-size:14px; 
+}
+
+aside .menu a {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 12px;
+  color:#111;
+  text-decoration:none;
+  border-radius:10px;
+}
+
+aside .menu a.active {
+  background:#eef7ff;
+  color:#0a6db2;
+}
+
+/* ======= LAYOUT ======= */
+.layout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  min-height: calc(100vh - 56px);
+}
+
+aside {
+  background: #fff;
+  border-right: 1px solid #e5e7eb;
+  padding: 16px;
+}
+
+/* ======= FOOTER ======= */
+footer {
+  text-align:center;
+  padding:14px 0;
+  font-size:14px;
+  background:#fff;
+  color:#6b7280;
+  border-top:1px solid #e5e7eb;
+}
+
+/* ================================= */
+/* ======= RESPONSIVE RULES ======== */
+/* ================================= */
+
+/* Tablet landscape & small laptops */
+@media (max-width: 1200px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Tablet portrait */
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+  aside {
+    display: none;
+  }
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Mobile large */
+@media (max-width: 600px) {
+  header {
+    padding:10px 14px;
+    font-size:16px;
+  }
+  header h2 {
+    font-size:20px;
+  }
+  .card {
+    padding:14px;
+  }
+  th, td {
+    font-size:12px;
+    padding:6px 8px;
+  }
+  footer {
+    font-size:12px;
+    padding:10px 0;
+  }
+}
+
+/* Mobile small (iPhone SE, Android mini) */
+@media (max-width: 400px) {
+  header h2 {
+    font-size:18px;
+  }
+  .cards {
+    gap: 12px;
+  }
+  .card {
+    padding:12px;
+  }
+}

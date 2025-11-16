@@ -13,7 +13,11 @@
     body{font-family:system-ui, sans-serif; margin:0; background:var(--bg); color:#111;}
     header{display:flex;align-items:center;gap:12px; padding:14px 18px; background:var(--brand); color:#fff;}
     header h2{margin:0}
-    .layout{display:grid; grid-template-columns:220px 1fr; min-height:calc(100vh - 56px);}
+    .layout {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      min-height: auto;
+    }    
     aside{background:#fff; border-right:1px solid #e5e7eb; padding:16px;}
     aside .menu a{display:flex; align-items:center; gap:10px; padding:10px 12px; color:#111; text-decoration:none; border-radius:10px;}
     aside .menu a.active{background:#eef7ff; color:#0a6db2;}
@@ -288,6 +292,18 @@
     loadAll();
     setInterval(loadAll, 600000);
   </script>
+  <footer style="
+  margin-top:20px;
+  padding:14px 0;
+  text-align:center;
+  font-size:14px;
+  color:#6b7280;
+  background:#ffffff;
+  border-top:1px solid #fff;
+">
+  AquaNova © 2025 – IoT Fish Monitoring System
+</footer>
+
 </body>
 </html>
 
