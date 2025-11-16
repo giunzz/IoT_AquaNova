@@ -38,3 +38,7 @@ aquanova/
 ```
 ![alt text](image.png)
 Device → MQTT Broker → Flask Subscriber → Firestore → Dashboard
+
+Xem log: sudo journalctl -u aquanova --no-pager
+
+IP web: http://3.26.52.227

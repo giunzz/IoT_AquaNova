@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{{ title if title else "AquaNova" }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="header">
+  <h2>AquaNova</h2>
+
+  <nav class="top-menu">
+    <a href="/">Home</a>
+    <a href="/dashboard">Dashboard</a>
+    <a href="/admin">Admin</a>
+    <a href="/chatbot">Chatbot</a>
+  </nav>
+</header>
+
+<div class="layout">
+
+  <!-- =============== SIDEBAR =============== -->
+  <aside class="sidebar">
+    <nav>
+      <a href="/dashboard" class="{{ 'active' if active=='dashboard' else '' }}">Dashboard</a>
+      <a href="/temperature" class="{{ 'active' if active=='temperature' else '' }}">Temperature</a>
+      <a href="/turbidity" class="{{ 'active' if active=='turbidity' else '' }}">Turbidity</a>
+      <a href="/feedtimer" class="{{ 'active' if active=='feedtimer' else '' }}">Feed Timer</a>
+      <a href="/chatbot" class="{{ 'active' if active=='chatbot' else '' }}">Chatbot</a>
+    </nav>
+  </aside>
+
+  <!-- ============== MAIN CONTENT ============== -->
+  <main class="main-content">
+      {% block content %}
+      {% endblock %}
+  </main>
+
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  AquaNova © 2025 – IoT Fish Monitoring System
+</footer>
+
+</body>
+</html>
