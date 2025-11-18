@@ -42,3 +42,15 @@ Device → MQTT Broker → Flask Subscriber → Firestore → Dashboard
 Xem log: sudo journalctl -u aquanova --no-pager
 
 IP web: http://3.26.52.227
+
+
+sửa code 
+sudo nano /home/ec2-user/IoT_AquaNova/serviceAccount.json
+
+CTRL K 
+CTRL + O  →  Enter
+CTRL + X
+
+sudo systemctl restart aquanova
+sudo systemctl status aquanova 
+(xem activate)

@@ -2,53 +2,74 @@ const chatBox = document.getElementById("chatBox");
 const chatInput = document.getElementById("chatInput");
 const sendBtn = document.getElementById("sendBtn");
 const micBtn = document.getElementById("micBtn");
+const micIcon = document.getElementById("micIcon");
+const indicator = document.getElementById("recordingIndicator");
 
-function addMsg(text, sender="bot") {
+let isRecording = false;
+let recognition = null;
+
+/* ------------------------
+   SEND TEXT
+------------------------ */
+function sendMessage() {
+    const msg = chatInput.value.trim();
+    if (!msg) return;
+
+    addMessage(msg, "user");
+    chatInput.value = "";
+
+    fetch("/chatbot/api", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({message: msg})
+    })
+    .then(res => res.json())
+    .then(data => addMessage(data.reply, "bot"));
+}
+
+function addMessage(text, sender) {
     const div = document.createElement("div");
-    div.className = `msg ${sender}`;
+    div.className = "chat-msg " + sender;
     div.textContent = text;
     chatBox.appendChild(div);
     chatBox.scrollTop = chatBox.scrollHeight;
 }
 
-async function sendMessage() {
-    let text = chatInput.value.trim();
-    if (!text) return;
-
-    addMsg(text, "user");
-    chatInput.value = "";
-
-    const res = await fetch("/chatbot/api", {
-        method:"POST",
-        headers:{"Content-Type":"application/json"},
-        body: JSON.stringify({ message:text })
-    });
-
-    const data = await res.json();
-    addMsg(data.reply, "bot");
-}
-
 sendBtn.onclick = sendMessage;
-chatInput.onkeypress = (e)=>{ if(e.key==="Enter") sendMessage(); };
+chatInput.addEventListener("keypress", e => {
+    if (e.key === "Enter") sendMessage();
+});
 
-// ===== Speech Recognition =====
-let recognition = null;
+/* ------------------------
+   SPEECH TO TEXT
+------------------------ */
 if ("webkitSpeechRecognition" in window) {
     recognition = new webkitSpeechRecognition();
     recognition.lang = "vi-VN";
     recognition.continuous = false;
 
-    recognition.onstart = () => micBtn.classList.add("recording");
-    recognition.onend = () => micBtn.classList.remove("recording");
+    recognition.onstart = () => {
+        isRecording = true;
+        micBtn.classList.add("listening");
+        indicator.style.display = "block";
+    };
 
-    recognition.onresult = (event)=>{
-        const text = event.results[0][0].transcript;
+    recognition.onend = () => {
+        isRecording = false;
+        micBtn.classList.remove("listening");
+        indicator.style.display = "none";
+    };
+
+    recognition.onresult = (event) => {
+        let text = event.results[0][0].transcript;
         chatInput.value = text;
         sendMessage();
-    }
+    };
 }
 
 micBtn.onclick = () => {
-    if (!recognition) return alert("Trình duyệt không hỗ trợ microphone.");
-    recognition.start();
+    if (!recognition) return alert("Trình duyệt không hỗ trợ Speech Recognition!");
+
+    if (!isRecording) recognition.start();
+    else recognition.stop();
 };

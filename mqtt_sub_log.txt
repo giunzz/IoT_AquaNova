@@ -7909,3 +7909,8 @@ message: "Cloud Firestore API has not been used in project aquanova2-5f608 befor
 2025-11-16T12:38:01.531073 [MQTT]  CONNECTED with code=Success
 2025-11-16T12:38:01.531689 [MQTT] SUBSCRIBE sent topic=aquanova/telemetry mid=1 result=0
 2025-11-16T12:38:01.764559 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-11-16T12:42:15.518826 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-11-16T12:42:15.518870 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/telemetry
+2025-11-16T12:42:16.518461 [MQTT]  CONNECTED with code=Success
+2025-11-16T12:42:16.520918 [MQTT] SUBSCRIBE sent topic=aquanova/telemetry mid=1 result=0
+2025-11-16T12:42:16.768420 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]

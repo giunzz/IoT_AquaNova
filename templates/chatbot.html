@@ -3,69 +3,58 @@
 <head>
   <meta charset="utf-8">
   <title>AquaNova – Assistant</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/logo_aquanova.png') }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="{{ url_for('static', filename='img/logo_aquanova.png') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/chatbot.css') }}">
 </head>
 
 <body>
 
-<!-- HEADER -->
 <header>
   <h2>AquaNova</h2>
-  <div style="opacity:.95; display:flex; gap:14px; align-items:center">
-      <span>Assistant</span>
-      <a href="{{ url_for('admin_page') }}" style="color:#fff; text-decoration:none">Admin</a>
+  <div style="opacity:.9; display:flex; gap:14px; align-items:center">
+    <span>Assistant</span>
   </div>
 </header>
 
 <div class="layout">
-
-  <!-- SIDEBAR -->
   <aside>
-      <nav class="menu">
-          <a class="tab-link" href="{{ url_for('home') }}">Dashboard</a>
-          <a class="tab-link" href="{{ url_for('temperature_page') }}">Temperature</a>
-          <a class="tab-link" href="{{ url_for('turbidity_page') }}">Turbidity</a>
-          <a class="tab-link" href="{{ url_for('feed_timer_page') }}">Feed Timer</a>
-          <a class="tab-link active" href="{{ url_for('chatbot.chatbot_page') }}">Chatbot</a>
-      </nav>
+    <nav class="menu">
+      <a href="{{ url_for('home') }}">Dashboard</a>
+      <a href="{{ url_for('temperature_page') }}">Temperature</a>
+      <a href="{{ url_for('turbidity_page') }}">Turbidity</a>
+      <a href="{{ url_for('feed_timer_page') }}">Feed Timer</a>
+      <a class="active" href="{{ url_for('chatbot.chatbot_page') }}">Chatbot</a>
+    </nav>
   </aside>
 
-  <!-- MAIN CONTENT -->
   <main>
+    <div class="card chatbot-card">
 
-    <div class="card" style="max-width:860px; margin:auto;">
-      <h3 style="margin-top:0;">AquaNova Assistant</h3>
+      <h3>AquaNova Assistant</h3>
 
-      <div class="chat-box" id="chatBox"></div>
+      <div id="chatBox" class="chat-box"></div>
 
       <div class="input-area">
-          <input id="chatInput" type="text" placeholder="Nói hoặc nhập lệnh…">
-          <button id="sendBtn" class="btn secondary">Send</button>
-          <button id="micBtn" class="mic-btn">
-              <span id="micIcon">🎤</span>
-          </button>
+        <input id="chatInput" type="text" placeholder="Nói hoặc nhập lệnh…">
+
+        <button id="sendBtn" class="btn secondary">Send</button>
+
+        <button id="micBtn" class="mic-btn">
+          <span id="micIcon">🎤</span>
+        </button>
+      </div>
+
+      <div id="recordingIndicator" class="record-indicator" style="display:none;">
+        ● Đang nghe...
       </div>
 
     </div>
-
   </main>
 </div>
 
-<!-- FOOTER -->
-<footer style="
-  width:100vw;
-  margin-left:calc(50% - 50vw);
-  margin-top:20px;
-  padding:14px 0;
-  text-align:center;
-  font-size:14px;
-  color:#6b7280;
-  background:#ffffff;
-  border-top:1px solid #e5e7eb;
-">
+<footer class="footer-full">
   AquaNova © 2025 – IoT Fish Monitoring System
 </footer>
 
