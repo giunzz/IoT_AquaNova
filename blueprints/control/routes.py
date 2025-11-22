@@ -96,13 +96,6 @@ def feed_now():
 # ------------------------------------------------------------
 @control_bp.post("/schedule")
 def add_schedule():
-    """
-    Thêm lịch cho ăn mới:
-      - date: YYYY-MM-DD
-      - time: HH:MM
-      - repeat: 'none' | 'daily' | 'weekly'
-      - amount: số gram thức ăn
-    """
     data = request.get_json(force=True) or {}
     required = ("date", "time", "repeat")
     for key in required:
