@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, jsonify
-
+from .agents import aqua_agent
 chatbot_bp = Blueprint("chatbot", __name__)
 
 @chatbot_bp.route("/")
@@ -9,16 +9,10 @@ def chatbot_page():
 @chatbot_bp.route("/api", methods=["POST"])
 def chatbot_api():
     data = request.get_json()
-    msg = data.get("message", "").lower()
+    msg = data.get("message", "")
 
-    # Demo xử lý lệnh giọng nói
-    if "bật đèn" in msg:
-        return jsonify(reply="Đèn đã bật.")
-
-    if "tắt đèn" in msg:
-        return jsonify(reply="Đèn đã tắt.")
-
-    if "cho ăn" in msg:
-        return jsonify(reply="Đang cho cá ăn…")
-
-    return jsonify(reply=f"Tôi nhận được: {msg}")
+    try:
+        response = aqua_agent.run(msg)
+        return jsonify(reply=response.content)  # JSON từ agent
+    except Exception as e:
+        return jsonify(reply=f"Lỗi xử lý: {str(e)}")

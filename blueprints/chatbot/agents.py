@@ -10,7 +10,7 @@ model = OpenAIChat(
     base_url="https://api.groq.com/openai/v1"
 )
 
-agent = Agent(
+aqua_agent = Agent(
     name="Groq Agent",
     model=model,
     system_message="""
@@ -42,10 +42,7 @@ ALLOWED OUTPUTS:
     - tank status or water quality
 
     Then return:
-    {"answer": "<Vietnamese sentence based on database>"}
-
-    5) If the request does NOT relate to the aquarium:
-    {"answer": "unknown"}
+    <Vietnamese sentence based on database>    
 
 STRICT FORMAT RULES:
 - The output MUST be EXACTLY one JSON object.
@@ -59,6 +56,3 @@ STRICT FORMAT RULES:
     markdown=True,
     debug_mode=True
 )
-
-response = agent.run("Tối quá! bật đèn lên nhé.")
-print(response.content)
