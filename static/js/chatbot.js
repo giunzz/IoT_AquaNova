@@ -35,31 +35,26 @@ function addMessage(text, sender) {
     chatBox.scrollTop = chatBox.scrollHeight;
 }
 
+sendBtn.onclick = sendMessage;
+chatInput.addEventListener("keypress", e => {
+    if (e.key === "Enter") sendMessage();
+});
+
 /* ------------------------
    SPEECH TO TEXT
 ------------------------ */
 if ("webkitSpeechRecognition" in window) {
-    console.log("SpeechRecognition supported!");
-
     recognition = new webkitSpeechRecognition();
     recognition.lang = "vi-VN";
     recognition.continuous = false;
-    recognition.interimResults = false;
 
     recognition.onstart = () => {
-        console.log("Recording started");
         isRecording = true;
         micBtn.classList.add("listening");
         indicator.style.display = "block";
     };
 
-    recognition.onerror = (e) => {
-        console.error("SpeechRecognition error:", e);
-        alert("Không bật được microphone: " + e.error);
-    };
-
     recognition.onend = () => {
-        console.log("Recording stopped");
         isRecording = false;
         micBtn.classList.remove("listening");
         indicator.style.display = "none";
@@ -67,27 +62,14 @@ if ("webkitSpeechRecognition" in window) {
 
     recognition.onresult = (event) => {
         let text = event.results[0][0].transcript;
-        console.log("Recognized:", text);
         chatInput.value = text;
         sendMessage();
     };
-} else {
-    console.warn("Browser does NOT support webkitSpeechRecognition");
-    alert("Trình duyệt này không hỗ trợ Voice Recognition!");
 }
 
 micBtn.onclick = () => {
     if (!recognition) return alert("Trình duyệt không hỗ trợ Speech Recognition!");
 
-    if (!isRecording) {
-        console.log("Starting recognition...");
-        recognition.start();
-    } else {
-        console.log("Stopping recognition...");
-        recognition.stop();
-    }
-};
-sendBtn.onclick = sendMessage;
-chatInput.onkeypress = (e) => {
-    if (e.key === "Enter") sendMessage();
+    if (!isRecording) recognition.start();
+    else recognition.stop();
 };
