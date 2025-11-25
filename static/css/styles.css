@@ -1,144 +1,211 @@
-/* ======= BASE STYLE ======= */
+/* ======= VARIABLES & BASE ======= */
+:root { 
+  --brand: #0ea5e9; 
+  --muted: #6b7280; 
+  --bg: #f6f7fb; 
+  --header-height: 60px; /* Biến chiều cao header */
+}
+
 body { 
   font-family: system-ui, sans-serif; 
   margin: 0; 
-  background: #f7fafc; 
-  color:#111; 
+  background: var(--bg); 
+  color: #111; 
 }
 
+/* ======= HEADER (ĐÃ CHỈNH KÍCH THƯỚC) ======= */
 header { 
-  display:flex; 
-  align-items:center; 
-  justify-content:space-between; 
-  padding:12px 20px; 
-  background:#0ea5e9; 
-  color:#fff; 
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+  gap: 12px; 
+  padding: 0 24px; /* Padding ngang rộng hơn */
+  height: var(--header-height); /* Chiều cao cố định */
+  background: var(--brand); 
+  color: #fff; 
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Thêm bóng nhẹ */
+}
+
+header h2 { 
+  margin: 0; 
+  font-size: 20px; /* Cỡ chữ chuẩn */
+  font-weight: 600;
 }
 
 header a { 
-  color:#fff; 
-  margin-left:12px; 
-  text-decoration:none; 
+  color: #fff; 
+  text-decoration: none; 
+  font-size: 14px;
 }
 
-.cards { 
-  display:grid; 
-  grid-template-columns: 1fr 2fr; 
-  gap:16px; 
-  padding:20px; 
-}
-
-.card { 
-  background:#fff; 
-  border-radius:12px; 
-  padding:16px; 
-  box-shadow:0 2px 8px rgba(0,0,0,.08); 
-}
-
-table { 
-  width:100%; 
-  border-collapse:collapse; 
-}
-
-th, td { 
-  padding:8px 10px; 
-  border-bottom:1px solid #e5e7eb; 
-  font-size:14px; 
-}
-
-aside .menu a {
-  display:flex;
-  align-items:center;
-  gap:10px;
-  padding:10px 12px;
-  color:#111;
-  text-decoration:none;
-  border-radius:10px;
-}
-
-aside .menu a.active {
-  background:#eef7ff;
-  color:#0a6db2;
-}
-
-/* ======= LAYOUT ======= */
+/* ======= LAYOUT MAIN ======= */
 .layout {
   display: grid;
   grid-template-columns: 220px 1fr;
-  min-height: calc(100vh - 56px);
+  min-height: calc(100vh - var(--header-height));
 }
 
+main { 
+  padding: 20px; 
+  max-width: 100%;
+}
+
+/* ======= SIDEBAR ======= */
 aside {
   background: #fff;
   border-right: 1px solid #e5e7eb;
   padding: 16px;
 }
 
+/* Tìm và thay thế đoạn CSS cũ của 'aside .menu a' bằng đoạn này */
+
+aside .menu a {
+  position: relative; /* Quan trọng: Để định vị lớp sóng bên trong */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  color: #334155; /* Màu chữ xám đậm */
+  text-decoration: none;
+  border-radius: 10px;
+  margin-bottom: 6px;
+  transition: color 0.2s;
+  overflow: hidden; /* Quan trọng: Để sóng không bị tràn ra ngoài góc bo tròn */
+  z-index: 1; /* Đảm bảo chữ luôn nằm trên lớp sóng */
+}
+
+/* Tạo lớp nền ảo (làn sóng) */
+aside .menu a::before {
+  content: "";
+  position: absolute;
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 100%;
+  background-color: #e0f2fe; /* Màu xanh nhạt (Sky-100) */
+  z-index: -1; /* Lớp này phải nằm dưới chữ */
+  
+  /* Trạng thái ban đầu: Thu nhỏ chiều ngang về 0 */
+  transform: scaleX(0); 
+  
+  /* Điểm neo hiệu ứng: Bắt đầu từ bên trái */
+  transform-origin: left; 
+  
+  /* Tốc độ hiệu ứng: 0.3 giây, mượt mà */
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Khi di chuột vào: Giãn lớp nền ra 100% */
+aside .menu a:hover::before {
+  transform: scaleX(1);
+}
+
+/* Đổi màu chữ đậm hơn chút khi hover cho rõ */
+aside .menu a:hover {
+  color: #0284c7; 
+}
+
+/* Giữ nguyên trạng thái Active (đã chọn) */
+aside .menu a.active {
+  background: #eef7ff; /* Màu nền tĩnh cho mục đang chọn */
+  color: #0a6db2;
+  font-weight: 600;
+}
+
+/* Tắt hiệu ứng sóng cho nút đang Active (để tránh rối mắt) */
+aside .menu a.active::before {
+  display: none;
+}
+
+/* ======= CARDS & GRID ======= */
+.cards { 
+  display: grid; 
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 16px; 
+  margin-bottom: 16px; 
+}
+
+.card { 
+  background: #fff; 
+  padding: 16px; 
+  border-radius: 12px; 
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05); 
+}
+
+.card h4 { margin: 0 0 6px 0; }
+.card h3 { margin: 0 0 12px 0; }
+
+.grid2 {
+  display: grid; 
+  grid-template-columns: 1.3fr 1fr; 
+  gap: 16px;
+}
+
+/* ======= COMPONENTS (Switch, Badge, Button, Table) ======= */
+.muted { color: var(--muted); font-size: 13px; }
+
+/* Table */
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 10px 12px; border-bottom: 1px solid #edf0f4; font-size: 14px; text-align: left; }
+
+/* Switch Toggle */
+.switch {
+  width: 52px; height: 30px; border-radius: 20px; 
+  background: #e5e7eb; position: relative; cursor: pointer;
+}
+.switch.on { background: #7c3aed; }
+.switch i {
+  position: absolute; top: 3px; left: 3px; width: 24px; height: 24px; 
+  background: #fff; border-radius: 50%; transition: all .2s;
+}
+.switch.on i { left: 25px; }
+
+/* Badges */
+.badge {
+  padding: 4px 10px; border-radius: 999px; 
+  font-size: 12px; display: inline-block; font-weight: 500;
+}
+.badge.safe { background: #dcfce7; color: #166534; }
+.badge.alert { background: #fee2e2; color: #991b1b; }
+
+/* Buttons */
+.btn {
+  background: #2563eb; color: #fff; border: none; 
+  border-radius: 8px; padding: 10px 16px; cursor: pointer;
+  font-size: 14px;
+}
+.btn.secondary { background: #0ea5e9; }
+.btn.ghost { background: #f3f4f6; color: #111; }
+.btn:hover { opacity: 0.9; }
+.btn:disabled { opacity: .7; cursor: not-allowed; }
+
+.toolbar { display: flex; gap: 12px; align-items: end; flex-wrap: wrap; }
+.toolbar input, .toolbar select {
+  padding: 9px; border: 1px solid #e5e7eb; border-radius: 8px;
+}
+
 /* ======= FOOTER ======= */
 footer {
-  text-align:center;
-  padding:14px 0;
-  font-size:14px;
-  background:#fff;
-  color:#6b7280;
-  border-top:1px solid #e5e7eb;
+  text-align: center;
+  padding: 14px 0;
+  font-size: 13px;
+  background: #fff;
+  color: #6b7280;
+  border-top: 1px solid #e5e7eb;
+  margin-top: auto; /* Đẩy footer xuống đáy nếu nội dung ngắn */
 }
 
-/* ================================= */
-/* ======= RESPONSIVE RULES ======== */
-/* ================================= */
-
-/* Tablet landscape & small laptops */
-@media (max-width: 1200px) {
-  .cards {
-    grid-template-columns: 1fr 1fr;
-  }
+/* ======= RESPONSIVE ======= */
+@media (max-width: 1000px) {
+  .layout { grid-template-columns: 1fr; }
+  aside { display: none; } /* Ẩn sidebar trên tablet/mobile */
+  .cards { grid-template-columns: 1fr 1fr; }
+  .grid2 { grid-template-columns: 1fr; }
 }
 
-/* Tablet portrait */
-@media (max-width: 900px) {
-  .layout {
-    grid-template-columns: 1fr;
-  }
-  aside {
-    display: none;
-  }
-  .cards {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Mobile large */
 @media (max-width: 600px) {
-  header {
-    padding:10px 14px;
-    font-size:16px;
-  }
-  header h2 {
-    font-size:20px;
-  }
-  .card {
-    padding:14px;
-  }
-  th, td {
-    font-size:12px;
-    padding:6px 8px;
-  }
-  footer {
-    font-size:12px;
-    padding:10px 0;
-  }
-}
-
-/* Mobile small (iPhone SE, Android mini) */
-@media (max-width: 400px) {
-  header h2 {
-    font-size:18px;
-  }
-  .cards {
-    gap: 12px;
-  }
-  .card {
-    padding:12px;
-  }
+  header { padding: 0 16px; }
+  .cards { grid-template-columns: 1fr; }
+  .toolbar { flex-direction: column; align-items: stretch; }
+  .toolbar > div { width: 100%; }
 }
