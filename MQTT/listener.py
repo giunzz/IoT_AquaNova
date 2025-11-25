@@ -42,7 +42,7 @@ def start_mqtt_background(app):
 
     def on_subscribe(client, userdata, mid, granted_qos, properties=None):
         write_log(f"[MQTT] SUBACK mid={mid}, granted_qos={granted_qos}")
-
+    
     def on_message(client, userdata, msg):
         try:
             payload = msg.payload.decode("utf-8", errors="ignore")
