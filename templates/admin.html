@@ -3,44 +3,158 @@
 <head>
   <meta charset="utf-8"/>
   <title>AquaNova Admin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}"/>
+  
+  <style>
+    /* CSS riêng cho Admin Form */
+    .admin-wrapper { max-width: 800px; margin: 0 auto; }
+    .admin-header-text { margin-bottom: 20px; border-bottom: 1px solid #e5e7eb; padding-bottom: 10px; }
+    form { display: flex; flex-direction: column; gap: 10px; }
+    input, select { padding: 10px; border: 1px solid #ddd; border-radius: 8px; width: 100%; box-sizing: border-box; }
+    button[type="submit"] { width: 100%; margin-top: 5px; }
+
+    /* CSS CHO NÚT MENU MOBILE (Chỉ hiện trên file này hoặc thêm vào styles.css) */
+    .menu-toggle {
+      display: none; /* Mặc định ẩn trên máy tính */
+      background: none; border: none; color: white;
+      font-size: 24px; cursor: pointer; padding: 0;
+    }
+
+    /* Khi màn hình nhỏ hơn 1000px (Điện thoại/Tablet dọc) */
+    @media (max-width: 1000px) {
+      .menu-toggle { display: block; } /* Hiện nút 3 gạch */
+      
+      /* Style cho Sidebar khi hiển thị trên mobile */
+      aside {
+        display: none; /* Mặc định ẩn */
+      }
+      
+      /* Khi có class 'active' thì hiện ra */
+      aside.active {
+        display: block !important;
+        position: fixed;
+        top: 60px; /* Bằng chiều cao header */
+        left: 0;
+        width: 100%;
+        height: auto;
+        background: white;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        z-index: 1000;
+        padding: 0;
+      }
+      
+      aside.active .menu a {
+        border-radius: 0;
+        border-bottom: 1px solid #f1f1f1;
+        padding: 15px 20px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <header><h1>Admin</h1><a href="/">← Back</a></header>
-  <section class="cards">
-    <div class="card">
-      <h3>Create Pond</h3>
-      <form id="pondForm">
-        <input name="name" placeholder="Pond name" required>
-        <input name="location" placeholder="Location">
-        <button type="submit">Create</button>
-      </form>
-      <pre id="pondResp"></pre>
+  <header>
+    <div style="display:flex; align-items:center; gap:10px">
+      <button id="menuBtn" class="menu-toggle">☰</button>
+      <h2>AquaNova</h2>
     </div>
-    <div class="card">
-      <h3>Create Device</h3>
-      <form id="deviceForm">
-        <input name="pondId" placeholder="Pond ID" required>
-        <input name="kind" placeholder="sensor|feeder" required>
-        <input name="hw_id" placeholder="Hardware ID" required>
-        <button type="submit">Create</button>
-      </form>
-      <pre id="deviceResp"></pre>
+    
+    <div style="opacity:.95; display:flex; gap:14px; align-items:center">
+      <span style="display:none">Administrator</span> 
+      <a href="{{ url_for('home') }}" style="font-size:14px">Exit</a>
     </div>
-  </section>
+  </header>
+
+  <div class="layout">
+    
+    <aside id="sidebar">
+      <nav class="menu">
+        <a href="{{ url_for('home') }}">Dashboard</a>
+        <a href="{{ url_for('temperature_page') }}">Temperature</a>
+        <a href="{{ url_for('turbidity_page') }}">Turbidity</a>
+        <a href="{{ url_for('feed_timer_page') }}">Feed Timer</a>
+        <a href="{{ url_for('chatbot.chatbot_page') }}">Chatbot</a>
+      </nav>
+    </aside>
+
+    <main>
+      <div class="admin-wrapper">
+        <h2 class="admin-header-text">System Management</h2>
+
+        <div class="cards" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:16px;">
+          
+          <div class="card">
+            <h3>Create Pond</h3>
+            <form id="pondForm">
+              <label class="muted">Pond Name</label>
+              <input name="name" placeholder="e.g. Koi Pond A" required>
+              <label class="muted">Location</label>
+              <input name="location" placeholder="e.g. Backyard">
+              <button type="submit" class="btn">Create Pond</button>
+            </form>
+            <pre id="pondResp" style="margin-top:10px; color:green; font-size:13px"></pre>
+          </div>
+
+          <div class="card">
+            <h3>Create Device</h3>
+            <form id="deviceForm">
+              <label class="muted">Pond ID</label>
+              <input name="pondId" placeholder="Pond ID" required>
+              <label class="muted">Device Type</label>
+              <select name="kind">
+                <option value="sensor">Sensor</option>
+                <option value="feeder">Feeder</option>
+              </select>
+              <label class="muted">Hardware ID</label>
+              <input name="hw_id" placeholder="ESP32 ID" required>
+              <button type="submit" class="btn secondary">Add Device</button>
+            </form>
+            <pre id="deviceResp" style="margin-top:10px; color:green; font-size:13px"></pre>
+          </div>
+
+        </div>
+      </div>
+    </main>
+  </div>
+
   <script>
-    document.getElementById('pondForm').addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const body = Object.fromEntries(new FormData(e.target).entries());
-      const res = await fetch('/admin/ponds', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(body)});
-      document.getElementById('pondResp').textContent = await res.text();
+    // --- LOGIC CHO MOBILE MENU ---
+    const menuBtn = document.getElementById('menuBtn');
+    const sidebar = document.getElementById('sidebar');
+
+    menuBtn.addEventListener('click', () => {
+      // Thêm hoặc bỏ class 'active' cho sidebar
+      sidebar.classList.toggle('active');
     });
-    document.getElementById('deviceForm').addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const body = Object.fromEntries(new FormData(e.target).entries());
-      const res = await fetch('/admin/devices', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(body)});
-      document.getElementById('deviceResp').textContent = await res.text();
-    });
+
+    // --- LOGIC CŨ CHO FORM (Giữ nguyên) ---
+    async function handleForm(id, url, respId) {
+      document.getElementById(id).addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const btn = e.target.querySelector('button');
+        const pre = document.getElementById(respId);
+        const originalText = btn.textContent;
+        
+        btn.disabled = true; btn.textContent = 'Processing...';
+        try {
+          const body = Object.fromEntries(new FormData(e.target).entries());
+          const res = await fetch(url, {
+              method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(body)
+          });
+          pre.textContent = await res.text();
+          pre.style.color = res.ok ? 'green' : 'red';
+          if(res.ok) e.target.reset();
+        } catch(err) {
+          pre.textContent = 'Error: ' + err.message;
+        } finally {
+          btn.disabled = false; btn.textContent = originalText;
+        }
+      });
+    }
+
+    handleForm('pondForm', '/admin/ponds', 'pondResp');
+    handleForm('deviceForm', '/admin/devices', 'deviceResp');
   </script>
 </body>
 </html>
