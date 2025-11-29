@@ -58,6 +58,14 @@ if ("webkitSpeechRecognition" in window) {
         isRecording = false;
         micBtn.classList.remove("listening");
         indicator.style.display = "none";
+        console.log("Đã kết thúc ghi âm");
+    };
+    recognition.onerror = (event) => {
+        console.error("Lỗi Speech Recognition:", event.error);
+        isRecording = false;
+        micBtn.classList.remove("listening");
+        indicator.style.display = "none";
+        alert("Lỗi mic: " + event.error); // Hiển thị thông báo lỗi cho bạn thấy
     };
 
     recognition.onresult = (event) => {
@@ -65,6 +73,7 @@ if ("webkitSpeechRecognition" in window) {
         chatInput.value = text;
         sendMessage();
     };
+
 }
 
 micBtn.onclick = () => {

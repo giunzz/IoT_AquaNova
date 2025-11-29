@@ -7,8 +7,9 @@ from blueprints.control.routes import control_bp
 from blueprints.control.scheduler import start_scheduler   # 🆕 thêm dòng này
 from blueprints.admin.routes import admin_bp
 from blueprints.dashboard.routes import dashboard_bp
-from mqtt.listener import start_mqtt_background
+from MQTT.listener import start_mqtt_background
 from blueprints.chatbot.routes import chatbot_bp
+
 
 def create_app():
     app = Flask(__name__, static_folder="static", template_folder="templates")
@@ -52,7 +53,13 @@ def create_app():
 
     return app
 
-
 if __name__ == "__main__":
     app = create_app()
+    print("\n=== KIỂM TRA ĐƯỜNG DẪN ===")
+    # In ra xem có đường dẫn nào chứa chữ 'api' không
+    for rule in app.url_map.iter_rules():
+        if "api" in str(rule):
+            print(f"Đã tìm thấy: {rule}")
+    print("========================\n")
+    # ---------------------
     app.run(debug=True, use_reloader=False)
