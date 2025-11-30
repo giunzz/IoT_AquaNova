@@ -1,7 +1,4 @@
-# ============================================================
-#  AquaNova Control Blueprint
-#  Điều khiển cho ăn và quản lý lịch cho ăn
-# ============================================================
+
 
 from flask import Blueprint, request, jsonify, current_app
 import paho.mqtt.client as mqtt
@@ -12,9 +9,6 @@ control_bp = Blueprint("control_bp", __name__)
 _mqtt_pub_client = None
 
 
-# ------------------------------------------------------------
-# MQTT client helper
-# ------------------------------------------------------------
 def _get_pub():
     global _mqtt_pub_client
     if _mqtt_pub_client:
