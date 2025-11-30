@@ -1,6 +1,5 @@
 # IoT_AquaNova
-IoT project
-
+![alt text](/static/img/image.png)
 
 ### Cấu trúc dự án 
 
@@ -36,21 +35,38 @@ aquanova/
    ├─ __init__.html                
    └─ listener.html               
 ```
-![alt text](image.png)
+Trang home của web
+![alt text](/static/img/image-1.png)
+
+IP web: aquanova.space
+
+
+**Phần cứng**
+
 Device → MQTT Broker → Flask Subscriber → Firestore → Dashboard
 
-Xem log: sudo journalctl -u aquanova --no-pager
-
-IP web: http://3.26.52.227
+![alt text](image.png)
 
 
-sửa code 
-sudo nano /home/ec2-user/IoT_AquaNova/serviceAccount.json
+### Config env 
+- Config trên Aws : 
+   - Xem log: sudo journalctl -u aquanova --no-pager
+   - sudo nano /home/ec2-user/IoT_AquaNova/serviceAccount.json
+   - CTRL K 
+   - CTRL + O  →  Enter
+   - CTRL + X
+   - sudo systemctl restart aquanova
+   - sudo systemctl status aquanova  (xem activate)
+- Config file .env 
+   - service_account.json (trên firebase)
+   - FIREBASE_CREDENTIALS (path trên máy nếu local)
+   - GROQ_API_KEY (tạo trên https://console.groq.com/home)
+- Để chạy code tại env 
 
-CTRL K 
-CTRL + O  →  Enter
-CTRL + X
-
-sudo systemctl restart aquanova
-sudo systemctl status aquanova 
-(xem activate)
+```
+cd env/scripts/activate
+cd ..
+cd.. 
+python app.py
+pip install -r requirements.txt
+```
