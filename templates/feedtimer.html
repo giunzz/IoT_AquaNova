@@ -422,6 +422,65 @@
 </div>
 
 <script>
+// === PIE CHART FEED STATUS ===
+let pieChart;
+
+function renderFeedPie(amount) {
+  const ctx = document.getElementById('feedPie1').getContext('2d');
+
+  if (pieChart) pieChart.destroy();
+
+  pieChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels: ['Remaining', 'Used'],
+      datasets: [{
+        data: [amount, 100 - amount],
+        backgroundColor: ['#0ea5e9', '#e5e7eb'],
+        borderWidth: 0
+      }]
+    },
+    options: {
+      cutout: '70%',
+      plugins: { legend: { display: false } }
+    }
+  });
+}
+
+async function loadFeedStatus() {
+  try {
+    const res = await fetch('/dashboard/last');
+    const data = await res.json();
+
+    if (!data.item) return;
+
+    const amount = Number(data.item.feed_amount ?? data.item.feed ?? NaN);
+    const time = data.item.ts || '—';
+
+    // Cập nhật text
+    document.getElementById('feedPie1Num').textContent = amount + '%';
+    document.getElementById('feedPie1Time').textContent = time;
+
+    // Warning
+    const warn = document.getElementById('feedPie1Warn');
+    warn.style.display = amount < 10 ? 'block' : 'none';
+
+    // Vẽ pie chart
+    if (!isNaN(amount)) renderFeedPie(amount);
+
+  } catch (err) {
+    console.error('[FEED STATUS ERROR]', err);
+  }
+}
+
+// Load ban đầu
+loadFeedStatus();
+// Reload 10 phút
+setInterval(loadFeedStatus, 10 * 60 * 1000);
+</script>
+
+
+<script>
   const FEED_NOW_API = '/control/feed-now';
   const SCHEDULE_API = '/control/schedule';
   const SCHEDULES_API = '/control/schedules';
