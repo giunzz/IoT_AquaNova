@@ -1,120 +1,166 @@
 import os
 import json
-import random
 from datetime import datetime, timedelta
 from dotenv import load_dotenv
 from agno.agent import Agent
 from agno.models.openai.chat import OpenAIChat
-from firebase_admin import firestore
+
+# Import hàm kết nối DB
+try:
+    from firebase_admin_init import get_db
+except ImportError:
+    import sys
+    sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
+    from firebase_admin_init import get_db
 
 load_dotenv()
 
-# --- HELPER FUNCTION: DATA SERIALIZATION ---
+# --- HÀM HỖ TRỢ ---
 def safe_json_dump(data):
-    """Safely convert data to JSON string, handling datetime objects."""
+    """Chuyển đổi dữ liệu sang JSON (Dùng cho hàm get_current_sensors)."""
     def converter(o):
         if isinstance(o, datetime):
             return o.strftime("%Y-%m-%d %H:%M:%S")
-        if hasattr(o, 'isoformat'): # Handle Firestore Timestamp
+        if hasattr(o, 'isoformat'):
             return o.isoformat()
         return str(o)
-        
     return json.dumps(data, default=converter, ensure_ascii=False)
 
-# --- PART 1: DEFINE TOOLS ---
-
+# --- TOOL 1: LẤY CẢM BIẾN (Giữ nguyên JSON để Agent dễ đọc số) ---
 def get_current_sensors() -> str:
     """
-    Retrieves the latest sensor data (Temperature, Turbidity) from Firestore.
-    Use this tool when the user asks for current status, water quality, or sensor readings.
+    Lấy thông số nhiệt độ và độ đục hiện tại.
     """
     try:
-        db = firestore.client()
-        docs = db.collection('telemetry').order_by('timestamp', direction=firestore.Query.DESCENDING).limit(1).stream()
+        db = get_db()
+        docs = db.collection('readings').order_by('ts', direction='DESCENDING').limit(1).stream()
         
-        data = None
+        latest = None
+        for doc in docs: latest = doc.to_dict()
+            
+        if latest:
+            return safe_json_dump({
+                "temperature": latest.get('temperature'),
+                "turbidity": latest.get('turbidity'),
+                "time": latest.get('ts')
+            })
+        return "Không có dữ liệu cảm biến."
+    except Exception as e:
+        return f"Lỗi đọc cảm biến: {str(e)}"
+
+def get_average_temperature() -> str:
+    """
+    Tính nhiệt độ trung bình từ 10 mẫu dữ liệu gần nhất.
+    Sử dụng khi người dùng hỏi về: nhiệt độ trung bình, nhiệt độ chung.
+    """
+    try:
+        db = get_db()
+        # Lấy 10 bản ghi gần nhất
+        docs = db.collection('readings').order_by('ts', direction='DESCENDING').limit(10).stream()
+        
+        temps = []
         for doc in docs:
             data = doc.to_dict()
+            if 'temperature' in data:
+                temps.append(float(data['temperature']))
+        
+        if not temps:
+            return "Không có dữ liệu để tính trung bình."
             
-        if data:
-            return safe_json_dump(data)
-        else:
-            return "System has not recorded any sensor data yet."
+        avg_temp = sum(temps) / len(temps)
+        return f"{avg_temp:.2f}" # Trả về số trung bình chính xác
     except Exception as e:
-        return f"Error reading database: {str(e)}"
+        return "Lỗi tính toán"
 
+
+# --- TOOL 2: DỰ BÁO THAY NƯỚC (SỬA ĐỔI: TRẢ VỀ VĂN BẢN THUẦN) ---
 def predict_maintenance() -> str:
     """
-    Analyzes historical data to predict water change schedule based on turbidity trends.
-    Use this tool when the user asks about maintenance, cleaning prediction, or water change schedule.
+    Dự báo chính xác thời điểm cần thay nước.
+    Trả về câu trả lời văn bản tiếng Việt rõ ràng, không chứa JSON.
     """
     try:
-        db = firestore.client()
-        # Get last 20 samples
-        docs = db.collection('telemetry').order_by('timestamp', direction=firestore.Query.DESCENDING).limit(20).stream()
+        db = get_db()
+        # Lấy 20 mẫu gần nhất
+        docs = db.collection('readings').order_by('ts', direction='DESCENDING').limit(20).stream()
         records = [doc.to_dict() for doc in docs]
         
-        if not records or len(records) < 2:
-            return "Insufficient historical data for prediction."
+        if len(records) < 5:
+            return "Hiện tại hệ thống chưa thu thập đủ dữ liệu để dự báo. Vui lòng đợi thêm một lát."
 
-        # Get latest and oldest records in the batch
-        current_record = records[0]
-        past_record = records[-1]
-        
-        current_turbidity = current_record.get('turbidity', 0)
-        past_turbidity = past_record.get('turbidity', 0)
-        
-        # Parse timestamps
-        t1 = current_record.get('timestamp')
-        t2 = past_record.get('timestamp')
-        
-        # Handle string or datetime objects
-        if isinstance(t1, str): t1 = datetime.fromisoformat(t1.replace('Z', '+00:00'))
-        if isinstance(t2, str): t2 = datetime.fromisoformat(t2.replace('Z', '+00:00'))
-        
-        if hasattr(t1, 'to_datetime'): t1 = t1.to_datetime()
-        if hasattr(t2, 'to_datetime'): t2 = t2.to_datetime()
-        
-        if isinstance(t1, datetime) and isinstance(t2, datetime):
-            t1 = t1.replace(tzinfo=None)
-            t2 = t2.replace(tzinfo=None)
-            time_diff = (t1 - t2).total_seconds() / 3600
-        else:
-            time_diff = 1
-            
-        if time_diff <= 0: time_diff = 0.1
+        # Sắp xếp theo thời gian
+        records.sort(key=lambda x: str(x.get('ts', '')))
 
-        # Calculate growth rate
-        growth_rate = (current_turbidity - past_turbidity) / time_diff
-        threshold = 100 
+        # Chuẩn bị dữ liệu tính toán
+        x_time = []
+        y_turb = []
+        start_time = None
+        latest_time = None
         
-        # Analyze
-        if current_turbidity >= threshold:
-            return f"CRITICAL WARNING: Water is very dirty ({current_turbidity} NTU). Change water IMMEDIATELY!"
-            
-        if growth_rate <= 0:
-             return safe_json_dump({
-                "current_turbidity": current_turbidity,
-                "status": "Good",
-                "message": "Water quality is stable or improving. No maintenance needed yet."
-            })
-            
-        remaining = threshold - current_turbidity
-        hours_left = remaining / growth_rate
-        days_left = hours_left / 24
+        for r in records:
+            ts_val = r.get('ts') or r.get('timestamp')
+            tur_val = r.get('turbidity')
+            if not ts_val or tur_val is None: continue
+
+            try:
+                if isinstance(ts_val, str):
+                    dt = datetime.fromisoformat(ts_val.replace('Z', '+00:00'))
+                else:
+                    dt = ts_val
+                dt = dt.replace(tzinfo=None)
+                
+                if start_time is None: start_time = dt
+                
+                hours = (dt - start_time).total_seconds() / 3600.0
+                x_time.append(hours)
+                y_turb.append(float(tur_val))
+                latest_time = dt
+            except:
+                continue
+
+        if len(x_time) < 5: return "Dữ liệu bị lỗi, không thể tính toán dự báo."
+
+        # Tính Linear Regression (Tìm độ dốc a)
+        n = len(x_time)
+        sum_x = sum(x_time)
+        sum_y = sum(y_turb)
+        sum_xy = sum(x*y for x,y in zip(x_time, y_turb))
+        sum_xx = sum(x*x for x in x_time)
         
-        return safe_json_dump({
-            "current_turbidity": current_turbidity,
-            "growth_rate": f"{growth_rate:.2f} NTU/h",
-            "prediction": f"Approximately {days_left:.1f} days left until water change is needed."
-        })
+        denominator = n * sum_xx - sum_x * sum_x
+        if denominator == 0: slope = 0
+        else: slope = (n * sum_xy - sum_x * sum_y) / denominator
+
+        current_turb = y_turb[-1]
+        THRESHOLD = 250.0 # Ngưỡng thay nước
+
+        # --- TẠO CÂU TRẢ LỜI TỰ NHIÊN (TEXT ONLY) ---
+        
+        if current_turb >= THRESHOLD:
+            return f"CẢNH BÁO KHẨN CẤP: Độ đục hiện tại là {current_turb:.1f} NTU đã vượt mức an toàn. Bạn cần thay nước ngay lập tức!"
+
+        if slope <= 0.1:
+            return f"Chất lượng nước hiện tại rất ổn định ({current_turb:.1f} NTU). Chưa cần thay nước trong thời gian tới."
+        
+        # Tính toán deadline
+        hours_left = (THRESHOLD - current_turb) / slope
+        deadline = latest_time + timedelta(hours=hours_left)
+        deadline_str = deadline.strftime("%H giờ %M phút, ngày %d/%m/%Y")
+        
+        days_left = hours_left / 24.0
+        
+        if days_left > 30:
+            return f"Nước vẫn rất sạch ({current_turb:.1f} NTU). Dự kiến hơn 1 tháng nữa mới cần thay."
+            
+        # Câu trả lời chốt hạ
+        return (f"Theo phân tích xu hướng, độ đục đang tăng dần. "
+                f"Dự kiến bạn cần thay nước trước {deadline_str} "
+                f"(tức là khoảng {days_left:.1f} ngày nữa).")
 
     except Exception as e:
-        print(f"Prediction Error: {e}")
-        return f"Error calculating prediction: {str(e)}"
+        return "Xin lỗi, hệ thống gặp lỗi khi tính toán dự báo."
 
-# --- PART 2: CONFIGURE AGENT ---
-
+# --- CẤU HÌNH AGENT ---
 model = OpenAIChat(
     id="moonshotai/kimi-k2-instruct-0905",
     api_key=os.getenv("GROQ_API_KEY"),
@@ -150,6 +196,7 @@ PROTOCOL:
 2. TOOL USAGE:
    - Call `get_current_sensors` for real-time readings (Temperature, Turbidity).
    - Call `predict_maintenance` for trends and water change schedules.
+   - Call get_average_temperature() for average temperature or turbidity inquiries.
 3. HALLUCINATION CHECK: Never invent data. If tools return "Error" or "No data", report that honestly.
 4. RESPONSE:
    - Answer in VIETNAMESE (Tiếng Việt).
@@ -159,18 +206,17 @@ PROTOCOL:
      - If Turbidity > 250 NTU: Add a water quality warning.
 
 Example User:"Nhiệt độ bể cá bao nhiêu?"
-Example Tool Output:`{"temperature": 28.5, "turbidity": 45}`
+Example Tool Output:`{"temperature": 28.5}'
 Example Response:"Nhiệt độ hiện tại của bể là 28.5°C, mức này rất tốt cho cá phát triển ạ."
 
 CRITICAL RESTRICTIONS
 - Do not mix JSON commands with text. It's either JSON (Mode 1) OR Text (Mode 2).
 - Always prioritize user safety and fish health.
 """
-
 aqua_agent = Agent(
     name="AquaNova Smart Agent",
     model=model,
-    tools=[get_current_sensors, predict_maintenance], 
+    tools=[get_current_sensors, predict_maintenance, get_average_temperature], 
     system_message=system_prompt,
     markdown=True, 
     debug_mode=True
