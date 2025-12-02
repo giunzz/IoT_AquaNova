@@ -38,7 +38,7 @@ aquanova/
 Trang home của web
 ![alt text](/static/img/image-1.png)
 
-IP web: aquanova.space
+IP web: https://aquanova.space
 
 
 **Phần cứng**
@@ -69,4 +69,14 @@ cd ..
 cd.. 
 python app.py
 pip install -r requirements.txt
+```
+
+- Config khi AWS đổi public ip 
+   - Sửa trên  godady với Ip tương ứng 
+   ![alt text](/static/img/ip.png.png)
+   - AWs gõ 
+```
+sudo certbot --nginx -d aquanova.space -d www.aquanova.space
+sudo systemctl restart aquanova
+sudo systemctl status aquanova
 ```

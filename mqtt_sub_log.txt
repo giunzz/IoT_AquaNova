@@ -8134,3 +8134,48 @@ message: "Cloud Firestore API has not been used in project aquanova2-5f608 befor
 2025-12-01T00:53:22.066569 [MQTT]  CONNECTED with code=Success
 2025-12-01T00:53:22.067405 [MQTT] SUBSCRIBE sent topic=aquanova/telemetry mid=1 result=0
 2025-12-01T00:53:22.287576 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-12-02T08:46:10.614778 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-12-02T08:46:10.614837 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/telemetry
+2025-12-02T08:46:11.903008 [MQTT]  CONNECTED with code=Success
+2025-12-02T08:46:11.904030 [MQTT] SUBSCRIBE sent topic=aquanova/telemetry mid=1 result=0
+2025-12-02T08:46:12.131207 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-12-02T09:28:14.534657 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-12-02T09:28:14.534695 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/telemetry
+2025-12-02T09:28:15.813877 [MQTT]  CONNECTED with code=Success
+2025-12-02T09:28:15.814559 [MQTT] SUBSCRIBE sent topic=aquanova/telemetry mid=1 result=0
+2025-12-02T09:28:16.052663 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-12-02T09:33:57.912203 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-12-02T09:33:57.912235 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/telemetry
+2025-12-02T09:33:59.167014 [MQTT]  CONNECTED with code=Success
+2025-12-02T09:33:59.168012 [MQTT] SUBSCRIBE sent topic=aquanova/telemetry mid=1 result=0
+2025-12-02T09:33:59.402420 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-12-02T09:35:41.214116 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-12-02T09:35:41.214173 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/telemetry
+2025-12-02T09:35:42.539183 [MQTT]  CONNECTED with code=Success
+2025-12-02T09:35:42.541275 [MQTT] SUBSCRIBE sent topic=aquanova/telemetry mid=1 result=0
+2025-12-02T09:35:42.791431 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-12-02T09:38:09.476199 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-12-02T09:38:09.476254 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/telemetry
+2025-12-02T09:38:10.837692 [MQTT]  CONNECTED with code=Success
+2025-12-02T09:38:10.839309 [MQTT] SUBSCRIBE sent topic=aquanova/telemetry mid=1 result=0
+2025-12-02T09:38:11.109001 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-12-02T09:46:14.855646 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-12-02T09:46:14.855686 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/telemetry
+2025-12-02T09:46:15.985059 [MQTT]  CONNECTED with code=Success
+2025-12-02T09:46:15.985818 [MQTT] SUBSCRIBE sent topic=aquanova/telemetry mid=1 result=0
+2025-12-02T09:46:16.239239 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-12-02T09:49:55.099742 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-12-02T09:49:55.099774 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/telemetry
+2025-12-02T09:49:56.639080 [MQTT]  CONNECTED with code=Success
+2025-12-02T09:49:56.639728 [MQTT] SUBSCRIBE sent topic=aquanova/telemetry mid=1 result=0
+2025-12-02T09:49:56.867243 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-12-02T09:56:45.494006 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-12-02T09:56:45.494084 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/telemetry
+2025-12-02T09:56:46.703424 [MQTT]  CONNECTED with code=Success
+2025-12-02T09:56:46.705168 [MQTT] SUBSCRIBE sent topic=aquanova/telemetry mid=1 result=0
+2025-12-02T09:56:46.959999 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]
+2025-12-02T09:59:24.362827 [MQTT] 🔌 Connecting to fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883
+2025-12-02T09:59:24.362859 [MQTT] LISTENING fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud:8883 topic=aquanova/telemetry
+2025-12-02T09:59:25.643293 [MQTT]  CONNECTED with code=Success
+2025-12-02T09:59:25.644307 [MQTT] SUBSCRIBE sent topic=aquanova/telemetry mid=1 result=0
+2025-12-02T09:59:25.882801 [MQTT] SUBACK mid=1, granted_qos=[ReasonCode(Suback, 'Granted QoS 1')]

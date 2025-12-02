@@ -169,7 +169,124 @@
     .card{ padding:14px; }
     th,td{ font-size:12px; padding:8px 6px; }
   }
+    /* SIDEBAR MOBILE STYLE */
+  /* ==========================
+        RESPONSIVE MOBILE
+    ========================== */
+  @media (max-width:1000px){
 
+    /* layout collapse */
+    .layout{
+      grid-template-columns:1fr;
+    }
+
+    aside{
+      display:none;
+    }
+
+    .grid2{
+      grid-template-columns:1fr !important;
+    }
+    
+    main{
+      padding:16px;
+    }
+
+    /* menu button */
+    .menu-toggle{
+      display:block;
+    }
+
+    aside.active{
+      display:block !important;
+      position:fixed;
+      top:60px;
+      left:0;
+      width:100%;
+      background:white;
+      box-shadow:0 4px 10px rgba(0,0,0,0.15);
+      z-index:1000;
+    }
+
+    aside.active .menu a{
+      padding:15px 20px;
+      border-bottom:1px solid #eee;
+      border-radius:0;
+    }
+  }
+
+  /* Small screens */
+  @media (max-width:600px){
+    .cards{ grid-template-columns:1fr; }
+
+    table th, table td{
+      font-size:12px;
+      padding:8px 6px;
+      white-space:nowrap;
+    }
+  }
+
+  /* MENU BUTTON */
+  .menu-toggle {
+    display:none;
+    background:none;
+    border:none;
+    color:white;
+    font-size:26px;
+    cursor:pointer;
+    margin-right:10px;
+  }
+  /* SIDEBAR MOBILE STYLE */
+  @media (max-width: 1000px) {
+
+    .menu-toggle {
+      display: block;
+    }
+
+    aside {
+      display: none;  /* Ẩn mặc định */
+    }
+
+    aside.active {
+      display: block !important;
+      position: fixed;
+      top: 56px; /* chiều cao header */
+      left: 0;
+      width: 100%;
+      background: white;
+      z-index: 2000;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    aside.active .menu a {
+      padding: 18px 22px;
+      border-bottom: 1px solid #f1f1f1;
+      font-size: 16px;
+      color: #111;
+      display: block;
+    }
+
+    /* Ngăn che nội dung */
+    main {
+      padding-top: 10px;
+    }
+  }
+  aside.active {
+    animation: slideDown .20s ease-out;
+  }
+
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-15px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  aside.active {
+  animation: slideDown .20s ease-out;
+  }
+
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-15px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
 
 </style>
 </head>
@@ -177,14 +294,18 @@
 <body>
 <div class="page-wrapper">
 
-  <!-- HEADER -->
   <header>
+  <div style="display:flex; align-items:center; gap:10px;">
+    <button id="menuBtn" class="menu-toggle">☰</button>
     <h2>AquaNova</h2>
-    <div style="opacity:.95; display:flex; gap:14px; align-items:center">
-      <span>Feed Timer</span>
-      <a href="{{ url_for('admin_page') }}" style="color:#fff; text-decoration:none">Admin</a>
-    </div>
-  </header>
+  </div>
+
+  <div style="opacity:.95; display:flex; gap:14px; align-items:center">
+    <span>Feed Timer</span>
+    <a href="{{ url_for('admin_page') }}" style="color:#fff; text-decoration:none">Admin</a>
+  </div>
+</header>
+
 
   <!-- LAYOUT -->
   <div class="layout">
@@ -403,6 +524,14 @@
   (async function init(){
     await refreshSchedules();
   })();
+</script>
+<script>
+const menuBtn = document.getElementById('menuBtn');
+const sidebar = document.querySelector('aside');
+
+menuBtn.addEventListener('click', () => {
+  sidebar.classList.toggle('active');
+});
 </script>
 
 </body>

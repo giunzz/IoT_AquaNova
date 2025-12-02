@@ -9,7 +9,7 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
   
   <style>
-      :root { 
+    :root { 
     --brand:#0ea5e9; 
     --muted:#6b7280; 
     --bg:#f6f7fb; 
@@ -22,8 +22,6 @@
   html, body{
     width:100%;
     height:100%;
-    margin:0;
-    padding:0;
     background:var(--bg);
     font-family:system-ui, Arial, sans-serif;
   }
@@ -33,7 +31,7 @@
     flex-direction:column;
   }
 
-  /* HEADER FULL WIDTH */
+  /* HEADER */
   header{
     width:100%;
     padding:14px 18px;
@@ -44,12 +42,11 @@
     align-items:center;
   }
 
-  /* LAYOUT FULLSCREEN */
+  /* LAYOUT */
   .layout{
     display:grid;
     grid-template-columns:240px 1fr;
     width:100%;
-    height:100%;
     min-height:calc(100vh - 56px);
   }
 
@@ -58,7 +55,6 @@
     background:#fff;
     border-right:1px solid #e5e7eb;
     padding:16px;
-    height:100%;
   }
 
   aside .menu a{
@@ -75,34 +71,34 @@
     color:#0a6db2;
   }
 
-  /* MAIN FULL WIDTH */
+  /* MAIN */
   main{
-    width:100%;
-    height:100%;
     padding:20px;
   }
 
-  /* CARDS FULL WIDTH, TỰ CHIA */
+  /* CARDS */
   .cards{
     width:100%;
     display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
-    gap:18px;
-    margin-bottom:20px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap:16px;
   }
 
   .card{
-    background:#fff;
+    background:white;
+    border-radius:12px;
     padding:18px;
-    border-radius:14px;
-    box-shadow:0 2px 12px rgba(0,0,0,.06);
+    overflow:hidden; /* fix tràn chart */
   }
 
-  /* CHART + TABLE FULL WIDTH */
+  /* Chart max size fix */
+  canvas{ max-width:100% !important; }
+
+  /* CHART + TABLE GRID */
   .grid2{
     width:100%;
     display:grid;
-    grid-template-columns: 1.2fr 1fr;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
     gap:18px;
   }
 
@@ -115,32 +111,147 @@
   .safe{ background:#dcfce7; color:#166534; }
   .alert{ background:#fee2e2; color:#991b1b; }
 
-  /* ===== RESPONSIVE ===== */
+  /* TABLE WRAPPER (fix tràn) */
+  .table-wrapper{
+    width:100%;
+    overflow-x:auto;
+  }
+
+  /* ==========================
+        RESPONSIVE MOBILE
+    ========================== */
   @media (max-width:1000px){
+
+    /* layout collapse */
     .layout{
       grid-template-columns:1fr;
     }
-    aside{ display:none; }
-    .grid2{ grid-template-columns:1fr; }
+
+    aside{
+      display:none;
+    }
+
+    .grid2{
+      grid-template-columns:1fr !important;
+    }
+    
+    main{
+      padding:16px;
+    }
+
+    /* menu button */
+    .menu-toggle{
+      display:block;
+    }
+
+    aside.active{
+      display:block !important;
+      position:fixed;
+      top:60px;
+      left:0;
+      width:100%;
+      background:white;
+      box-shadow:0 4px 10px rgba(0,0,0,0.15);
+      z-index:1000;
+    }
+
+    aside.active .menu a{
+      padding:15px 20px;
+      border-bottom:1px solid #eee;
+      border-radius:0;
+    }
   }
 
+  /* Small screens */
   @media (max-width:600px){
     .cards{ grid-template-columns:1fr; }
-    .card{ padding:14px; }
-    table th, table td{ font-size:12px; padding:8px 6px; }
+
+    table th, table td{
+      font-size:12px;
+      padding:8px 6px;
+      white-space:nowrap;
+    }
   }
+
+  /* MENU BUTTON */
+  .menu-toggle {
+    display:none;
+    background:none;
+    border:none;
+    color:white;
+    font-size:26px;
+    cursor:pointer;
+    margin-right:10px;
+  }
+  /* SIDEBAR MOBILE STYLE */
+  @media (max-width: 1000px) {
+
+    .menu-toggle {
+      display: block;
+    }
+
+    aside {
+      display: none;  /* Ẩn mặc định */
+    }
+
+    aside.active {
+      display: block !important;
+      position: fixed;
+      top: 56px; /* chiều cao header */
+      left: 0;
+      width: 100%;
+      background: white;
+      z-index: 2000;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    aside.active .menu a {
+      padding: 18px 22px;
+      border-bottom: 1px solid #f1f1f1;
+      font-size: 16px;
+      color: #111;
+      display: block;
+    }
+
+    /* Ngăn che nội dung */
+    main {
+      padding-top: 10px;
+    }
+  }
+  aside.active {
+    animation: slideDown .20s ease-out;
+  }
+
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-15px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  aside.active {
+  animation: slideDown .20s ease-out;
+  }
+
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-15px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
 
   </style>
 </head>
+
 <body>
   <header>
+  <div style="display:flex; align-items:center; gap:10px;">
+    <button id="menuBtn" class="menu-toggle">☰</button>
     <h2>AquaNova</h2>
+  </div>
+
   <div style="opacity:.95; display:flex; gap:14px; align-items:center">
     <span>Dashboard</span>
     <a href="{{ url_for('admin_page') }}" style="color:#fff; text-decoration:none">Admin</a>
   </div>
-  </header>
-
+</header>
+  
   <div class="layout">
     <aside>
       <nav class="menu">
@@ -151,6 +262,7 @@
         <a class="tab-link" href="{{ url_for('chatbot.chatbot_page') }}">Chatbot</a>
       </nav>
     </aside>
+    
 
     <main>
       <!-- CARDS -->
@@ -187,18 +299,25 @@
           <h3 style="margin:6px 0 10px">Turbidity</h3>
           <canvas id="turbChart" height="260"></canvas>
         </div>
-
         <div class="card">
-          <div class="right"><small class="muted" id="tableUpdated">—</small></div>
-          <h3 style="margin:6px 0 10px">Temperature</h3>
-          <table>
-            <thead>
-              <tr><th>Date time</th><th>Current Temp (°C)</th><th>Safe Range (°C)</th><th>Device</th><th>Status</th></tr>
-            </thead>
-            <tbody id="tempRows"></tbody>
-          </table>
-        </div>
-      </div>
+      <div class="right"><small class="muted" id="tableUpdated">—</small></div>
+      <h3 style="margin:6px 0 10px">Temperature</h3>
+
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Date time</th>
+            <th>Current Temp (°C)</th>
+            <th>Safe Range (°C)</th>
+            <th>Device</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="tempRows"></tbody>
+      </table>
+    </div>
+  </div>
     </main>
   </div>
 
@@ -377,17 +496,32 @@
     loadAll();
     setInterval(loadAll, 600000);
   </script>
+  
+
+  <script>
+  // MOBILE MENU
+  const menuBtn = document.getElementById('menuBtn');
+  const sidebar = document.querySelector('aside');
+
+  menuBtn.addEventListener('click', () => {
+    sidebar.classList.toggle('active');
+  });
+</script>
+
   <footer style="
-  margin-top:20px;
-  padding:14px 0;
-  text-align:center;
-  font-size:14px;
-  color:#6b7280;
-  background:#ffffff;
-  border-top:1px solid #fff;
-">
-  AquaNova © 2025 – IoT Fish Monitoring System
-</footer>
+    margin-top:20px;
+    padding:14px 0;
+    text-align:center;
+    font-size:14px;
+    color:#6b7280;
+    background:#ffffff;
+    border-top:1px solid #fff;
+  ">
+    AquaNova © 2025 – IoT Fish Monitoring System
+  </footer>
+
+
+  
 
 </body>
 </html>
