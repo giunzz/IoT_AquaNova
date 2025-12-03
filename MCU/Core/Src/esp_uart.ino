@@ -6,56 +6,44 @@
 #include <WiFiUdp.h>
 #include <time.h>
 
-//CẤU HÌNH PHẦN CỨNG 
 
-const int STM32_RX_PIN = 20; // Chân RX của ESP32 (kết nối với TX của STM32)
-const int STM32_TX_PIN = 21; // Chân TX của ESP32 (kết nối với RX của STM32)
+const int STM32_RX_PIN = 20; 
+const int STM32_TX_PIN = 21; 
 
 #define MQTT_MAX_PACKET_SIZE 512
 
-// THÔNG TIN WIFI 
 const char* ssid = "wifi";
 const char* password = "00000000";
 
-// THÔNG TIN MQTT BROKER 
 const char* mqtt_server = "fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud";
 const int mqtt_port = 8883;
 const char* mqtt_user = "aquanova_user";
 const char* mqtt_pass = "Aquanova123";
 
-//  MQTT TOPICS 
 const char* publish_topic = "aquanova/telemetry";
 const char* subscribe_topic = "aquanova/control";
 
-// NTP CLIENT
 WiFiUDP ntpUDP;
 NTPClient timeClient(ntpUDP, "pool.ntp.org", 25200);
 
-//  MQTT CLIENT 
 WiFiClientSecure espClient;
 PubSubClient client(espClient);
 
-// BIẾN TOÀN CỤC 
 unsigned long lastMsg = 0;
-const unsigned long SEND_INTERVAL = 30000; // 30 giây
-
-//  KHAI BÁO HÀM 
+const unsigned long SEND_INTERVAL = 30000; 
 void reconnect(); 
 void callback(char* topic, byte* payload, unsigned int length);
 void publishSensorData();
 String convertPayloadToJson(String payload);
 
 void setup() { 
-  // Bắt đầu Serial cho monitor (kết nối máy tính) ở tốc độ cao hơn
   Serial.begin(115200);
-  delay(1000); // Đợi để ổn định
+  delay(1000); 
   Serial.println("\n\n=== AquaNova ESP32-C3 MQTT ===");
 
-  // Bắt đầu Serial1 để giao tiếp với STM32
   Serial1.begin(9600, SERIAL_8N1, STM32_RX_PIN, STM32_TX_PIN);
   Serial.printf("[UART] Serial1 started for STM32 on RX:%d, TX:%d\n", STM32_RX_PIN, STM32_TX_PIN);
 
-  // Kết nối WiFi 
   Serial.print("[WiFi] Connecting to ");
   Serial.println(ssid);
   WiFi.mode(WIFI_STA);
@@ -78,13 +66,11 @@ void setup() {
     ESP.restart();
   }
 
-  // Đồng bộ thời gian NTP 
   Serial.print("[NTP] Syncing time...");
   timeClient.begin();
   timeClient.forceUpdate();
   Serial.println("\n[NTP] Time synced!");
 
-  // Cấu hình MQTT 
   espClient.setInsecure();
   client.setServer(mqtt_server, mqtt_port);
   client.setCallback(callback);
