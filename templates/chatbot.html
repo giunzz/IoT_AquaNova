@@ -155,6 +155,28 @@
     from { opacity: 0; transform: translateY(-15px); }
     to   { opacity: 1; transform: translateY(0); }
   }
+  .footer-full {
+    width:100%;
+    padding:14px 0;
+    text-align:center;
+    font-size:14px;
+    background:#fff;
+    color:#6b7280;
+    border-top:1px solid #e5e7eb;
+    flex-shrink:0;
+  }
+  .footer-section h4 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: #0ea5e9; /* màu xanh brand AquaNova */
+}
+
+  .footer-section p {
+      margin: 3px 0;
+      font-size: 14px;
+  }
+
 
   </style>
 </head>
@@ -212,7 +234,10 @@
 </div>
 
 <footer class="footer-full">
-  AquaNova © 2025 – IoT Fish Monitoring System
+  <div class="footer-section">
+      <h4>Thành viên thực hiện</h4>
+      <p>Hoàng Ngọc Dung – 23139006 | Đoàn Minh Duy Bình – 23139005 | Trần Hữu Dương – 23130009</p>
+  </div>
 </footer>
 
 <script src="{{ url_for('static', filename='js/chatbot.js') }}"></script>

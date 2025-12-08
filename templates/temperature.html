@@ -4,289 +4,262 @@
   <meta charset="utf-8">
   <title>AquaNova – Temperature</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="icon" type="image/png" href="{{ url_for('static', filename='/static/img/logo_aquanova.png') }}">
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='/img/logo_aquanova.png') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
-
+  
   <style>
-      :root { 
-    --brand:#0ea5e9; 
-    --muted:#6b7280; 
-    --bg:#f6f7fb; 
-    --ok:#16a34a; 
-    --bad:#dc2626; 
-  }
+    :root { 
+      --brand:#0ea5e9; 
+      --muted:#6b7280; 
+      --bg:#f6f7fb; 
+      --ok:#16a34a; 
+      --bad:#dc2626; 
+    }
 
-  *{ box-sizing:border-box; margin:0; padding:0; }
+    *{ box-sizing:border-box; margin:0; padding:0; }
 
-  html, body{
-    width:100%;
-    height:100%;
-    margin:0;
-    padding:0;
-    background:var(--bg);
-    font-family:system-ui, Arial, sans-serif;
-  }
+    html, body{
+      width:100%;
+      height:100%;
+      background:var(--bg);
+      font-family:system-ui, Arial, sans-serif;
+    }
 
-  body{
-    display:flex;
-    flex-direction:column;
-  }
+    body{
+      display:flex;
+      flex-direction:column;
+      min-height:100vh; 
+    }
 
-  /* HEADER FULL WIDTH */
-  header{
-    width:100%;
-    padding:14px 18px;
-    background:var(--brand);
-    color:#fff;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-  }
+    /* HEADER */
+    header{
+      width:100%;
+      padding:14px 18px;
+      background:var(--brand);
+      color:#fff;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
 
-  /* LAYOUT FULLSCREEN */
-  .layout{
-    width:100%;
-    flex:1;
-    display:grid;
-    grid-template-columns:240px 1fr;
-    min-height:calc(100vh - 56px);
-  }
-
-  /* SIDEBAR */
-  aside{
-    background:#fff;
-    border-right:1px solid #e5e7eb;
-    padding:16px;
-    height:100%;
-  }
-
-  aside .menu a{
-    display:block;
-    padding:10px 12px;
-    margin-bottom:8px;
-    text-decoration:none;
-    color:#111;
-    border-radius:10px;
-  }
-  aside .menu a.active{
-    background:#eef7ff;
-    color:#0a6db2;
-  }
-
-  /* MAIN CONTENT FULL WIDTH */
-  main{
-    width:100%;
-    height:100%;
-    padding:20px;
-  }
-
-  /* CARD */
-  .card{
-    background:#fff;
-    padding:16px;
-    border-radius:14px;
-    box-shadow:0 2px 12px rgba(0,0,0,.06);
-  }
-
-  /* GRID (CHART + SUMMARY) */
-  .row{
-    width:100%;
-    display:grid;
-    grid-template-columns:1.2fr 1fr;
-    gap:18px;
-  }
-
-  /* TOOLBAR */
-  .toolbar{
-    display:flex;
-    flex-wrap:wrap;
-    gap:12px;
-    align-items:end;
-  }
-
-  input{
-    padding:9px 10px;
-    border:1px solid #e5e7eb;
-    border-radius:10px;
-    background:#fff;
-  }
-
-  .btn{
-    background:#2563eb;
-    color:#fff;
-    border:none;
-    border-radius:10px;
-    padding:10px 14px;
-    cursor:pointer;
-  }
-  .btn.secondary{ background:#0ea5e9; }
-  .btn.ghost{ background:#f3f4f6; color:#111; }
-
-  /* TABLE FULL WIDTH */
-  table{ width:100%; border-collapse:collapse; }
-  th, td{
-    padding:10px 12px;
-    border-bottom:1px solid #edf0f4;
-    font-size:14px;
-    text-align:left;
-  }
-
-  /* STATUS BADGES */
-  .status{
-    padding:4px 10px;
-    border-radius:999px;
-    font-size:12px;
-    display:inline-block;
-  }
-  .ok{ background:#dcfce7; color:#166534; }
-  .bad{ background:#fee2e2; color:#991b1b; }
-
-  /* FOOTER FULL WIDTH */
-  footer{
-    width:100vw;
-    margin-left:calc(50% - 50vw);
-    padding:14px 0;
-    text-align:center;
-    background:#fff;
-    color:#6b7280;
-    border-top:1px solid #e5e7eb;
-    font-size:14px;
-  }
-
-  /* RESPONSIVE RULES */
-  @media(max-width:1000px){
-    .layout{ grid-template-columns:1fr; }
-    aside{ display:none; }
-    .row{ grid-template-columns:1fr; }
-  }
-  @media(max-width:600px){
-    .card{ padding:14px; }
-    th,td{ font-size:12px; padding:8px 6px; }
-  }
-  /* ==========================
-        RESPONSIVE MOBILE
-    ========================== */
-  @media (max-width:1000px){
-
-    /* layout collapse */
+    /* LAYOUT */
     .layout{
-      grid-template-columns:1fr;
+      display:grid;
+      grid-template-columns:240px 1fr;
+      width:100%;
+      flex:1;
+      min-height:auto;
     }
 
+    /* SIDEBAR */
     aside{
-      display:none;
-    }
-
-    .grid2{
-      grid-template-columns:1fr !important;
-    }
-    
-    main{
+      background:#fff;
+      border-right:1px solid #e5e7eb;
       padding:16px;
     }
 
-    /* menu button */
-    .menu-toggle{
+    aside .menu a{
       display:block;
+      padding:10px 12px;
+      margin-bottom:8px;
+      text-decoration:none;
+      color:#111;
+      border-radius:10px;
     }
 
-    aside.active{
-      display:block !important;
-      position:fixed;
-      top:60px;
-      left:0;
+    aside .menu a.active{
+      background:#eef7ff;
+      color:#0a6db2;
+    }
+
+    /* MAIN */
+    main{
+      padding:20px;
+      height:auto;
+    }
+
+    /* CARDS */
+    .cards{
       width:100%;
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap:16px;
+    }
+
+    .card{
       background:white;
-      box-shadow:0 4px 10px rgba(0,0,0,0.15);
-      z-index:1000;
+      border-radius:12px;
+      padding:18px;
+      overflow:hidden;
     }
 
-    aside.active .menu a{
-      padding:15px 20px;
-      border-bottom:1px solid #eee;
-      border-radius:0;
+    /* Chart max size fix */
+    canvas{ max-width:100% !important; }
+
+    /* CHART + TABLE GRID */
+    .grid2{
+      width:100%;
+      display:grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap:18px;
+      align-items:start;
     }
-  }
 
-  /* Small screens */
-  @media (max-width:600px){
-    .cards{ grid-template-columns:1fr; }
-
-    table th, table td{
+    /* BADGES */
+    .badge{
+      padding:4px 10px;
+      border-radius:999px;
       font-size:12px;
-      padding:8px 6px;
-      white-space:nowrap;
     }
-  }
+    .safe{ background:#dcfce7; color:#166534; }
+    .alert{ background:#fee2e2; color:#991b1b; }
 
-  /* MENU BUTTON */
-  .menu-toggle {
-    display:none;
-    background:none;
-    border:none;
-    color:white;
-    font-size:26px;
-    cursor:pointer;
-    margin-right:10px;
-  }
-  /* SIDEBAR MOBILE STYLE */
-  @media (max-width: 1000px) {
+    /* TABLE WRAPPER */
+    .table-wrapper{
+      width:100%;
+      overflow-x:auto;
+    }
 
+    .pagination{
+      margin-top:10px;
+      display:flex;
+      align-items:center;
+      justify-content:flex-end;
+      gap:10px;
+    }
+
+    /* ==========================
+          RESPONSIVE MOBILE
+       ========================== */
+    @media (max-width:1000px){
+      .layout{
+        grid-template-columns:1fr;
+      }
+
+      aside{
+        display:none;
+      }
+
+      .grid2{
+        grid-template-columns:1fr !important;
+      }
+      
+      main{
+        padding:16px;
+      }
+
+      .menu-toggle{
+        display:block;
+      }
+
+      aside.active{
+        display:block !important;
+        position:fixed;
+        top:60px;
+        left:0;
+        width:100%;
+        background:white;
+        box-shadow:0 4px 10px rgba(0,0,0,0.15);
+        z-index:1000;
+      }
+
+      aside.active .menu a{
+        padding:15px 20px;
+        border-bottom:1px solid #eee;
+        border-radius:0;
+      }
+    }
+
+    @media (max-width:600px){
+      .cards{ grid-template-columns:1fr; }
+
+      table th, table td{
+        font-size:12px;
+        padding:8px 6px;
+        white-space:nowrap;
+      }
+    }
+
+    /* MENU BUTTON */
     .menu-toggle {
-      display: block;
+      display:none;
+      background:none;
+      border:none;
+      color:white;
+      font-size:26px;
+      cursor:pointer;
+      margin-right:10px;
     }
 
-    aside {
-      display: none;  /* Ẩn mặc định */
+    @media (max-width: 1000px) {
+      .menu-toggle {
+        display:block;
+      }
+
+      aside {
+        display:none;
+      }
+
+      aside.active {
+        display:block !important;
+        position:fixed;
+        top:56px;
+        left:0;
+        width:100%;
+        background:white;
+        z-index:2000;
+        border-top:1px solid #e5e7eb;
+      }
+
+      aside.active .menu a {
+        padding:18px 22px;
+        border-bottom:1px solid #f1f1f1;
+        font-size:16px;
+        color:#111;
+        display:block;
+      }
+
+      main {
+        padding-top:10px;
+      }
     }
 
     aside.active {
-      display: block !important;
-      position: fixed;
-      top: 56px; /* chiều cao header */
-      left: 0;
-      width: 100%;
-      background: white;
-      z-index: 2000;
-      border-top: 1px solid #e5e7eb;
+      animation: slideDown .20s ease-out;
     }
 
-    aside.active .menu a {
-      padding: 18px 22px;
-      border-bottom: 1px solid #f1f1f1;
-      font-size: 16px;
-      color: #111;
-      display: block;
+    @keyframes slideDown {
+      from { opacity:0; transform:translateY(-15px); }
+      to   { opacity:1; transform:translateY(0); }
     }
 
-    /* Ngăn che nội dung */
-    main {
-      padding-top: 10px;
+    /* FOOTER FULL WIDTH */
+    .footer-full {
+      width:100%;
+      padding:14px 0;
+      text-align:center;
+      font-size:14px;
+      background:#fff;
+      color:#6b7280;
+      border-top:1px solid #e5e7eb;
+      flex-shrink:0;
     }
-  }
-  aside.active {
-    animation: slideDown .20s ease-out;
-  }
+    .footer-section h4 {
+      font-size:15px;
+      font-weight:700;
+      margin-bottom:6px;
+      color:#0ea5e9;
+    }
 
-  @keyframes slideDown {
-    from { opacity: 0; transform: translateY(-15px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  aside.active {
-  animation: slideDown .20s ease-out;
-  }
-
-  @keyframes slideDown {
-    from { opacity: 0; transform: translateY(-15px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-
+    .footer-section p {
+      margin:3px 0;
+      font-size:14px;
+    }
   </style>
 </head>
-<body>
 
+<body>
 <header>
   <div style="display:flex; align-items:center; gap:10px;">
     <button id="menuBtn" class="menu-toggle">☰</button>
@@ -298,274 +271,257 @@
     <a href="{{ url_for('admin_page') }}" style="color:#fff; text-decoration:none">Admin</a>
   </div>
 </header>
-
-  <div class="layout">
-    <aside>
-      <nav class="menu">
-        <a class="tab-link" href="{{ url_for('home') }}">Dashboard</a>
-        <a class="tab-link active" href="{{ url_for('temperature_page') }}">Temperature</a>
-        <a class="tab-link" href="{{ url_for('turbidity_page') }}">Turbidity</a>
-        <a class="tab-link" href="{{ url_for('feed_timer_page') }}">Feed Timer</a>
-        <a class="tab-link" href="{{ url_for('chatbot.chatbot_page') }}">Chatbot</a>
-      </nav>
-    </aside>
-
-    <main>
-      <!-- Filter + Actions -->
-      <div class="card" style="margin-bottom:16px">
-        <div class="toolbar">
-          <div>
-            <label>From</label>
-            <input type="datetime-local" id="fromDt">
-          </div>
-          <div>
-            <label>To</label>
-            <input type="datetime-local" id="toDt">
-          </div>
-          <div>
-            <label>&nbsp;</label>
-            <button class="btn" id="applyBtn">Apply</button>
-          </div>
-          <div style="flex:1"></div>
-          <div>
-            <label>&nbsp;</label>
-            <button class="btn secondary" id="exportBtn">Export CSV</button>
-          </div>
-        </div>
-        <div class="muted" id="infoLine">—</div>
+  
+<div class="layout">
+  <aside>
+    <nav class="menu">
+      <a class="tab-link" data-path="{{ url_for('home') }}"              href="{{ url_for('home') }}">Dashboard</a>
+      <a class="tab-link" data-path="{{ url_for('temperature_page') }}" href="{{ url_for('temperature_page') }}">Temperature</a>
+      <a class="tab-link" data-path="{{ url_for('turbidity_page') }}"   href="{{ url_for('turbidity_page') }}">Turbidity</a>
+      <a class="tab-link" data-path="{{ url_for('feed_timer_page') }}"  href="{{ url_for('feed_timer_page') }}">Feed Timer</a>
+      <a class="tab-link" href="{{ url_for('chatbot.chatbot_page') }}">Chatbot</a>
+    </nav>
+  </aside>
+    
+  <main>
+    <!-- CARDS -->
+    <div class="cards">
+      <div class="card">
+        <h4>Current temperature</h4>
+        <div style="font-size:28px;font-weight:700" id="currentTemp">-- °C</div>
+        <div class="muted" id="tempHint">No data.</div>
       </div>
 
-      <div class="row">
-        <!-- Chart -->
-        <div class="card">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px">
-            <h3 style="margin:0">Temperature trend</h3>
-            <span class="muted" id="chartUpdated">—</span>
-          </div>
-          <canvas id="tempChart" height="270"></canvas>
-        </div>
+      <div class="card">
+        <h4>Out-of-range alerts</h4>
+        <div style="font-size:28px;font-weight:700" id="alertCount">0</div>
+        <div class="muted">Records outside safe range.</div>
+      </div>
+    </div>
 
-        <!-- Quick stats -->
-        <div class="card">
-          <h3 style="margin-top:0">Summary</h3>
-          <div id="summaryBox" class="muted">—</div>
-          <div style="margin-top:10px">
-            <span id="safeRangeTag" class="tag">Safe: 24–30 °C</span>
-          </div>
-        </div>
+    <!-- CHART + TABLE -->
+    <div class="grid2" style="margin-top:16px">
+      <div class="card">
+        <div class="right"><small class="muted" id="chartUpdated">—</small></div>
+        <h3 style="margin:6px 0 10px">Temperature</h3>
+        <canvas id="tempChart" height="260"></canvas>
       </div>
 
-      <!-- Table -->
-      <div class="card" style="margin-top:16px">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px">
-          <h3 style="margin:0">All readings</h3>
-          <div class="muted" id="tableUpdated">—</div>
+      <div class="card">
+        <div class="right"><small class="muted" id="tableUpdated">—</small></div>
+        <h3 style="margin:6px 0 10px">Temperature readings</h3>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Date time</th>
+                <th>Temperature (°C)</th>
+                <th>Safe Range (°C)</th>
+                <th>Device</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="tempRows"></tbody>
+          </table>
         </div>
-        <table>
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Date time</th>
-              <th>Temperature (°C)</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody id="rows"></tbody>
-        </table>
+
         <div class="pagination">
           <button class="btn ghost" id="prevBtn">Prev</button>
           <span class="muted" id="pageInfo">Page 1 / 1</span>
           <button class="btn ghost" id="nextBtn">Next</button>
         </div>
       </div>
-    </main>
-  </div>
+    </div>
+  </main>
+</div>
 
-  <script>
-    const SAFE_MIN = 24, SAFE_MAX = 30;
-    const PAGE_SIZE = 20;
-    const FETCH_N = 500;
+<!-- Script highlight tab active -->
+<script>
+  (function markActive(){
+    const here = location.pathname.replace(/\/+$/,'') || '/';
+    document.querySelectorAll('.menu .tab-link').forEach(a=>{
+      const path = (a.dataset.path || a.getAttribute("href") || "").replace(/\/+$/,'') || '/';
+      if (path === here) a.classList.add('active'); else a.classList.remove('active');
+    });
+  })();
+</script>
 
-    let allItems = [];
-    let filtered = [];
-    let page = 1;
+<script>
+  const SAFE_MIN_TEMP = 24;
+  const SAFE_MAX_TEMP = 30;
 
-    const byTimeAsc = (a,b)=> new Date(a.ts) - new Date(b.ts);
-    const byTimeDesc = (a,b)=> new Date(b.ts) - new Date(a.ts);
+  const PAGE_SIZE = 20;
+  const FETCH_N   = 1000;
 
-    function fmtDate(s){
-      const d = new Date(s); return isNaN(d) ? s : d.toLocaleString();
-    }
+  let tempChart;
+  let allItems = [];
+  let page = 1;
 
-    function statusBadge(t){
-      const ok = t >= SAFE_MIN && t <= SAFE_MAX;
-      return `<span class="status ${ok?'ok':'bad'}">${ok?'Safe':'Alert'}</span>`;
-    }
+  const byTimeAsc  = (a,b)=> new Date(a.ts) - new Date(b.ts);
+  const byTimeDesc = (a,b)=> new Date(b.ts) - new Date(a.ts);
 
-    function applyFilter(){
-      const fromV = document.getElementById('fromDt').value;
-      const toV = document.getElementById('toDt').value;
-      let arr = [...allItems];
-
-      if (fromV){
-        const from = new Date(fromV);
-        arr = arr.filter(x => new Date(x.ts) >= from);
-      }
-      if (toV){
-        const to = new Date(toV);
-        arr = arr.filter(x => new Date(x.ts) <= to);
-      }
-
-      filtered = arr.sort(byTimeDesc);
-      page = 1;
-      renderTable();
-      renderChart();
-      updateInfoLine();
-    }
-
-    function updateInfoLine(){
-      const total = filtered.length;
-      document.getElementById('infoLine').textContent = `Showing ${total} records`;
-    }
-
-    // ===== Table + Pagination =====
-    function renderTable(){
-      const tbody = document.getElementById('rows');
-      tbody.innerHTML = '';
-      const start = (page-1)*PAGE_SIZE;
-      const slice = filtered.slice(start, start + PAGE_SIZE);
-
-      slice.forEach((r, i)=>{
-        const temp = Number(r.temperature ?? r.temp ?? NaN);
-        const tr = document.createElement('tr');
-        tr.innerHTML = `
-          <td>${start + i + 1}</td>
-          <td>${fmtDate(r.ts)}</td>
-          <td>${isNaN(temp) ? '' : temp.toFixed(2)}</td>
-          <td>${isNaN(temp) ? '' : statusBadge(temp)}</td>`;
-        tbody.appendChild(tr);
-      });
-
-      const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
-      document.getElementById('pageInfo').textContent = `Page ${page} / ${totalPages}`;
-      document.getElementById('prevBtn').disabled = page <= 1;
-      document.getElementById('nextBtn').disabled = page >= totalPages;
-
-      document.getElementById('tableUpdated').textContent =
-        'Updated: ' + new Date().toLocaleTimeString();
-    }
-
-    document.getElementById('prevBtn').onclick = () => { if (page>1){ page--; renderTable(); } };
-    document.getElementById('nextBtn').onclick = () => {
-      const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
-      if (page < totalPages){ page++; renderTable(); }
-    };
-
-    // ===== Chart =====
-    let tempChart;
-    function ensureChart(ctx){
-      if (tempChart) return tempChart;
-      tempChart = new Chart(ctx, {
-        type: 'line',
-        data: { labels: [], datasets: [{ label:'Temperature (°C)', data: [], borderWidth:2, tension:.25, pointRadius:2, fill:false }]},
-        options: {
-          responsive:true,
-          interaction:{ mode:'index', intersect:false },
-          scales:{
-            x:{ title:{display:true, text:'Time'} },
-            y:{ title:{display:true, text:'°C'} }
-          }
+  function ensureChart(ctx){
+    if (tempChart) return tempChart;
+    tempChart = new Chart(ctx, {
+      type:'line',
+      data:{
+        labels:[],
+        datasets:[{
+          label:'Temperature (°C)',
+          data:[],
+          borderWidth:2,
+          tension:.25,
+          pointRadius:2,
+          fill:false
+        }]
+      },
+      options:{
+        responsive:true,
+        interaction:{mode:'index', intersect:false},
+        scales:{
+          x:{ title:{display:true,text:'Time (UTC)'} },
+          y:{ title:{display:true,text:'°C'} }
         }
-      });
-      return tempChart;
+      }
+    });
+    return tempChart;
+  }
+
+  function updateCards(){
+    if (!allItems.length){
+      document.getElementById('currentTemp').textContent = '-- °C';
+      document.getElementById('tempHint').textContent = 'No data.';
+      document.getElementById('tempHint').style.color = '#6b7280';
+      document.getElementById('alertCount').textContent = '0';
+      return;
     }
 
-    function renderChart(){
-      const ctx = document.getElementById('tempChart').getContext('2d');
-      const c = ensureChart(ctx);
-      const arr = filtered.slice().sort(byTimeAsc).slice(-200);
-      const labels = arr.map(r => {
-        const d = new Date(r.ts);
-        return isNaN(d) ? r.ts : d.toLocaleTimeString();
-      });
-      const data = arr.map(r => Number(r.temperature ?? r.temp ?? NaN));
+    const latest = allItems[0];
+    const t = Number(latest.temperature ?? latest.temp ?? NaN);
 
-      c.data.labels = labels;
-      c.data.datasets[0].data = data;
-      c.update();
-
-      document.getElementById('chartUpdated').textContent =
-        'Updated: ' + new Date().toLocaleTimeString();
-
-      if (arr.length){
-        const min = Math.min(...data), max = Math.max(...data);
-        const avg = data.reduce((a,b)=>a+b,0) / data.length;
-        document.getElementById('summaryBox').innerHTML =
-          `Records: <b>${filtered.length}</b><br>
-           Range: <b>${min.toFixed(2)}</b> – <b>${max.toFixed(2)}</b> °C<br>
-           Average: <b>${avg.toFixed(2)} °C</b>`;
-      }else{
-        document.getElementById('summaryBox').textContent = 'No data.';
+    if (!isNaN(t)){
+      document.getElementById('currentTemp').textContent = t.toFixed(2) + ' °C';
+      if (t < SAFE_MIN_TEMP || t > SAFE_MAX_TEMP){
+        document.getElementById('tempHint').textContent = 'Warning: temperature out of safe range!';
+        document.getElementById('tempHint').style.color = '#dc2626';
+      } else {
+        document.getElementById('tempHint').textContent = 'Temperature is in safe range.';
+        document.getElementById('tempHint').style.color = '#6b7280';
       }
     }
 
-    // ===== Export CSV =====
-    document.getElementById('exportBtn').onclick = () => {
-      const lines = [['timestamp','temperature']];
-      filtered.slice().reverse().forEach(r=>{
-        const t = Number(r.temperature ?? r.temp ?? NaN);
-        lines.push([r.ts, isNaN(t)?'':t]);
-      });
-      const csv = lines.map(row => row.map(v=>String(v).replaceAll('"','""')).map(v=>`"${v}"`).join(',')).join('\n');
-      const blob = new Blob([csv], {type:'text/csv;charset=utf-8;'});
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url; a.download = `temperature_export_${Date.now()}.csv`;
-      document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
-    };
+    const alerts = allItems.filter(r => {
+      const val = Number(r.temperature ?? r.temp ?? NaN);
+      return !isNaN(val) && (val < SAFE_MIN_TEMP || val > SAFE_MAX_TEMP);
+    }).length;
+    document.getElementById('alertCount').textContent = alerts;
+  }
 
-    async function fetchData(){
-      const res = await fetch(`/dashboard/latest?n=${FETCH_N}`);
-      if (!res.ok) throw new Error('HTTP '+res.status);
-      const json = await res.json();
-      return json.items || [];
+  function renderChart(){
+    const ctx = document.getElementById('tempChart').getContext('2d');
+    const c = ensureChart(ctx);
+
+    const arr = allItems.slice().sort(byTimeAsc).slice(-200);
+    const labels = arr.map(r=>{
+      const d = new Date(r.ts || '');
+      return isNaN(d) ? (r.ts || '') : d.toLocaleTimeString('vi-VN', { hour12:false });
+    });
+    const data = arr.map(r => Number(r.temperature ?? r.temp ?? NaN));
+
+    c.data.labels = labels;
+    c.data.datasets[0].data = data;
+    c.update();
+
+    document.getElementById('chartUpdated').textContent =
+      'Updated: ' + new Date().toLocaleTimeString();
+  }
+
+  function renderTable(){
+    const tbody = document.getElementById('tempRows');
+    tbody.innerHTML = '';
+
+    const start = (page - 1) * PAGE_SIZE;
+    const slice = allItems.slice(start, start + PAGE_SIZE);
+
+    slice.forEach((r, idx)=>{
+      const dt = new Date(r.ts || '');
+      const ts = isNaN(dt) ? (r.ts || '') : dt.toLocaleString();
+      const v  = Number(r.temperature ?? r.temp ?? NaN);
+      const device = r.deviceId ?? r.device_id ?? '';
+
+      const ok = !isNaN(v) && v >= SAFE_MIN_TEMP && v <= SAFE_MAX_TEMP;
+      const badge = `<span class="badge ${ok?'safe':'alert'}">${ok?'Safe':'Alert'}</span>`;
+
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${start + idx + 1}</td>
+        <td>${ts}</td>
+        <td>${isNaN(v)?'':v.toFixed(2)}</td>
+        <td>${SAFE_MIN_TEMP} – ${SAFE_MAX_TEMP}</td>
+        <td>${device}</td>
+        <td>${badge}</td>`;
+      tbody.appendChild(tr);
+    });
+
+    const totalPages = Math.max(1, Math.ceil(allItems.length / PAGE_SIZE));
+    document.getElementById('pageInfo').textContent = `Page ${page} / ${totalPages}`;
+
+    document.getElementById('prevBtn').disabled = page <= 1;
+    document.getElementById('nextBtn').disabled = page >= totalPages;
+
+    document.getElementById('tableUpdated').textContent =
+      'Updated: ' + new Date().toLocaleTimeString();
+  }
+
+  document.getElementById('prevBtn').onclick = ()=>{
+    if (page > 1){
+      page--;
+      renderTable();
     }
+  };
 
-    async function init(){
-      try{
-        allItems = await fetchData();
-        filtered = allItems.slice().sort(byTimeDesc);
-        renderChart();
-        renderTable();
-        updateInfoLine();
-      }catch(e){
-        alert('Load data failed: '+e.message);
-        console.error(e);
-      }
+  document.getElementById('nextBtn').onclick = ()=>{
+    const totalPages = Math.max(1, Math.ceil(allItems.length / PAGE_SIZE));
+    if (page < totalPages){
+      page++;
+      renderTable();
     }
+  };
 
-    document.getElementById('applyBtn').onclick = applyFilter;
-    init();
-  </script>
-  <footer style="
-  margin-top:20px;
-  padding:14px 0;
-  text-align:center;
-  font-size:14px;
-  color:#6b7280;
-  background:#ffffff;
-  border-top:1px solid #fff;
-">
-  AquaNova © 2025 – IoT Fish Monitoring System
-  </footer>
-  <script>
+  async function loadAll(){
+    const latest = await (await fetch(`/dashboard/latest?n=${FETCH_N}`)).json();
+    const items  = latest.items || [];
+
+    allItems = items.slice().sort(byTimeDesc);
+    page = 1;
+
+    updateCards();
+    renderChart();
+    renderTable();
+  }
+
+  loadAll();
+  setInterval(loadAll, 600000);
+</script>
+
+<script>
+  // MOBILE MENU
   const menuBtn = document.getElementById('menuBtn');
   const sidebar = document.querySelector('aside');
 
   menuBtn.addEventListener('click', () => {
     sidebar.classList.toggle('active');
   });
-  </script>
+</script>
+
+<footer class="footer-full">
+  <div class="footer-section">
+    <h4>Thành viên thực hiện</h4>
+    <p>Hoàng Ngọc Dung – 23139006 | Đoàn Minh Duy Bình – 23139005 | Trần Hữu Dương – 23130009</p>
+  </div>
+</footer>
 
 </body>
 </html>
