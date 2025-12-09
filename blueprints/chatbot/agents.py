@@ -73,7 +73,7 @@ def get_average_temperature() -> str:
         return "Lỗi tính toán"
 
 
-# --- TOOL 2: DỰ BÁO THAY NƯỚC (SỬA ĐỔI: TRẢ VỀ VĂN BẢN THUẦN) ---
+# --- TOOL 2: DỰ BÁO THAY NƯỚC---
 def predict_maintenance() -> str:
     """
     Dự báo chính xác thời điểm cần thay nước.
