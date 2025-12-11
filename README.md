@@ -37,6 +37,7 @@ aquanova/
 ```
 Trang home của web
 ![alt text](/static/img/image-1.png)
+![alt text](image-1.png)
 
 IP web: https://aquanova.space
 
@@ -73,7 +74,7 @@ pip install -r requirements.txt
 
 - Config khi AWS đổi public ip 
    - Sửa trên  godady với Ip tương ứng 
-   ![alt text](/static/img/ip.png.png)
+   ![alt text](/static/img/ip.png)
    - AWs gõ 
 ```
 sudo certbot --nginx -d aquanova.space -d www.aquanova.space
