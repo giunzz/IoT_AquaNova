@@ -406,11 +406,7 @@ async function syncLightState() {
     }
 
     const isOn = data.light === 1;
-
-    // cập nhật bóng đèn
     lightSwitch.classList.toggle('on', isOn);
-
-    // cập nhật text
     lightStatus.textContent = isOn
       ? 'Light is turned ON now'
       : 'Light is turned OFF';
