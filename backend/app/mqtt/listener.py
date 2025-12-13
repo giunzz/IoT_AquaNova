@@ -2,7 +2,7 @@
 import json, threading, time
 import paho.mqtt.client as mqtt
 from datetime import datetime, timezone
-from firebase_admin_init import init_firebase
+from backend.firebase_admin_init import init_firebase
 import uuid
 LOG_FILE = "mqtt_sub_log.txt"
 log_lock = threading.Lock()

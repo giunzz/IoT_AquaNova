@@ -1,8 +1,8 @@
 from flask import Blueprint, request, jsonify
 from datetime import datetime
 from firebase_admin_init import get_db
-
 telemetry_bp = Blueprint("telemetry", __name__)
+
 
 @telemetry_bp.post("/ingest")
 def ingest():

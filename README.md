@@ -37,7 +37,7 @@ aquanova/
 ```
 Trang home của web
 ![alt text](/static/img/image-1.png)
-![alt text](image-1.png)
+![alt text](/img/image-1.png)
 
 IP web: https://aquanova.space
 
@@ -46,7 +46,7 @@ IP web: https://aquanova.space
 
 Device → MQTT Broker → Flask Subscriber → Firestore → Dashboard
 
-![alt text](image.png)
+![alt text](/img/image.png)
 
 
 ### Config env 

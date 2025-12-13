@@ -1,19 +1,18 @@
 import os
 import json
 from datetime import datetime, timedelta
+import os
+import json
+from datetime import datetime, timedelta
 from dotenv import load_dotenv
+
 from agno.agent import Agent
 from agno.models.openai.chat import OpenAIChat
 
-# Import hàm kết nối DB
-try:
-    from firebase_admin_init import get_db
-except ImportError:
-    import sys
-    sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
-    from firebase_admin_init import get_db
+from firebase_admin_init import get_db
 
 load_dotenv()
+
 
 # --- HÀM HỖ TRỢ ---
 def safe_json_dump(data):
