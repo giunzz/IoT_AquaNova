@@ -356,7 +356,7 @@
       });
     })();
   </script>
-
+  
   <script>
   // === LIGHT CONTROL ===
   const SAFE_MIN = 0, SAFE_MAX = 1000;
@@ -392,6 +392,37 @@
     const isOn = lightSwitch.classList.toggle('on');
     toggleLight(isOn);
   });
+  syncLightState();                 // khi load trang
+  setInterval(syncLightState, 3000); // sync web ↔ app ↔ esp32
+</script>
+<script>
+async function syncLightState() {
+  try {
+    const res = await fetch('/control/light');   // backend đọc Firebase
+    const data = await res.json();
+
+    if (!res.ok || typeof data.light !== 'number') {
+      throw new Error('Invalid light state');
+    }
+
+    const isOn = data.light === 1;
+
+    // cập nhật bóng đèn
+    lightSwitch.classList.toggle('on', isOn);
+
+    // cập nhật text
+    lightStatus.textContent = isOn
+      ? 'Light is turned ON now'
+      : 'Light is turned OFF';
+
+    lightStatus.style.color = isOn ? '#166534' : '#991b1b';
+
+  } catch (err) {
+    console.error('[SYNC LIGHT ERROR]', err);
+    lightStatus.textContent = '⚠ Cannot get light state';
+    lightStatus.style.color = '#dc2626';
+  }
+}
 </script>
 
 

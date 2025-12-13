@@ -43,27 +43,30 @@ mqtt_client = None
 
 
 def init_mqtt(app):
-    """
-    Init MQTT client (chỉ chạy 1 lần)
-    """
     global mqtt_client
 
     if mqtt_client is not None:
         logger.info("MQTT already initialized, skip.")
         return mqtt_client
 
-    broker = app.config.get("MQTT_BROKER")
+    broker = app.config.get("MQTT_HOST")
     port = int(app.config.get("MQTT_PORT", 1883))
-    username = app.config.get("MQTT_USERNAME")
-    password = app.config.get("MQTT_PASSWORD")
+    username = app.config.get("MQTT_USER")
+    password = app.config.get("MQTT_PASS")
+
+    logger.info(f"[MQTT DEBUG] host={broker}, port={port}, user={username}")
 
     if not broker:
-        raise RuntimeError("MQTT_BROKER not configured")
+        raise RuntimeError("MQTT_HOST not configured")
 
     client = mqtt.Client()
 
     if username and password:
         client.username_pw_set(username, password)
+
+    # HiveMQ Cloud → TLS
+    if port == 8883:
+        client.tls_set()
 
     client.connect(broker, port, keepalive=60)
     client.loop_start()
@@ -73,6 +76,7 @@ def init_mqtt(app):
 
     logger.info(f"MQTT connected to {broker}:{port}")
     return client
+
 
 
 def stop_mqtt(app):

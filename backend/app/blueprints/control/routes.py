@@ -44,8 +44,16 @@ def toggle_light():
 
         _get_pub().publish(topic, json.dumps(payload), qos=1)
 
-        # Ghi log Firestore
         db = firestore.client()
+
+        # ✅ LƯU STATE HIỆN TẠI
+        db.collection("device_state").document("light").set({
+            "state": light_val,
+            "updated_at": firestore.SERVER_TIMESTAMP,
+            "source": "manual"
+        })
+
+        # log
         db.collection("light_logs").add({
             "timestamp": firestore.SERVER_TIMESTAMP,
             "state": "on" if light_val == 1 else "off",
@@ -53,9 +61,29 @@ def toggle_light():
             "source": "manual"
         })
 
-        return jsonify({"ok": True, "published": {"topic": topic, "payload": payload}})
+        return jsonify({
+            "ok": True,
+            "light": light_val
+        })
     except Exception as e:
         print("[ERROR] toggle_light:", e)
+        return jsonify({"error": str(e)}), 500
+
+@control_bp.get("/light")
+def get_light_state():
+    try:
+        db = firestore.client()
+        doc = db.collection("device_state").document("light").get()
+
+        if not doc.exists:
+            return jsonify({"ok": True, "light": 0})
+
+        data = doc.to_dict()
+        return jsonify({
+            "ok": True,
+            "light": data.get("state", 0)
+        })
+    except Exception as e:
         return jsonify({"error": str(e)}), 500
 
 # ------------------------------------------------------------
