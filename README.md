@@ -287,7 +287,7 @@ Khuyến nghị:
 
 - Config khi AWS đổi public ip 
    - Sửa trên  godady với Ip tương ứng 
-   ![alt text](/static/img/ip.png)
+   ![alt text](/backend/app/static/img/ip.png)
    - AWs gõ 
 ---
 
