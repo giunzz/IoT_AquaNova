@@ -13,6 +13,10 @@ AquaNova là hệ thống IoT giám sát và điều khiển ao nuôi cá, tích
 
 Website: https://aquanova.space
 
+Chaỵ local back end flask (đổi api ip máy)
+
+App test expo go: chi tiết folder aquanov_expo
+
 ---
 
 ## Demo giao diện
