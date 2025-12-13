@@ -364,6 +364,27 @@
   const lightSwitch = document.getElementById('lightSwitch');
   const lightStatus = document.getElementById('lightStatus');
 
+  
+  async function syncLightState() {
+    try {
+      const res = await fetch('/control/light', { cache: 'no-store' });
+      const data = await res.json();
+
+      if (!res.ok || typeof data.light !== 'number') {
+        throw new Error('Invalid light state');
+      }
+
+      const isOn = data.light === 1;
+
+      lightSwitch.classList.toggle('on', isOn);
+      lightStatus.textContent = isOn ? 'Light is turned ON now' : 'Light is turned OFF';
+      lightStatus.style.color = isOn ? '#166534' : '#991b1b';
+    } catch (err) {
+      console.error('[SYNC LIGHT ERROR]', err);
+      lightStatus.textContent = 'Cannot get light state';
+      lightStatus.style.color = '#dc2626';
+    }
+  }
   async function toggleLight(isOn) {
     try {
       const res = await fetch('/control/light', {
