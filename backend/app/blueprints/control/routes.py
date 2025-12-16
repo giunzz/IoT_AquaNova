@@ -34,16 +34,15 @@ def toggle_light():
     data = request.get_json(force=True) or {}
 
     light_val = int(data.get("light", 0))
-    color = data.get("color")  # "red", "blue", "white", ...
+    color = data.get("color")  
 
     try:
         topic = "aquanova/control"
 
-        # ===== MQTT PAYLOAD =====
         payload = {"light": light_val}
 
         if light_val == 1 and color:
-            payload["color"] = color   # chỉ gửi color khi ON
+            payload["color"] = color   
 
         print(f"[LIGHT] Publishing {payload} → {topic}")
         _get_pub().publish(topic, json.dumps(payload), qos=1)

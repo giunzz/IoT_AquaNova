@@ -305,34 +305,25 @@
     
 
     <main>
-      <div class="cards">
-          <h4>Light in fish tank</h4>
+      <div class="card">
+      <h4>Light in fish tank</h4>
 
-          <!-- Switch ON / OFF -->
-          <div id="lightSwitch" class="switch on"><i></i></div>
-          <div class="muted" id="lightStatus">Light is turned ON now</div>
+      <div id="lightSwitch" class="switch on"><i></i></div>
+      <div class="muted" id="lightStatus">Light is turned ON now</div>
 
-          <!-- COLOR CONTROL -->
-          <div style="margin-top:14px">
-            <div style="font-size:14px; margin-bottom:6px">Light color</div>
+      <div style="margin-top:14px">
+        <div style="font-size:14px; margin-bottom:6px">Light color</div>
 
-            <!-- Preset colors -->
-            <div style="display:flex; gap:10px">
-              <button class="color-btn active" data-color="white" style="background:#ffffff"></button>
-              <button class="color-btn" data-color="red"   style="background:#dc2626"></button>
-              <button class="color-btn" data-color="blue"  style="background:#2563eb"></button>
-              <button class="color-btn" data-color="green" style="background:#16a34a"></button>
-            </div>
-
-            <!-- Custom color -->
-            <input
-              type="color"
-              id="customColor"
-              style="margin-top:10px;width:100%;height:36px"
-            />
-          </div>
+        <div style="display:flex; gap:10px">
+          <button class="color-btn active" data-color="white" style="background:#ffffff"></button>
+          <button class="color-btn" data-color="red"   style="background:#dc2626"></button>
+          <button class="color-btn" data-color="blue"  style="background:#2563eb"></button>
+          <button class="color-btn" data-color="green" style="background:#16a34a"></button>
         </div>
 
+        <input type="color" id="customColor" style="margin-top:10px;width:100%;height:36px">
+      </div>
+    </div>
 
         <div class="card">
           <h4>Feed Amount</h4>
@@ -398,100 +389,74 @@
   const TURBIDITY_WARN = 200;
   const lightSwitch = document.getElementById('lightSwitch');
   const lightStatus = document.getElementById('lightStatus');
+  const colorButtons = document.querySelectorAll('.color-btn');
+  const colorPicker = document.getElementById('customColor');
 
-  
+  const COLOR_MAP = {
+    white: "#FFFFFF",
+    red:   "#FF0000",
+    blue:  "#0000FF",
+    green: "#00FF00"
+  };
+
+  // ===== SYNC STATE =====
   async function syncLightState() {
     try {
       const res = await fetch('/control/light', { cache: 'no-store' });
       const data = await res.json();
 
-      if (!res.ok || typeof data.light !== 'number') {
-        throw new Error('Invalid light state');
-      }
+      if (!res.ok || typeof data.light !== 'number') return;
 
       const isOn = data.light === 1;
-
-      // ===== SWITCH =====
       lightSwitch.classList.toggle('on', isOn);
-      lightStatus.textContent = isOn
-        ? 'Light is turned ON now'
-        : 'Light is turned OFF';
+      lightStatus.textContent = isOn ? 'Light is turned ON now' : 'Light is turned OFF';
       lightStatus.style.color = isOn ? '#166534' : '#991b1b';
 
-      // ===== COLOR =====
-      document.querySelectorAll('.color-btn').forEach(btn => {
-        btn.classList.remove('active');
-      });
-
-      if (isOn && data.color) {
-        const btn = document.querySelector(
-          `.color-btn[data-color="${data.color}"]`
-        );
-        if (btn) btn.classList.add('active');
-      }
-
-    } catch (err) {
-      console.error('[SYNC LIGHT ERROR]', err);
-      lightStatus.textContent = 'Cannot get light state';
-      lightStatus.style.color = '#dc2626';
+    } catch (e) {
+      console.error('[SYNC LIGHT ERROR]', e);
     }
   }
 
-    async function toggleLight(isOn) {
-    try {
-      const activeBtn = document.querySelector('.color-btn.active');
+  async function sendLight(light, color = null) {
+    const payload = { light };
+    if (light === 1 && color) payload.color = color;
 
-      const payload = isOn
-        ? {
-            light: 1,
-            color: activeBtn ? activeBtn.dataset.color : 'white'
-          }
-        : {
-            light: 0   // ❗ OFF → không gửi color
-          };
-
-      const res = await fetch('/control/light', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      });
-
-      const data = await res.json();
-      if (!res.ok || !data.ok) {
-        throw new Error(data.error || 'Failed');
-      }
-
-    } catch (err) {
-      console.error('[LIGHT ERROR]', err);
-      lightStatus.textContent = 'Error controlling light';
-      lightStatus.style.color = '#dc2626';
-    }
+    await fetch('/control/light', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
   }
-
-  document.querySelectorAll('.color-btn').forEach(btn => {
-  btn.addEventListener('click', async () => {
-    document.querySelectorAll('.color-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-
-    // chỉ gửi khi đèn đang ON
-    if (lightSwitch.classList.contains('on')) {
-      await toggleLight(true);
-      syncLightState();
-    }
-  });
-});
 
   lightSwitch.addEventListener('click', async () => {
-  const isOn = !lightSwitch.classList.contains('on');
-  await toggleLight(isOn);
-  syncLightState();
+    const isOn = !lightSwitch.classList.contains('on');
+    await sendLight(isOn ? 1 : 0);
+    syncLightState();
   });
-  syncLightState();                 // khi load trang
-  setInterval(syncLightState, 3000); // sync web ↔ app ↔ esp32
-</script>
 
+  colorButtons.forEach(btn => {
+    btn.addEventListener('click', async () => {
+      colorButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
 
- <script>
+      if (lightSwitch.classList.contains('on')) {
+        await sendLight(1, COLOR_MAP[btn.dataset.color]);
+      }
+    });
+  });
+
+  // ===== COLOR PICKER =====
+  colorPicker.addEventListener('change', async (e) => {
+    if (lightSwitch.classList.contains('on')) {
+      await sendLight(1, e.target.value.toUpperCase());
+    }
+  });
+
+  syncLightState();
+  setInterval(syncLightState, 3000);
+  </script>
+
+<script>
   const feedBtn = document.getElementById('feedNowBtn');
   const feedMsg = document.getElementById('feedNowMsg');
 

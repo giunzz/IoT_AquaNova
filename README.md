@@ -228,6 +228,7 @@ Lưu nhanh trong nano:
 - Ctrl + O -> Enter
 - Ctrl + X
 
+
 ---
 
 ## Domain và SSL (GoDaddy + Nginx + Certbot)
