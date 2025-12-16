@@ -1,6 +1,6 @@
 # IoT_AquaNova
 
-AquaNova là hệ thống IoT giám sát và điều khiển ao nuôi cá, tích hợp:
+AquaNova là hệ thống IoT giám sát và điều khiển tự động trong hồ cá tại nhà:
 
 ![alt text](/img/overal.png)
 

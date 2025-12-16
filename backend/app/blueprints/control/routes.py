@@ -32,39 +32,43 @@ def _get_pub():
 @control_bp.post("/light")
 def toggle_light():
     data = request.get_json(force=True) or {}
-    light_val = data.get("light")
 
-    if light_val not in (0, 1):
-        return jsonify({"error": "light must be 0 or 1"}), 400
+    light_val = int(data.get("light", 0))
+    color = data.get("color")  # "red", "blue", "white", ...
 
     try:
         topic = "aquanova/control"
-        payload = {"light": light_val}
-        print(f"[LIGHT] Publishing {payload} → {topic}")
 
+        # ===== MQTT PAYLOAD =====
+        payload = {"light": light_val}
+
+        if light_val == 1 and color:
+            payload["color"] = color   # chỉ gửi color khi ON
+
+        print(f"[LIGHT] Publishing {payload} → {topic}")
         _get_pub().publish(topic, json.dumps(payload), qos=1)
 
         db = firestore.client()
 
-        # ✅ LƯU STATE HIỆN TẠI
         db.collection("device_state").document("light").set({
             "state": light_val,
+            "color": color if light_val == 1 else None,
             "updated_at": firestore.SERVER_TIMESTAMP,
             "source": "manual"
         })
-
-        # log
         db.collection("light_logs").add({
             "timestamp": firestore.SERVER_TIMESTAMP,
             "state": "on" if light_val == 1 else "off",
-            "light_value": light_val,
+            "color": color if light_val == 1 else None,
             "source": "manual"
         })
 
         return jsonify({
             "ok": True,
-            "light": light_val
+            "light": light_val,
+            "color": color if light_val == 1 else None
         })
+
     except Exception as e:
         print("[ERROR] toggle_light:", e)
         return jsonify({"error": str(e)}), 500

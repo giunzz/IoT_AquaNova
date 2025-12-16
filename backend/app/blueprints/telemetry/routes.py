@@ -9,7 +9,7 @@ def ingest():
     data = request.json or {}
     data["ts"] = datetime.utcnow()
 
-    db = get_db()  # <-- luôn chắc chắn có db
+    db = get_db()  
     db.collection("readings").add(data)
 
     return jsonify({"status": "ok", "data": data})
