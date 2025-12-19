@@ -34,43 +34,33 @@ def toggle_light():
     data = request.get_json(force=True) or {}
 
     light_val = int(data.get("light", 0))
-    color = data.get("color")  
+    color = data.get("color")  # "#FF0000", "#00FF00", ...
 
     try:
         topic = "aquanova/control"
 
         payload = {"light": light_val}
 
-        if light_val == 1 and color:
-            payload["color"] = color   
+        if light_val == 1 and isinstance(color, str):
+            payload["color"] = color.upper()  # normalize HEX
 
         print(f"[LIGHT] Publishing {payload} → {topic}")
         _get_pub().publish(topic, json.dumps(payload), qos=1)
 
+        # ===== FIRESTORE =====
         db = firestore.client()
-
         db.collection("device_state").document("light").set({
             "state": light_val,
             "color": color if light_val == 1 else None,
-            "updated_at": firestore.SERVER_TIMESTAMP,
-            "source": "manual"
-        })
-        db.collection("light_logs").add({
-            "timestamp": firestore.SERVER_TIMESTAMP,
-            "state": "on" if light_val == 1 else "off",
-            "color": color if light_val == 1 else None,
-            "source": "manual"
+            "updated_at": firestore.SERVER_TIMESTAMP
         })
 
-        return jsonify({
-            "ok": True,
-            "light": light_val,
-            "color": color if light_val == 1 else None
-        })
+        return jsonify(ok=True, **payload)
 
     except Exception as e:
         print("[ERROR] toggle_light:", e)
         return jsonify({"error": str(e)}), 500
+
 
 @control_bp.get("/light")
 def get_light_state():
