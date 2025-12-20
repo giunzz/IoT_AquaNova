@@ -891,8 +891,8 @@ void process_turbidity(void)
     float voltage_raw = (avg_adc * 3.3f) / 4095.0f;
     float voltage = voltage_raw + 0.01f; 
 
-    //turbidity = -900.4f * (voltage * voltage) - 336.302f * voltage + 2973.295f;
-     turbidity = 50.5;
+    turbidity = -900.4f * (voltage * voltage) - 336.302f * voltage + 2973.295f;
+    //turbidity = 50.5;
 
     if (turbidity < 0)
     {
