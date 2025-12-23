@@ -258,33 +258,42 @@ const FEED_NOW_API   = '/control/feed-now';
 const SCHEDULE_API   = '/control/schedule';
 const SCHEDULES_API  = '/control/schedules';
 
-/* ===== GIỮ NGUYÊN ===== */
+/* =========================
+   LOAD SCHEDULES
+========================= */
 async function refreshSchedules(){
   const tbody = document.getElementById('scRows');
   tbody.innerHTML = '';
 
-  const r = await fetch(SCHEDULES_API);
-  const j = await r.json();
+  try {
+    const r = await fetch(SCHEDULES_API);
+    const j = await r.json();
 
-  (j.items || []).forEach((s, i) => {
-    const tr = document.createElement('tr');
-    tr.innerHTML = `
-      <td>${i + 1}</td>
-      <td>${s.date}</td>
-      <td>${s.time}</td>
-      <td>${s.repeat}</td>
-      <td>${s.amount ?? ''}</td>
-      <td>
-        <button class="btn ghost"
-                onclick="deleteSchedule('${s.id}')">
-          Delete
-        </button>
-      </td>
-    `;
-    tbody.appendChild(tr);
-  });
+    (j.items || []).forEach((s, i) => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${i + 1}</td>
+        <td>${s.date}</td>
+        <td>${s.time}</td>
+        <td>${s.repeat ?? ''}</td>
+        <td>${s.amount ?? ''}</td>
+        <td>
+          <button class="btn ghost"
+                  onclick="deleteSchedule('${s.id}')">
+            Delete
+          </button>
+        </td>
+      `;
+      tbody.appendChild(tr);
+    });
+  } catch (e) {
+    console.error("Load schedules failed", e);
+  }
 }
 
+/* =========================
+   ADD SCHEDULE
+========================= */
 async function addSchedule(){
   const body = {
     date: scDate.value,
@@ -293,33 +302,72 @@ async function addSchedule(){
     amount: Number(scAmount.value)
   };
 
-  await fetch(SCHEDULE_API, {
-    method: 'POST',
-    headers: { 'Content-Type':'application/json' },
-    body: JSON.stringify(body)
-  });
+  try {
+    const r = await fetch(SCHEDULE_API, {
+      method: 'POST',
+      headers: { 'Content-Type':'application/json' },
+      body: JSON.stringify(body)
+    });
 
-  refreshSchedules();
+    const res = await r.json();
+
+    // 409 / duplicate → OK
+    if (!r.ok && r.status !== 409) {
+      alert(res.error || "Add schedule failed");
+      return;
+    }
+
+    refreshSchedules();
+
+  } catch (e) {
+    alert("Server unreachable");
+  }
 }
 
+/* =========================
+   DELETE SCHEDULE (ĐÚNG ID)
+========================= */
 async function deleteSchedule(id){
-  await fetch('/control/hook/schedule/latest', { method:'DELETE' });
-  refreshSchedules();
+  if (!confirm("Delete this schedule?")) return;
+
+  try {
+    const r = await fetch(`/control/schedules/${id}`, {
+      method: 'DELETE'
+    });
+
+    if (!r.ok) {
+      alert("Delete failed");
+      return;
+    }
+
+    refreshSchedules();
+
+  } catch (e) {
+    alert("Server unreachable");
+  }
 }
 
+/* =========================
+   FEED NOW
+========================= */
 feedNowBtn.onclick = async () => {
-  await fetch(FEED_NOW_API, {
-    method:'POST',
-    headers:{ 'Content-Type':'application/json' },
-    body: JSON.stringify({ amount: Number(fnAmount.value) })
-  });
+  try {
+    await fetch(FEED_NOW_API, {
+      method:'POST',
+      headers:{ 'Content-Type':'application/json' },
+      body: JSON.stringify({ amount: Number(fnAmount.value) })
+    });
+  } catch (e) {
+    alert("Feed command failed");
+  }
 };
 
+/* =========================
+   INIT
+========================= */
 addScheduleBtn.onclick = addSchedule;
 refreshSchedules();
-setInterval(() => {
-  refreshSchedules();
-}, 10000);
+setInterval(refreshSchedules, 10000);
 </script>
 
 <script>
