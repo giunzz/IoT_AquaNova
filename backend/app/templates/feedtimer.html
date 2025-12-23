@@ -4,420 +4,227 @@
   <meta charset="utf-8">
   <title>AquaNova – Feed Timer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/logo_aquanova.png') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 
-<style>
-  :root { 
-    --brand:#0ea5e9; 
-    --muted:#6b7280; 
-    --bg:#f6f7fb; 
-    --ok:#16a34a; 
-    --bad:#dc2626; 
-  }
+  <link rel="icon" type="image/png"
+        href="{{ url_for('static', filename='/img/logo_aquanova.png') }}">
+  <link rel="stylesheet"
+        href="{{ url_for('static', filename='css/styles.css') }}">
 
-  *{ box-sizing:border-box; margin:0; padding:0; }
+  <style>
+    :root {
+      --brand:#0ea5e9;
+      --muted:#6b7280;
+      --bg:#f6f7fb;
+      --ok:#16a34a;
+      --bad:#dc2626;
+    }
 
-  html, body{
-    width:100%;
-    height:100%;
-    margin:0;
-    padding:0;
-    background:var(--bg);
-    font-family:system-ui, Arial, sans-serif;
-  }
+    *{ box-sizing:border-box; margin:0; padding:0; }
 
-  body{
-    display:flex;
-    flex-direction:column;
-  }
+    html, body{
+      width:100%;
+      height:100%;
+      background:var(--bg);
+      font-family:system-ui, Arial, sans-serif;
+    }
 
-  /* HEADER FULL WIDTH */
-  header{
-    width:100%;
-    padding:14px 18px;
-    background:var(--brand);
-    color:#fff;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-  }
+    body{
+      display:flex;
+      flex-direction:column;
+      min-height:100vh;
+    }
 
-  /* LAYOUT FULLSCREEN */
-  .page-wrapper{
-    width:100%;
-    height:100%;
-    display:flex;
-    flex-direction:column;
-  }
+    header{
+      width:100%;
+      padding:14px 18px;
+      background:var(--brand);
+      color:#fff;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
 
-  .layout{
-    width:100%;
-    height:100%;
-    flex:1;
-    display:grid;
-    grid-template-columns:240px 1fr;
-  }
-
-  /* SIDEBAR */
-  aside{
-    background:#fff;
-    border-right:1px solid #e5e7eb;
-    padding:16px;
-    height:100%;
-  }
-
-  aside .menu a{
-    display:block;
-    padding:10px 12px;
-    margin-bottom:8px;
-    text-decoration:none;
-    color:#111;
-    border-radius:10px;
-  }
-
-  aside .menu a.active{
-    background:#eef7ff;
-    color:#0a6db2;
-  }
-
-  /* MAIN CONTENT FULL WIDTH */
-  main{
-    width:100%;
-    height:100%;
-    padding:20px;
-  }
-
-  /* CARDS + GRID FULL WIDTH */
-  .card{
-    background:#fff;
-    padding:16px;
-    border-radius:14px;
-    box-shadow:0 2px 12px rgba(0,0,0,.06);
-  }
-
-  .grid{
-    width:100%;
-    display:grid;
-    grid-template-columns:1.2fr 1fr;
-    gap:20px;
-  }
-
-  .schedule-full{
-    width:100%;
-    grid-column:1/-1;
-    margin-top:20px;
-  }
-
-  /* BUTTONS */
-  .btn{
-    background:#2563eb;
-    color:#fff;
-    border:none;
-    border-radius:10px;
-    padding:10px 14px;
-    cursor:pointer;
-  }
-  .btn.secondary{ background:#0ea5e9; }
-  .btn.ghost{ background:#f3f4f6; color:#111; }
-
-  /* TOOLBAR */
-  .toolbar{
-    display:flex;
-    flex-wrap:wrap;
-    gap:12px;
-    align-items:end;
-  }
-
-  input, select{
-    padding:9px 10px;
-    border:1px solid #e5e7eb;
-    border-radius:10px;
-    background:#fff;
-  }
-
-  /* TABLE */
-  table{ width:100%; border-collapse:collapse; }
-  th, td{
-    padding:10px 12px;
-    border-bottom:1px solid #edf0f4;
-    font-size:14px;
-    text-align:left;
-  }
-
-  /* FOOTER FULL WIDTH */
-  footer{
-    width:100vw;
-    margin-left:calc(50% - 50vw);
-    padding:14px 0;
-    text-align:center;
-    font-size:14px;
-    background:#fff;
-    color:#6b7280;
-    border-top:1px solid #e5e7eb;
-  }
-
-  /* RESPONSIVE */
-  @media(max-width:1000px){
-    .layout{ grid-template-columns:1fr; }
-    aside{ display:none; }
-    .grid{ grid-template-columns:1fr; }
-  }
-
-  @media(max-width:600px){
-    .card{ padding:14px; }
-    th,td{ font-size:12px; padding:8px 6px; }
-  }
-    /* SIDEBAR MOBILE STYLE */
-  /* ==========================
-        RESPONSIVE MOBILE
-    ========================== */
-  @media (max-width:1000px){
-
-    /* layout collapse */
     .layout{
-      grid-template-columns:1fr;
+      display:grid;
+      grid-template-columns:240px 1fr;
+      width:100%;
+      flex:1;
     }
 
     aside{
-      display:none;
-    }
-
-    .grid2{
-      grid-template-columns:1fr !important;
-    }
-    
-    main{
+      background:#fff;
+      border-right:1px solid #e5e7eb;
       padding:16px;
     }
 
-    /* menu button */
-    .menu-toggle{
+    aside .menu a{
       display:block;
+      padding:10px 12px;
+      margin-bottom:8px;
+      text-decoration:none;
+      color:#111;
+      border-radius:10px;
     }
 
-    aside.active{
-      display:block !important;
-      position:fixed;
-      top:60px;
-      left:0;
+    aside .menu a.active{
+      background:#eef7ff;
+      color:#0a6db2;
+    }
+
+    main{ padding:20px; }
+
+    .cards{
       width:100%;
-      background:white;
-      box-shadow:0 4px 10px rgba(0,0,0,0.15);
-      z-index:1000;
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+      gap:16px;
     }
 
-    aside.active .menu a{
-      padding:15px 20px;
-      border-bottom:1px solid #eee;
-      border-radius:0;
-    }
-  }
-
-  /* Small screens */
-  @media (max-width:600px){
-    .cards{ grid-template-columns:1fr; }
-
-    table th, table td{
-      font-size:12px;
-      padding:8px 6px;
-      white-space:nowrap;
-    }
-  }
-
-  /* MENU BUTTON */
-  .menu-toggle {
-    display:none;
-    background:none;
-    border:none;
-    color:white;
-    font-size:26px;
-    cursor:pointer;
-    margin-right:10px;
-  }
-  /* SIDEBAR MOBILE STYLE */
-  @media (max-width: 1000px) {
-
-    .menu-toggle {
-      display: block;
+    .card{
+      background:#fff;
+      border-radius:12px;
+      padding:18px;
     }
 
-    aside {
-      display: none;  /* Ẩn mặc định */
+    .grid2{
+      width:100%;
+      display:grid;
+      grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);
+      gap:18px;
+      margin-top:16px;
     }
 
-    aside.active {
-      display: block !important;
-      position: fixed;
-      top: 56px; /* chiều cao header */
-      left: 0;
-      width: 100%;
-      background: white;
-      z-index: 2000;
-      border-top: 1px solid #e5e7eb;
+    table{ width:100%; border-collapse:collapse; }
+
+    th, td{
+      padding:10px 12px;
+      border-bottom:1px solid #edf0f4;
+      font-size:14px;
+      text-align:left;
     }
 
-    aside.active .menu a {
-      padding: 18px 22px;
-      border-bottom: 1px solid #f1f1f1;
-      font-size: 16px;
-      color: #111;
-      display: block;
+    .btn{
+      background:#2563eb;
+      color:#fff;
+      border:none;
+      border-radius:10px;
+      padding:8px 14px;
+      cursor:pointer;
     }
 
-    /* Ngăn che nội dung */
-    main {
-      padding-top: 10px;
+    .btn.ghost{
+      background:#f3f4f6;
+      color:#111;
     }
-  }
-  aside.active {
-    animation: slideDown .20s ease-out;
-  }
 
-  @keyframes slideDown {
-    from { opacity: 0; transform: translateY(-15px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  aside.active {
-  animation: slideDown .20s ease-out;
-  }
+    .toolbar{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      align-items:end;
+    }
 
-  @keyframes slideDown {
-    from { opacity: 0; transform: translateY(-15px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  .footer-full {
-    width:100%;
-    padding:14px 0;
-    text-align:center;
-    font-size:14px;
-    background:#fff;
-    color:#6b7280;
-    border-top:1px solid #e5e7eb;
-    flex-shrink:0;
-  }
-  .footer-section h4 {
-    font-size: 15px;
-    font-weight: 700;
-    margin-bottom: 6px;
-    color: #0ea5e9; /* màu xanh brand AquaNova */
-}
+    input, select{
+      padding:8px 10px;
+      border:1px solid #e5e7eb;
+      border-radius:8px;
+    }
 
-  .footer-section p {
-      margin: 3px 0;
-      font-size: 14px;
-  }
+    .menu-toggle{
+      display:none;
+      background:none;
+      border:none;
+      color:#fff;
+      font-size:26px;
+      cursor:pointer;
+    }
 
+    @media (max-width:1000px){
+      .layout{ grid-template-columns:1fr; }
+      aside{ display:none; }
+      .grid2{ grid-template-columns:1fr; }
+      .menu-toggle{ display:block; }
 
-</style>
+      aside.active{
+        display:block;
+        position:fixed;
+        top:56px;
+        left:0;
+        width:100%;
+        background:#fff;
+        z-index:2000;
+      }
+    }
+
+    .footer-full{
+      width:100%;
+      padding:14px 0;
+      text-align:center;
+      font-size:14px;
+      background:#fff;
+      color:#6b7280;
+      border-top:1px solid #e5e7eb;
+    }
+  </style>
 </head>
 
 <body>
-<div class="page-wrapper">
 
-  <header>
+<header>
   <div style="display:flex; align-items:center; gap:10px;">
     <button id="menuBtn" class="menu-toggle">☰</button>
     <h2>AquaNova</h2>
   </div>
-
-  <div style="opacity:.95; display:flex; gap:14px; align-items:center">
+  <div style="display:flex; gap:14px; align-items:center">
     <span>Feed Timer</span>
-    <a href="{{ url_for('admin_page') }}" style="color:#fff; text-decoration:none">Admin</a>
+    <a href="{{ url_for('admin_page') }}"
+       style="color:#fff;text-decoration:none">Admin</a>
   </div>
 </header>
 
+<div class="layout">
+  <aside>
+    <nav class="menu">
+      <a href="{{ url_for('home') }}">Dashboard</a>
+      <a href="{{ url_for('temperature_page') }}">Temperature</a>
+      <a href="{{ url_for('turbidity_page') }}">Turbidity</a>
+      <a class="active" href="{{ url_for('feed_timer_page') }}">Feed Timer</a>
+      <a href="{{ url_for('chatbot.chatbot_page') }}">Chatbot</a>
+    </nav>
+  </aside>
 
-  <!-- LAYOUT -->
-  <div class="layout">
+  <main>
 
-    <!-- SIDEBAR -->
-    <aside>
-      <nav class="menu">
-        <a class="tab-link" href="{{ url_for('home') }}">Dashboard</a>
-        <a class="tab-link" href="{{ url_for('temperature_page') }}">Temperature</a>
-        <a class="tab-link" href="{{ url_for('turbidity_page') }}">Turbidity</a>
-        <a class="tab-link active" href="{{ url_for('feed_timer_page') }}">Feed Timer</a>
-        <a class="tab-link" href="{{ url_for('chatbot.chatbot_page') }}">Chatbot</a>
-      </nav>
-    </aside>
-
-    <!-- MAIN -->
-    <main>
-
-      <div class="grid">
-
-        <!-- LEFT COLUMN -->
-        <div class="card">
-          <h3 style="margin-top:0">Feeder Control</h3>
-
-          <!-- Feed Now -->
-          <div class="card" style="margin-bottom:14px; padding:12px">
-            <div class="toolbar">
-              <div>
-                <label>Amount (g)</label>
-                <input type="number" id="fnAmount" min="1" step="1" value="20">
-              </div>
-              <div style="align-self:end">
-                <button class="btn" id="feedNowBtn">Feed Now</button>
-              </div>
-              <div class="muted" id="feedNowMsg"></div>
-            </div>
-          </div>
-
-          <!-- Schedule Form -->
-          <div class="card" style="padding:12px">
-            <h4 style="margin:0 0 8px">Add Schedule</h4>
-            <div class="toolbar">
-              <div>
-                <label>Date</label>
-                <input type="date" id="scDate">
-              </div>
-              <div>
-                <label>Time</label>
-                <input type="time" id="scTime" value="08:30">
-              </div>
-              <div>
-                <label>Repeat</label>
-                <select id="scRepeat">
-                  <option value="none">Once</option>
-                  <option value="daily">Daily</option>
-                  <option value="weekly">Weekly</option>
-                </select>
-              </div>
-              <div>
-                <label>Amount (g)</label>
-                <input type="number" id="scAmount" min="1" step="1" value="20">
-              </div>
-              <div style="align-self:end">
-                <button class="btn secondary" id="addScheduleBtn">Add</button>
-              </div>
-              <div class="muted" id="addScheduleMsg"></div>
-            </div>
-          </div>
+    <!-- CARDS -->
+    <div class="cards">
+      <div class="card">
+        <h4>Feed now</h4>
+        <div class="toolbar">
+          <input type="number" id="fnAmount" min="1" value="20">
+          <button class="btn" id="feedNowBtn">Feed</button>
         </div>
-
-        <!-- RIGHT: Feed Status Pie Chart -->
-        <div class="card" style="display:flex;flex-direction:column;align-items:center;justify-content:center">
-          <h3 style="margin:0 0 12px;text-align:center">Feed Status</h3>
-          <div style="width:180px;height:180px;position:relative">
-            <canvas id="feedPie1"></canvas>
-          </div>
-          <div style="margin-top:8px;text-align:center" class="muted">
-            <b id="feedPie1Num">--%</b> · <span id="feedPie1Time">—</span>
-            <div id="feedPie1Warn" class="tag" style="display:none;margin-top:6px">Low feed (&lt;10%)</div>
-          </div>
-        </div>
-
       </div>
 
-      <!-- SCHEDULE TABLE -->
-      <div class="card schedule-full" style="margin-top:16px">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px">
-          <h3 style="margin:0">Current Schedules</h3>
-          <button class="btn ghost" id="refreshScheduleBtn">Refresh</button>
+      <div class="card">
+        <h4>Add schedule</h4>
+        <div class="toolbar">
+          <input type="date" id="scDate">
+          <input type="time" id="scTime">
+          <select id="scRepeat">
+            <option value="none">Once</option>
+            <option value="daily">Daily</option>
+            <option value="weekly">Weekly</option>
+          </select>
+          <input type="number" id="scAmount" min="1" value="20">
+          <button class="btn" id="addScheduleBtn">Add</button>
         </div>
+      </div>
+    </div>
+
+    <!-- TABLE -->
+    <div class="grid2">
+      <div class="card" style="grid-column:1/-1">
+        <h3>Current schedules</h3>
         <table>
           <thead>
             <tr>
@@ -425,196 +232,100 @@
               <th>Date</th>
               <th>Time</th>
               <th>Repeat</th>
-              <th>Amount (g)</th>
-              <th>Actions</th>
+              <th>Amount</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody id="scRows"></tbody>
         </table>
       </div>
+    </div>
 
-    </main>
-  </div>
-
- <footer class="footer-full">
-  <div class="footer-section">
-      <h4>Thành viên thực hiện</h4>
-      <p>Hoàng Ngọc Dung – 23139006 | Đoàn Minh Duy Bình – 23139005 | Trần Hữu Dương – 23130009</p>
-  </div>
-</footer> 
-
+  </main>
 </div>
 
+<footer class="footer-full">
+  <h4>Thành viên thực hiện</h4>
+  <p>
+    Hoàng Ngọc Dung – 23139006 |
+    Đoàn Minh Duy Bình – 23139005 |
+    Trần Hữu Dương – 23130009
+  </p>
+</footer>
+
 <script>
-// === PIE CHART FEED STATUS ===
-let pieChart;
+const FEED_NOW_API   = '/control/feed-now';
+const SCHEDULE_API   = '/control/schedule';
+const SCHEDULES_API  = '/control/schedules';
 
-function renderFeedPie(amount) {
-  const ctx = document.getElementById('feedPie1').getContext('2d');
+/* ===== GIỮ NGUYÊN ===== */
+async function refreshSchedules(){
+  const tbody = document.getElementById('scRows');
+  tbody.innerHTML = '';
 
-  if (pieChart) pieChart.destroy();
+  const r = await fetch(SCHEDULES_API);
+  const j = await r.json();
 
-  pieChart = new Chart(ctx, {
-    type: 'doughnut',
-    data: {
-      labels: ['Remaining', 'Used'],
-      datasets: [{
-        data: [amount, 100 - amount],
-        backgroundColor: ['#0ea5e9', '#e5e7eb'],
-        borderWidth: 0
-      }]
-    },
-    options: {
-      cutout: '70%',
-      plugins: { legend: { display: false } }
-    }
+  (j.items || []).forEach((s, i) => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>${i + 1}</td>
+      <td>${s.date}</td>
+      <td>${s.time}</td>
+      <td>${s.repeat}</td>
+      <td>${s.amount ?? ''}</td>
+      <td>
+        <button class="btn ghost"
+                onclick="deleteSchedule('${s.id}')">
+          Delete
+        </button>
+      </td>
+    `;
+    tbody.appendChild(tr);
   });
 }
 
-async function loadFeedStatus() {
-  try {
-    const res = await fetch('/dashboard/last');
-    const data = await res.json();
+async function addSchedule(){
+  const body = {
+    date: scDate.value,
+    time: scTime.value,
+    repeat: scRepeat.value,
+    amount: Number(scAmount.value)
+  };
 
-    if (!data.item) return;
+  await fetch(SCHEDULE_API, {
+    method: 'POST',
+    headers: { 'Content-Type':'application/json' },
+    body: JSON.stringify(body)
+  });
 
-    const amount = Number(data.item.feed_amount ?? data.item.feed ?? NaN);
-    const time = data.item.ts || '—';
-
-    // Cập nhật text
-    document.getElementById('feedPie1Num').textContent = amount + '%';
-    document.getElementById('feedPie1Time').textContent = time;
-
-    // Warning
-    const warn = document.getElementById('feedPie1Warn');
-    warn.style.display = amount < 10 ? 'block' : 'none';
-
-    // Vẽ pie chart
-    if (!isNaN(amount)) renderFeedPie(amount);
-
-  } catch (err) {
-    console.error('[FEED STATUS ERROR]', err);
-  }
+  refreshSchedules();
 }
 
-// Load ban đầu
-loadFeedStatus();
-// Reload 10 phút
-setInterval(loadFeedStatus, 10 * 60 * 1000);
+async function deleteSchedule(id){
+  await fetch('/control/hook/schedule/latest', { method:'DELETE' });
+  refreshSchedules();
+}
+
+feedNowBtn.onclick = async () => {
+  await fetch(FEED_NOW_API, {
+    method:'POST',
+    headers:{ 'Content-Type':'application/json' },
+    body: JSON.stringify({ amount: Number(fnAmount.value) })
+  });
+};
+
+addScheduleBtn.onclick = addSchedule;
+refreshSchedules();
+setInterval(() => {
+  refreshSchedules();
+}, 10000);
 </script>
 
-
 <script>
-  const FEED_NOW_API = '/control/feed-now';
-  const SCHEDULE_API = '/control/schedule';
-  const SCHEDULES_API = '/control/schedules';
-
-  document.getElementById('feedNowBtn').onclick = async ()=> {
-    const amount = Number(document.getElementById('fnAmount').value || 0);
-    const msg = document.getElementById('feedNowMsg');
-    if(amount <= 0){ msg.textContent='Please enter a valid amount.'; return; }
-    msg.textContent = 'Sending...';
-    try{
-      const r = await fetch(FEED_NOW_API, {
-        method:'POST',
-        headers:{'Content-Type':'application/json'},
-        body: JSON.stringify({amount})
-      });
-      const j = await r.json();
-      if(!r.ok || j.error) throw new Error(j.error || r.status);
-      msg.textContent = 'Feed command sent.';
-    }catch(e){
-      msg.textContent = 'Failed: ' + e.message;
-    }finally{
-      setTimeout(()=> msg.textContent='', 2500);
-    }
-  }
-
-  async function refreshSchedules(){
-    const tbody = document.getElementById('scRows');
-    tbody.innerHTML = '<tr><td colspan="6" class="muted">Loading…</td></tr>';
-    try{
-      const r = await fetch(SCHEDULES_API);
-      const j = await r.json();
-      const list = j.items || [];
-      tbody.innerHTML = '';
-      list.forEach((s,idx)=>{
-        const tr = document.createElement('tr');
-        tr.innerHTML = `
-          <td>${idx+1}</td>
-          <td>${s.date || '-'}</td>
-          <td>${s.time || ''}</td>
-          <td>${s.repeat === 'weekly' ? 'Weekly' : s.repeat === 'daily' ? 'Daily' : 'Once'}</td>
-          <td>${s.amount ?? ''}</td>
-          <td><button class="btn ghost" onclick="deleteSchedule('${s.id}')">Delete</button></td>
-        `;
-        tbody.appendChild(tr);
-      });
-      if(!list.length) tbody.innerHTML = '<tr><td colspan="6" class="muted">No schedules.</td></tr>';
-    }catch(e){
-      tbody.innerHTML = `<tr><td colspan="6" class="muted">Load failed: ${e.message}</td></tr>`;
-    }
-  }
-
-  async function addSchedule(){
-    const date = document.getElementById('scDate').value;
-    const time = document.getElementById('scTime').value;
-    const repeat = document.getElementById('scRepeat').value;
-    const amount = Number(document.getElementById('scAmount').value || 0);
-    const msg = document.getElementById('addScheduleMsg');
-
-    if(!date || !time || amount <= 0){
-      msg.textContent='Please fill all fields.';
-      return;
-    }
-
-    msg.textContent = 'Creating…';
-    try{
-      const r = await fetch(SCHEDULE_API, {
-        method:'POST',
-        headers:{'Content-Type':'application/json'},
-        body: JSON.stringify({date, time, repeat, amount})
-      });
-      const j = await r.json();
-      if(!r.ok || j.error) throw new Error(j.error || r.status);
-      msg.textContent = 'Added.';
-      await refreshSchedules();
-    }catch(e){
-      msg.textContent = 'Failed: ' + e.message;
-    }finally{
-      setTimeout(()=> msg.textContent='', 2500);
-    }
-  }
-
-  async function deleteSchedule(id){
-    if(!confirm('Delete this schedule?')) return;
-    try{
-      const r = await fetch(`${SCHEDULES_API}/${encodeURIComponent(id)}`, {
-        method:'DELETE'
-      });
-      const j = await r.json();
-      if(!r.ok || j.error) throw new Error(j.error || r.status);
-      refreshSchedules();
-    }catch(e){
-      alert('Delete failed: ' + e.message);
-    }
-  }
-  window.deleteSchedule = deleteSchedule;
-
-  document.getElementById('addScheduleBtn').onclick = addSchedule;
-  document.getElementById('refreshScheduleBtn').onclick = refreshSchedules;
-
-  (async function init(){
-    await refreshSchedules();
-  })();
-</script>
-<script>
-const menuBtn = document.getElementById('menuBtn');
-const sidebar = document.querySelector('aside');
-
-menuBtn.addEventListener('click', () => {
-  sidebar.classList.toggle('active');
-});
+menuBtn.onclick = () => {
+  document.querySelector('aside').classList.toggle('active');
+};
 </script>
 
 </body>

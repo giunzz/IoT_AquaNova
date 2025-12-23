@@ -1,166 +1,218 @@
+from flask import Blueprint, jsonify, request
+import requests
+import time
+import uuid
+import json
 
-
-from flask import Blueprint, request, jsonify, current_app
-import paho.mqtt.client as mqtt
-import json, uuid, time
 from firebase_admin import firestore
 
+
 control_bp = Blueprint("control_bp", __name__)
-_mqtt_pub_client = None
 
+NODE_RED_BASE = "http://127.0.0.1:1880"
 
-def _get_pub():
-    global _mqtt_pub_client
-    if _mqtt_pub_client:
-        return _mqtt_pub_client
-
-    cfg = current_app.config
-    client = mqtt.Client(
-        mqtt.CallbackAPIVersion.VERSION2,
-        client_id="aquanova-control-pub"
-    )
-    user = cfg.get("MQTT_USER")
-    if user:
-        client.username_pw_set(user, cfg.get("MQTT_PASS"))
-
-    client.tls_set()
-    client.connect(cfg.get("MQTT_HOST"), int(cfg.get("MQTT_PORT", 8883)), keepalive=60)
-    client.qos = 1   
-    _mqtt_pub_client = client
-    return _mqtt_pub_client
 
 @control_bp.post("/light")
 def toggle_light():
     data = request.get_json(force=True) or {}
 
-    light_val = int(data.get("light", 0))
-    color = data.get("color")  # "#FF0000", "#00FF00", ...
-
     try:
-        topic = "aquanova/control"
+        r = requests.post(
+            f"{NODE_RED_BASE}/cmd/light",
+            json=data,
+            timeout=3
+        )
+    except requests.RequestException as e:
+        return jsonify({"error": f"Node-RED unreachable: {e}"}), 502
 
-        payload = {"light": light_val}
+    if r.status_code != 200:
+        return jsonify({"error": "Node-RED error"}), 502
 
-        if light_val == 1 and isinstance(color, str):
-            payload["color"] = color.upper()  # normalize HEX
+    # Lưu trạng thái đèn
+    light_val = int(data.get("light", 0))
+    color = data.get("color")
 
-        print(f"[LIGHT] Publishing {payload} → {topic}")
-        _get_pub().publish(topic, json.dumps(payload), qos=1)
+    db = firestore.client()
+    db.collection("device_state").document("light").set({
+        "state": light_val,
+        "color": color if light_val == 1 else None,
+        "updated_at": firestore.SERVER_TIMESTAMP
+    })
 
-        # ===== FIRESTORE =====
-        db = firestore.client()
-        db.collection("device_state").document("light").set({
-            "state": light_val,
-            "color": color if light_val == 1 else None,
-            "updated_at": firestore.SERVER_TIMESTAMP
-        })
-
-        return jsonify(ok=True, **payload)
-
-    except Exception as e:
-        print("[ERROR] toggle_light:", e)
-        return jsonify({"error": str(e)}), 500
+    return jsonify(ok=True, **data)
 
 
 @control_bp.get("/light")
 def get_light_state():
-    try:
-        db = firestore.client()
-        doc = db.collection("device_state").document("light").get()
+    db = firestore.client()
+    doc = db.collection("device_state").document("light").get()
 
-        if not doc.exists:
-            return jsonify({"ok": True, "light": 0})
+    if not doc.exists:
+        return jsonify({"ok": True, "light": 0})
 
-        data = doc.to_dict()
-        return jsonify({
-            "ok": True,
-            "light": data.get("state", 0)
-        })
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
+    data = doc.to_dict()
+    return jsonify({
+        "ok": True,
+        "light": data.get("state", 0)
+    })
 
-# ------------------------------------------------------------
-# 🐟 Cho ăn ngay lập tức
-# ------------------------------------------------------------
+
 @control_bp.post("/feed-now")
 def feed_now():
     data = request.get_json(force=True) or {}
-    amount = data.get("amount", 20)
 
-    try:
-        topic = "aquanova/control"
-        payload = {"feeding": 1}
-        print(f"[FEED-NOW] Publishing {payload} → {topic}")
+    r = requests.post(
+        f"{NODE_RED_BASE}/cmd/feed-now",
+        json=data,
+        timeout=3
+    )
 
-        _get_pub().publish(topic, json.dumps(payload), qos=1)
+    if r.status_code != 200:
+        return jsonify({"error": "Node-RED error"}), 502
 
-        # Ghi log Firestore
-        db = firestore.client()
-        db.collection("feed_logs").add({
-            "timestamp": firestore.SERVER_TIMESTAMP,
-            "source": "manual"
-        })
+    db = firestore.client()
+    db.collection("feed_logs").add({
+        "timestamp": firestore.SERVER_TIMESTAMP,
+        "source": "manual"
+    })
 
-        return jsonify({"ok": True, "published": {"topic": topic, "payload": payload}})
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
+    return jsonify(ok=True)
 
 
-# ------------------------------------------------------------
-# 📅 Tạo lịch cho ăn
-# ------------------------------------------------------------
+@control_bp.get("/schedules")
+def list_schedules():
+    db = firestore.client()
+
+    docs = (
+        db.collection("schedules")
+        .order_by("date")
+        .order_by("time")
+        .stream()
+    )
+
+    items = []
+    for d in docs:
+        item = d.to_dict() or {}
+        item["id"] = d.id          # <<< CỰC KỲ QUAN TRỌNG
+        items.append(item)
+
+    return jsonify(items=items)
+
 @control_bp.post("/schedule")
 def add_schedule():
     data = request.get_json(force=True) or {}
-    required = ("date", "time", "repeat")
-    for key in required:
-        if not data.get(key):
-            return jsonify({"error": f"{key} required"}), 400
 
-    sid = uuid.uuid4().hex[:12]
-    item = {
+    required = ("date", "time", "repeat")
+    for k in required:
+        if not data.get(k):
+            return jsonify({"error": f"{k} required"}), 400
+
+    sid = f"{data['date']}_{data['time']}"
+
+    payload = {
         "id": sid,
-        "date": data.get("date", ""),               # ngày (định dạng YYYY-MM-DD)
-        "time": data["time"],                       # giờ (HH:MM)
-        "repeat": data["repeat"],                   # none / daily / weekly
-        "created_at": int(time.time())
+        "date": data["date"],
+        "time": data["time"],
+        "repeat": data["repeat"],
+        "amount": data.get("amount", 20),
+        "source": "web"
     }
 
+    r = requests.post(
+        "http://127.0.0.1:1880/cmd/schedule",
+        json=payload,
+        timeout=3
+    )
+
+    if r.status_code != 200:
+        return jsonify({"error": "Node-RED error"}), 502
+
+    return jsonify(ok=True, pending_id=sid)
+
+
+@control_bp.post("/hook/schedule")
+def save_schedule_from_mqtt():
+    data = request.get_json(force=True) or {}
+
+    date = data.get("date")
+    time_ = data.get("time")
+
+    if not date or not time_:
+        return jsonify({"error": "date & time required"}), 400
+
+    sid = f"{date}_{time_}"   # <<< CHỐT
+
     db = firestore.client()
-    db.collection("schedules").document(sid).set(item)
-    print(f"[SCHEDULE] Added: {item}")
+    ref = db.collection("schedules").document(sid)
 
-    return jsonify({"ok": True, "id": sid, "item": item})
+    if ref.get().exists:
+        return jsonify({"error": "Schedule already exists"}), 409
 
+    ref.set({
+        "id": sid,
+        "date": date,
+        "time": time_,
+        "source": "mqtt",
+        "created_at": firestore.SERVER_TIMESTAMP
+    })
 
-# ------------------------------------------------------------
-# 📋 Danh sách lịch
-# ------------------------------------------------------------
-@control_bp.get("/schedules")
-def list_schedules():
-    try:
-        db = firestore.client()
-        docs = db.collection("schedules").stream()
-        items = [doc.to_dict() for doc in docs]
-        return jsonify({"items": items})
-    except Exception as e:
-        print("[ERROR] list_schedules:", e)
-        return jsonify({"error": str(e)}), 500
+    return jsonify(ok=True, id=sid)
 
 
-# ------------------------------------------------------------
-# 🗑️ Xóa lịch
-# ------------------------------------------------------------
+@control_bp.put("/schedules/<sid>")
+def update_schedule(sid):
+    data = request.get_json(force=True) or {}
+
+    db = firestore.client()
+    ref = db.collection("schedules").document(sid)
+    doc = ref.get()
+
+    if not doc.exists:
+        return jsonify({"error": "Not found"}), 404
+
+    old = doc.to_dict()
+
+    # Cấm đổi date / time (để không phá ID)
+    if "date" in data or "time" in data:
+        return jsonify({"error": "date/time cannot be updated"}), 400
+
+    allowed = {"repeat", "amount", "enabled"}
+    update_data = {k: v for k, v in data.items() if k in allowed}
+
+    if not update_data:
+        return jsonify({"error": "No valid fields"}), 400
+
+    update_data["updated_at"] = firestore.SERVER_TIMESTAMP
+    ref.update(update_data)
+
+    return jsonify(ok=True, id=sid)
+
 @control_bp.delete("/schedules/<sid>")
 def delete_schedule(sid):
-    try:
-        db = firestore.client()
-        ref = db.collection("schedules").document(sid)
-        if not ref.get().exists:
-            return jsonify({"error": "Schedule not found"}), 404
-        ref.delete()
-        print(f"[SCHEDULE] Deleted {sid}")
-        return jsonify({"ok": True})
-    except Exception as e:
-        print("[ERROR] delete_schedule:", e)
-        return jsonify({"error": str(e)}), 500
+    db = firestore.client()
+    ref = db.collection("schedules").document(sid)
+
+    if not ref.get().exists:
+        return jsonify({"error": "Not found"}), 404
+
+    ref.delete()
+    return jsonify(ok=True, id=sid)
+
+@control_bp.delete("/hook/schedule/latest")
+def delete_latest_schedule():
+    db = firestore.client()
+
+    docs = (
+        db.collection("schedules")
+        .order_by("created_at", direction=firestore.Query.DESCENDING)
+        .limit(1)
+        .stream()
+    )
+
+    doc = next(docs, None)
+    if not doc:
+        return jsonify({"error": "No schedules"}), 404
+
+    doc.reference.delete()
+    return jsonify(ok=True, deleted_id=doc.id)
+

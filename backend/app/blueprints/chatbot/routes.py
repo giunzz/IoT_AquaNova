@@ -1,30 +1,9 @@
-import os
-import tempfile
+import json
+import requests
 from flask import Blueprint, render_template, request, jsonify
 from .agents import aqua_agent
-import json
 
-from ..control.routes import _get_pub  
-def publish_from_agent(data: dict):
-    """
-    Publish MQTT nếu agent trả JSON có "light" hoặc "feeding"
-    """
-    if not isinstance(data, dict):
-        return False
-
-    # Chỉ publish 2 loại lệnh
-    if "light" not in data and "feeding" not in data:
-        return False
-
-    topic = "aquanova/control"
-    payload = json.dumps(data)
-
-    print(f"[MQTT] Publishing {data} → {topic}")
-    client = _get_pub()
-    client.publish(topic, payload, qos=1)
-
-    return True
-
+NODE_RED_BASE = "http://127.0.0.1:1880"   # hoặc IP EC2
 
 chatbot_bp = Blueprint("chatbot", __name__)
 
@@ -35,22 +14,24 @@ def chatbot_page():
 
 @chatbot_bp.route("/api", methods=["POST"])
 def chatbot_api():
-    data = request.get_json()
+    data = request.get_json() or {}
     msg = data.get("message", "")
 
     try:
-        # Agent trả kết quả
         agent_resp = aqua_agent.run(msg)
         content = agent_resp.content
 
-        # TH1: Agent trả JSON → điều khiển thiết bị
         try:
-            parsed_json = json.loads(content)
+            parsed = json.loads(content)
 
-            publish_from_agent(parsed_json)
+            if "light" in parsed or "feeding" in parsed:
+                requests.post(
+                    f"{NODE_RED_BASE}/cmd/chatbot",
+                    json=parsed,
+                    timeout=3
+                )
 
-            return jsonify(reply=json.dumps(parsed_json, ensure_ascii=False))
-
+            return jsonify(reply=content)
 
         except json.JSONDecodeError:
             return jsonify(reply=content)
