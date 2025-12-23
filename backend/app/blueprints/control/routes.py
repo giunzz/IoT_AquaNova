@@ -202,6 +202,7 @@ def delete_schedule(sid):
 def delete_latest_schedule():
     db = firestore.client()
 
+    # Lấy bản ghi mới nhất
     docs = (
         db.collection("schedules")
         .order_by("created_at", direction=firestore.Query.DESCENDING)
@@ -209,10 +210,19 @@ def delete_latest_schedule():
         .stream()
     )
 
-    doc = next(docs, None)
+    doc = None
+    for d in docs:
+        doc = d
+        break
+
     if not doc:
-        return jsonify({"error": "No schedules"}), 404
+        return jsonify({"error": "No schedules found"}), 404
 
     doc.reference.delete()
-    return jsonify(ok=True, deleted_id=doc.id)
+
+    return jsonify(
+        ok=True,
+        deleted_id=doc.id,
+        deleted=doc.to_dict()
+    )
 
