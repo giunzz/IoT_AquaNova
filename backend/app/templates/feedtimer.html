@@ -259,7 +259,7 @@ const SCHEDULE_API   = '/control/schedule';
 const SCHEDULES_API  = '/control/schedules';
 
 /* =========================
-   LOAD SCHEDULES
+  LOAD SCHEDULES
 ========================= */
 async function refreshSchedules(){
   const tbody = document.getElementById('scRows');
@@ -325,7 +325,7 @@ async function addSchedule(){
 }
 
 /* =========================
-   DELETE SCHEDULE (ĐÚNG ID)
+  DELETE SCHEDULE (ĐÚNG ID)
 ========================= */
 async function deleteSchedule(id){
   if (!confirm("Delete this schedule?")) return;

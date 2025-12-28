@@ -1,15 +1,9 @@
 from flask import Blueprint, jsonify, request
 import requests
-
 from firebase_admin import firestore
 
-
-# =========================================================
-# CONFIG
-# =========================================================
 control_bp = Blueprint("control_bp", __name__)
 NODE_RED_BASE = "http://127.0.0.1:1880"
-
 
 # =========================================================
 # 1. LIGHT CONTROL (WEB → NODE-RED → MQTT)
@@ -19,16 +13,14 @@ def toggle_light():
     data = request.get_json(force=True) or {}
 
     try:
-        r = requests.post(
+        requests.post(
             f"{NODE_RED_BASE}/cmd/light",
             json=data,
-            timeout=3
+            timeout=2
         )
-        r.raise_for_status()
     except Exception as e:
         return jsonify({"error": f"Node-RED error: {e}"}), 502
 
-    # LƯU TRẠNG THÁI (UI state)
     light_val = int(data.get("light", 0))
     color = data.get("color")
 
@@ -44,10 +36,7 @@ def toggle_light():
 @control_bp.get("/light")
 def get_light_state():
     doc = firestore.client().collection("device_state").document("light").get()
-    return jsonify(
-        ok=True,
-        light=doc.to_dict().get("state", 0) if doc.exists else 0
-    )
+    return jsonify(ok=True, light=doc.to_dict().get("state", 0) if doc.exists else 0)
 
 
 # =========================================================
@@ -56,25 +45,25 @@ def get_light_state():
 @control_bp.post("/feed-now")
 def feed_now():
     try:
-        r = requests.post(
+        requests.post(
             f"{NODE_RED_BASE}/cmd/feed-now",
             json=request.get_json(force=True) or {},
-            timeout=3
+            timeout=2
         )
-        r.raise_for_status()
     except Exception as e:
         return jsonify({"error": f"Node-RED error: {e}"}), 502
 
     firestore.client().collection("feed_logs").add({
-        "timestamp": firestore.SERVER_TIMESTAMP,
-        "source": "manual"
+        "feed": 1,
+        "source": "manual",
+        "created_at": firestore.SERVER_TIMESTAMP
     })
 
     return jsonify(ok=True)
 
 
 # =========================================================
-# 3. SCHEDULE – WEB → NODE-RED (KHÔNG GHI DB)
+# 3. SCHEDULE – WEB → FIRESTORE (❗KHÔNG GỌI NODE-RED)
 # =========================================================
 @control_bp.post("/schedule")
 def add_schedule_from_web():
@@ -84,26 +73,23 @@ def add_schedule_from_web():
         if not data.get(k):
             return jsonify({"error": f"{k} required"}), 400
 
-    payload = {
-        "id": f"{data['date']}_{data['time']}",
+    sid = f"{data['date']}_{data['time']}"
+    ref = firestore.client().collection("schedules").document(sid)
+
+    if ref.get().exists:
+        return jsonify({"error": "Schedule already exists"}), 409
+
+    ref.set({
+        "id": sid,
         "date": data["date"],
         "time": data["time"],
         "repeat": data["repeat"],
-        "amount": data.get("amount", 20),
-        "source": "web"
-    }
+        "amount": int(data.get("amount", 20)),
+        "source": "web",
+        "created_at": firestore.SERVER_TIMESTAMP
+    })
 
-    try:
-        r = requests.post(
-            f"{NODE_RED_BASE}/cmd/schedule",
-            json=payload,
-            timeout=3
-        )
-        r.raise_for_status()
-    except Exception as e:
-        return jsonify({"error": f"Node-RED error: {e}"}), 502
-
-    return jsonify(ok=True, pending_id=payload["id"])
+    return jsonify(ok=True, id=sid)
 
 
 # =========================================================
@@ -129,7 +115,7 @@ def save_schedule_from_mqtt():
         "time": time_,
         "repeat": data.get("repeat", "none"),
         "amount": int(data.get("amount", 20)),
-        "source": data.get("source", "node-red"),
+        "source": data.get("source", "mqtt"),
         "created_at": firestore.SERVER_TIMESTAMP
     })
 
@@ -137,24 +123,16 @@ def save_schedule_from_mqtt():
 
 
 # =========================================================
-# 5. READ SCHEDULES (WEB UI LOAD)
+# 5. READ SCHEDULES
 # =========================================================
 @control_bp.get("/schedules")
 def list_schedules():
-    docs = (
-        firestore.client()
-        .collection("schedules")
-        .order_by("created_at", direction=firestore.Query.DESCENDING)
-        .stream()
-    )
-
-    return jsonify(
-        items=[{**d.to_dict(), "id": d.id} for d in docs]
-    )
+    docs = firestore.client().collection("schedules").stream()
+    return jsonify(items=[{**d.to_dict(), "id": d.id} for d in docs])
 
 
 # =========================================================
-# 6. UPDATE SCHEDULE (WEB)
+# 6. UPDATE SCHEDULE
 # =========================================================
 @control_bp.put("/schedules/<sid>")
 def update_schedule(sid):
@@ -163,8 +141,7 @@ def update_schedule(sid):
         return jsonify({"error": "Not found"}), 404
 
     data = request.get_json(force=True) or {}
-    allowed = {"repeat", "amount", "enabled"}
-    update_data = {k: v for k, v in data.items() if k in allowed}
+    update_data = {k: v for k, v in data.items() if k in {"repeat", "amount", "enabled"}}
 
     if not update_data:
         return jsonify({"error": "No valid fields"}), 400
@@ -176,7 +153,7 @@ def update_schedule(sid):
 
 
 # =========================================================
-# 7. DELETE SCHEDULE
+# 7. DELETE SCHEDULE BY ID
 # =========================================================
 @control_bp.delete("/schedules/<sid>")
 def delete_schedule(sid):
@@ -189,21 +166,35 @@ def delete_schedule(sid):
 
 
 # =========================================================
-# 8. DELETE LATEST (DEBUG / ADMIN)
+# 8. DELETE FIRST SCHEDULE (DEBUG)
 # =========================================================
 @control_bp.delete("/hook/schedule/latest")
-def delete_latest_schedule():
-    docs = (
-        firestore.client()
-        .collection("schedules")
-        .order_by("created_at", direction=firestore.Query.DESCENDING)
-        .limit(1)
-        .stream()
-    )
-
+def delete_first_schedule():
+    docs = firestore.client().collection("schedules").stream()
     doc = next(docs, None)
+
     if not doc:
         return jsonify({"error": "No schedules found"}), 404
 
     doc.reference.delete()
     return jsonify(ok=True, deleted_id=doc.id)
+
+
+# =========================================================
+# 9. FEED LOG – MQTT / NODE-RED → FIRESTORE
+# =========================================================
+@control_bp.post("/feed-log")
+def save_feed_log():
+    data = request.get_json(force=True) or {}
+
+    if data.get("feed") != 1 or not data.get("time"):
+        return jsonify({"error": "invalid payload"}), 400
+
+    ref = firestore.client().collection("feed_logs").add({
+        "feed": 1,
+        "time": data["time"],
+        "source": data.get("source", "mqtt"),
+        "created_at": firestore.SERVER_TIMESTAMP
+    })
+
+    return jsonify(ok=True, id=ref[1].id)
