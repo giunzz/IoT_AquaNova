@@ -221,7 +221,7 @@
       </div>
     </div>
 
-    <!-- TABLE -->
+    <!-- TABLES -->
     <div class="grid2">
       <div class="card" style="grid-column:1/-1">
         <h3>Current schedules</h3>
@@ -241,6 +241,22 @@
       </div>
     </div>
 
+    <div class="grid2">
+      <div class="card" style="grid-column:1/-1">
+        <h3>Feed logs</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Time</th>
+              <th>Feed amount</th>
+            </tr>
+          </thead>
+          <tbody id="feedLogRows"></tbody>
+        </table>
+      </div>
+    </div>
+
   </main>
 </div>
 
@@ -254,126 +270,234 @@
 </footer>
 
 <script>
-const FEED_NOW_API   = '/control/feed-now';
-const SCHEDULE_API   = '/control/schedule';
-const SCHEDULES_API  = '/control/schedules';
+  const FEED_NOW_API   = '/control/feed-now';
+  const SCHEDULE_API   = '/control/schedule';
+  const SCHEDULES_API  = '/control/schedules';
+  const FEED_LOGS_API  = '/control/feed-logs?limit=20';
 
-/* =========================
-  LOAD SCHEDULES
-========================= */
-async function refreshSchedules(){
-  const tbody = document.getElementById('scRows');
-  tbody.innerHTML = '';
+  /* =========================
+     LOAD SCHEDULES
+  ========================= */
+  async function refreshSchedules(){
+    const tbody = document.getElementById('scRows');
+    if (!tbody) return;
+    tbody.innerHTML = '';
 
-  try {
-    const r = await fetch(SCHEDULES_API);
-    const j = await r.json();
+    try {
+      const r = await fetch(SCHEDULES_API, { cache: 'no-store' });
+      const j = await r.json();
 
-    (j.items || []).forEach((s, i) => {
-      const tr = document.createElement('tr');
-      tr.innerHTML = `
-        <td>${i + 1}</td>
-        <td>${s.date}</td>
-        <td>${s.time}</td>
-        <td>${s.repeat ?? ''}</td>
-        <td>${s.amount ?? ''}</td>
-        <td>
-          <button class="btn ghost"
-                  onclick="deleteSchedule('${s.id}')">
-            Delete
-          </button>
-        </td>
-      `;
-      tbody.appendChild(tr);
-    });
-  } catch (e) {
-    console.error("Load schedules failed", e);
-  }
-}
-
-/* =========================
-   ADD SCHEDULE
-========================= */
-async function addSchedule(){
-  const body = {
-    date: scDate.value,
-    time: scTime.value,
-    repeat: scRepeat.value,
-    amount: Number(scAmount.value)
-  };
-
-  try {
-    const r = await fetch(SCHEDULE_API, {
-      method: 'POST',
-      headers: { 'Content-Type':'application/json' },
-      body: JSON.stringify(body)
-    });
-
-    const res = await r.json();
-
-    // 409 / duplicate → OK
-    if (!r.ok && r.status !== 409) {
-      alert(res.error || "Add schedule failed");
-      return;
+      (j.items || []).forEach((s, i) => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${i + 1}</td>
+          <td>${s.date || ''}</td>
+          <td>${s.time || ''}</td>
+          <td>${s.repeat ?? ''}</td>
+          <td>${s.amount ?? ''}</td>
+          <td>
+            <button class="btn ghost" onclick="deleteSchedule('${s.id}')">
+              Delete
+            </button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    } catch (e) {
+      console.error('Load schedules failed', e);
     }
+  }
+
+  /* =========================
+     LOAD FEED LOGS
+  ========================= */
+  async function refreshFeedLogs(){
+    const tbody = document.getElementById('feedLogRows');
+    if (!tbody) return;
+    tbody.innerHTML = '';
+
+    try {
+      const r = await fetch(FEED_LOGS_API, { cache: 'no-store' });
+      const j = await r.json();
+
+      (j.items || []).forEach((log, i) => {
+        const d = log.day ? new Date(log.day) : null;
+
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${i + 1}</td>
+          <td>${d ? d.toLocaleString('vi-VN') : ''}</td>
+          <td>${log.feed ?? ''}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    } catch (e) {
+      console.error('Load feed logs failed', e);
+    }
+  }
+
+  /* =========================
+     ADD SCHEDULE
+  ========================= */
+  async function addSchedule(){
+    const dateEl = document.getElementById('scDate');
+    const timeEl = document.getElementById('scTime');
+    const repEl  = document.getElementById('scRepeat');
+    const amtEl  = document.getElementById('scAmount');
+
+    const body = {
+      date: dateEl?.value,
+      time: timeEl?.value,
+      repeat: repEl?.value,
+      amount: Number(amtEl?.value)
+    };
+
+    try {
+      const r = await fetch(SCHEDULE_API, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body)
+      });
+
+      const res = await r.json().catch(() => ({}));
+
+      // 409 / duplicate → OK
+      if (!r.ok && r.status !== 409) {
+        alert(res.error || 'Add schedule failed');
+        return;
+      }
+
+      refreshSchedules();
+    } catch (e) {
+      alert('Server unreachable');
+    }
+  }
+
+  /* =========================
+     DELETE SCHEDULE
+  ========================= */
+  async function deleteSchedule(id){
+    if (!confirm('Delete this schedule?')) return;
+
+    try {
+      const r = await fetch(`/control/schedules/${id}`, { method: 'DELETE' });
+
+      if (!r.ok) {
+        alert('Delete failed');
+        return;
+      }
+
+      refreshSchedules();
+    } catch (e) {
+      alert('Server unreachable');
+    }
+  }
+
+  /* =========================
+     FEED NOW
+  ========================= */
+  function bindFeedNow(){
+    const btn = document.getElementById('feedNowBtn');
+    const amt = document.getElementById('fnAmount');
+
+    if (!btn || !amt) return;
+
+    btn.onclick = async () => {
+      btn.disabled = true;
+      try {
+        await fetch(FEED_NOW_API, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ amount: Number(amt.value) })
+        });
+
+        // sau khi feed, refresh logs luôn
+        setTimeout(refreshFeedLogs, 500);
+      } catch (e) {
+        alert('Feed command failed');
+      } finally {
+        setTimeout(() => btn.disabled = false, 800);
+      }
+    };
+  }
+
+  /* =========================
+     MOBILE MENU
+  ========================= */
+  function bindMenu(){
+    const menuBtn = document.getElementById('menuBtn');
+    const aside = document.querySelector('aside');
+    if (!menuBtn || !aside) return;
+
+    menuBtn.onclick = () => aside.classList.toggle('active');
+  }
+
+  /* =========================
+     INIT
+  ========================= */
+  window.addEventListener('DOMContentLoaded', () => {
+    const addBtn = document.getElementById('addScheduleBtn');
+    if (addBtn) addBtn.onclick = addSchedule;
+
+    bindFeedNow();
+    bindMenu();
 
     refreshSchedules();
+    refreshFeedLogs();
 
-  } catch (e) {
-    alert("Server unreachable");
-  }
-}
+    setInterval(refreshSchedules, 10000);
+    setInterval(refreshFeedLogs, 10000);
+  });
+  const FEED_AMOUNT_API = '/dashboard/latest?n=1';
 
-/* =========================
-  DELETE SCHEDULE (ĐÚNG ID)
-========================= */
-async function deleteSchedule(id){
-  if (!confirm("Delete this schedule?")) return;
+  function setFeedBadge(level){
+    const badge = document.getElementById('feedLevelBadge');
+    if (!badge) return;
 
-  try {
-    const r = await fetch(`/control/schedules/${id}`, {
-      method: 'DELETE'
-    });
+    badge.classList.remove('safe', 'alert');
 
-    if (!r.ok) {
-      alert("Delete failed");
-      return;
+    if (level >= 20) {
+      badge.classList.add('safe');
+      badge.textContent = 'OK';
+    } else {
+      badge.classList.add('alert');
+      badge.textContent = 'LOW';
     }
-
-    refreshSchedules();
-
-  } catch (e) {
-    alert("Server unreachable");
   }
-}
 
-/* =========================
-   FEED NOW
-========================= */
-feedNowBtn.onclick = async () => {
-  try {
-    await fetch(FEED_NOW_API, {
-      method:'POST',
-      headers:{ 'Content-Type':'application/json' },
-      body: JSON.stringify({ amount: Number(fnAmount.value) })
-    });
-  } catch (e) {
-    alert("Feed command failed");
+  async function loadFeedLevelDashboard(){
+    const valueEl = document.getElementById('feedLevelValue');
+    if (!valueEl) return;
+
+    try {
+      const r = await fetch(FEED_AMOUNT_API, { cache: 'no-store' });
+      if (!r.ok) return;
+
+      const j = await r.json();
+
+      // hỗ trợ 2 kiểu trả về phổ biến:
+      // 1) { items: [ { feed_level: ... } ] }
+      // 2) [ { feed_level: ... } ]
+      const items = Array.isArray(j) ? j : (j.items || []);
+      const last = items[0];
+
+      const levelRaw = last?.feed_level;
+      if (levelRaw == null) return;
+
+      const level = Math.max(0, Math.min(100, Number(levelRaw)));
+      valueEl.textContent = `${level}%`;
+      setFeedBadge(level);
+
+    } catch (e) {
+      console.warn('[FEED LEVEL] load failed', e);
+    }
   }
-};
 
-/* =========================
-   INIT
-========================= */
-addScheduleBtn.onclick = addSchedule;
-refreshSchedules();
-setInterval(refreshSchedules, 10000);
-</script>
+  document.addEventListener('DOMContentLoaded', () => {
+    loadFeedLevelDashboard();
+    setInterval(loadFeedLevelDashboard, 10000);
+  });
 
-<script>
-menuBtn.onclick = () => {
-  document.querySelector('aside').classList.toggle('active');
-};
 </script>
 
 </body>

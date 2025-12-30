@@ -1,164 +1,281 @@
-// ===============================================
-//  AquaNova Dashboard Script (Final Version)
-//  Hiển thị dữ liệu cảm biến, đồng bộ thời gian,
-//  biểu đồ thức ăn và thống kê tổng quan hệ thống
-//  (Đã fix hiển thị múi giờ Việt Nam GMT+7)
-// ===============================================
+/* =====================================================
+   CONSTANTS
+===================================================== */
+const SAFE_TEMP_MIN = 0;
+const SAFE_TEMP_MAX = 1000;
+const TURB_WARN = 200;
 
-// ---- API endpoints ----
-const LATEST_API = '/dashboard/latest?n=200';
-const SUMMARY_API = '/dashboard/summary';
+/* =====================================================
+   DOM
+===================================================== */
+const lightToggle   = document.getElementById('lightToggle');
+const lightStatus   = document.getElementById('lightStatus');
 
-// ------------------------------------------------------------
-// 🕐 Hàm tiện ích: Chuyển thời gian UTC → Giờ Việt Nam (GMT+7)
-// ------------------------------------------------------------
-function toVNTime(ts) {
-  if (!ts) return '';
-  const d = new Date(ts);
-  if (isNaN(d)) return ts;
-  d.setHours(d.getHours() + 7);
-  return d.toLocaleString('vi-VN', { hour12: false });
+const modeButtons   = document.querySelectorAll('.seg-btn');
+const colorDots     = document.querySelectorAll('.color-dot');
+const colorPicker   = document.getElementById('customColor');
+
+const feedBtn       = document.getElementById('feedNowBtn');
+const feedMsg       = document.getElementById('feedNowMsg');
+
+const warnTurb      = document.getElementById('warnTurb');
+const warnTemp      = document.getElementById('warnTemp');
+
+const menuBtn       = document.getElementById('menuBtn');
+const sidebar       = document.querySelector('aside');
+
+/* =====================================================
+   STATE
+===================================================== */
+let lightOn = true;
+let turbChart = null;
+
+/* =====================================================
+   LIGHT
+===================================================== */
+async function setLight(on, color = null) {
+  const payload = { light: on ? 1 : 0 };
+  if (on && color) payload.color = color;
+
+  await fetch('/control/light', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  });
 }
 
-// ------------------------------------------------------------
-// 📊 Load thống kê tổng quan (số hồ, số thiết bị)
-// ------------------------------------------------------------
-async function loadSummary() {
+lightToggle?.addEventListener('click', async () => {
+  lightOn = !lightToggle.classList.contains('on');
+  lightToggle.classList.toggle('on', lightOn);
+
+  lightStatus.textContent = lightOn ? '● ON' : '● OFF';
+  lightStatus.className = `light-status ${lightOn ? 'on' : 'off'}`;
+
+  await setLight(lightOn);
+});
+
+/* ================= MODE ================= */
+async function setMode(mode) {
+  await fetch('/control/mode', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ mode })
+  });
+}
+
+modeButtons.forEach(btn => {
+  btn.addEventListener('click', async () => {
+    modeButtons.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    const mode = Number(btn.dataset.mode);
+    await setMode(mode);
+  });
+});
+
+
+/* =====================================================
+   COLOR
+===================================================== */
+colorDots.forEach(dot => {
+  dot.addEventListener('click', async () => {
+    colorDots.forEach(d => d.classList.remove('active'));
+    dot.classList.add('active');
+    if (lightOn) await setLight(true, dot.dataset.color);
+  });
+});
+
+colorPicker?.addEventListener('change', async e => {
+  if (lightOn) await setLight(true, e.target.value.toUpperCase());
+});
+
+/* =====================================================
+   FEED NOW
+===================================================== */
+feedBtn?.addEventListener('click', async () => {
+  feedBtn.disabled = true;
+  feedMsg.textContent = 'Feeding...';
+
   try {
-    const res = await fetch(SUMMARY_API);
-    if (!res.ok) throw new Error('HTTP ' + res.status);
-    const json = await res.json();
-
-    document.getElementById('summary').innerHTML = `
-      <div>Ponds: <b>${json.ponds ?? 0}</b></div>
-      <div>Devices: <b>${json.devices ?? 0}</b></div>`;
-  } catch (e) {
-    console.error(e);
-    const el = document.getElementById('summary');
-    if (el) el.textContent = 'Summary load error';
+    const r = await fetch('/control/feed-now', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ amount: 20 })
+    });
+    const j = await r.json();
+    if (j.ok) {
+      feedMsg.textContent = 'Feed command sent';
+      feedMsg.style.color = '#16a34a';
+    } else throw '';
+  } catch {
+    feedMsg.textContent = 'Feed error';
+    feedMsg.style.color = '#dc2626';
   }
-}
 
-// ------------------------------------------------------------
-// 📈 Load dữ liệu mới nhất (độ đục, nhiệt độ, % thức ăn)
-// ------------------------------------------------------------
-async function loadLatest() {
-  try {
-    const res = await fetch(LATEST_API);
-    if (!res.ok) throw new Error('HTTP ' + res.status);
-    const json = await res.json();
-    const items = Array.isArray(json.items) ? json.items : [];
+  setTimeout(() => feedMsg.textContent = '', 2000);
+  feedBtn.disabled = false;
+});
 
-    // --- render bảng dữ liệu ---
-    const tbody = document.querySelector('#readings tbody');
-    if (tbody) {
-      tbody.innerHTML = '';
-      items.forEach(r => {
-        const tr = document.createElement('tr');
-        tr.innerHTML = `
-          <td>${toVNTime(r.ts)}</td>
-          <td>${r.turbidity ?? ''}</td>
-          <td>${r.temperature ?? ''}</td>
-          <td>${r.feed ?? ''}%</td>`;
-        tbody.appendChild(tr);
-      });
-    }
-
-    // --- chuẩn hoá dữ liệu thức ăn (% feed) ---
-    const normalized = items
-      .map(x => ({ ts: x.ts, feed: x.feed ?? null }))
-      .filter(x => x.feed != null && x.ts)
-      .sort((a, b) => new Date(a.ts) - new Date(b.ts));
-
-    // --- cập nhật biểu đồ thức ăn ---
-    updateFeedPie(normalized);
-  } catch (e) {
-    console.error('[loadLatest] error:', e);
+/* =====================================================
+   CHART
+===================================================== */
+function ensureChart(ctx, labels, data) {
+  if (turbChart) {
+    turbChart.data.labels = labels;
+    turbChart.data.datasets[0].data = data;
+    turbChart.update();
+    return;
   }
-}
 
-// ------------------------------------------------------------
-// 🥧 Biểu đồ Doughnut hiển thị phần trăm thức ăn
-// ------------------------------------------------------------
-let feedPieChart = null;
-
-function ensureFeedPie() {
-  if (feedPieChart) return feedPieChart;
-  const canvas = document.getElementById('feedPie1');
-  if (!canvas) return null;
-  const ctx = canvas.getContext('2d');
-  feedPieChart = new Chart(ctx, {
-    type: 'doughnut',
+  turbChart = new Chart(ctx, {
+    type: 'line',
     data: {
-      labels: ['Remaining', 'Used'],
+      labels,
       datasets: [{
-        data: [0, 100],
-        backgroundColor: ['#4f46e5', '#e8eefb'],
-        borderWidth: 0,
-        hoverOffset: 3,
-        cutout: '65%'
+        label: 'Turbidity',
+        data,
+        borderWidth: 2,
+        tension: 0.25,
+        pointRadius: 2,
+        fill: true
       }]
     },
-    options: { 
-      plugins: { legend: { display: false } },
-      animation: { duration: 300 } 
+    options: {
+      responsive: true,
+      interaction: { mode: 'index', intersect: false }
     }
   });
-  return feedPieChart;
 }
 
-function setPie(percent, ts) {
-  const chart = ensureFeedPie();
-  if (!chart) return;
+/* =====================================================
+   LOAD DASHBOARD
+===================================================== */
+async function loadDashboard() {
+  const latest = await (await fetch('/dashboard/latest?n=60')).json();
+  const items = latest.items || [];
 
-  const clamp = v => Math.max(0, Math.min(100, Number(v)));
-  const p = isNaN(percent) ? NaN : clamp(percent);
+  if (!items.length) return;
 
-  if (isNaN(p)) {
-    chart.data.datasets[0].data = [0, 100];
-    chart.update();
-    document.getElementById('feedPie1Num').textContent = '--%';
-    document.getElementById('feedPie1Time').textContent = '—';
-    return;
+  const arr = items.slice().reverse();
+
+  const labels = arr.map(r => {
+    const d = new Date(r.ts || '');
+    return isNaN(d) ? '' : d.toLocaleTimeString('vi-VN', { hour12: false });
+  });
+
+  const turb = arr.map(r => Number(r.turbidity ?? NaN));
+  ensureChart(document.getElementById('turbChart').getContext('2d'), labels, turb);
+
+  const latestTurb = turb[turb.length - 1];
+  warnTurb.className = latestTurb > TURB_WARN ? 'badge alert' : 'badge safe';
+  warnTurb.textContent = `Turbidity: ${latestTurb}`;
+
+  const tbody = document.getElementById('tempRows');
+  tbody.innerHTML = '';
+
+  items.slice(0, 10).forEach(r => {
+    const t = Number(r.temperature ?? NaN);
+    const ok = !isNaN(t) && t >= SAFE_TEMP_MIN && t <= SAFE_TEMP_MAX;
+
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>${new Date(r.ts).toLocaleString()}</td>
+      <td>${isNaN(t) ? '' : t.toFixed(2)}</td>
+      <td>${SAFE_TEMP_MIN} – ${SAFE_TEMP_MAX}</td>
+      <td>${r.deviceId ?? ''}</td>
+      <td><span class="badge ${ok ? 'safe' : 'alert'}">${ok ? 'Safe' : 'Alert'}</span></td>
+    `;
+    tbody.appendChild(tr);
+
+    warnTemp.className = ok ? 'badge safe' : 'badge alert';
+    warnTemp.textContent = `Temperature: ${t}`;
+  });
+}
+// ==============================
+// FEED LEVEL (Dashboard)
+// ONLY: /dashboard/latest?n=1
+// ==============================
+// ==============================
+// FEED LEVEL (Dashboard)
+// API: /dashboard/latest?n=1
+// ==============================
+const FEED_AMOUNT_API = '/dashboard/latest?n=1';
+
+function setFeedBadge(level){
+  const badge = document.getElementById('feedLevelBadge');
+  if (!badge) return;
+
+  badge.classList.remove('safe', 'alert');
+  if (level >= 20) {
+    badge.classList.add('safe');
+    badge.textContent = 'OK';
+  } else {
+    badge.classList.add('alert');
+    badge.textContent = 'LOW';
+  }
+}
+
+// Lấy feed_level “bền” với nhiều format response
+function extractFeedLevel(j){
+  // case A: { items: [ {...} ] }
+  if (j?.items && Array.isArray(j.items) && j.items[0]) {
+    const x = j.items[0];
+    return x.feed_level ?? x.feedLevel ?? x.feedLevelPct ?? null;
   }
 
-  const used = 100 - p;
-  let color = '#4f46e5';
-  if (p < 10) color = '#dc2626';     // đỏ cảnh báo
-  else if (p < 30) color = '#d97706'; // cam cảnh báo nhẹ
-
-  chart.data.datasets[0].data = [p, used];
-  chart.data.datasets[0].backgroundColor = [color, '#e8eefb'];
-  chart.update();
-
-  // Hiển thị giá trị % và thời gian tương ứng
-  document.getElementById('feedPie1Num').textContent = `${p.toFixed(1)}%`;
-  document.getElementById('feedPie1Time').textContent = toVNTime(ts);
-}
-
-// --- cập nhật biểu đồ với bản ghi mới nhất ---
-function updateFeedPie(sortedItemsAsc) {
-  if (!sortedItemsAsc.length) {
-    setPie(NaN, '');
-    return;
+  // case B: [ {...} ]
+  if (Array.isArray(j) && j[0]) {
+    const x = j[0];
+    return x.feed_level ?? x.feedLevel ?? x.feedLevelPct ?? null;
   }
-  const last = sortedItemsAsc[sortedItemsAsc.length - 1];
-  setPie(Number(last.feed), last.ts);
+
+  // case C: { ok:true, data:{ items:[...] } } hoặc { data:{...} }
+  if (j?.data) return extractFeedLevel(j.data);
+
+  return null;
 }
 
-// ------------------------------------------------------------
-// ⏱️ Khởi chạy ban đầu & cập nhật định kỳ
-// ------------------------------------------------------------
-function initDashboard() {
-  loadSummary();
-  loadLatest();
+async function loadFeedLevelDashboard(){
+  const valueEl = document.getElementById('feedLevelValue');
+  const badgeEl = document.getElementById('feedLevelBadge');
+  if (!valueEl || !badgeEl) return;
 
-  // Cập nhật mỗi 10 giây
-  setInterval(() => {
-    loadLatest();
-    loadSummary();
-  }, 10000);
+  try {
+    const r = await fetch(FEED_AMOUNT_API, { cache: 'no-store' });
+    if (!r.ok) return;
+
+    const j = await r.json();
+
+    // Debug 1 lần để bạn nhìn format thật
+    console.log('[FEED API RESPONSE]', j);
+
+    const levelRaw = extractFeedLevel(j);
+    if (levelRaw == null) return;
+
+    const level = Math.max(0, Math.min(100, Number(levelRaw)));
+    valueEl.textContent = `${level}%`;
+    setFeedBadge(level);
+
+  } catch (e) {
+    console.warn('[FEED LEVEL] load failed', e);
+  }
 }
 
-// Khi trang web đã load xong
-document.addEventListener('DOMContentLoaded', initDashboard);
+// gọi luôn, không cần DOMContentLoaded
+loadFeedLevelDashboard();
+setInterval(loadFeedLevelDashboard, 10000);
+
+
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+menuBtn?.addEventListener('click', () => {
+  sidebar.classList.toggle('active');
+});
+
+/* =====================================================
+   INIT
+===================================================== */
+loadDashboard();
+setInterval(loadDashboard, 60000);

@@ -1,3 +1,152 @@
+/* ===============================
+   API ENDPOINTS
+================================ */
+const FEED_NOW_API     = '/control/feed-now';
+const SCHEDULE_API     = '/control/schedule';
+const SCHEDULES_API    = '/control/schedules';
+const FEED_LOGS_API    = '/control/feed-logs?limit=20';
+const FEED_AMOUNT_API  = '/dashboard/last';
+
+/* ===============================
+   DOM
+================================ */
+const scRows         = document.getElementById('scRows');
+const feedLogRows    = document.getElementById('feedLogRows');
+
+const feedNowBtn     = document.getElementById('feedNowBtn');
+const fnAmount       = document.getElementById('fnAmount');
+
+const addScheduleBtn = document.getElementById('addScheduleBtn');
+const scDate         = document.getElementById('scDate');
+const scTime         = document.getElementById('scTime');
+const scRepeat       = document.getElementById('scRepeat');
+const scAmount       = document.getElementById('scAmount');
+
+/* ===============================
+   LOAD SCHEDULES
+================================ */
+async function loadSchedules(){
+  scRows.innerHTML = '';
+
+  try {
+    const r = await fetch(SCHEDULES_API, { cache: 'no-store' });
+    const j = await r.json();
+
+    (j.items || []).forEach((s, i) => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${i + 1}</td>
+        <td>${s.date || ''}</td>
+        <td>${s.time || ''}</td>
+        <td>${s.repeat || ''}</td>
+        <td>${s.amount ?? ''}</td>
+        <td></td>
+      `;
+      scRows.appendChild(tr);
+    });
+
+  } catch (e) {
+    console.error('[SCHEDULES] load failed', e);
+  }
+}
+
+/* ===============================
+   LOAD FEED LOGS
+================================ */
+async function loadFeedLogs(){
+  feedLogRows.innerHTML = '';
+
+  try {
+    const r = await fetch(FEED_LOGS_API, { cache: 'no-store' });
+    const j = await r.json();
+
+    (j.items || []).forEach((log, i) => {
+      const d = log.day ? new Date(log.day) : null;
+
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${i + 1}</td>
+        <td>${d ? d.toLocaleString('vi-VN') : ''}</td>
+      `;
+      feedLogRows.appendChild(tr);
+    });
+
+  } catch (e) {
+    console.error('[FEED LOGS] load failed', e);
+  }
+}
+
+/* ===============================
+   FEED NOW
+================================ */
+async function feedNow(){
+  feedNowBtn.disabled = true;
+
+  try {
+    await fetch(FEED_NOW_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        amount: Number(fnAmount.value)
+      })
+    });
+  } catch (e) {
+    alert('Feed command failed');
+  } finally {
+    setTimeout(() => feedNowBtn.disabled = false, 800);
+  }
+}
+
+/* ===============================
+   ADD SCHEDULE
+================================ */
+async function addSchedule(){
+  const body = {
+    date: scDate.value,
+    time: scTime.value,
+    repeat: scRepeat.value,
+    amount: Number(scAmount.value)
+  };
+
+  try {
+    const r = await fetch(SCHEDULE_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body)
+    });
+
+    if (!r.ok) {
+      const j = await r.json();
+      alert(j.error || 'Add schedule failed');
+      return;
+    }
+
+    loadSchedules();
+
+  } catch (e) {
+    alert('Server unreachable');
+  }
+}
+
+/* ===============================
+   INIT
+================================ */
+feedNowBtn.onclick     = feedNow;
+addScheduleBtn.onclick = addSchedule;
+
+loadSchedules();
+loadFeedLogs();
+
+setInterval(loadSchedules, 10000);
+setInterval(loadFeedLogs, 10000);
+
+
+/* ===============================
+   MOBILE MENU
+================================ */
+menuBtn?.onclick = () => {
+  document.querySelector('aside')?.classList.toggle('active');
+};
 <!doctype html>
 <html lang="en">
 <head>
@@ -79,6 +228,7 @@
       padding:18px;
     }
 
+    /* ===== LIGHT ===== */
     .light-header{
       display:flex;
       justify-content:space-between;
@@ -131,6 +281,7 @@
     }
     .color-dot.active{border:3px solid var(--brand)}
 
+    /* ===== GRID ===== */
     .grid2{
       display:grid;
       grid-template-columns:1.2fr 1fr;
@@ -142,7 +293,6 @@
       padding:4px 10px;
       border-radius:999px;
       font-size:12px;
-      display:inline-block;
     }
     .safe{background:#dcfce7;color:#166534}
     .alert{background:#fee2e2;color:#991b1b}
@@ -150,29 +300,48 @@
     table{width:100%;border-collapse:collapse}
     th,td{padding:8px;border-bottom:1px solid #eee;font-size:13px}
 
+    footer{
+      background:#fff;
+      border-top:1px solid #e5e7eb;
+      text-align:center;
+      padding:14px;
+      font-size:14px;
+      color:var(--muted);
+    }
+
     @media(max-width:1000px){
       .layout{grid-template-columns:1fr}
       aside{display:none}
       .grid2{grid-template-columns:1fr}
     }
-
     .btn-feed{
-      width:100%;
-      padding:12px 0;
-      border:none;
-      border-radius:12px;
-      background:#0ea5e9;
-      color:#ffffff;
-      font-size:15px;
-      font-weight:600;
-      cursor:pointer;
-      transition:all .2s ease;
-    }
-    .btn-feed:hover{ background:#0284c7; }
-    .btn-feed:active{ transform:scale(0.97); }
-    .btn-feed:disabled{ background:#93c5fd; cursor:not-allowed; }
+    width:100%;
+    padding:12px 0;
+    border:none;
+    border-radius:12px;
 
-    .footer-full{
+    background:#0ea5e9;     /* xanh biển AquaNova */
+    color:#ffffff;          /* chữ trắng */
+    font-size:15px;
+    font-weight:600;
+
+    cursor:pointer;
+    transition:all .2s ease;
+  }
+
+  .btn-feed:hover{
+    background:#0284c7;     /* xanh đậm hơn khi hover */
+  }
+
+  .btn-feed:active{
+    transform:scale(0.97);
+  }
+
+  .btn-feed:disabled{
+    background:#93c5fd;     /* xanh nhạt khi disable */
+    cursor:not-allowed;
+  }
+  .footer-full{
       width:100%;
       padding:14px 0;
       text-align:center;
@@ -182,17 +351,6 @@
       border-top:1px solid #e5e7eb;
     }
 
-    .feed-value{
-      font-size:30px;
-      font-weight:700;
-      line-height:1.1;
-      margin-top:10px;
-    }
-    .feed-sub{
-      font-size:13px;
-      color:var(--muted);
-      margin-top:2px;
-    }
   </style>
 </head>
 
@@ -205,7 +363,7 @@
 
 <div class="layout">
 
-  <aside>
+    <aside>
     <nav class="menu">
       <a href="{{ url_for('home') }}">Dashboard</a>
       <a href="{{ url_for('temperature_page') }}">Temperature</a>
@@ -217,6 +375,7 @@
 
   <main>
 
+    <!-- ===== TOP CARDS ===== -->
     <div class="cards">
 
       <!-- LIGHT -->
@@ -252,16 +411,9 @@
 
       <!-- FEED -->
       <div class="card">
-        <div style="display:flex;justify-content:space-between;align-items:center">
-          <h4>Feed</h4>
-          <div id="feedLevelBadge" class="badge safe">--</div>
-        </div>
-
-        <div id="feedLevelValue" class="feed-value">--%</div>
-        <div class="feed-sub">Feed level</div>
-
-        <button id="feedNowBtn" class="btn-feed" style="margin-top:12px">Feed now</button>
-        <div id="feedNowMsg" style="margin-top:8px;font-size:13px;color:var(--muted)"></div>
+        <h4>Feed</h4>
+        <button id="feedNowBtn" class="btn-feed">Feed now</button>
+        <div id="feedNowMsg"></div>
       </div>
 
       <!-- WARNING -->
@@ -273,6 +425,7 @@
 
     </div>
 
+    <!-- ===== CHART + TABLE ===== -->
     <div class="grid2">
       <div class="card">
         <h3>Turbidity</h3>
@@ -306,70 +459,6 @@
   </p>
 </footer>
 
-<!-- giữ dashboard.js nếu bạn còn dùng cho chart/light -->
 <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
-
-<!-- API feed_level viết thẳng tại đây -->
-<script>
-  const FEED_LEVEL_API = '/dashboard/latest?n=1';
-
-  function setFeedBadge(level){
-    const badge = document.getElementById('feedLevelBadge');
-    if (!badge) return;
-
-    badge.classList.remove('safe', 'alert');
-
-    if (level >= 20) {
-      badge.classList.add('safe');
-      badge.textContent = 'OK';
-    } else {
-      badge.classList.add('alert');
-      badge.textContent = 'LOW';
-    }
-  }
-
-  function extractFeedLevel(json){
-    // { items: [ {...} ] }
-    if (json && Array.isArray(json.items) && json.items[0]) {
-      const x = json.items[0];
-      return x.feed_level ?? x.feedLevel ?? null;
-      console.log(x.feed_level);
-    }
-    // [ {...} ]
-    if (Array.isArray(json) && json[0]) {
-      const x = json[0];
-      return x.feed_level ?? x.feedLevel ?? null;
-    }
-    // { data: ... }
-    if (json && json.data) return extractFeedLevel(json.data);
-    return null;
-  }
-
-  async function loadFeedLevel(){
-    const valueEl = document.getElementById('feedLevelValue');
-    if (!valueEl) return;
-
-    try {
-      const r = await fetch(FEED_LEVEL_API, { cache: 'no-store' });
-      if (!r.ok) return;
-
-      const j = await r.json();
-      const raw = extractFeedLevel(j);
-
-      if (raw == null) return;
-
-      const level = Math.max(0, Math.min(100, Number(raw)));
-      valueEl.textContent = `${level}%`;
-      setFeedBadge(level);
-
-    } catch (e) {
-      console.log('[FEED LEVEL] error', e);
-    }
-  }
-
-  loadFeedLevel();
-  setInterval(loadFeedLevel, 10000);
-</script>
-
 </body>
 </html>
