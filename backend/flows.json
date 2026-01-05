@@ -1,0 +1,877 @@
+[
+    {
+        "id": "bbd6045f1da95b3c",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "42fd431aecd5d730",
+        "type": "mqtt-broker",
+        "name": "aquanova",
+        "broker": "fdca86b156bf4f86973c13d0a7fe4e2c.s1.eu.hivemq.cloud",
+        "port": "8883",
+        "tls": "",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": true,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "f0890b6f84103f23",
+        "type": "websocket-listener",
+        "path": "/ws/schedules",
+        "wholemsg": "false"
+    },
+    {
+        "id": "b31ab7dc1561c9dc",
+        "type": "mqtt-broker",
+        "name": "test",
+        "broker": "205a44f2bbe64588ba7413f8f27bb13c.s1.eu.hivemq.cloud",
+        "port": "8883",
+        "tls": "",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": true,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "bfe311922528fe1c",
+        "type": "mqtt in",
+        "z": "bbd6045f1da95b3c",
+        "name": "",
+        "topic": "aquanova/telemetry",
+        "qos": "1",
+        "datatype": "auto-detect",
+        "broker": "42fd431aecd5d730",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 1030,
+        "y": 160,
+        "wires": [
+            [
+                "4f6e0d03be0c5e17"
+            ]
+        ]
+    },
+    {
+        "id": "4f6e0d03be0c5e17",
+        "type": "function",
+        "z": "bbd6045f1da95b3c",
+        "name": "fn data",
+        "func": "const data = msg.payload;\n\n// timestamp server (ms)\nconst now = Date.now();\n\n// Chuẩn hoá theo schema Flask đang dùng\nmsg.payload = {\n    turbidity: Number(data.turbidity),\n    temperature: Number(data.temperature),\n    feed_level: Number(data.feed_level),\n    time: data.time || null,\n    schedule: data.schedule\n};\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1230,
+        "y": 160,
+        "wires": [
+            [
+                "aa2db53668dd3324",
+                "8aa9d571cb2df30d"
+            ]
+        ]
+    },
+    {
+        "id": "aa2db53668dd3324",
+        "type": "http request",
+        "z": "bbd6045f1da95b3c",
+        "name": "",
+        "method": "POST",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://127.0.0.1:5000/telemetry/ingest",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "other",
+                "keyValue": "Content-Type : application/json",
+                "valueType": "other",
+                "valueValue": ""
+            }
+        ],
+        "x": 1450,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7884e2abecde6abb",
+        "type": "ui_text",
+        "z": "bbd6045f1da95b3c",
+        "group": "",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Thực hiện: Hoàng Ngọc Dung - Đoàn Minh Duy Bình - Trần Hữu Dương",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 380,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "1fddc4e79dc53495",
+        "type": "http response",
+        "z": "bbd6045f1da95b3c",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 410,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "9f88342c22440ad6",
+        "type": "http in",
+        "z": "bbd6045f1da95b3c",
+        "name": "",
+        "url": "/cmd/light",
+        "method": "post",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 200,
+        "y": 180,
+        "wires": [
+            [
+                "e56272b012d6cbe0",
+                "1fddc4e79dc53495"
+            ]
+        ]
+    },
+    {
+        "id": "e56272b012d6cbe0",
+        "type": "function",
+        "z": "bbd6045f1da95b3c",
+        "name": "fn control light",
+        "func": "const body = msg.payload || {};\n\nconst light = Number(body.light || 0);\nconst color = body.color;\n\nconst mqttPayload = { light };\n\nif (light === 1 && typeof color === \"string\") {\n    mqttPayload.color = color.toUpperCase();\n}\n\nmsg.topic = \"aquanova/control\";\nmsg.payload = JSON.stringify(mqttPayload);\n\n// debug rất rõ\nnode.warn(\"MQTT PAYLOAD: \" + msg.payload);\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 160,
+        "wires": [
+            [
+                "27570852454e4fcd"
+            ]
+        ]
+    },
+    {
+        "id": "ab845cef2d93afa7",
+        "type": "http in",
+        "z": "bbd6045f1da95b3c",
+        "name": "",
+        "url": "/cmd/feed-now",
+        "method": "post",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 210,
+        "y": 340,
+        "wires": [
+            [
+                "66761ddd63f56f9e",
+                "efd776b4372e50db"
+            ]
+        ]
+    },
+    {
+        "id": "66761ddd63f56f9e",
+        "type": "function",
+        "z": "bbd6045f1da95b3c",
+        "name": "fn control feed",
+        "func": "const body = msg.payload || {};\nconst amount = Number(body.amount || 20);\n\nconst mqttPayload = {\n    feeding: 1\n};\n\nconst mqttMsg = {\n    topic: \"aquanova/control\",\n    payload: JSON.stringify(mqttPayload)\n};\n\nconst httpMsg = {\n    payload: {\n        feeding: 1,\n    }\n};\n\n// DEBUG\nnode.warn(\"FEED MQTT: \" + JSON.stringify(mqttPayload));\n\nreturn [mqttMsg, httpMsg];\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 300,
+        "wires": [
+            [
+                "27570852454e4fcd"
+            ]
+        ]
+    },
+    {
+        "id": "27570852454e4fcd",
+        "type": "mqtt out",
+        "z": "bbd6045f1da95b3c",
+        "name": "",
+        "topic": "aquanova/control",
+        "qos": "1",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "42fd431aecd5d730",
+        "x": 730,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "efd776b4372e50db",
+        "type": "http response",
+        "z": "bbd6045f1da95b3c",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 410,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "50aa245c8885cd89",
+        "type": "inject",
+        "z": "bbd6045f1da95b3c",
+        "name": "check_timer",
+        "props": [
+            {
+                "p": "timestamp",
+                "v": "",
+                "vt": "date"
+            }
+        ],
+        "repeat": "45",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 1010,
+        "y": 300,
+        "wires": [
+            [
+                "4eeb607550ab3137"
+            ]
+        ]
+    },
+    {
+        "id": "a373ec347a3b73e5",
+        "type": "function",
+        "z": "bbd6045f1da95b3c",
+        "name": "check_schedule",
+        "func": "// ===== INPUT =====\n// msg.payload = { items: [ { id, time, repeat, amount } ] }\n\nconst res = msg.payload || {};\nconst items = res.items || [];\n\n// giờ hiện tại HH:MM\nconst now = new Date();\nconst nowTime = `${String(now.getHours()).padStart(2, \"0\")}:${String(now.getMinutes()).padStart(2, \"0\")}`;\n\nnode.warn(`[CHECK] now=${nowTime}, schedules=${items.length}`);\n\nfor (const s of items) {\n    if (!s.time) continue;\n\n    // normalize HH:MM\n    const parts = String(s.time).split(\":\");\n    const targetTime = `${parts[0].padStart(2, \"0\")}:${parts[1].padStart(2, \"0\")}`;\n\n    if (nowTime !== targetTime) continue;\n\n    node.warn(`[MATCH] schedule=${s.id}, repeat=${s.repeat}`);\n\n    // ---- chống feed lặp trong cùng phút ----\n    const lastFed = flow.get(\"lastFedTime\");\n    if (lastFed === nowTime) return null;\n    flow.set(\"lastFedTime\", nowTime);\n\n    // ===== OUTPUT 1: MQTT FEEDING =====\n    const msgFeed = {\n        payload: JSON.stringify({\n            feeding: 1,\n        })\n    };\n\n    // ===== OUTPUT 2: DELETE INFO (CHỈ KHI once) =====\n    let msgDelete = null;\n\n    if (s.repeat === \"none\") {\n        msgDelete = {\n            schedule_id: s.id\n        };\n        node.warn(`[DELETE PREP] ${s.id}`);\n    }\n\n    return [msgFeed, msgDelete];\n}\n\n// chưa tới giờ\nreturn null;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1440,
+        "y": 300,
+        "wires": [
+            [
+                "68bbe198c6eced5f",
+                "6a13602ce3b2fec6"
+            ]
+        ]
+    },
+    {
+        "id": "8e602334f8eb4435",
+        "type": "http in",
+        "z": "bbd6045f1da95b3c",
+        "name": "",
+        "url": "/cmd/chatbot",
+        "method": "post",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 210,
+        "y": 440,
+        "wires": [
+            [
+                "076d3ac5918d4ec1"
+            ]
+        ]
+    },
+    {
+        "id": "076d3ac5918d4ec1",
+        "type": "function",
+        "z": "bbd6045f1da95b3c",
+        "name": "fn control chatbot",
+        "func": "const body = msg.payload || {};\n\nif (body.light === undefined && body.feeding === undefined) {\n    msg.payload = { ok: false, msg: \"No control command\" };\n    return msg;\n}\n\n\nmsg.mqtt = {\n    topic: \"aquanova/control\",\n    payload: JSON.stringify(body)   \n};\n\nmsg.payload = body;                \n\nreturn [msg, msg];\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 440,
+        "wires": [
+            [
+                "7afd2157c1c104bb",
+                "27570852454e4fcd"
+            ]
+        ]
+    },
+    {
+        "id": "7afd2157c1c104bb",
+        "type": "http response",
+        "z": "bbd6045f1da95b3c",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 690,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "8aa9d571cb2df30d",
+        "type": "debug",
+        "z": "bbd6045f1da95b3c",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1400,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "68bbe198c6eced5f",
+        "type": "mqtt out",
+        "z": "bbd6045f1da95b3c",
+        "name": "",
+        "topic": "aquanova/control",
+        "qos": "1",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "42fd431aecd5d730",
+        "x": 1670,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "ce45dc6c88836c14",
+        "type": "mqtt in",
+        "z": "bbd6045f1da95b3c",
+        "name": "",
+        "topic": "aquanova/schedule",
+        "qos": "1",
+        "datatype": "auto-detect",
+        "broker": "42fd431aecd5d730",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 1010,
+        "y": 700,
+        "wires": [
+            [
+                "c9ac8f14dd17dd80"
+            ]
+        ]
+    },
+    {
+        "id": "a2e62d603acc44ec",
+        "type": "function",
+        "z": "bbd6045f1da95b3c",
+        "name": "new_record",
+        "func": "let p = msg.payload;\nif (!p.time) {\n    node.error(\"Missing date or time\", msg);\n    return null;\n}\n\nmsg.method = \"POST\";\nmsg.url = \"http://127.0.0.1:5000/control/hook/schedule\";\nconst nowDate = new Date().toISOString().slice(0, 10);\n\nmsg.payload = {\n    date: p.date || nowDate ,\n    time: p.time,\n    repeat: p.repeat || \"once\",\n    amount: p.amount ?? 20,\n};\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1450,
+        "y": 700,
+        "wires": [
+            [
+                "2455ab8e0e6c88a6"
+            ]
+        ]
+    },
+    {
+        "id": "2455ab8e0e6c88a6",
+        "type": "http request",
+        "z": "bbd6045f1da95b3c",
+        "name": "",
+        "method": "use",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "other",
+                "keyValue": "Content-Type: application/json",
+                "valueType": "other",
+                "valueValue": ""
+            }
+        ],
+        "x": 1670,
+        "y": 700,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "55646a0c94b6a530",
+        "type": "function",
+        "z": "bbd6045f1da95b3c",
+        "name": "fn delete",
+        "func": "node.warn(\"DELETE FN IN\");\n\nmsg.method = \"DELETE\";\nmsg.url = \"http://127.0.0.1:5000/control/hook/schedule/latest\";\n\ndelete msg.payload;\n\nnode.warn(\"DELETE FN OUT: \" + msg.method + \" \" + msg.url);\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1240,
+        "y": 460,
+        "wires": [
+            [
+                "68e8db7cd9424d08"
+            ]
+        ]
+    },
+    {
+        "id": "68e8db7cd9424d08",
+        "type": "http request",
+        "z": "bbd6045f1da95b3c",
+        "name": "",
+        "method": "use",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://127.0.0.1:5000/control/hook/schedule/latest",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 1450,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "320acf0403213c91",
+        "type": "mqtt in",
+        "z": "bbd6045f1da95b3c",
+        "name": "",
+        "topic": "aquanova/schedule/del",
+        "qos": "1",
+        "datatype": "auto-detect",
+        "broker": "42fd431aecd5d730",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 1020,
+        "y": 460,
+        "wires": [
+            [
+                "55646a0c94b6a530",
+                "3cb02ba47894fd10"
+            ]
+        ]
+    },
+    {
+        "id": "c9ac8f14dd17dd80",
+        "type": "function",
+        "z": "bbd6045f1da95b3c",
+        "name": " function router",
+        "func": "let p = msg.payload;\n\nnode.warn(\"ROUTER IN: \" + JSON.stringify(p));\n\nif (p.delete == 1) {\n    node.warn(\"ROUTE: do\");\n    return [null, msg];\n}\nelse {\n    node.warn(\"ROUTE: add\");\n    return [msg, null];\n}\n\nreturn null;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1240,
+        "y": 700,
+        "wires": [
+            [
+                "a2e62d603acc44ec"
+            ]
+        ]
+    },
+    {
+        "id": "fa2c8db3adfa191f",
+        "type": "function",
+        "z": "bbd6045f1da95b3c",
+        "name": "save_record",
+        "func": "const p = msg.payload || {};\n\nmsg.mqtt = {\n    topic: \"aquanova/schedule\",\n    payload: JSON.stringify(p)\n};\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 600,
+        "wires": [
+            [
+                "1cc8b4dd7f28c628"
+            ]
+        ]
+    },
+    {
+        "id": "b3b1a62af9bcab55",
+        "type": "http in",
+        "z": "bbd6045f1da95b3c",
+        "name": "",
+        "url": "/cmd/schedule",
+        "method": "post",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 210,
+        "y": 600,
+        "wires": [
+            [
+                "fa2c8db3adfa191f"
+            ]
+        ]
+    },
+    {
+        "id": "1cc8b4dd7f28c628",
+        "type": "mqtt out",
+        "z": "bbd6045f1da95b3c",
+        "name": "",
+        "topic": "aquanova/schedule",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "42fd431aecd5d730",
+        "x": 710,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "38ca417e76223a45",
+        "type": "mqtt in",
+        "z": "bbd6045f1da95b3c",
+        "name": "",
+        "topic": "aquanova/history",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "42fd431aecd5d730",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 1000,
+        "y": 620,
+        "wires": [
+            [
+                "b335f7a53df5ace3"
+            ]
+        ]
+    },
+    {
+        "id": "b335f7a53df5ace3",
+        "type": "function",
+        "z": "bbd6045f1da95b3c",
+        "name": "fn feedlogs",
+        "func": "/* =========================\n   PARSE PAYLOAD\n========================= */\nlet p = msg.payload;\n\n// Nếu payload là string → parse JSON\nif (typeof p === \"string\") {\n    try {\n        p = JSON.parse(p);\n    } catch (e) {\n        node.error(\"Payload is not valid JSON string\", msg);\n        return null;\n    }\n}\n\nif (!p || typeof p !== \"object\") {\n    node.error(\"Payload is not JSON object\", msg);\n    return null;\n}\n\n/* =========================\n   NORMALIZE STATUS\n========================= */\nlet status;\n\nif (typeof p.status === \"string\") {\n    status = p.status.toUpperCase() === \"ON\" ? 1 : 0;\n} else if (typeof p.status === \"number\") {\n    status = p.status === 1 ? 1 : 0;\n} else {\n    node.error(\"Invalid status type\", msg);\n    return null;\n}\n\n/* Chỉ log khi FEED = ON */\nif (status !== 1) {\n    node.warn(\"Ignore non-feed event\");\n    return null;\n}\n\n/* =========================\n   TIME HANDLING\n========================= */\n// Ưu tiên time từ device, fallback server time\nlet timeISO;\n\nif (p.time) {\n    try {\n        timeISO = new Date(p.time).toISOString();\n    } catch {\n        timeISO = new Date().toISOString();\n    }\n} else {\n    timeISO = new Date().toISOString();\n}\n\n/* =========================\n   NORMALIZED PAYLOAD (BACKEND)\n========================= */\nmsg.payload = {\n    feed: 1,\n    time: timeISO\n};\n\nnode.warn(\"[FEED LOG] \" + JSON.stringify(msg.payload));\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1250,
+        "y": 620,
+        "wires": [
+            [
+                "df3b8157d093ed68"
+            ]
+        ]
+    },
+    {
+        "id": "df3b8157d093ed68",
+        "type": "http request",
+        "z": "bbd6045f1da95b3c",
+        "name": "",
+        "method": "POST",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://127.0.0.1:5000/control/feed-log",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "other",
+                "keyValue": "Content-Type : application/json",
+                "valueType": "other",
+                "valueValue": ""
+            }
+        ],
+        "x": 1450,
+        "y": 620,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "46c4f48e947b812b",
+        "type": "ui_text_input",
+        "z": "bbd6045f1da95b3c",
+        "name": "",
+        "label": "web publish",
+        "tooltip": "",
+        "group": "",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "text",
+        "delay": 300,
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 730,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6c2ee1815da176c8",
+        "type": "ui_text_input",
+        "z": "bbd6045f1da95b3c",
+        "name": "",
+        "label": "web subscriber",
+        "tooltip": "",
+        "group": "",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "text",
+        "delay": 300,
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 1660,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3cb02ba47894fd10",
+        "type": "debug",
+        "z": "bbd6045f1da95b3c",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1240,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "4eeb607550ab3137",
+        "type": "http request",
+        "z": "bbd6045f1da95b3c",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://127.0.0.1:5000/control/schedules",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 1210,
+        "y": 300,
+        "wires": [
+            [
+                "a373ec347a3b73e5"
+            ]
+        ]
+    },
+    {
+        "id": "6a13602ce3b2fec6",
+        "type": "function",
+        "z": "bbd6045f1da95b3c",
+        "name": "fn delete_id",
+        "func": "// ===== INPUT =====\n// msg.schedule_id = \"2025-12-28_21:27\"\n\nif (!msg.schedule_id) {\n    return null;\n}\n\nmsg.method = \"DELETE\";\nmsg.url = `http://127.0.0.1:5000/control/schedules/${msg.schedule_id}`;\n\nnode.warn(`[DELETE] ${msg.url}`);\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1650,
+        "y": 380,
+        "wires": [
+            [
+                "2fb314894fa79fe9"
+            ]
+        ]
+    },
+    {
+        "id": "2fb314894fa79fe9",
+        "type": "http request",
+        "z": "bbd6045f1da95b3c",
+        "name": "",
+        "method": "use",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "msg.url",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 1690,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "47f8c7f9ca2ed8f1",
+        "type": "http in",
+        "z": "bbd6045f1da95b3c",
+        "name": "",
+        "url": "/cmd/mode",
+        "method": "post",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 200,
+        "y": 520,
+        "wires": [
+            [
+                "c982b4ed11165520"
+            ]
+        ]
+    },
+    {
+        "id": "c982b4ed11165520",
+        "type": "function",
+        "z": "bbd6045f1da95b3c",
+        "name": "fn light_effect",
+        "func": "node.warn(\"[HTTP] IN payload = \" + JSON.stringify(msg.payload));\n\nif (!msg.payload || msg.payload.mode === undefined) {\n    msg.statusCode = 400;\n    msg.payload = { error: \"mode required (0,1,2)\" };\n    return null;\n}\n\nconst mode = Number(msg.payload.mode);\n\nif (![0, 1, 2].includes(mode)) {\n    msg.statusCode = 400;\n    msg.payload = { error: \"mode must be 0,1,2\" };\n    return null;\n}\n\nmsg.topic = \"aquanova/control\";\nmsg.payload = {\n    mode: mode\n};\n\nnode.warn(\"[MQTT] publish mode = \" + mode);\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 520,
+        "wires": [
+            [
+                "7afd2157c1c104bb",
+                "27570852454e4fcd"
+            ]
+        ]
+    },
+    {
+        "id": "b8736b5e9730f091",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-dashboard": "3.6.6"
+        }
+    }
+]

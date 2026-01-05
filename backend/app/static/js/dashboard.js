@@ -4,6 +4,8 @@
 const SAFE_TEMP_MIN = 0;
 const SAFE_TEMP_MAX = 1000;
 const TURB_WARN = 200;
+// API base — set `window.API_BASE` in pages (e.g. http://192.168.1.5:5000) when calling from mobile
+const API_BASE = (window && window.API_BASE) ? window.API_BASE.replace(/\/$/, '') : '';
 
 /* =====================================================
    DOM
@@ -23,6 +25,7 @@ const warnTemp      = document.getElementById('warnTemp');
 
 const menuBtn       = document.getElementById('menuBtn');
 const sidebar       = document.querySelector('aside');
+const mobileOverlay  = document.getElementById('mobileOverlay');
 
 /* =====================================================
    STATE
@@ -38,6 +41,7 @@ async function setLight(on, color = null) {
   if (on && color) payload.color = color;
 
   await fetch('/control/light', {
+    // Use API_BASE when set (for mobile apps / external callers)
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(payload)
@@ -56,7 +60,7 @@ lightToggle?.addEventListener('click', async () => {
 
 /* ================= MODE ================= */
 async function setMode(mode) {
-  await fetch('/control/mode', {
+  await fetch(API_BASE + '/control/mode', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ mode })
@@ -97,7 +101,7 @@ feedBtn?.addEventListener('click', async () => {
   feedMsg.textContent = 'Feeding...';
 
   try {
-    const r = await fetch('/control/feed-now', {
+    const r = await fetch(API_BASE + '/control/feed-now', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ amount: 20 })
@@ -151,7 +155,7 @@ function ensureChart(ctx, labels, data) {
    LOAD DASHBOARD
 ===================================================== */
 async function loadDashboard() {
-  const latest = await (await fetch('/dashboard/latest?n=60')).json();
+  const latest = await (await fetch(API_BASE + '/dashboard/latest?n=60')).json();
   const items = latest.items || [];
 
   if (!items.length) return;
@@ -199,7 +203,7 @@ async function loadDashboard() {
 // FEED LEVEL (Dashboard)
 // API: /dashboard/latest?n=1
 // ==============================
-const FEED_AMOUNT_API = '/dashboard/latest?n=1';
+const FEED_AMOUNT_API = API_BASE + '/dashboard/latest?n=1';
 
 function setFeedBadge(level){
   const badge = document.getElementById('feedLevelBadge');
@@ -271,7 +275,13 @@ setInterval(loadFeedLevelDashboard, 10000);
    MOBILE MENU
 ===================================================== */
 menuBtn?.addEventListener('click', () => {
-  sidebar.classList.toggle('active');
+  const isActive = sidebar.classList.toggle('active');
+  if (mobileOverlay) mobileOverlay.classList.toggle('show', isActive);
+});
+
+mobileOverlay?.addEventListener('click', () => {
+  sidebar.classList.remove('active');
+  mobileOverlay.classList.remove('show');
 });
 
 /* =====================================================

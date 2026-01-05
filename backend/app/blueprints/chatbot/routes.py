@@ -1,4 +1,5 @@
 import json
+import tempfile, whisper, os
 import requests
 from flask import Blueprint, render_template, request, jsonify
 from .agents import aqua_agent
@@ -11,6 +12,32 @@ chatbot_bp = Blueprint("chatbot", __name__)
 def chatbot_page():
     return render_template("chatbot.html")
 
+
+model = whisper.load_model("base")  # small / medium nếu máy mạnh
+
+@chatbot_bp.route("/stt", methods=["POST"])
+def chatbot_stt():
+    if "audio" not in request.files:
+        return jsonify(error="audio missing"), 400
+
+    audio = request.files["audio"]
+
+    # lưu file tạm
+    suffix = os.path.splitext(audio.filename)[1]
+    with tempfile.NamedTemporaryFile(delete=False, suffix=suffix) as tmp:
+        audio.save(tmp.name)
+        audio_path = tmp.name
+
+    try:
+        result = model.transcribe(audio_path, language="vi")
+        text = result.get("text", "").strip()
+
+        return jsonify(
+            text=text,
+            confidence=result.get("confidence", None)
+        )
+    finally:
+        os.remove(audio_path)
 
 @chatbot_bp.route("/api", methods=["POST"])
 def chatbot_api():
