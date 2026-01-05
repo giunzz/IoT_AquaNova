@@ -198,19 +198,33 @@ def update_schedule(sid):
 # =========================================================
 @control_bp.delete("/schedules/<sid>")
 def delete_schedule(sid):
-    ref = firestore.client().collection("schedules").document(sid)
-    if not ref.get().exists:
+    db = firestore.client()
+    ref = db.collection("schedules").document(sid)
+    doc = ref.get()
+    if not doc.exists:
         return jsonify({"error": "Not found"}), 404
 
+    print(">>> DELETE HIT", sid, flush=True)
+    print(">>> NODE_RED_BASE =", NODE_RED_BASE, flush=True)
+
+    r = requests.post(
+        f"{NODE_RED_BASE}/cmd/delete",
+        json={"delete": 1},
+        timeout=3
+    )
+    print(">>> NODE-RED STATUS =", r.status_code, flush=True)
+
+
     ref.delete()
+
     return jsonify(ok=True, id=sid)
 
 
 # =========================================================
 # 8. DELETE FIRST SCHEDULE (DEBUG)
 # =========================================================
-@control_bp.delete("/hook/schedule/latest")
-def delete_latest_schedule():
+@control_bp.delete("hook/schedule/latest")
+def delete_latest_hook():
     db = firestore.client()
 
     docs = (
@@ -221,13 +235,11 @@ def delete_latest_schedule():
     )
 
     doc = next(docs, None)
-
     if not doc:
         return jsonify({"error": "No schedules found"}), 404
 
     doc.reference.delete()
     return jsonify(ok=True, deleted_id=doc.id)
-
 
 
 # =========================================================

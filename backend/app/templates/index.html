@@ -13,6 +13,7 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 
   <style>
+
     :root{
       --brand:#0ea5e9;
       --bg:#f6f7fb;
@@ -30,6 +31,7 @@
       flex-direction:column;
     }
 
+    /* Header style đã chuyển sang styles.css nhưng giữ đây để fallback */
     header{
       background:var(--brand);
       color:#fff;
@@ -152,7 +154,7 @@
 
     @media(max-width:1000px){
       .layout{grid-template-columns:1fr}
-      aside{display:none}
+      aside{display:none} /* Sidebar ẩn mặc định trên mobile */
       .grid2{grid-template-columns:1fr}
     }
 
@@ -199,7 +201,10 @@
 <body>
 
 <header>
-  <h2>AquaNova</h2>
+  <div style="display:flex; align-items:center; gap:10px;">
+    <button id="menuBtn" class="menu-toggle">☰</button>
+    <h2>AquaNova</h2>
+  </div>
   <span>Dashboard</span>
 </header>
 
@@ -207,10 +212,10 @@
 
   <aside>
     <nav class="menu">
-      <a href="{{ url_for('home') }}">Dashboard</a>
+      <a class="active" href="{{ url_for('home') }}">Dashboard</a>
       <a href="{{ url_for('temperature_page') }}">Temperature</a>
       <a href="{{ url_for('turbidity_page') }}">Turbidity</a>
-      <a class="active" href="{{ url_for('feed_timer_page') }}">Feed Timer</a>
+      <a href="{{ url_for('feed_timer_page') }}">Feed Timer</a>
       <a href="{{ url_for('chatbot.chatbot_page') }}">Chatbot</a>
     </nav>
   </aside>
@@ -219,7 +224,6 @@
 
     <div class="cards">
 
-      <!-- LIGHT -->
       <div class="card">
         <div class="light-header">
           <h4>Light</h4>
@@ -250,7 +254,6 @@
         </div>
       </div>
 
-      <!-- FEED -->
       <div class="card">
         <div style="display:flex;justify-content:space-between;align-items:center">
           <h4>Feed</h4>
@@ -264,7 +267,6 @@
         <div id="feedNowMsg" style="margin-top:8px;font-size:13px;color:var(--muted)"></div>
       </div>
 
-      <!-- WARNING -->
       <div class="card">
         <h4>Warnings</h4>
         <div id="warnTurb" class="badge safe">Turbidity OK</div>
@@ -306,10 +308,8 @@
   </p>
 </footer>
 
-<!-- giữ dashboard.js nếu bạn còn dùng cho chart/light -->
 <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
 
-<!-- API feed_level viết thẳng tại đây -->
 <script>
   const FEED_LEVEL_API = '/dashboard/latest?n=1';
 

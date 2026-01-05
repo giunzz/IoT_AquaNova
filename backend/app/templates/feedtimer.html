@@ -570,7 +570,7 @@
 
     try {
       const r = await fetch(`/control/schedules/${id}`, { method: 'DELETE' });
-
+      
       if (!r.ok) {
         alert('Delete failed');
         return;
